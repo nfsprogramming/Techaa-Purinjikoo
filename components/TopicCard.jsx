@@ -12,120 +12,76 @@ export default function TopicCard({ topic, index }) {
   const cardContent = (
     <motion.div
       whileHover={!isLocked ? { 
-        y: -8, 
+        y: -10, 
         scale: 1.02,
-        boxShadow: `0 20px 40px rgba(0,0,0,0.3), 0 0 20px ${topic.accentColor}22` 
+        boxShadow: `0 20px 40px rgba(0,0,0,0.4), 0 0 20px ${topic.accentColor}22` 
       } : {}}
       whileTap={!isLocked ? { scale: 0.98 } : {}}
       style={{
-        borderRadius: "16px",
-        padding: "28px 24px",
+        borderRadius: "24px",
+        padding: "24px 20px",
         height: "100%",
         display: "flex",
         flexDirection: "column",
         gap: "16px",
         background: isLocked ? "rgba(255,255,255,0.01)" : "rgba(255,255,255,0.03)",
-        backdropFilter: "blur(12px)",
-        border: isLocked ? "1px solid rgba(255,255,255,0.02)" : (isCompleted ? "1px solid rgba(34,197,94,0.3)" : "1px solid rgba(255,255,255,0.05)"),
+        backdropFilter: "blur(20px)",
+        border: isLocked ? "1px solid rgba(255,255,255,0.02)" : (isCompleted ? "1px solid #22c55e" : "1px solid rgba(255,255,255,0.07)"),
         position: "relative",
-        transition: "all 0.3s ease",
-        opacity: isLocked ? 0.6 : 1,
-        cursor: isLocked ? "not-allowed" : "pointer"
+        transition: "all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
+        opacity: isLocked ? 0.5 : 1,
+        cursor: isLocked ? "not-allowed" : "pointer",
+        overflow: "hidden"
       }}
     >
-      {isLocked && (
-        <div style={{ position: "absolute", top: "12px", right: "12px", background: "rgba(0,0,0,0.5)", width: "32px", height: "32px", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", zIndex: 2 }}>
-          <span style={{ fontSize: "1.2rem" }}>🔒</span>
-        </div>
+      {/* Status Indicators */}
+      {isCompleted && (
+        <motion.div 
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          style={{ position: "absolute", top: "16px", right: "16px", background: "#22c55e", color: "#fff", width: "24px", height: "24px", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "0.8rem", boxShadow: "0 0 15px rgba(34,197,94,0.5)", zIndex: 5 }}
+        >
+          ✓
+        </motion.div>
       )}
 
-      {isCompleted && (
-          <motion.div 
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            style={{ position: "absolute", top: "12px", right: "12px", background: "#22c55e", color: "#fff", width: "22px", height: "22px", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "0.75rem", boxShadow: "0 4px 10px rgba(34,197,94,0.4)", zIndex: 1 }}
-          >
-            ✓
-          </motion.div>
-        )}
+      {/* Decorative Glow */}
+      <div style={{ position: "absolute", top: -50, left: -50, width: 200, height: 200, background: `radial-gradient(circle, ${topic.accentColor}11 0%, transparent 70%)`, pointerEvents: "none", zIndex: 0 }} />
+
+      {/* Emoji Area */}
+      <motion.div 
+        animate={isLocked ? {} : { y: [0, -5, 0] }}
+        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+        style={{ fontSize: "3.5rem", lineHeight: 1, zIndex: 1, filter: isLocked ? "grayscale(100%) blur(1px)" : "none" }}
+      >
+        {topic.emoji}
+      </motion.div>
+
+      {/* Content Area */}
+      <div style={{ zIndex: 1 }}>
+        <h3 style={{ fontSize: "1.4rem", fontWeight: 900, color: isLocked ? "#4b5563" : "#fff", marginBottom: "8px", letterSpacing: "-0.5px" }}>
+          {topic.title}
+        </h3>
+        <p style={{ fontSize: "0.95rem", color: isLocked ? "#374151" : "#94a3b8", lineHeight: 1.6 }}>
+          {isLocked ? "Complete previous topics to unlock!" : topic.shortDesc}
+        </p>
+      </div>
+
+      {/* Bottom Action Area */}
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: "auto", paddingTop: "16px", zIndex: 1, borderTop: "1px solid rgba(255,255,255,0.05)" }}>
+        <span style={{ fontSize: "0.9rem", fontWeight: 800, color: isLocked ? "#374151" : topic.accentColor, textTransform: "uppercase", letterSpacing: "1px" }}>
+          {isLocked ? "Locked" : "Purinjiko"}
+        </span>
         
-      {/* Glow effect */}
-        <div style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, background: `radial-gradient(circle at 50% 0%, ${topic.accentColor}11, transparent 70%)`, pointerEvents: "none", borderRadius: "16px" }} />
-
-        {/* Emoji */}
-        <motion.div 
-          whileHover={!isLocked ? { rotate: [0, -10, 10, 0], transition: { duration: 0.3 } } : {}}
-          style={{ fontSize: "2.8rem", lineHeight: 1 }}
-        >
-          {topic.emoji}
-        </motion.div>
-
-        {/* Title */}
-        <div>
-          <h3
-            style={{
-              fontSize: "1.25rem",
-              fontWeight: 800,
-              color: isLocked ? "#64748b" : "#fff",
-              marginBottom: "8px",
-              letterSpacing: "-0.5px",
-            }}
-          >
-            {topic.title}
-          </h3>
-          <p
-            style={{
-              fontSize: "0.9rem",
-              color: isLocked ? "#475569" : "#94a3b8",
-              lineHeight: 1.6,
-            }}
-          >
-            {isLocked ? "Complete previous topics to unlock! 🔒" : topic.shortDesc}
-          </p>
+        <div style={{ width: "36px", height: "36px", borderRadius: "50%", background: isLocked ? "rgba(255,255,255,0.02)" : "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.1rem" }}>
+          {isLocked ? "🔒" : "→"}
         </div>
+      </div>
 
-        {/* CTA */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            marginTop: "auto",
-            paddingTop: "12px"
-          }}
-        >
-          <span
-            style={{
-              fontSize: "0.85rem",
-              fontWeight: 800,
-              color: isLocked ? "#475569" : topic.accentColor,
-            }}
-          >
-            {isLocked ? "Locked" : "Purinjiko →"}
-          </span>
-          <motion.div
-            whileHover={!isLocked ? { x: 3 } : {}}
-            style={{
-              width: "32px",
-              height: "32px",
-              borderRadius: "50%",
-              background: "rgba(255,255,255,0.05)",
-              border: "1px solid rgba(255,255,255,0.1)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontSize: "0.9rem",
-            }}
-          >
-            {isLocked ? "🔒" : "→"}
-          </motion.div>
-        </div>
     </motion.div>
   );
 
-  if (isLocked) {
-    return cardContent;
-  }
+  if (isLocked) return cardContent;
 
   return (
     <Link href={`/topics/${topic.id}`} style={{ textDecoration: "none" }}>

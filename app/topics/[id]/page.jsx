@@ -2,10 +2,9 @@
 "use client";
 import { useParams, useRouter } from "next/navigation";
 import { topics } from "@/data/topics";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import { useUserProgress } from "@/context/UserProgressContext";
 import { XP_AWARDS } from "@/data/gamification";
 import { motion, AnimatePresence } from "framer-motion";
@@ -140,8 +139,6 @@ export default function TopicPage() {
 
   return (
     <div style={{ background: "#070711", minHeight: "100vh", color: "#fff" }}>
-      <Navbar />
-
       <div style={{ maxWidth: "800px", margin: "0 auto", padding: "100px 24px 60px" }}>
         
         {/* Header Section */}
@@ -334,8 +331,6 @@ export default function TopicPage() {
           </button>
         </div>
       </div>
-
-      <Footer />
       
       {/* Badge Notification */}
       {lastUnlockedBadge && (

@@ -5,8 +5,11 @@ export default function Footer() {
   return (
     <footer style={{ borderTop: "1px solid rgba(255,255,255,0.07)", padding: "40px 24px", textAlign: "center", background: "rgba(255,255,255,0.01)" }}>
       <div className="max-w-6xl mx-auto">
-        <div style={{ fontSize: "1.4rem", fontWeight: 800, marginBottom: 8, background: "linear-gradient(135deg, #8b5cf6, #06b6d4)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
-          ☕ Techaa Purinjikoo
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "10px", marginBottom: "8px" }}>
+          <img src="/favicon.png" alt="Logo" style={{ width: "24px", height: "24px", objectFit: "contain" }} />
+          <span style={{ fontSize: "1.4rem", fontWeight: 800, background: "linear-gradient(135deg, #8b5cf6, #06b6d4)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+            Techaa Purinjikoo
+          </span>
         </div>
         <p style={{ color: "#7b7b9a", fontSize: "0.88rem", marginBottom: 24 }}>Tech bayam illama purinjikalam 😎</p>
         <div style={{ display: "flex", gap: 20, justifyContent: "center", marginBottom: 28, flexWrap: "wrap" }}>

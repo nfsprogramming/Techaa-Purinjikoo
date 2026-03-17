@@ -97,33 +97,40 @@ export function UserProgressProvider({ children }) {
     if (!initialized || !user) return;
 
     const today = new Date().toISOString().split('T')[0];
-    if (progress.lastLogin !== today) {
+    
+    setProgress(prev => {
+      // Prevents multiple calls on the same day if state updates haven't flushed
+      if (prev.lastLogin === today) return prev;
+
       const yesterday = new Date();
       yesterday.setDate(yesterday.getDate() - 1);
       const yesterdayStr = yesterday.toISOString().split('T')[0];
 
       let newStreak = 1;
-      if (progress.lastLogin === yesterdayStr) {
-        newStreak = progress.streak + 1;
+      if (prev.lastLogin === yesterdayStr) {
+        newStreak = (prev.streak || 0) + 1;
       }
 
       const dailyXP = XP_AWARDS.DAILY_LOGIN;
-      const historyEntry = { amount: dailyXP, reason: "Daily Streak 🔥", timestamp: Date.now() };
+      const historyEntry = { 
+        amount: dailyXP, 
+        reason: "Daily Streak 🔥", 
+        timestamp: Date.now() 
+      };
       
-      setProgress(prev => {
-        const newXP = (prev.xp || 0) + dailyXP;
-        const newLevel = XP_LEVELS.findLast(l => newXP >= l.minXP)?.level || 1;
-        return {
-          ...prev,
-          lastLogin: today,
-          streak: newStreak,
-          xp: newXP,
-          level: newLevel,
-          xpHistory: [historyEntry, ...(prev.xpHistory || [])].slice(0, 30)
-        };
-      });
-    }
-  }, [initialized, user]);
+      const newXP = (prev.xp || 0) + dailyXP;
+      const newLevel = XP_LEVELS.findLast(l => newXP >= l.minXP)?.level || 1;
+      
+      return {
+        ...prev,
+        lastLogin: today,
+        streak: newStreak,
+        xp: newXP,
+        level: newLevel,
+        xpHistory: [historyEntry, ...(prev.xpHistory || [])].slice(0, 30)
+      };
+    });
+  }, [initialized, user]); // Dependency today was removed because it is defined inside the effect body
 
   const addXP = (amount, reason = "Bonus Points") => {
     setProgress(prev => {

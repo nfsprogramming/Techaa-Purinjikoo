@@ -4,7 +4,6 @@ import { useParams } from "next/navigation";
 import { useUserProgress } from "@/context/UserProgressContext";
 import { useAuth } from "@/context/AuthContext";
 import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import { useEffect, useState } from "react";
 
 const LEVEL_NAMES = {
@@ -147,9 +146,9 @@ export default function CertificatePage() {
 
           <div style={{ marginBottom: "20px", display: "flex", justifyContent: "center" }}>
             <img 
-              src="/nfs-logo.png" 
+              src="/favicon.png" 
               alt="NFS Logo" 
-              style={{ width: "120px", height: "auto", filter: "drop-shadow(0 0 15px rgba(255,49,49,0.4))" }} 
+              style={{ width: "80px", height: "auto", filter: "drop-shadow(0 0 15px rgba(139,92,246,0.4))" }} 
             />
           </div>
           

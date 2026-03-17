@@ -1,21 +1,15 @@
 
 "use client";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useUserProgress } from "@/context/UserProgressContext";
 import { useAuth } from "@/context/AuthContext";
+import { motion, AnimatePresence } from "framer-motion";
 
 const NAV_LINKS = [
   { href: "/", label: "Home" },
   { href: "/#roadmap", label: "Roadmap" },
   { href: "/dictionary", label: "Dictionary 📖" },
-];
-
-const MOBILE_LINKS = [
-  { href: "/", label: "Home" },
-  { href: "/#topics", label: "Topics" },
-  { href: "/dictionary", label: "Dictionary 📖" },
-  { href: "/#about", label: "About" },
 ];
 
 export default function Navbar() {
@@ -24,180 +18,248 @@ export default function Navbar() {
   const { xp, level, streak, XP_LEVELS, xpHistory } = useUserProgress();
   const { user, loading, loginWithGoogle, logout } = useAuth();
   
-  const currentLevelName = XP_LEVELS.find(l => l.level === level)?.name || "Beginner";
+  useEffect(() => {
+    const handleResize = () => { if (window.innerWidth > 768) setOpen(false); };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
+    <>
+    <style>{`
+      .nav-container { 
+        max-width: 1200px; 
+        margin: 0 auto; 
+        height: 100%; 
+        padding: 0 10px; 
+        display: flex; 
+        align-items: center; 
+        justify-content: space-between;
+        gap: 6px;
+      }
+      .nav-brand {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        text-decoration: none;
+        color: inherit;
+        flex-shrink: 1;
+        min-width: 0;
+      }
+      .nav-brand-text {
+        font-weight: 950;
+        font-size: 1rem;
+        letter-spacing: -0.5px;
+        white-space: nowrap;
+        line-height: 1;
+      }
+      .nav-brand-purinjiko {
+        color: #8b5cf6;
+      }
+      .nav-brand-sub {
+        font-size: 0.5rem;
+        color: #64748b;
+        font-weight: 800;
+        letter-spacing: 0.5px;
+        margin-top: 1px;
+      }
+      .nav-desktop-only { display: flex; align-items: center; gap: 20px; }
+      .nav-mobile-only { display: flex; align-items: center; gap: 6px; }
+      
+      @media (max-width: 768px) {
+        .nav-desktop-only { display: none !important; }
+        .nav-brand-text { font-size: 0.9rem; }
+        .nav-brand-sub { display: none !important; }
+      }
+      @media (min-width: 769px) {
+        .nav-mobile-only { display: none !important; }
+      }
+      @media (max-width: 360px) {
+        .nav-brand-text { font-size: 0.8rem; }
+        .nav-container { padding: 0 6px; }
+      }
+    `}</style>
+
     <nav
-      className="fixed top-0 left-0 right-0 z-50"
       style={{
-        background: "rgba(7, 7, 17, 0.8)",
-        backdropFilter: "blur(16px)",
-        WebkitBackdropFilter: "blur(16px)",
-        borderBottom: "1px solid rgba(255,255,255,0.07)",
+        position: "fixed", top: 0, left: 0, right: 0, zIndex: 1000,
+        background: "rgba(7, 7, 17, 0.92)", backdropFilter: "blur(12px)",
+        borderBottom: "1px solid rgba(255,255,255,0.08)", height: "64px"
       }}
     >
-      {/* Premium Top Loading Bar */}
-      {loading && (
-        <div style={{ 
-          position: "fixed", 
-          top: 0, 
-          left: 0, 
-          width: "100%", 
-          zIndex: 1000, 
-          background: "rgba(139, 92, 246, 0.1)", 
-          backdropFilter: "blur(10px)",
-          borderBottom: "1px solid rgba(139, 92, 246, 0.2)",
-          height: "4px"
-        }}>
-          <div className="auth-progress-fill" style={{ 
-            height: "100%", 
-            background: "linear-gradient(90deg, #8b5cf6, #06b6d4, #8b5cf6)", 
-            backgroundSize: "200% 100%",
-            width: "100%" 
-          }} />
-          <style>{`
-            @keyframes shimmer {
-              0% { background-position: 200% 0; }
-              100% { background-position: -200% 0; }
-            }
-            .auth-progress-fill { animation: shimmer 2s infinite linear; }
-          `}</style>
-        </div>
-      )}
-      <div className="max-w-6xl mx-auto px-6" style={{ display: "flex", alignItems: "center", height: "64px", justifyContent: "space-between" }}>
-        {/* Logo */}
-        <Link href="/" style={{ textDecoration: "none", flexShrink: 0 }}>
-          <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-            <span style={{ fontSize: "1.3rem", filter: "none", color: "initial", WebkitTextFillColor: "initial" }}>☕</span>
-            <div style={{ display: "flex", flexDirection: "column", lineHeight: 1 }}>
-              <span style={{ fontWeight: 800, fontSize: "1rem", background: "linear-gradient(135deg, #8b5cf6, #06b6d4)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text", letterSpacing: "-0.3px" }}>
-                Techaa Purinjikoo
-              </span>
-              <span style={{ fontSize: "0.6rem", color: "#94a3b8", fontWeight: 700, letterSpacing: "0.5px", marginTop: "2px" }}>BY NFS PROGRAMMING</span>
-            </div>
+      <div className="nav-container">
+        
+        {/* Brand Section */}
+        <Link href="/" className="nav-brand">
+          <motion.img 
+            whileHover={{ rotate: 15, scale: 1.1 }}
+            src="/favicon.png" 
+            alt="Logo" 
+            style={{ width: "22px", height: "22px", flexShrink: 0 }} 
+          />
+          <div style={{ display: "flex", flexDirection: "column", minWidth: 0 }}>
+            <span className="nav-brand-text">
+              Techaa <span className="nav-brand-purinjiko">Purinjikoo</span>
+            </span>
+            <span className="nav-brand-sub">NFS MASTERCLASS</span>
           </div>
         </Link>
 
-        {/* Desktop stats */}
-        <div style={{ display: "flex", alignItems: "center", gap: "20px" }} className="hidden md:flex">
-          <div style={{ display: "flex", alignItems: "center", gap: "12px", background: "rgba(255,255,255,0.03)", padding: "4px 12px", borderRadius: "100px", border: "1px solid rgba(255,255,255,0.05)" }}>
-            <div title="Learning Streak" style={{ display: "flex", alignItems: "center", gap: "4px" }}>
-              <span style={{ fontSize: "0.9rem" }}>🔥</span>
-              <span style={{ fontWeight: 800, fontSize: "0.85rem", color: "#f59e0b" }}>{streak}</span>
-            </div>
-            <div style={{ height: "12px", width: "1px", background: "rgba(255,255,255,0.1)" }} />
-            <button 
-              onClick={() => setShowXpHistory(true)}
-              title="Click to see XP History" 
-              style={{ display: "flex", alignItems: "center", gap: "4px", background: "none", border: "none", cursor: "pointer", padding: "4px 8px", borderRadius: "100px", transition: "0.2s" }}
-              onMouseOver={(e) => e.currentTarget.style.background = "rgba(139, 92, 246, 0.1)"}
-              onMouseOut={(e) => e.currentTarget.style.background = "none"}
-            >
-              <span style={{ fontWeight: 800, fontSize: "0.85rem", color: "#8b5cf6" }}>{xp}</span>
-              <span style={{ fontSize: "0.7rem", fontWeight: 700, color: "rgba(255,255,255,0.4)" }}>XP</span>
-            </button>
-            <div style={{ height: "12px", width: "1px", background: "rgba(255,255,255,0.1)" }} />
-            <div title="Level" style={{ display: "flex", alignItems: "center", gap: "4px" }}>
-              <span style={{ fontSize: "0.7rem", fontWeight: 700, color: "rgba(255,255,255,0.4)" }}>LVL</span>
-              <span style={{ fontWeight: 800, fontSize: "0.85rem", color: "#06b6d4" }}>{level}</span>
-            </div>
-          </div>
-          
-          <div style={{ display: "flex", gap: "24px", alignItems: "center" }}>
-            {NAV_LINKS.map(l => (
-              <Link key={l.href} href={l.href} className="nav-link" style={{ fontSize: "0.85rem", fontWeight: 600, color: "#94a3b8", textDecoration: "none" }}>{l.label}</Link>
-            ))}
-          </div>
+        {/* Desktop Links & Stats */}
+        <div className="nav-desktop-only">
+           <motion.div 
+             initial={{ opacity: 0, y: -10 }}
+             animate={{ opacity: 1, y: 0 }}
+             style={{ display: "flex", gap: "16px", background: "rgba(255,255,255,0.03)", padding: "4px 16px", borderRadius: "100px", border: "1px solid rgba(255,255,255,0.08)", fontSize: "0.85rem", fontWeight: 900 }}
+           >
+             <span title="Streak">🔥 {streak}</span>
+             <motion.span 
+               whileHover={{ scale: 1.1 }}
+               onClick={() => setShowXpHistory(true)} 
+               style={{ color: "#8b5cf6", cursor: "pointer" }}
+             >
+               {xp} XP
+             </motion.span>
+             <span style={{ color: "#06b6d4" }}>LVL {level}</span>
+           </motion.div>
+           
+           <div style={{ display: "flex", gap: "20px" }}>
+             {NAV_LINKS.map((l, i) => (
+               <motion.div
+                 key={l.href}
+                 initial={{ opacity: 0 }}
+                 animate={{ opacity: 1 }}
+                 transition={{ delay: i * 0.1 }}
+               >
+                 <Link href={l.href} style={{ fontSize: "0.85rem", fontWeight: 700, color: "#94a3b8", textDecoration: "none" }}>
+                    <motion.span whileHover={{ color: "#fff" }}>{l.label}</motion.span>
+                 </Link>
+               </motion.div>
+             ))}
+           </div>
         </div>
 
-        {/* Auth Actions */}
-        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-          {loading ? (
-             <div style={{ background: "rgba(139, 92, 246, 0.1)", color: "#8b5cf6", padding: "6px 14px", borderRadius: "8px", fontSize: "0.75rem", fontWeight: 800, display: "flex", alignItems: "center", gap: "6px", border: "1px solid rgba(139, 92, 246, 0.2)" }}>
-               <div style={{ width: "12px", height: "12px", border: "2px solid #8b5cf6", borderTopColor: "transparent", borderRadius: "50%", animation: "spin 1s linear infinite" }} />
-               AUTHENTICATING
-               <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
-             </div>
-          ) : user ? (
-            <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-               <Link href="/profile" style={{ display: "flex", gap: "10px", alignItems: "center", textDecoration: "none" }}>
-                <div style={{ position: "relative", width: "32px", height: "32px" }}>
-                  <img 
-                    src={user.photoURL || `https://ui-avatars.com/api/?name=${user.displayName}&background=8b5cf6&color=fff`} 
-                    alt="User" 
-                    referrerPolicy="no-referrer"
-                    crossOrigin="anonymous"
-                    onError={(e) => { 
-                      console.log("Image failed, using fallback");
-                      e.target.src = `https://ui-avatars.com/api/?name=${user.displayName}&background=8b5cf6&color=fff`; 
-                    }}
-                    style={{ width: "32px", height: "32px", borderRadius: "50%", border: "2px solid #8b5cf6", objectFit: "cover" }} 
-                  />
-                </div>
-                <span className="hidden lg:block" style={{ color: "#fff", fontWeight: 700, fontSize: "0.85rem" }}>{user.displayName.split(' ')[0]}</span>
-               </Link>
-               <button onClick={logout} className="hidden md:block" style={{ color: "#94a3b8", fontSize: "0.75rem", fontWeight: 700, background: "none", border: "none", cursor: "pointer" }}>Logout</button>
-            </div>
-          ) : (
-            <button onClick={loginWithGoogle} style={{ background: "linear-gradient(135deg, #8b5cf6, #7c3aed)", color: "#fff", padding: "8px 18px", borderRadius: "8px", fontSize: "0.82rem", fontWeight: 700, textDecoration: "none", border: "none", cursor: "pointer" }}>
-              Login with Google 🚀
-            </button>
+        {/* Right Section */}
+        <div style={{ display: "flex", alignItems: "center", gap: "8px", flexShrink: 0 }}>
+          
+          {/* Mobile Stats Pill */}
+          {!loading && user && (
+            <motion.div 
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              whileTap={{ scale: 0.9 }}
+              onClick={() => setShowXpHistory(true)} 
+              className="nav-mobile-only" 
+              style={{ background: "rgba(139,92,246,0.1)", border: "1px solid rgba(139,92,246,0.2)", padding: "4px 8px", borderRadius: "100px" }}
+            >
+               <span style={{ fontWeight: 900, fontSize: "0.75rem", color: "#a78bfa" }}>{xp} XP</span>
+            </motion.div>
           )}
 
-          {/* Mobile hamburger */}
-          <button onClick={() => setOpen(!open)} className="md:hidden" style={{ background: "none", border: "none", color: "#fff", cursor: "pointer", fontSize: "1.4rem" }}>
+          {user ? (
+            <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+              <Link href="/profile" style={{ display: "flex", alignItems: "center" }}>
+                <img 
+                  src={user.photoURL || `https://ui-avatars.com/api/?name=${user.displayName || 'User'}&background=8b5cf6&color=fff`} 
+                  style={{ width: "28px", height: "28px", borderRadius: "50%", border: "2px solid #8b5cf6" }} 
+                  alt="Avatar"
+                  onError={(e) => { e.target.src = `https://ui-avatars.com/api/?name=${user.displayName || 'User'}&background=8b5cf6&color=fff`; }}
+                />
+              </Link>
+            </motion.div>
+          ) : (
+            <motion.button 
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={loginWithGoogle} 
+              style={{ background: "#8b5cf6", color: "#fff", border: "none", padding: "6px 12px", borderRadius: "8px", fontWeight: 800, fontSize: "0.75rem", cursor: "pointer" }}
+            >
+              Join
+            </motion.button>
+          )}
+
+          {/* Menu Toggle */}
+          <motion.button 
+            whileTap={{ scale: 0.8 }}
+            onClick={() => setOpen(!open)} 
+            className="nav-mobile-only" 
+            style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)", color: "#fff", width: "32px", height: "32px", borderRadius: "8px", cursor: "pointer", fontSize: "1rem", display: "flex", alignItems: "center", justifyContent: "center" }}
+          >
             {open ? "✕" : "☰"}
-          </button>
+          </motion.button>
         </div>
       </div>
 
-      {/* Mobile menu */}
-      {open && (
-        <div style={{ background: "rgba(7, 7, 17, 0.98)", padding: "20px 24px", display: "flex", flexDirection: "column", gap: "16px", borderTop: "1px solid rgba(255,255,255,0.07)" }}>
-          {MOBILE_LINKS.map(l => (
-            <Link key={l.href} href={l.href} className="nav-link" onClick={() => setOpen(false)}>{l.label}</Link>
-          ))}
-        </div>
-      )}
-
-      {/* XP History Modal */}
-      {showXpHistory && (
-        <div 
-          onClick={() => setShowXpHistory(false)}
-          style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.8)", backdropFilter: "blur(10px)", zIndex: 1000, display: "flex", alignItems: "center", justifyContent: "center", padding: "20px" }}
-        >
-          <div 
-            onClick={e => e.stopPropagation()}
-            style={{ background: "#131325", border: "1px solid rgba(139,92,246,0.3)", borderRadius: "24px", width: "100%", maxWidth: "450px", maxHeight: "80vh", overflow: "hidden", display: "flex", flexDirection: "column" }}
+      {/* Mobile Drawer */}
+      <AnimatePresence>
+        {open && (
+          <motion.div 
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            style={{ position: "absolute", top: "64px", left: 0, right: 0, background: "#070711", borderBottom: "1px solid rgba(255,255,255,0.1)", padding: "10px", display: "flex", flexDirection: "column", gap: "6px", overflow: "hidden" }}
           >
-            <div style={{ padding: "24px", borderBottom: "1px solid rgba(255,255,255,0.05)", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-              <h3 style={{ fontSize: "1.2rem", fontWeight: 900, color: "#fff" }}>✨ XP History</h3>
-              <button 
-                onClick={() => setShowXpHistory(false)}
-                style={{ background: "rgba(255,255,255,0.05)", border: "none", color: "#fff", width: "32px", height: "32px", borderRadius: "50%", cursor: "pointer" }}
-              >✕</button>
-            </div>
-            <div style={{ padding: "24px", overflowY: "auto", flex: 1, display: "flex", flexDirection: "column", gap: "12px" }}>
-              {xpHistory && xpHistory.length > 0 ? (
-                xpHistory.map((h, i) => (
-                  <div key={i} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "12px 16px", background: "rgba(255,255,255,0.02)", borderRadius: "12px", border: "1px solid rgba(255,255,255,0.05)" }}>
-                    <div>
-                      <div style={{ fontWeight: 700, fontSize: "0.95rem", color: "#fff" }}>{h.reason}</div>
-                      <div style={{ fontSize: "0.7rem", color: "#64748b" }}>{new Date(h.timestamp).toLocaleString()}</div>
-                    </div>
-                    <div style={{ fontWeight: 900, color: "#8b5cf6", fontSize: "1.1rem" }}>+{h.amount} XP</div>
-                  </div>
-                ))
-              ) : (
-                <div style={{ textAlign: "center", padding: "40px", color: "#64748b" }}>No XP history found. Start learning to earn points! 🚀</div>
-              )}
-            </div>
-            <div style={{ padding: "20px", background: "rgba(139,92,246,0.05)", borderTop: "1px solid rgba(255,255,255,0.05)", textAlign: "center" }}>
-              <div style={{ fontSize: "0.85rem", color: "#94a3b8" }}>Keep gaining XP to level up! Current Level: <b>{level}</b></div>
-            </div>
-          </div>
-        </div>
-      )}
+            {NAV_LINKS.map(l => (
+              <motion.div key={l.href} whileTap={{ x: 5 }}>
+                <Link href={l.href} onClick={() => setOpen(false)} style={{ display: "block", padding: "12px 16px", borderRadius: "10px", background: "rgba(255,255,255,0.02)", color: "#fff", textDecoration: "none", fontWeight: 700, fontSize: "0.9rem" }}>{l.label}</Link>
+              </motion.div>
+            ))}
+            <motion.div whileTap={{ x: 5 }}>
+              <Link href="/profile" onClick={() => setOpen(false)} style={{ display: "block", padding: "12px 16px", borderRadius: "10px", background: "rgba(139,92,246,0.1)", color: "#a78bfa", textDecoration: "none", fontWeight: 700, fontSize: "0.9rem" }}>My Profile 🏆</Link>
+            </motion.div>
+            {user && (
+              <motion.button 
+                whileTap={{ x: 5 }}
+                onClick={() => { logout(); setOpen(false); }} 
+                style={{ padding: "12px 16px", borderRadius: "10px", background: "rgba(255,49,49,0.05)", border: "none", color: "#ff4b4b", fontWeight: 800, textAlign: "left" }}
+              >
+                Logout 🚪
+              </motion.button>
+            )}
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* XP Modal */}
+      <AnimatePresence>
+        {showXpHistory && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setShowXpHistory(false)} 
+            style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.85)", backdropFilter: "blur(10px)", zIndex: 2000, display: "flex", alignItems: "center", justifyContent: "center", padding: "20px" }}
+          >
+            <motion.div 
+              initial={{ scale: 0.9, y: 20 }}
+              animate={{ scale: 1, y: 0 }}
+              exit={{ scale: 0.9, y: 20 }}
+              onClick={e => e.stopPropagation()} 
+              style={{ background: "#0d0d1a", border: "1px solid #1e1e3f", borderRadius: "24px", width: "100%", maxWidth: "450px", maxHeight: "80vh", display: "flex", flexDirection: "column", overflow: "hidden" }}
+            >
+               <div style={{ padding: "18px", borderBottom: "1px solid rgba(255,255,255,0.05)", display: "flex", justifyContent: "space-between" }}>
+                 <h3 style={{ margin: 0 }}>XP History</h3>
+                 <button onClick={() => setShowXpHistory(false)} style={{ background: "none", border: "none", color: "#fff", cursor: "pointer", fontSize: "1.2rem" }}>✕</button>
+               </div>
+               <div style={{ padding: "18px", overflowY: "auto", flex: 1, display: "flex", flexDirection: "column", gap: "8px" }}>
+                 {xpHistory && xpHistory.length > 0 ? xpHistory.map((h, i) => (
+                   <motion.div 
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.05 }}
+                    key={i} 
+                    style={{ display: "flex", justifyContent: "space-between", padding: "10px", background: "rgba(255,255,255,0.02)", borderRadius: "10px" }}
+                   >
+                     <span style={{ fontSize: "0.9rem" }}>{h.reason}</span>
+                     <span style={{ color: "#8b5cf6", fontWeight: 900 }}>+{h.amount}</span>
+                   </motion.div>
+                 )) : <p style={{ textAlign: "center", color: "#94a3b8" }}>No history yet!</p>}
+               </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
+    </>
   );
 }
