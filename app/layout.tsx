@@ -15,7 +15,7 @@ import { UserProgressProvider } from "@/context/UserProgressContext";
 
 export const metadata = {
   title: "Techaa Purinjikoo ☕ — Learning Portal for All",
-  description: "Tech topics explained in friendly Tanglish conversation style. Micro learning, analogies, real use cases — bayam illama kalaikalam!",
+  description: "Tech topics explained in friendly Tanglish conversation style. Micro learning, analogies, real use cases — bayam illama kathukalam!",
   keywords: "tech learning, Tamil, Tanglish, vercel, github, APIs, AI, deployment, beginners",
 };
 

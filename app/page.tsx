@@ -34,23 +34,23 @@ export default function Home() {
 
   return (
     <div style={{ background: "#070711", minHeight: "100vh", color: "#fff" }}>
-      
+
       {/* Hero Section */}
       <section style={{ padding: "120px 24px 60px", textAlign: "center", position: "relative", overflow: "hidden" }}>
         <div style={{ position: "absolute", top: -100, left: "50%", transform: "translateX(-50%)", width: "80%", height: 300, background: "radial-gradient(circle, rgba(139,92,246,0.15) 0%, transparent 70%)", filter: "blur(60px)", pointerEvents: "none" }} />
-        
+
         <div style={{ position: "relative", zIndex: 1 }}>
           <h1 style={{ fontSize: "clamp(2.5rem, 8vw, 4.5rem)", fontWeight: 900, letterSpacing: "-3px", marginBottom: "16px" }}>
             Techaa <span style={{ background: "linear-gradient(135deg, #8b5cf6, #06b6d4)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Purinjikoo</span>
           </h1>
           <p style={{ color: "#94a3b8", fontSize: "1.1rem", maxWidth: "600px", margin: "0 auto 32px" }}>
-            Beginner-la irundhu Pro-ah aaga structured roadmap. Tech-ah friend sola maari purinjiko! ☕
-            <br/><span style={{ fontSize: "0.85rem", color: "#8b5cf6", fontWeight: 600 }}>✨ Topics free-ah read pannalam, progress save panna login pannu bro!</span>
+            Beginner-la irundhu Pro-ah aaga structured roadmap. Tech-ah friend solra maari purinjikalam! ☕
+            <br /><span style={{ fontSize: "0.85rem", color: "#8b5cf6", fontWeight: 600 }}>✨ Topics free-ah read pannalam, progress save panna login pannunga!</span>
           </p>
-          
+
           <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}>
             {!user ? (
-               <button 
+              <button
                 onClick={loginWithGoogle}
                 style={{ background: "#8b5cf6", color: "#fff", padding: "12px 28px", borderRadius: "12px", border: "none", fontWeight: 700, cursor: "pointer", boxShadow: "0 10px 20px rgba(139,92,246,0.3)" }}
               >
@@ -83,40 +83,40 @@ export default function Home() {
       {/* Roadmap Section */}
       <section id="roadmap" style={{ maxWidth: "1100px", margin: "0 auto 100px", padding: "0 24px" }}>
         <h2 style={{ fontSize: "2rem", fontWeight: 900, textAlign: "center", marginBottom: "40px" }}>🗺️ Tech Learning Roadmap</h2>
-        
+
         <div style={{ display: "flex", gap: "12px", overflowX: "auto", paddingBottom: "20px", marginBottom: "40px", scrollbarWidth: "none" }} className="no-scrollbar">
           {ROADMAP_LEVEL_DATA().map((lvl) => {
             const progress = getLevelProgress(lvl.id);
             return (
-            <button
-              key={lvl.id}
-              onClick={() => setActiveLevel(lvl.id)}
-              style={{
-                flexShrink: 0,
-                background: activeLevel === lvl.id ? "#8b5cf6" : "rgba(255,255,255,0.03)",
-                border: "1px solid rgba(255,255,255,0.1)",
-                padding: "16px 24px",
-                borderRadius: "20px",
-                color: "#fff",
-                cursor: "pointer",
-                textAlign: "left",
-                minWidth: "200px",
-                transition: "all 0.3s ease",
-                transform: activeLevel === lvl.id ? "translateY(-5px)" : "none",
-                boxShadow: activeLevel === lvl.id ? "0 10px 20px rgba(139,92,246,0.3)" : "none",
-                position: "relative",
-                overflow: "hidden"
-              }}
-            >
-              <div style={{ fontSize: "1.5rem", marginBottom: "8px" }}>{lvl.icon}</div>
-              <div style={{ fontSize: "0.75rem", color: activeLevel === lvl.id ? "rgba(255,255,255,0.8)" : "#94a3b8", fontWeight: 600 }}>LEVEL {lvl.id}</div>
-              <div style={{ fontWeight: 800, fontSize: "1rem", marginBottom: "12px" }}>{lvl.name}</div>
-              
-              {/* Mini progress bar */}
-              <div style={{ height: "4px", background: activeLevel === lvl.id ? "rgba(255,255,255,0.2)" : "rgba(255,255,255,0.05)", borderRadius: "100px", marginTop: "auto" }}>
-                <div style={{ width: `${progress}%`, height: "100%", background: progress === 100 ? "#4ade80" : (activeLevel === lvl.id ? "#fff" : "#8b5cf6"), transition: "width 0.5s ease" }} />
-              </div>
-            </button>
+              <button
+                key={lvl.id}
+                onClick={() => setActiveLevel(lvl.id)}
+                style={{
+                  flexShrink: 0,
+                  background: activeLevel === lvl.id ? "#8b5cf6" : "rgba(255,255,255,0.03)",
+                  border: "1px solid rgba(255,255,255,0.1)",
+                  padding: "16px 24px",
+                  borderRadius: "20px",
+                  color: "#fff",
+                  cursor: "pointer",
+                  textAlign: "left",
+                  minWidth: "200px",
+                  transition: "all 0.3s ease",
+                  transform: activeLevel === lvl.id ? "translateY(-5px)" : "none",
+                  boxShadow: activeLevel === lvl.id ? "0 10px 20px rgba(139,92,246,0.3)" : "none",
+                  position: "relative",
+                  overflow: "hidden"
+                }}
+              >
+                <div style={{ fontSize: "1.5rem", marginBottom: "8px" }}>{lvl.icon}</div>
+                <div style={{ fontSize: "0.75rem", color: activeLevel === lvl.id ? "rgba(255,255,255,0.8)" : "#94a3b8", fontWeight: 600 }}>LEVEL {lvl.id}</div>
+                <div style={{ fontWeight: 800, fontSize: "1rem", marginBottom: "12px" }}>{lvl.name}</div>
+
+                {/* Mini progress bar */}
+                <div style={{ height: "4px", background: activeLevel === lvl.id ? "rgba(255,255,255,0.2)" : "rgba(255,255,255,0.05)", borderRadius: "100px", marginTop: "auto" }}>
+                  <div style={{ width: `${progress}%`, height: "100%", background: progress === 100 ? "#4ade80" : (activeLevel === lvl.id ? "#fff" : "#8b5cf6"), transition: "width 0.5s ease" }} />
+                </div>
+              </button>
             );
           })}
         </div>
