@@ -1,3 +1,4 @@
+
 "use client";
 import { useParams, useRouter } from "next/navigation";
 import { topics } from "@/data/topics";
@@ -7,6 +8,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useUserProgress } from "@/context/UserProgressContext";
 import { XP_AWARDS } from "@/data/gamification";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function TopicPage() {
   const params = useParams();
@@ -20,31 +22,13 @@ export default function TopicPage() {
   const [hasAwardedQuizXP, setHasAwardedQuizXP] = useState(false);
   const [xpToast, setXpToast] = useState(null);
 
-  const [timeOnPage, setTimeOnPage] = useState(0);
+  const [isCompleting, setIsCompleting] = useState(false);
   const [readingCompleted, setReadingCompleted] = useState(false);
   const isAlreadyCompleted = completedTopics?.includes(topic?.id);
 
-  // Timer for time-based completion (1 min threshold)
-  useEffect(() => {
-    if (!topic || isAlreadyCompleted || readingCompleted) return;
-
-    const timer = setInterval(() => {
-      setTimeOnPage(prev => {
-        const nextTime = prev + 1;
-        if (nextTime >= 60 && !readingCompleted) {
-          // Award XP for reading after 1 minute
-          completeTopic(topic.id);
-          setReadingCompleted(true);
-          setXpToast(`+${XP_AWARDS.READ_TOPIC} XP ✨ Badge Earned!`);
-          setTimeout(() => setXpToast(null), 3000);
-          clearInterval(timer);
-        }
-        return nextTime;
-      });
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, [topic?.id, isAlreadyCompleted, readingCompleted]);
+  // Find next topic
+  const currentIdx = topics.findIndex(t => t.id === topic?.id);
+  const nextTopic = topics[currentIdx + 1];
 
   // Show badge unlock notification
   useEffect(() => {
@@ -64,7 +48,31 @@ export default function TopicPage() {
     if (isCorrect && !hasAwardedQuizXP) {
       addXP(XP_AWARDS.QUIZ_CORRECT);
       setHasAwardedQuizXP(true);
+      setXpToast(`+${XP_AWARDS.QUIZ_CORRECT} XP for correct answer! 🔥`);
+      setTimeout(() => setXpToast(null), 3000);
     }
+  };
+
+  const handleMarkAsCompleted = async () => {
+    if (!correctAnswer && !isAlreadyCompleted) {
+      setActiveTab("quiz");
+      alert("First quiz answer pannu bro! Then only progress save aakum. 🎯");
+      return;
+    }
+
+    setIsCompleting(true);
+    
+    // Simulate some "rotation" or processing
+    await new Promise(resolve => setTimeout(resolve, 1500));
+
+    if (!isAlreadyCompleted) {
+      completeTopic(topic.id);
+      setReadingCompleted(true);
+      setXpToast(`+${XP_AWARDS.READ_TOPIC} XP ✨ Topic Completed!`);
+    }
+    
+    setIsCompleting(false);
+    setReadingCompleted(true);
   };
 
   if (!topic) {
@@ -79,165 +87,230 @@ export default function TopicPage() {
   const handleShare = () => {
     setShowShareModal(true);
     setTimeout(() => setShowShareModal(false), 2000);
-    navigator.clipboard.writeText(`Did you know? ${topic.title}: ${topic.shortDesc} Learn more at http://localhost:3000/topics/${topic.id}`);
+    const shareText = `Did you know? ${topic.title}: ${topic.shortDesc} Learn more at Techaa Purinjikoo!`;
+    navigator.clipboard.writeText(shareText);
   };
 
   return (
     <div style={{ background: "#070711", minHeight: "100vh", color: "#fff" }}>
+      <Navbar />
 
       <div style={{ maxWidth: "800px", margin: "0 auto", padding: "100px 24px 60px" }}>
+        
         {/* Header Section */}
-        <div style={{ textAlign: "center", marginBottom: "40px" }}>
-          {!isAlreadyCompleted && !readingCompleted && (
-            <div style={{ width: "100%", height: "4px", background: "rgba(255,255,255,0.05)", borderRadius: "2px", marginBottom: "20px", overflow: "hidden" }}>
-              <div style={{ width: `${(timeOnPage / 60) * 100}%`, height: "100%", background: "#8b5cf6", transition: "width 1s linear" }} />
-              <div style={{ fontSize: "0.6rem", color: "#64748b", marginTop: "4px", textAlign: "right", letterSpacing: "1px" }}>READING PROGRESS: {Math.round((timeOnPage / 60) * 100)}%</div>
-            </div>
-          )}
-          <div style={{ fontSize: "4rem", marginBottom: "16px" }}>{topic.emoji}</div>
-          <h1 style={{ fontSize: "2.5rem", fontWeight: 900, marginBottom: "8px" }}>{topic.title}</h1>
-          <p style={{ color: topic.accentColor, fontWeight: 700, letterSpacing: "1px", textTransform: "uppercase", fontSize: "0.8rem" }}>{topic.tagline}</p>
-        </div>
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          style={{ textAlign: "center", marginBottom: "40px" }}
+        >
+          <div style={{ fontSize: "5rem", marginBottom: "16px", filter: "drop-shadow(0 0 20px rgba(139,92,246,0.3))" }}>{topic.emoji}</div>
+          <h1 style={{ fontSize: "2.8rem", fontWeight: 900, marginBottom: "8px", background: "linear-gradient(to right, #fff, #94a3b8)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>{topic.title}</h1>
+          <p style={{ color: topic.accentColor, fontWeight: 800, letterSpacing: "2px", textTransform: "uppercase", fontSize: "0.9rem" }}>{topic.tagline}</p>
+        </motion.div>
 
         {/* Navigation Tabs */}
-        <div style={{ display: "flex", gap: "8px", background: "rgba(255,255,255,0.03)", padding: "4px", borderRadius: "12px", marginBottom: "32px" }}>
-          <button onClick={() => setActiveTab("learn")} style={{ flex: 1, padding: "12px", borderRadius: "8px", border: "none", background: activeTab === "learn" ? "rgba(139,92,246,0.15)" : "transparent", color: activeTab === "learn" ? "#8b5cf6" : "#94a3b8", fontWeight: 700, cursor: "pointer" }}>📖 Learn</button>
-          <button onClick={() => setActiveTab("quiz")} style={{ flex: 1, padding: "12px", borderRadius: "8px", border: "none", background: activeTab === "quiz" ? "rgba(139,92,246,0.15)" : "transparent", color: activeTab === "quiz" ? "#8b5cf6" : "#94a3b8", fontWeight: 700, cursor: "pointer" }}>⏳ Quiz</button>
-          <button onClick={() => setActiveTab("mistakes")} style={{ flex: 1, padding: "12px", borderRadius: "8px", border: "none", background: activeTab === "mistakes" ? "rgba(139,92,246,0.15)" : "transparent", color: activeTab === "mistakes" ? "#8b5cf6" : "#94a3b8", fontWeight: 700, cursor: "pointer" }}>🤫 Mistakes</button>
+        <div style={{ display: "flex", gap: "8px", background: "rgba(255,255,255,0.03)", padding: "6px", borderRadius: "16px", marginBottom: "32px", border: "1px solid rgba(255,255,255,0.05)" }}>
+          <button onClick={() => setActiveTab("learn")} style={{ flex: 1, padding: "14px", borderRadius: "12px", border: "none", background: activeTab === "learn" ? "rgba(139,92,246,0.15)" : "transparent", color: activeTab === "learn" ? "#a78bfa" : "#64748b", fontWeight: 800, cursor: "pointer", transition: "0.3s" }}>📖 Read</button>
+          <button onClick={() => setActiveTab("quiz")} style={{ flex: 1, padding: "14px", borderRadius: "12px", border: "none", background: activeTab === "quiz" ? "rgba(139,92,246,0.15)" : "transparent", color: activeTab === "quiz" ? "#a78bfa" : "#64748b", fontWeight: 800, cursor: "pointer", transition: "0.3s" }}>🎯 Quiz</button>
+          <button onClick={() => setActiveTab("mistakes")} style={{ flex: 1, padding: "14px", borderRadius: "12px", border: "none", background: activeTab === "mistakes" ? "rgba(139,92,246,0.15)" : "transparent", color: activeTab === "mistakes" ? "#a78bfa" : "#64748b", fontWeight: 800, cursor: "pointer", transition: "0.3s" }}>🤫 Mistake</button>
         </div>
 
-        {activeTab === "learn" && (
-          <div style={{ animation: "fadeIn 0.5s ease" }}>
-            {/* Quick Summary */}
-            <div style={{ background: "rgba(255,255,255,0.03)", borderRadius: "24px", padding: "32px", marginBottom: "24px", border: "1px solid rgba(255,255,255,0.05)" }}>
-              <h3 style={{ fontSize: "1.2rem", fontWeight: 800, marginBottom: "16px", display: "flex", alignItems: "center", gap: "8px" }}>⚡ Simple Ah Solluvom</h3>
-              <p style={{ color: "#cbd5e1", lineHeight: 1.7, fontSize: "1.1rem" }}>{topic.quickSummary}</p>
-            </div>
-
-            {/* Analogy */}
-            <div style={{ background: "linear-gradient(135deg, rgba(139,92,246,0.1), rgba(6,182,212,0.1))", borderRadius: "24px", padding: "32px", marginBottom: "24px", border: "1px solid rgba(255,255,255,0.05)" }}>
-              <h3 style={{ fontSize: "1.2rem", fontWeight: 800, marginBottom: "16px" }}>🎭 Real Life Analogy</h3>
-              <p style={{ color: "#fff", marginBottom: "24px", fontSize: "1.05rem" }}>{topic.analogy?.description}</p>
-              <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "12px", background: "rgba(0,0,0,0.2)", padding: "24px", borderRadius: "16px" }}>
-                {topic.analogy?.visual?.map((v, i) => (
-                  <div key={i} style={{ textAlign: "center" }}>
-                    <div style={{ fontSize: "1.5rem" }}>{v.icon}</div>
-                    <div style={{ fontSize: "0.7rem", color: "#94a3b8", marginTop: "4px" }}>{v.label}</div>
-                  </div>
-                ))}
+        <AnimatePresence mode="wait">
+          {activeTab === "learn" && (
+            <motion.div 
+              key="learn"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: 20 }}
+            >
+              {/* Quick Summary */}
+              <div className="glass-card" style={{ borderRadius: "24px", padding: "32px", marginBottom: "24px" }}>
+                <h3 style={{ fontSize: "1.3rem", fontWeight: 900, marginBottom: "20px", color: topic.accentColor }}>⚡ Simple Ah Solluvom</h3>
+                <p style={{ color: "#cbd5e1", lineHeight: 1.8, fontSize: "1.1rem" }}>{topic.quickSummary}</p>
               </div>
-            </div>
 
-            {/* Conversation */}
-            <div style={{ background: "#0a0a1a", border: "1px solid #1e1e3f", borderRadius: "16px", padding: "20px", marginBottom: "24px", fontFamily: "monospace" }}>
-              <div style={{ display: "flex", gap: "6px", marginBottom: "16px" }}>
-                <div style={{ width: "12px", height: "12px", borderRadius: "50%", background: "#ff5f56" }} />
-                <div style={{ width: "12px", height: "12px", borderRadius: "50%", background: "#ffbd2e" }} />
-                <div style={{ width: "12px", height: "12px", borderRadius: "50%", background: "#27c93f" }} />
-              </div>
-              <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-                {topic.conversation?.map((msg, i) => (
-                  <div key={i} style={{ display: "flex", gap: "12px" }}>
-                    <span style={{ fontSize: "1.2rem" }}>{msg.avatar}</span>
-                    <div>
-                      <span style={{ color: "#8b5cf6", fontWeight: "bold" }}>{msg.speaker}: </span>
-                      <span style={{ color: "#d1d5db" }}>{msg.message}</span>
+              {/* Analogy */}
+              <div style={{ background: `linear-gradient(135deg, ${topic.accentColor}11, #070711)`, borderRadius: "24px", padding: "32px", marginBottom: "24px", border: `1px solid ${topic.accentColor}22` }}>
+                <h3 style={{ fontSize: "1.3rem", fontWeight: 900, marginBottom: "20px" }}>🎭 Real Life Analogy</h3>
+                <p style={{ color: "#fff", marginBottom: "24px", fontSize: "1.1rem", fontStyle: "italic" }}>{topic.analogy?.description}</p>
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "24px", background: "rgba(0,0,0,0.3)", padding: "32px", borderRadius: "20px" }}>
+                  {topic.analogy?.visual?.map((v, i) => (
+                    <div key={i} style={{ textAlign: "center" }}>
+                      <motion.div animate={{ y: [0, -5, 0] }} transition={{ repeat: Infinity, duration: 2, delay: i * 0.3 }} style={{ fontSize: "2rem" }}>{v.icon}</motion.div>
+                      <div style={{ fontSize: "0.75rem", color: "#94a3b8", fontWeight: 700, marginTop: "8px", textTransform: "uppercase" }}>{v.label}</div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
-            </div>
-          </div>
-        )}
 
-        {activeTab === "quiz" && (
-          <div style={{ background: "rgba(255,255,255,0.03)", padding: "32px", borderRadius: "24px", animation: "fadeIn 0.5s ease" }}>
-            <h3 style={{ fontSize: "1.4rem", fontWeight: 800, marginBottom: "24px" }}>🎯 Concept Purinjithaa nu check pannuvom!</h3>
-            <p style={{ fontSize: "1.1rem", marginBottom: "24px" }}>{topic.quiz?.question || "Intha topic-ku quiz innum upload panla bro! 😅"}</p>
-            {topic.quiz && (
+              {/* Conversation */}
+              <div style={{ background: "#0a0a1a", border: "1px solid #1e1e3f", borderRadius: "20px", padding: "24px", marginBottom: "24px", boxShadow: "inset 0 0 20px rgba(0,0,0,0.5)" }}>
+                <div style={{ display: "flex", gap: "8px", marginBottom: "20px" }}>
+                  <div style={{ width: "12px", height: "12px", borderRadius: "50%", background: "#ff5f56" }} />
+                  <div style={{ width: "12px", height: "12px", borderRadius: "50%", background: "#ffbd2e" }} />
+                  <div style={{ width: "12px", height: "12px", borderRadius: "50%", background: "#27c93f" }} />
+                </div>
+                <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+                  {topic.conversation?.map((msg, i) => (
+                    <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }} key={i} style={{ display: "flex", gap: "16px" }}>
+                      <span style={{ fontSize: "1.5rem" }}>{msg.avatar}</span>
+                      <div style={{ flex: 1 }}>
+                        <span style={{ color: "#8b5cf6", fontWeight: 800, fontSize: "0.9rem" }}>{msg.speaker}: </span>
+                        <span style={{ color: "#94a3b8", lineHeight: 1.6, fontSize: "1.05rem" }}>{msg.message}</span>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          )}
+
+          {activeTab === "quiz" && (
+            <motion.div 
+              key="quiz"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="glass-card" 
+              style={{ padding: "40px", borderRadius: "24px" }}
+            >
+              <h3 style={{ fontSize: "1.6rem", fontWeight: 900, marginBottom: "24px" }}>🎯 Concept Purinjithaa?</h3>
+              <p style={{ fontSize: "1.2rem", color: "#f1f5f9", marginBottom: "32px", lineHeight: 1.6 }}>{topic.quiz?.question}</p>
+              
               <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-                {topic.quiz.options.map((opt, i) => (
-                  <button
+                {topic.quiz?.options.map((opt, i) => (
+                  <motion.button
                     key={i}
+                    whileHover={{ x: 10, background: "rgba(139,92,246,0.1)" }}
+                    whileTap={{ scale: 0.98 }}
                     onClick={() => handleQuizAnswer(i === topic.quiz.answer)}
                     style={{
-                      padding: "16px",
-                      borderRadius: "12px",
-                      border: "1px solid rgba(255,255,255,0.1)",
-                      background: "rgba(255,255,255,0.05)",
+                      padding: "20px",
+                      borderRadius: "16px",
+                      border: "1px solid rgba(255,255,255,0.08)",
+                      background: correctAnswer !== null && i === topic.quiz.answer ? "rgba(34,197,94,0.1)" : "rgba(255,255,255,0.02)",
                       color: "#fff",
                       textAlign: "left",
                       cursor: "pointer",
-                      fontSize: "1rem",
-                      transition: "0.2s"
+                      fontSize: "1.05rem",
+                      fontWeight: 600,
+                      transition: "0.3s",
+                      borderColor: correctAnswer !== null && i === topic.quiz.answer ? "#22c55e" : "rgba(255,255,255,0.08)"
                     }}
                   >
                     {opt}
-                  </button>
+                  </motion.button>
                 ))}
               </div>
-            )}
-            {correctAnswer !== null && (
-              <div style={{ marginTop: "24px", padding: "16px", borderRadius: "12px", background: correctAnswer ? "rgba(34,197,94,0.1)" : "rgba(239,68,68,0.1)", color: correctAnswer ? "#4ade80" : "#f87171", textAlign: "center", fontWeight: 700 }}>
-                {correctAnswer ? "Semma! Correct-ah sollita 🔥" : "Illa bro, oru vaati munaadi poi marubadiyum padi! 😅"}
-              </div>
-            )}
-          </div>
-        )}
 
-        {activeTab === "mistakes" && (
-          <div style={{ animation: "fadeIn 0.5s ease" }}>
-            <div style={{ background: "rgba(239,68,68,0.05)", border: "1px solid rgba(239,68,68,0.2)", borderRadius: "24px", padding: "32px", marginBottom: "24px" }}>
-              <h3 style={{ fontSize: "1.2rem", fontWeight: 800, color: "#f87171", marginBottom: "16px" }}>🛑 Developer Mistake</h3>
-              <p style={{ color: "#fca5a5", fontSize: "1.1rem" }}>"{topic.devConfession?.mistake}"</p>
-            </div>
-            <div style={{ background: "rgba(34,197,94,0.05)", border: "1px solid rgba(34,197,94,0.2)", borderRadius: "24px", padding: "32px" }}>
-              <h3 style={{ fontSize: "1.2rem", fontWeight: 800, color: "#4ade80", marginBottom: "16px" }}>💡 Lesson Learned</h3>
-              <p style={{ color: "#86efac", fontSize: "1.1rem" }}>{topic.devConfession?.lesson}</p>
-            </div>
-          </div>
-        )}
+              {correctAnswer !== null && (
+                <motion.div 
+                  initial={{ opacity: 0, scale: 0.9 }} 
+                  animate={{ opacity: 1, scale: 1 }}
+                  style={{ marginTop: "32px", padding: "20px", borderRadius: "16px", background: correctAnswer ? "rgba(34,197,94,0.1)" : "rgba(239,68,68,0.1)", color: correctAnswer ? "#4ade80" : "#f87171", textAlign: "center", fontWeight: 800, border: "1px solid", borderColor: correctAnswer ? "rgba(34,197,94,0.2)" : "rgba(239,68,68,0.2)" }}
+                >
+                  {correctAnswer ? "Semma! Correct answer bro 🔥" : "Illa bro, knowledge check pannunga! 😅"}
+                </motion.div>
+              )}
+            </motion.div>
+          )}
+
+          {activeTab === "mistakes" && (
+            <motion.div 
+              key="mistakes"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              style={{ display: "flex", flexDirection: "column", gap: "24px" }}
+            >
+              <div style={{ background: "rgba(239,68,68,0.03)", border: "1px solid rgba(239,68,68,0.15)", borderRadius: "24px", padding: "32px" }}>
+                <h3 style={{ fontSize: "1.3rem", fontWeight: 900, color: "#f87171", marginBottom: "16px", display: "flex", alignItems: "center", gap: "10px" }}>🛑 Developer Mistake</h3>
+                <p style={{ color: "#fca5a5", fontSize: "1.1rem", lineHeight: 1.6 }}>"{topic.devConfession?.mistake}"</p>
+              </div>
+              <div style={{ background: "rgba(34,197,94,0.03)", border: "1px solid rgba(34,197,94,0.15)", borderRadius: "24px", padding: "32px" }}>
+                <h3 style={{ fontSize: "1.3rem", fontWeight: 900, color: "#4ade80", marginBottom: "16px", display: "flex", alignItems: "center", gap: "10px" }}>💡 Lesson Learned</h3>
+                <p style={{ color: "#86efac", fontSize: "1.1rem", lineHeight: 1.6 }}>{topic.devConfession?.lesson}</p>
+              </div>
+
+              {/* MARK AS COMPLETED / NEXT BUTTON */}
+              <div style={{ marginTop: "32px", textAlign: "center" }}>
+                {!readingCompleted ? (
+                   <motion.button
+                    disabled={isCompleting}
+                    onClick={handleMarkAsCompleted}
+                    animate={isCompleting ? { rotate: 360 } : {}}
+                    transition={isCompleting ? { repeat: Infinity, duration: 1, ease: "linear" } : {}}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    style={{
+                      background: "linear-gradient(135deg, #8b5cf6, #7c3aed)",
+                      color: "#fff",
+                      padding: "18px 36px",
+                      borderRadius: "16px",
+                      border: "none",
+                      fontWeight: 800,
+                      fontSize: "1.1rem",
+                      cursor: "pointer",
+                      boxShadow: "0 10px 25px rgba(139,92,246,0.4)"
+                    }}
+                  >
+                    {isCompleting ? "SAVING..." : "MARK AS COMPLETED ✅"}
+                  </motion.button>
+                ) : (
+                  <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
+                    <p style={{ fontWeight: 800, color: "#22c55e", marginBottom: "16px" }}>Topic Completed! Semma bro! 🎉</p>
+                    <button
+                      onClick={() => nextTopic ? router.push(`/topics/${nextTopic.id}`) : router.push('/')}
+                      style={{
+                        background: "#fff",
+                        color: "#070711",
+                        padding: "18px 36px",
+                        borderRadius: "16px",
+                        border: "none",
+                        fontWeight: 900,
+                        fontSize: "1.2rem",
+                        cursor: "pointer",
+                        boxShadow: "0 10px 30px rgba(255,255,255,0.2)"
+                      }}
+                    >
+                      {nextTopic ? "NEXT POLAMA? 🚀" : "FINISH CHALLENGE 🏆"}
+                    </button>
+                  </motion.div>
+                )}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         {/* Share Section */}
         <div style={{ marginTop: "60px", textAlign: "center", borderTop: "1px solid rgba(255,255,255,0.05)", paddingTop: "40px" }}>
-          <button 
-            onClick={handleShare}
-            style={{ 
-              background: "rgba(139,92,246,0.1)", 
-              color: "#8b5cf6", 
-              border: "1px solid rgba(139,92,246,0.3)", 
-              padding: "12px 24px", 
-              borderRadius: "12px", 
-              fontWeight: 700, 
-              cursor: "pointer",
-              display: "flex",
-              alignItems: "center",
-              gap: "8px",
-              margin: "0 auto"
-            }}
-          >
-            {showShareModal ? "✅ Copied to Clipboard!" : "📱 Share as a Tech Card"}
+          <button onClick={handleShare} style={{ background: "rgba(255,255,255,0.02)", color: "#94a3b8", border: "1px solid rgba(255,255,255,0.1)", padding: "12px 24px", borderRadius: "12px", fontWeight: 700, cursor: "pointer", display: "flex", alignItems: "center", gap: "8px", margin: "0 auto", transition: "0.3s" }}>
+            {showShareModal ? "✅ Copied!" : "📱 Share Card"}
           </button>
         </div>
-        
-        {/* Badge Notification */}
-        {lastUnlockedBadge && (
-          <div style={{ position: "fixed", top: "80px", right: "24px", background: "linear-gradient(135deg, #1e1b4b, #312e81)", border: "1px solid #8b5cf6", borderRadius: "16px", padding: "16px 20px", boxShadow: "0 20px 40px rgba(0,0,0,0.4)", display: "flex", alignItems: "center", gap: "16px", zIndex: 1000, animation: "slideIn 0.5s cubic-bezier(0.16, 1, 0.3, 1)" }}>
-            <div style={{ fontSize: "2.5rem" }}>{lastUnlockedBadge.emoji}</div>
-            <div>
-              <div style={{ fontSize: "0.7rem", fontWeight: 800, color: "#8b5cf6", textTransform: "uppercase", letterSpacing: "1px" }}>Badge Unlocked!</div>
-              <div style={{ fontSize: "1.1rem", fontWeight: 800, color: "#fff" }}>{lastUnlockedBadge.title}</div>
-              <div style={{ fontSize: "0.8rem", color: "#94a3b8" }}>{lastUnlockedBadge.desc}</div>
-            </div>
-          </div>
-        )}
       </div>
+
+      <Footer />
+      
+      {/* Badge Notification */}
+      {lastUnlockedBadge && (
+        <div style={{ position: "fixed", top: "80px", right: "24px", background: "#1e1b4b", border: "2px solid #8b5cf6", borderRadius: "20px", padding: "20px", boxShadow: "0 25px 50px rgba(0,0,0,0.5)", display: "flex", alignItems: "center", gap: "20px", zIndex: 1000 }}>
+          <div style={{ fontSize: "3rem" }}>{lastUnlockedBadge.emoji}</div>
+          <div>
+            <div style={{ fontSize: "0.75rem", fontWeight: 900, color: "#8b5cf6", textTransform: "uppercase", letterSpacing: "1.5px" }}>NEW ACHIEVEMENT!</div>
+            <div style={{ fontSize: "1.2rem", fontWeight: 900, color: "#fff" }}>{lastUnlockedBadge.title}</div>
+            <div style={{ fontSize: "0.85rem", color: "#94a3b8" }}>{lastUnlockedBadge.desc}</div>
+          </div>
+        </div>
+      )}
 
       {/* XP Toast */}
       {xpToast && (
-        <div style={{ position: "fixed", bottom: "40px", left: "50%", transform: "translateX(-50%)", background: "#8b5cf6", color: "#fff", padding: "12px 24px", borderRadius: "100px", fontWeight: 800, fontSize: "1.2rem", boxShadow: "0 10px 30px rgba(139,92,246,0.5)", zIndex: 1000, animation: "bounceUp 0.3s ease-out" }}>
-          {xpToast} ✨
-        </div>
+        <motion.div 
+          initial={{ y: 50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          style={{ position: "fixed", bottom: "40px", left: "50%", transform: "translateX(-50%)", background: "#8b5cf6", color: "#fff", padding: "14px 32px", borderRadius: "100px", fontWeight: 900, fontSize: "1.1rem", boxShadow: "0 10px 40px rgba(139,92,246,0.6)", zIndex: 1000 }}
+        >
+          {xpToast}
+        </motion.div>
       )}
     </div>
   );

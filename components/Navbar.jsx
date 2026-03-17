@@ -67,7 +67,7 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" style={{ textDecoration: "none", flexShrink: 0 }}>
           <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-            <span style={{ fontSize: "1.3rem" }}>☕</span>
+            <span style={{ fontSize: "1.3rem", filter: "none", color: "initial", WebkitTextFillColor: "initial" }}>☕</span>
             <div style={{ display: "flex", flexDirection: "column", lineHeight: 1 }}>
               <span style={{ fontWeight: 800, fontSize: "1rem", background: "linear-gradient(135deg, #8b5cf6, #06b6d4)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text", letterSpacing: "-0.3px" }}>
                 Techaa Purinjikoo

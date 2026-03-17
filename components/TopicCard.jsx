@@ -1,6 +1,8 @@
+
 "use client";
 import Link from "next/link";
 import { useUserProgress } from "@/context/UserProgressContext";
+import { motion } from "framer-motion";
 
 export default function TopicCard({ topic, index }) {
   const { completedTopics } = useUserProgress();
@@ -8,72 +10,70 @@ export default function TopicCard({ topic, index }) {
 
   return (
     <Link href={`/topics/${topic.id}`} style={{ textDecoration: "none" }}>
-      <div
-        className="topic-card glass-card glow-on-hover"
+      <motion.div
+        whileHover={{ 
+          y: -8, 
+          scale: 1.02,
+          boxShadow: `0 20px 40px rgba(0,0,0,0.3), 0 0 20px ${topic.accentColor}22` 
+        }}
+        whileTap={{ scale: 0.98 }}
         style={{
           borderRadius: "16px",
           padding: "28px 24px",
-          animationDelay: `${index * 0.08}s`,
           height: "100%",
           display: "flex",
           flexDirection: "column",
           gap: "16px",
+          background: "rgba(255,255,255,0.03)",
+          backdropFilter: "blur(12px)",
           border: isCompleted ? "1px solid rgba(34,197,94,0.3)" : "1px solid rgba(255,255,255,0.05)",
-          position: "relative"
+          position: "relative",
+          transition: "border 0.3s ease"
         }}
       >
         {isCompleted && (
-          <div style={{ position: "absolute", top: "12px", right: "12px", background: "#22c55e", color: "#fff", width: "20px", height: "20px", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "0.7rem", boxShadow: "0 4px 10px rgba(34,197,94,0.3)" }}>
+          <motion.div 
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            style={{ position: "absolute", top: "12px", right: "12px", background: "#22c55e", color: "#fff", width: "22px", height: "22px", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "0.75rem", boxShadow: "0 4px 10px rgba(34,197,94,0.4)", zIndex: 1 }}
+          >
             ✓
-          </div>
+          </motion.div>
         )}
-        {/* Gradient top bar */}
-        <div
-          style={{
-            height: "3px",
-            borderRadius: "2px",
-            background: `linear-gradient(90deg, ${topic.accentColor}, transparent)`,
-            marginBottom: "4px",
-          }}
-        />
+        
+        {/* Glow effect */}
+        <div style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, background: `radial-gradient(circle at 50% 0%, ${topic.accentColor}11, transparent 70%)`, pointerEvents: "none", borderRadius: "16px" }} />
 
         {/* Emoji */}
-        <div style={{ fontSize: "2.6rem", lineHeight: 1 }}>{topic.emoji}</div>
+        <motion.div 
+          whileHover={{ rotate: [0, -10, 10, 0], transition: { duration: 0.3 } }}
+          style={{ fontSize: "2.8rem", lineHeight: 1 }}
+        >
+          {topic.emoji}
+        </motion.div>
 
         {/* Title */}
         <div>
           <h3
             style={{
-              fontSize: "1.2rem",
-              fontWeight: 700,
+              fontSize: "1.25rem",
+              fontWeight: 800,
               color: "#fff",
-              marginBottom: "6px",
-              letterSpacing: "-0.3px",
+              marginBottom: "8px",
+              letterSpacing: "-0.5px",
             }}
           >
             {topic.title}
           </h3>
           <p
             style={{
-              fontSize: "0.88rem",
-              color: "#7b7b9a",
+              fontSize: "0.9rem",
+              color: "#94a3b8",
               lineHeight: 1.6,
             }}
           >
             {topic.shortDesc}
           </p>
-        </div>
-
-        {/* Tagline */}
-        <div
-          style={{
-            fontSize: "0.78rem",
-            color: topic.accentColor,
-            fontStyle: "italic",
-            marginTop: "auto",
-          }}
-        >
-          {topic.tagline}
         </div>
 
         {/* CTA */}
@@ -82,34 +82,37 @@ export default function TopicCard({ topic, index }) {
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
-            marginTop: "4px",
+            marginTop: "auto",
+            paddingTop: "12px"
           }}
         >
           <span
             style={{
-              fontSize: "0.82rem",
-              fontWeight: 600,
+              fontSize: "0.85rem",
+              fontWeight: 800,
               color: topic.accentColor,
             }}
           >
             Purinjiko →
           </span>
-          <div
+          <motion.div
+            whileHover={{ x: 3 }}
             style={{
-              width: "28px",
-              height: "28px",
+              width: "32px",
+              height: "32px",
               borderRadius: "50%",
-              background: "rgba(255,255,255,0.06)",
+              background: "rgba(255,255,255,0.05)",
+              border: "1px solid rgba(255,255,255,0.1)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              fontSize: "0.85rem",
+              fontSize: "0.9rem",
             }}
           >
             →
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
     </Link>
   );
 }
