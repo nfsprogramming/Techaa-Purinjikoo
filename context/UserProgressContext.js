@@ -28,13 +28,11 @@ export function UserProgressProvider({ children }) {
   // 1. Initial Load: LocalStorage Fallback + Reset on User Change
   useEffect(() => {
     if (!user) {
-      // If no user, reset to default (prevents cross-account data leaks)
       setProgress(DEFAULT_PROGRESS);
       setInitialized(true);
       return;
     }
 
-    // Try to load user-specific progress from localStorage for quick UI update
     const saved = localStorage.getItem(`techaa_progress_${user.uid}`);
     if (saved) {
       try {
@@ -45,7 +43,6 @@ export function UserProgressProvider({ children }) {
       }
     }
     
-    // Fetch fresh data from Firestore
     const fetchFirestoreProgress = async () => {
       try {
         const docRef = doc(db, "users", user.uid);
@@ -53,7 +50,6 @@ export function UserProgressProvider({ children }) {
         
         if (docSnap.exists() && docSnap.data().progress) {
           const firestoreProgress = docSnap.data().progress;
-          // Only update if firestore has more xp or different topics (merging logic could be more complex, but this is a start)
           setProgress(firestoreProgress);
           localStorage.setItem(`techaa_progress_${user.uid}`, JSON.stringify(firestoreProgress));
         }
@@ -74,21 +70,18 @@ export function UserProgressProvider({ children }) {
       return;
     }
 
-    // Save locally for speed
     localStorage.setItem(`techaa_progress_${user.uid}`, JSON.stringify(progress));
 
-    // Save to Firestore (Debounced or Async)
     const syncToFirestore = async () => {
       try {
         const docRef = doc(db, "users", user.uid);
         await updateDoc(docRef, { progress: progress });
       } catch (err) {
         console.error("Error syncing to Firestore:", err);
-        // If document doesn't exist yet, AuthContext might still be creating it
       }
     };
 
-    const timer = setTimeout(syncToFirestore, 1000); // 1s debounce to avoid hitting quotas
+    const timer = setTimeout(syncToFirestore, 1000);
     return () => clearTimeout(timer);
   }, [progress, user, initialized]);
 
@@ -99,7 +92,6 @@ export function UserProgressProvider({ children }) {
     const today = new Date().toISOString().split('T')[0];
     
     setProgress(prev => {
-      // Prevents multiple calls on the same day if state updates haven't flushed
       if (prev.lastLogin === today) return prev;
 
       const yesterday = new Date();
@@ -130,7 +122,7 @@ export function UserProgressProvider({ children }) {
         xpHistory: [historyEntry, ...(prev.xpHistory || [])].slice(0, 30)
       };
     });
-  }, [initialized, user]); // Dependency today was removed because it is defined inside the effect body
+  }, [initialized, user]);
 
   const addXP = (amount, reason = "Bonus Points") => {
     setProgress(prev => {
@@ -141,7 +133,7 @@ export function UserProgressProvider({ children }) {
         ...prev, 
         xp: newXP, 
         level: newLevel,
-        xpHistory: [historyEntry, ...(prev.xpHistory || [])].slice(0, 30) // Keep last 30 entries
+        xpHistory: [historyEntry, ...(prev.xpHistory || [])].slice(0, 30)
       };
     });
   };
@@ -158,7 +150,6 @@ export function UserProgressProvider({ children }) {
       
       const historyEntry = { amount: xpGain, reason: `Completed: ${topic?.title || topicId}`, timestamp: Date.now() };
 
-      // Badge logic
       const newlyUnlocked = [];
       BADGES.forEach(badge => {
         if (prev.unlockedBadges.includes(badge.id)) return;
@@ -189,12 +180,28 @@ export function UserProgressProvider({ children }) {
     });
   };
 
+  const resetProgress = async () => {
+    if (!user) return;
+    
+    // Opting for a silent reset since the user explicitly asked to start from scratch
+    setProgress(DEFAULT_PROGRESS);
+    localStorage.removeItem(`techaa_progress_${user.uid}`);
+    
+    try {
+      const docRef = doc(db, "users", user.uid);
+      await updateDoc(docRef, { progress: DEFAULT_PROGRESS });
+      return true;
+    } catch (err) {
+      console.error("Reset error:", err);
+      return false;
+    }
+  };
+
   const isTopicLocked = (topicId) => {
     const topicIndex = topics.findIndex(t => t.id === topicId);
     if (topicIndex === -1) return true;
-    if (topicIndex === 0) return false; // First topic always unlocked
+    if (topicIndex === 0) return false;
     
-    // Unlocked if previous topic is completed OR it's already completed
     const previousTopic = topics[topicIndex - 1];
     return !progress.completedTopics.includes(previousTopic.id) && !progress.completedTopics.includes(topicId);
   };
@@ -211,6 +218,7 @@ export function UserProgressProvider({ children }) {
       ...progress, 
       completeTopic, 
       addXP, 
+      resetProgress,
       getLevelProgress,
       isTopicLocked,
       XP_LEVELS,

@@ -157,16 +157,29 @@ export default function Navbar() {
           )}
 
           {user ? (
-            <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-              <Link href="/profile" style={{ display: "flex", alignItems: "center" }}>
-                <img 
-                  src={user.photoURL || `https://ui-avatars.com/api/?name=${user.displayName || 'User'}&background=8b5cf6&color=fff`} 
-                  style={{ width: "28px", height: "28px", borderRadius: "50%", border: "2px solid #8b5cf6" }} 
-                  alt="Avatar"
-                  onError={(e) => { e.target.src = `https://ui-avatars.com/api/?name=${user.displayName || 'User'}&background=8b5cf6&color=fff`; }}
-                />
-              </Link>
-            </motion.div>
+            <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+              <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+                <Link href="/profile" style={{ display: "flex", alignItems: "center" }}>
+                  <img 
+                    src={user.photoURL || `https://ui-avatars.com/api/?name=${user.displayName || 'User'}&background=8b5cf6&color=fff`} 
+                    style={{ width: "28px", height: "28px", borderRadius: "50%", border: "2px solid #8b5cf6" }} 
+                    alt="Avatar"
+                    onError={(e) => { e.target.src = `https://ui-avatars.com/api/?name=${user.displayName || 'User'}&background=8b5cf6&color=fff`; }}
+                  />
+                </Link>
+              </motion.div>
+              
+              {/* Desktop Logout Button */}
+              <motion.button
+                whileHover={{ scale: 1.05, color: "#ff4b4b" }}
+                whileTap={{ scale: 0.95 }}
+                onClick={logout}
+                className="nav-desktop-only"
+                style={{ background: "rgba(255,75,75,0.05)", border: "1px solid rgba(255,75,75,0.1)", color: "#94a3b8", padding: "6px 12px", borderRadius: "8px", fontSize: "0.75rem", fontWeight: 800, cursor: "pointer", transition: "0.2s" }}
+              >
+                Logout 🚪
+              </motion.button>
+            </div>
           ) : (
             <motion.button 
               whileHover={{ scale: 1.05 }}

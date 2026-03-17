@@ -9,7 +9,7 @@ import { useAuth } from "@/context/AuthContext";
 import { motion } from "framer-motion";
 
 export default function ProfilePage() {
-  const { xp, level, streak, completedTopics, unlockedBadges, XP_LEVELS, BADGES, getLevelProgress, loading, xpHistory } = useUserProgress();
+  const { xp, level, streak, completedTopics, unlockedBadges, XP_LEVELS, BADGES, getLevelProgress, loading, xpHistory, resetProgress } = useUserProgress();
   const { user } = useAuth();
   
   const [leaderboard, setLeaderboard] = useState([]);
@@ -42,6 +42,13 @@ export default function ProfilePage() {
     };
     if (!loading) fetchLeaderboard();
   }, [loading]);
+
+  const handleReset = async () => {
+    if (confirm("Are you sure? All your progress, badges, and XP will be deleted forever! ⚠️")) {
+      await resetProgress();
+      window.location.reload();
+    }
+  };
 
   if (loading) {
     return (
@@ -80,7 +87,6 @@ export default function ProfilePage() {
     <div style={{ background: "#070711", minHeight: "100vh", color: "#fff" }}>
       <Navbar />
       
-      {/* Container with responsive padding */}
       <div style={{ maxWidth: "1000px", margin: "0 auto", padding: "80px 16px 60px" }}>
         
         <style>{`
@@ -93,12 +99,18 @@ export default function ProfilePage() {
           .badges-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 12px; }
           @media (min-width: 600px) { .badges-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); } }
           
-          .profile-header { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 20px; background: rgba(255,255,255,0.02); padding: 32px 20px; borderRadius: 32px; border: 1px solid rgba(255,255,255,0.05); margin-bottom: 32px; }
+          .profile-header { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 20px; background: rgba(255,255,255,0.02); padding: 32px 20px; borderRadius: 32px; border: 1px solid rgba(255,255,255,0.05); margin-bottom: 32px; position: relative; }
           @media (min-width: 600px) { .profile-header { flex-direction: row; text-align: left; padding: 40px; } }
+          
+          .reset-btn { position: absolute; top: 20px; right: 20px; background: rgba(255,75,75,0.05); border: 1px solid rgba(255,75,75,0.1); color: #ff4b4b; padding: 6px 14px; borderRadius: 100px; fontSize: "0.65rem"; fontWeight: 800; cursor: pointer; transition: 0.2s; }
+          .reset-btn:hover { background: rgba(255,75,75,0.15); scale: 1.05; }
         `}</style>
 
         {/* Profile Header */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="profile-header">
+          {/* Reset Button */}
+          <button onClick={handleReset} className="reset-btn">Reset Account 🧹</button>
+
           <div style={{ width: "100px", height: "100px", borderRadius: "50%", background: "linear-gradient(135deg, #8b5cf6, #06b6d4)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "3rem", boxShadow: "0 0 30px rgba(139,92,246,0.2)", overflow: "hidden", border: "4px solid #070711", flexShrink: 0 }}>
             {user?.photoURL ? (
               <img 
@@ -138,10 +150,7 @@ export default function ProfilePage() {
         </div>
 
         <div className="profile-grid-main">
-          {/* Main Content Area */}
           <div style={{ display: "flex", flexDirection: "column", gap: "40px" }}>
-            
-            {/* Roadmap Progress */}
             <section>
               <h2 style={{ fontSize: "1.3rem", fontWeight: 900, marginBottom: "20px", display: "flex", alignItems: "center", gap: "12px" }}>🗺️ Roadmap Progress</h2>
               <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
@@ -170,7 +179,6 @@ export default function ProfilePage() {
               </div>
             </section>
 
-            {/* Badges */}
             <section>
               <h2 style={{ fontSize: "1.3rem", fontWeight: 900, marginBottom: "20px" }}>🏆 Achievements <span style={{ fontSize: "0.8rem", color: "#64748b", fontWeight: 500 }}>({unlockedBadges.length}/{BADGES.length})</span></h2>
               <div className="badges-grid">
@@ -187,10 +195,7 @@ export default function ProfilePage() {
             </section>
           </div>
 
-          {/* Sidebar Area (Leaderboard & Activity) */}
           <div style={{ display: "flex", flexDirection: "column", gap: "40px" }}>
-            
-            {/* Leaderboard */}
             <section>
               <h2 style={{ fontSize: "1.3rem", fontWeight: 900, marginBottom: "20px" }}>🔥 Top Learners</h2>
               <div style={{ background: "rgba(255,255,255,0.02)", borderRadius: "24px", padding: "16px", border: "1px solid rgba(255,255,255,0.05)" }}>
@@ -205,7 +210,6 @@ export default function ProfilePage() {
               </div>
             </section>
 
-            {/* Recent Activity */}
             <section>
               <h2 style={{ fontSize: "1.3rem", fontWeight: 900, marginBottom: "20px" }}>✨ Recent Activity</h2>
               <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
