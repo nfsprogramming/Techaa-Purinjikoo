@@ -5,33 +5,41 @@ import { useUserProgress } from "@/context/UserProgressContext";
 import { motion } from "framer-motion";
 
 export default function TopicCard({ topic, index }) {
-  const { completedTopics } = useUserProgress();
+  const { completedTopics, isTopicLocked } = useUserProgress();
   const isCompleted = completedTopics.includes(topic.id);
+  const isLocked = isTopicLocked(topic.id);
 
-  return (
-    <Link href={`/topics/${topic.id}`} style={{ textDecoration: "none" }}>
-      <motion.div
-        whileHover={{ 
-          y: -8, 
-          scale: 1.02,
-          boxShadow: `0 20px 40px rgba(0,0,0,0.3), 0 0 20px ${topic.accentColor}22` 
-        }}
-        whileTap={{ scale: 0.98 }}
-        style={{
-          borderRadius: "16px",
-          padding: "28px 24px",
-          height: "100%",
-          display: "flex",
-          flexDirection: "column",
-          gap: "16px",
-          background: "rgba(255,255,255,0.03)",
-          backdropFilter: "blur(12px)",
-          border: isCompleted ? "1px solid rgba(34,197,94,0.3)" : "1px solid rgba(255,255,255,0.05)",
-          position: "relative",
-          transition: "border 0.3s ease"
-        }}
-      >
-        {isCompleted && (
+  const cardContent = (
+    <motion.div
+      whileHover={!isLocked ? { 
+        y: -8, 
+        scale: 1.02,
+        boxShadow: `0 20px 40px rgba(0,0,0,0.3), 0 0 20px ${topic.accentColor}22` 
+      } : {}}
+      whileTap={!isLocked ? { scale: 0.98 } : {}}
+      style={{
+        borderRadius: "16px",
+        padding: "28px 24px",
+        height: "100%",
+        display: "flex",
+        flexDirection: "column",
+        gap: "16px",
+        background: isLocked ? "rgba(255,255,255,0.01)" : "rgba(255,255,255,0.03)",
+        backdropFilter: "blur(12px)",
+        border: isLocked ? "1px solid rgba(255,255,255,0.02)" : (isCompleted ? "1px solid rgba(34,197,94,0.3)" : "1px solid rgba(255,255,255,0.05)"),
+        position: "relative",
+        transition: "all 0.3s ease",
+        opacity: isLocked ? 0.6 : 1,
+        cursor: isLocked ? "not-allowed" : "pointer"
+      }}
+    >
+      {isLocked && (
+        <div style={{ position: "absolute", top: "12px", right: "12px", background: "rgba(0,0,0,0.5)", width: "32px", height: "32px", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", zIndex: 2 }}>
+          <span style={{ fontSize: "1.2rem" }}>🔒</span>
+        </div>
+      )}
+
+      {isCompleted && (
           <motion.div 
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
@@ -41,12 +49,12 @@ export default function TopicCard({ topic, index }) {
           </motion.div>
         )}
         
-        {/* Glow effect */}
+      {/* Glow effect */}
         <div style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, background: `radial-gradient(circle at 50% 0%, ${topic.accentColor}11, transparent 70%)`, pointerEvents: "none", borderRadius: "16px" }} />
 
         {/* Emoji */}
         <motion.div 
-          whileHover={{ rotate: [0, -10, 10, 0], transition: { duration: 0.3 } }}
+          whileHover={!isLocked ? { rotate: [0, -10, 10, 0], transition: { duration: 0.3 } } : {}}
           style={{ fontSize: "2.8rem", lineHeight: 1 }}
         >
           {topic.emoji}
@@ -58,7 +66,7 @@ export default function TopicCard({ topic, index }) {
             style={{
               fontSize: "1.25rem",
               fontWeight: 800,
-              color: "#fff",
+              color: isLocked ? "#64748b" : "#fff",
               marginBottom: "8px",
               letterSpacing: "-0.5px",
             }}
@@ -68,11 +76,11 @@ export default function TopicCard({ topic, index }) {
           <p
             style={{
               fontSize: "0.9rem",
-              color: "#94a3b8",
+              color: isLocked ? "#475569" : "#94a3b8",
               lineHeight: 1.6,
             }}
           >
-            {topic.shortDesc}
+            {isLocked ? "Complete previous topics to unlock! 🔒" : topic.shortDesc}
           </p>
         </div>
 
@@ -90,13 +98,13 @@ export default function TopicCard({ topic, index }) {
             style={{
               fontSize: "0.85rem",
               fontWeight: 800,
-              color: topic.accentColor,
+              color: isLocked ? "#475569" : topic.accentColor,
             }}
           >
-            Purinjiko →
+            {isLocked ? "Locked" : "Purinjiko →"}
           </span>
           <motion.div
-            whileHover={{ x: 3 }}
+            whileHover={!isLocked ? { x: 3 } : {}}
             style={{
               width: "32px",
               height: "32px",
@@ -109,10 +117,19 @@ export default function TopicCard({ topic, index }) {
               fontSize: "0.9rem",
             }}
           >
-            →
+            {isLocked ? "🔒" : "→"}
           </motion.div>
         </div>
-      </motion.div>
+    </motion.div>
+  );
+
+  if (isLocked) {
+    return cardContent;
+  }
+
+  return (
+    <Link href={`/topics/${topic.id}`} style={{ textDecoration: "none" }}>
+      {cardContent}
     </Link>
   );
 }

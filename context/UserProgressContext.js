@@ -182,6 +182,16 @@ export function UserProgressProvider({ children }) {
     });
   };
 
+  const isTopicLocked = (topicId) => {
+    const topicIndex = topics.findIndex(t => t.id === topicId);
+    if (topicIndex === -1) return true;
+    if (topicIndex === 0) return false; // First topic always unlocked
+    
+    // Unlocked if previous topic is completed OR it's already completed
+    const previousTopic = topics[topicIndex - 1];
+    return !progress.completedTopics.includes(previousTopic.id) && !progress.completedTopics.includes(topicId);
+  };
+
   const getLevelProgress = (levelId) => {
     const levelTopics = topics.filter(t => t.level === levelId);
     if (levelTopics.length === 0) return 0;
@@ -195,6 +205,7 @@ export function UserProgressProvider({ children }) {
       completeTopic, 
       addXP, 
       getLevelProgress,
+      isTopicLocked,
       XP_LEVELS,
       BADGES,
       loading: !initialized

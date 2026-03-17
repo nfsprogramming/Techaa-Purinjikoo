@@ -14,8 +14,18 @@ export default function TopicPage() {
   const params = useParams();
   const router = useRouter();
   const topic = topics.find((t) => t.id === params.id);
-  const { completeTopic, addXP, unlockedBadges, BADGES, completedTopics } = useUserProgress();
+  const { completeTopic, addXP, unlockedBadges, BADGES, completedTopics, isTopicLocked, loading } = useUserProgress();
   const [activeTab, setActiveTab] = useState("learn"); // learn, quiz, mistakes
+  
+  const isLocked = isTopicLocked(params.id);
+
+  useEffect(() => {
+    if (isLocked && topic) {
+      // Allow access if they just completed it (state might be updating)
+      // Actually isTopicLocked handles completion check
+    }
+  }, [isLocked, topic]);
+
   const [correctAnswer, setCorrectAnswer] = useState(null);
   const [showShareModal, setShowShareModal] = useState(false);
   const [lastUnlockedBadge, setLastUnlockedBadge] = useState(null);
@@ -30,18 +40,30 @@ export default function TopicPage() {
   const currentIdx = topics.findIndex(t => t.id === topic?.id);
   const nextTopic = topics[currentIdx + 1];
 
+  const initialBadgeCount = useRef(null);
+
   // Show badge unlock notification
   useEffect(() => {
-    if (unlockedBadges.length > 0) {
+    if (loading) return; // Wait for data to load
+
+    // Only initialize the count on the first render of this component instance
+    if (initialBadgeCount.current === null) {
+      initialBadgeCount.current = unlockedBadges.length;
+      return;
+    }
+
+    // Only show notification if the length has increased since we last checked
+    if (unlockedBadges.length > initialBadgeCount.current) {
       const latestBadgeId = unlockedBadges[unlockedBadges.length - 1];
       const badge = BADGES.find(b => b.id === latestBadgeId);
       if (badge) {
         setLastUnlockedBadge(badge);
         const timer = setTimeout(() => setLastUnlockedBadge(null), 5000);
+        initialBadgeCount.current = unlockedBadges.length;
         return () => clearTimeout(timer);
       }
     }
-  }, [unlockedBadges.length]);
+  }, [unlockedBadges.length, BADGES, loading]);
 
   const handleQuizAnswer = (isCorrect) => {
     setCorrectAnswer(isCorrect);
@@ -80,6 +102,31 @@ export default function TopicPage() {
       <div style={{ background: "#070711", minHeight: "100vh", color: "#fff", display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column" }}>
         <h2>Topic Not Found Bro! 😅</h2>
         <Link href="/" style={{ color: "#8b5cf6", marginTop: "20px" }}>Go Home</Link>
+      </div>
+    );
+  }
+
+  if (isLocked) {
+    const prevTopic = topics[topics.findIndex(t => t.id === topic.id) - 1];
+    return (
+      <div style={{ background: "#070711", minHeight: "100vh", color: "#fff", display: "flex", alignItems: "center", justifyContent: "center", padding: "24px" }}>
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          style={{ maxWidth: "500px", width: "100%", textAlign: "center", background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.05)", padding: "60px 40px", borderRadius: "32px", backdropFilter: "blur(20px)" }}
+        >
+          <div style={{ fontSize: "5rem", marginBottom: "24px", opacity: 0.5 }}>🔒</div>
+          <h2 style={{ fontSize: "2rem", fontWeight: 900, marginBottom: "16px" }}>This Topic is Locked!</h2>
+          <p style={{ color: "#94a3b8", fontSize: "1.1rem", lineHeight: 1.6, marginBottom: "32px" }}>
+            Pazhaya topics-ah mudicha thaan idhu open aagum bro. One by one-ah learn panni master aagu! 🚀
+          </p>
+          {prevTopic && (
+            <Link href={`/topics/${prevTopic.id}`} style={{ display: "block", background: "#8b5cf6", color: "#fff", padding: "16px", borderRadius: "16px", textDecoration: "none", fontWeight: 800, marginBottom: "16px" }}>
+              Complete: {prevTopic.title}
+            </Link>
+          )}
+          <Link href="/" style={{ color: "#94a3b8", textDecoration: "none", fontSize: "0.9rem", fontWeight: 600 }}>Back to Roadmap</Link>
+        </motion.div>
       </div>
     );
   }

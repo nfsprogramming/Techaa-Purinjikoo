@@ -7,23 +7,6 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import TopicCard from "@/components/TopicCard";
 import { motion, AnimatePresence } from "framer-motion";
-
-const ROADMAP_LEVELS = [
-  { id: 1, name: "Internet Basics", icon: "🌐", topics: "1-15", desc: "Digital world-oda base-ah purinjiko." },
-  { id: 2, name: "Web Development", icon: "💻", topics: "16-30", desc: "App build panna enna venum?" },
-  { id: 3, name: "Databases", icon: "🗄️", topics: "31-45", desc: "Data storage magic." },
-  { id: 4, name: "Cloud & Deploy", icon: "☁️", topics: "46-60", desc: "Go live on internet." },
-  { id: 5, name: "Dev Tools", icon: "🧑‍💻", topics: "61-75", desc: "Pro developer-ah maaru." },
-  { id: 6, name: "Security", icon: "🔐", topics: "76-85", desc: "Safe ah irukkalam." },
-  { id: 7, name: "AI & Modern Tech", icon: "🤖", topics: "86-100", desc: "Future is here." },
-];
-
-const CONFUSIONS = [
-  { p1: "Frontend", p2: "Backend", emoji: "🎨 vs ⚙️", link: "/topics/frontend-vs-backend" },
-  { p1: "Library", p2: "Framework", emoji: "🛠️ vs 🏗️", link: "/topics/library-vs-framework" },
-  { p1: "Domain", p2: "Hosting", emoji: "📛 vs 🏗️", link: "/topics/domain-vs-hosting" },
-];
-
 import { useUserProgress } from "@/context/UserProgressContext";
 import { useAuth } from "@/context/AuthContext";
 
@@ -34,9 +17,15 @@ export default function Home() {
 
   const filteredTopics = topics.filter(t => t.level === activeLevel || (!t.level && activeLevel === 1));
 
+  const CONFUSIONS = [
+    { p1: "Frontend", p2: "Backend", emoji: "🎨 vs ⚙️", link: "/topics/frontend-vs-backend" },
+    { p1: "Library", p2: "Framework", emoji: "🛠️ vs 🏗️", link: "/topics/library-vs-framework" },
+    { p1: "Domain", p2: "Hosting", emoji: "📛 vs 🏗️", link: "/topics/domain-vs-hosting" },
+  ];
+
   return (
     <div style={{ background: "#070711", minHeight: "100vh", color: "#fff" }}>
-
+      
       {/* Hero Section */}
       <motion.section 
         initial={{ opacity: 0, y: 20 }}
@@ -81,11 +70,56 @@ export default function Home() {
               </motion.div>
             )}
             <motion.div whileHover={{ scale: 1.05 }}>
-              <Link href="#roadmap" style={{ display: "inline-block", background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", color: "#fff", padding: "12px 28px", borderRadius: "12px", fontWeight: 700, textDecoration: "none" }}>Explore Topics 📖</Link>
+              <Link href="#level-overview" style={{ display: "inline-block", background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", color: "#fff", padding: "12px 28px", borderRadius: "12px", fontWeight: 700, textDecoration: "none" }}>Explore Roadmap 🗺️</Link>
             </motion.div>
           </div>
         </div>
       </motion.section>
+
+      {/* Level Overview Grid */}
+      <section id="level-overview" style={{ maxWidth: "1100px", margin: "-40px auto 60px", padding: "0 24px", position: "relative", zIndex: 10 }}>
+        <h3 style={{ fontSize: "1.2rem", fontWeight: 800, marginBottom: "24px", textAlign: "center", color: "#94a3b8" }}>SELECT YOUR LEVEL</h3>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "20px" }}>
+          {ROADMAP_LEVEL_DATA().map((lvl) => {
+            const progress = getLevelProgress(lvl.id);
+            return (
+              <motion.div
+                key={lvl.id}
+                whileHover={{ y: -10, boxShadow: "0 20px 40px rgba(0,0,0,0.4)", background: "rgba(255,255,255,0.06)" }}
+                onClick={() => {
+                  setActiveLevel(lvl.id);
+                  document.getElementById('roadmap')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                style={{
+                  background: activeLevel === lvl.id ? "rgba(139,92,246,0.1)" : "rgba(255,255,255,0.03)",
+                  backdropFilter: "blur(20px)",
+                  border: activeLevel === lvl.id ? "1px solid #8b5cf6" : "1px solid rgba(255,255,255,0.05)",
+                  borderRadius: "24px",
+                  padding: "24px",
+                  cursor: "pointer",
+                  transition: "0.3s"
+                }}
+              >
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "16px" }}>
+                  <span style={{ fontSize: "2.5rem" }}>{lvl.icon}</span>
+                  <span style={{ fontSize: "0.7rem", fontWeight: 800, color: progress === 100 ? "#4ade80" : "#8b5cf6", background: "rgba(139,92,246,0.1)", padding: "4px 8px", borderRadius: "8px" }}>
+                    {progress}%
+                  </span>
+                </div>
+                <h4 style={{ fontSize: "1.1rem", fontWeight: 800, marginBottom: "4px" }}>{lvl.name}</h4>
+                <p style={{ fontSize: "0.8rem", color: "#94a3b8", marginBottom: "16px" }}>{lvl.desc}</p>
+                <div style={{ height: "6px", background: "rgba(255,255,255,0.05)", borderRadius: "100px", overflow: "hidden" }}>
+                  <motion.div 
+                    initial={{ width: 0 }}
+                    animate={{ width: `${progress}%` }}
+                    style={{ height: "100%", background: progress === 100 ? "#4ade80" : "linear-gradient(90deg, #8b5cf6, #06b6d4)" }}
+                  />
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+      </section>
 
       {/* Beginner Confusion Section */}
       <motion.section 
@@ -120,7 +154,7 @@ export default function Home() {
           viewport={{ once: true }}
           style={{ fontSize: "2rem", fontWeight: 900, textAlign: "center", marginBottom: "40px" }}
         >
-          🗺️ Tech Learning Roadmap
+          🗺️ Detailed Topics
         </motion.h2>
 
         <div style={{ display: "flex", gap: "12px", overflowX: "auto", paddingTop: "10px", paddingBottom: "20px", marginBottom: "40px", scrollbarWidth: "none" }} className="no-scrollbar">
@@ -152,7 +186,6 @@ export default function Home() {
                 <div style={{ fontSize: "0.75rem", color: activeLevel === lvl.id ? "rgba(255,255,255,0.8)" : "#94a3b8", fontWeight: 600 }}>LEVEL {lvl.id}</div>
                 <div style={{ fontWeight: 800, fontSize: "1rem", marginBottom: "12px" }}>{lvl.name}</div>
 
-                {/* Mini progress bar */}
                 <div style={{ height: "4px", background: activeLevel === lvl.id ? "rgba(255,255,255,0.2)" : "rgba(255,255,255,0.05)", borderRadius: "100px", marginTop: "auto" }}>
                   <motion.div 
                     initial={{ width: 0 }}
@@ -205,6 +238,7 @@ export default function Home() {
         </motion.div>
       </section>
 
+      <Footer />
     </div>
   );
 }
