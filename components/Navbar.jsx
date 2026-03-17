@@ -68,9 +68,12 @@ export default function Navbar() {
         <Link href="/" style={{ textDecoration: "none", flexShrink: 0 }}>
           <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
             <span style={{ fontSize: "1.3rem" }}>☕</span>
-            <span style={{ fontWeight: 800, fontSize: "1rem", background: "linear-gradient(135deg, #8b5cf6, #06b6d4)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text", letterSpacing: "-0.3px" }}>
-              Techaa Purinjikoo
-            </span>
+            <div style={{ display: "flex", flexDirection: "column", lineHeight: 1 }}>
+              <span style={{ fontWeight: 800, fontSize: "1rem", background: "linear-gradient(135deg, #8b5cf6, #06b6d4)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text", letterSpacing: "-0.3px" }}>
+                Techaa Purinjikoo
+              </span>
+              <span style={{ fontSize: "0.6rem", color: "#94a3b8", fontWeight: 700, letterSpacing: "0.5px", marginTop: "2px" }}>BY NFS PROGRAMMING</span>
+            </div>
           </div>
         </Link>
 

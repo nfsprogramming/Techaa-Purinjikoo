@@ -22,8 +22,11 @@ export default function Footer() {
             </Link>
           ))}
         </div>
-        <div style={{ fontSize: "0.76rem", color: "#4a4a6a" }}>
-          Made with ❤️ for students who wanna learn tech without fear 🔥
+        <div style={{ fontSize: "0.82rem", color: "#94a3b8", fontWeight: 600 }}>
+          Made with ❤️ by <span style={{ color: "#8b5cf6" }}>NFS Programming</span> 🔥
+        </div>
+        <div style={{ fontSize: "0.74rem", color: "#4a4a6a", marginTop: "8px" }}>
+          Empowering students to learn tech without fear.
         </div>
       </div>
     </footer>
