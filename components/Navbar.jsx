@@ -8,15 +8,30 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const NAV_LINKS = [
   { href: "/", label: "Home" },
-  { href: "/#roadmap", label: "Roadmap" },
+  { href: "/battle", label: "Battle ⚔️" },
+  { href: "/flashcards", label: "Flashcards ⚡" },
   { href: "/dictionary", label: "Dictionary 📖" },
 ];
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [showXpHistory, setShowXpHistory] = useState(false);
-  const { xp, level, streak, XP_LEVELS, xpHistory } = useUserProgress();
+  const { xp, level, streak, XP_LEVELS, xpHistory, avatarStyle } = useUserProgress();
   const { user, loading, loginWithGoogle, logout } = useAuth();
+  
+  const BORDERS = {
+    plain: { border: "2px solid #8b5cf6" },
+    neon: { border: "2px solid #8b5cf6", boxShadow: "0 0 8px #8b5cf6" },
+    glow: { border: "2px solid #06b6d4", boxShadow: "0 0 10px #06b6d4" },
+    gold: { border: "2px solid #fbbf24", boxShadow: "0 0 12px #fbbf24" }
+  };
+
+  const EMOJIS = {
+    verified: "✅",
+    pro: "🛡️",
+    fire: "🔥",
+    crown: "👑"
+  };
   
   useEffect(() => {
     const handleResize = () => { if (window.innerWidth > 768) setOpen(false); };
@@ -57,7 +72,7 @@ export default function Navbar() {
         color: #8b5cf6;
       }
       .nav-brand-sub {
-        font-size: 0.5rem;
+        font-size: 0.45rem;
         color: #64748b;
         font-weight: 800;
         letter-spacing: 0.5px;
@@ -75,8 +90,9 @@ export default function Navbar() {
         .nav-mobile-only { display: none !important; }
       }
       @media (max-width: 360px) {
-        .nav-brand-text { font-size: 0.8rem; }
-        .nav-container { padding: 0 6px; }
+        .nav-brand-text { font-size: 0.75rem; }
+        .nav-container { padding: 0 4px; }
+        .nav-mobile-only { gap: 4px; }
       }
     `}</style>
 
@@ -159,13 +175,22 @@ export default function Navbar() {
           {user ? (
             <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
               <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-                <Link href="/profile" style={{ display: "flex", alignItems: "center" }}>
+                <Link href="/profile" style={{ display: "flex", alignItems: "center", position: "relative" }}>
                   <img 
                     src={user.photoURL || `https://ui-avatars.com/api/?name=${user.displayName || 'User'}&background=8b5cf6&color=fff`} 
-                    style={{ width: "28px", height: "28px", borderRadius: "50%", border: "2px solid #8b5cf6" }} 
+                    style={{ 
+                      width: "28px", height: "28px", borderRadius: "50%", 
+                      ...(BORDERS[avatarStyle?.border] || BORDERS.plain)
+                    }} 
                     alt="Avatar"
+                    referrerPolicy="no-referrer"
                     onError={(e) => { e.target.src = `https://ui-avatars.com/api/?name=${user.displayName || 'User'}&background=8b5cf6&color=fff`; }}
                   />
+                  {avatarStyle?.emoji && avatarStyle.emoji !== "none" && EMOJIS[avatarStyle.emoji] && (
+                    <span style={{ position: "absolute", bottom: -4, right: -4, fontSize: "0.6rem", background: "#070711", borderRadius: "50%", width: "12px", height: "12px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                      {EMOJIS[avatarStyle.emoji]}
+                    </span>
+                  )}
                 </Link>
               </motion.div>
               

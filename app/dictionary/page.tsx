@@ -15,10 +15,12 @@ export default function DictionaryPage() {
 
       <div style={{ maxWidth: 860, margin: "0 auto", padding: "60px 24px 100px", position: "relative", zIndex: 1 }}>
 
-        {/* Back */}
-        <Link href="/" style={{ display: "inline-flex", alignItems: "center", gap: 6, color: "#7b7b9a", textDecoration: "none", fontSize: "0.82rem", marginBottom: 32, padding: "6px 14px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 8 }}>
-          ← Home
-        </Link>
+        {/* Back Button */}
+        <div style={{ marginBottom: "32px" }}>
+          <Link href="/" style={{ display: "inline-flex", alignItems: "center", gap: "8px", color: "#64748b", textDecoration: "none", fontSize: "0.85rem", fontWeight: 700, padding: "8px 16px", background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: "12px", transition: "0.2s" }}>
+            <span>←</span> Home
+          </Link>
+        </div>
 
         {/* Header */}
         <div style={{ textAlign: "center", marginBottom: 48 }}>

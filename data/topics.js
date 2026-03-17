@@ -29,11 +29,33 @@ export const topics = [
       mistake: "College days-la internet-um WWW-um onnu nu nenachi interview-la thappa sollitten.",
       lesson: "Internet hardware (Wires), Web software (Service). Rendum vera vera!",
     },
-    quiz: {
-      question: "Internet connectivity-ku 90% help pannurathu ethu?",
-      options: ["WiFi Router", "Undersea Cables", "Satellite"],
-      answer: 1
-    },
+    quizzes: [
+      {
+        question: "Internet connectivity-ku 90% help pannurathu ethu?",
+        options: ["WiFi Router", "Undersea Cables", "Satellite"],
+        answer: 1
+      },
+      {
+        question: "Internet hardware-ah illai software-ah?",
+        options: ["Verum Software", "Verum Hardware", "Rendumae (Cables + Protocols)"],
+        answer: 2
+      },
+      {
+        question: "WWW matrum Internet rendumae onnu dhaan, correct-aa?",
+        options: ["Aama, rendumae onnu dhaan", "Illa, Internet road maari, Web car maari", "Theriyala bro"],
+        answer: 1
+      },
+      {
+        question: "Ulagathoda first email entha varusham send pannanga?",
+        options: ["1990", "1971", "1985"],
+        answer: 1
+      },
+      {
+        question: "WiFi illana Internet mothamaa ninnudumaa?",
+        options: ["Aama, WiFi thaan Internet", "Illa, WiFi just oru connecting medium dhaan", "Internet-ae WiFi moolamaa thaan varudhu"],
+        answer: 1
+      }
+    ],
     funFact: "Ulagathoda first email send pannathu 1971-laye! 📧",
   },
 
@@ -66,11 +88,33 @@ export const topics = [
       mistake: "Starting-la HTTP-la payment page build panninen. Secure illanu bank API reject aaiduchu.",
       lesson: "Never build anything without SSL (HTTPS) ippo trend and security.",
     },
-    quiz: {
-      question: "HTTPS-la 'S' ethai kurikkudhu?",
-      options: ["System", "Secure", "Socket"],
-      answer: 1
-    },
+    quizzes: [
+      {
+        question: "HTTPS-la 'S' ethai kurikkudhu?",
+        options: ["System", "Secure", "Socket"],
+        answer: 1
+      },
+      {
+        question: "HTTP vs HTTPS: Ethu encryption use pannum?",
+        options: ["HTTP", "HTTPS", "Rendume"],
+        answer: 1
+      },
+      {
+        question: "Public WiFi-la browser use pannum pothu ethu romba mukkiyam?",
+        options: ["Free VPN", "HTTPS (Secure connection)", "Airplane mode"],
+        answer: 1
+      },
+      {
+        question: "HTTP vazhiyaa password anuppunaa enna aagum?",
+        options: ["Safe-aa poagum", "Plain text-aa poagum, hackers paarkkalaam", "Browser-ae block pannrum"],
+        answer: 1
+      },
+      {
+        question: "SSL Certificate ethukku use aagudhu?",
+        options: ["Website-ku design panna", "Data-va encrypt panni secure-aa vachukka", "Internet speed-ah adhigamaakka"],
+        answer: 1
+      }
+    ],
     funFact: "Google ippo HTTPS illathavan site-ah search results-la pinnaadi thalliduvanga! 📉",
   },
 
@@ -103,11 +147,33 @@ export const topics = [
       mistake: "Website update pannum pothu CSS maathinen, aana user-ku old design dhaan kaatuchu.",
       lesson: "Adu Cache prachana! User-ku clear pannuna dhaan pudhu layout varum. Versioning pannanum.",
     },
-    quiz: {
-      question: "Login panna vaikkura data enga irukkum?",
-      options: ["Cache", "Cookies", "Local Storage"],
-      answer: 1
-    },
+    quizzes: [
+      {
+        question: "Login panna vaikkura data enga irukkum?",
+        options: ["Cache", "Cookies", "Local Storage"],
+        answer: 1
+      },
+      {
+        question: "Website speed-ah images store panni speed up panradhu ethu?",
+        options: ["Cookies", "Cache", "History"],
+        answer: 1
+      },
+      {
+        question: "Cookies clear pannina enna aagum?",
+        options: ["Website delete aaidum", "Login logout aaidum", "Internet cut aaidum"],
+        answer: 1
+      },
+      {
+        question: "Cache-la enna maari files store aagum?",
+        options: ["Passwords", "Images, CSS, JS files", "Credit card numbers"],
+        answer: 1
+      },
+      {
+        question: "Browser memory pathala-naa ethai clear panradhu better?",
+        options: ["Cookies", "Cache", "Bookmarks"],
+        answer: 1
+      }
+    ],
     funFact: "Cookies thaan unga online shopping preference-ah track panni ads kaata help pannuthu! 🛍️",
   },
 
@@ -140,11 +206,33 @@ export const topics = [
       mistake: "Calculation logic full-ah client (browser) laye vachutaen. User easy-ah hack pannitaanga.",
       lesson: "Critical logic always server-la thaan irukkanum. Client is just for display!",
     },
-    quiz: {
-      question: "Unga Chrome browser enna category?",
-      options: ["Client", "Server", "Database"],
-      answer: 0
-    },
+    quizzes: [
+      {
+        question: "Unga Chrome browser enna category?",
+        options: ["Client", "Server", "Database"],
+        answer: 0
+      },
+      {
+        question: "Request-ah anuppuravar yaar?",
+        options: ["Server", "Client", "Internet"],
+        answer: 1
+      },
+      {
+        question: "Request-ku pathil (Response) tharubavar yaar?",
+        options: ["Client", "Server", "User"],
+        answer: 1
+      },
+      {
+        question: "Server down-aa irundhaa response varumaa?",
+        options: ["Aamaa, client-ae create pannidum", "Illa, error thaan varum", "Internet speed adhigamaana varum"],
+        answer: 1
+      },
+      {
+        question: "Oru server millions of clients-ah handle panna mudiyumaa?",
+        options: ["Aamaa, scaling panni handle pannalaam", "Illa, oru server-ku oru client thaan", "Theriyala bro"],
+        answer: 0
+      }
+    ],
     funFact: "Oru server orae நேரத்துல thousands of clients-ku answer panna mudiyum! 🚀",
   },
 
@@ -176,11 +264,33 @@ export const topics = [
       mistake: "10MB image-ah direct-ah home page-la poattaen. Site load aaga 30s aaiduchu.",
       lesson: "Always optimize images and minified files. Speed is king!",
     },
-    quiz: {
-      question: "Browser screen-la draw panra process-ku enna peru?",
-      options: ["Rendering", "Cooking", "Downloading"],
-      answer: 0
-    },
+    quizzes: [
+      {
+        question: "Browser screen-la draw panra process-ku enna peru?",
+        options: ["Rendering", "Cooking", "Downloading"],
+        answer: 0
+      },
+      {
+        question: "Domain name-ah IP-aa maathuradhu ethu?",
+        options: ["DNS", "HTTP", "CSS"],
+        answer: 0
+      },
+      {
+        question: "Website loading slow-aa irukka enna kaaranam?",
+        options: ["Heavy images and JS files", "Fast internet", "Too many HTML tags"],
+        answer: 0
+      },
+      {
+        question: "TTFB (Time to First Byte) ethai kurikkudhu?",
+        options: ["Browser speed", "Server-oda first response time", "Internet speed"],
+        answer: 1
+      },
+      {
+        question: "Async/Defer tags ethukku use pannuvom?",
+        options: ["JS file-ah non-blocking-aa load panna", "Styling panna", "Click event handle panna"],
+        answer: 0
+      }
+    ],
     funFact: "Chromium engine thaan ippo world-la most used browser engine! 🌐",
   },
 
@@ -212,11 +322,33 @@ export const topics = [
       mistake: "Public IP settings-ah secure pannaama public open support server run pannitaen. Someone scanned and found open ports.",
       lesson: "Network security starts with controlling who can access your IP.",
     },
-    quiz: {
-      question: "Domain name back-end-la IP check pannuma?",
-      options: ["Yes", "No"],
-      answer: 0
-    },
+    quizzes: [
+      {
+        question: "Domain name back-end-la IP check pannuma?",
+        options: ["Yes", "No"],
+        answer: 0
+      },
+      {
+        question: "IP full form enna?",
+        options: ["Internet Provider", "Internet Protocol", "Internal Path"],
+        answer: 1
+      },
+      {
+        question: "IPv4 pathala-nu ippo enna system-ku maaruroam?",
+        options: ["IPv5", "IPv6", "IPvX"],
+        answer: 1
+      },
+      {
+        question: "Unga connection identity-ku enna IP use aagum?",
+        options: ["Public IP", "Private IP", "Hidden IP"],
+        answer: 0
+      },
+      {
+        question: "Static IP-naa enna?",
+        options: ["Address maaraadhu", "Address maariite irukkum", "No address"],
+        answer: 0
+      }
+    ],
     funFact: "Static IP na address maaraathu, Dynamic IP na router restart pannuna address maaralaam! 🔄",
   },
 
@@ -249,11 +381,33 @@ export const topics = [
       mistake: "Hosting vaangi files upload pannitaen, aana domain vaangala. Ip address vachu yaarkum share panna mudiyaala.",
       lesson: "Always get a domain. Numbers-ah yaarum nyabagam vechuka maataanga!",
     },
-    quiz: {
-      question: "google.com enna category?",
-      options: ["Hosting", "Domain", "Software"],
-      answer: 1
-    },
+    quizzes: [
+      {
+        question: "google.com enna category?",
+        options: ["Hosting", "Domain", "Software"],
+        answer: 1
+      },
+      {
+        question: "Website files-ah store panni veikkira idam ethu?",
+        options: ["Domain", "Hosting", "Browser"],
+        answer: 1
+      },
+      {
+        question: "Domain renewal eppo pannanum?",
+        options: ["Life time-ku orae time", "Every year renewal pannanum", "Renewal thevai illa"],
+        answer: 1
+      },
+      {
+        question: "Hosting types-la starting-ku ethu best?",
+        options: ["Dedicated Server", "Shared Hosting", "Cloud Hosting"],
+        answer: 1
+      },
+      {
+        question: "Domain address-um veedum (Hosting) onna?",
+        options: ["Aamaa", "Illa, rendu vera vera", "Theriyala"],
+        answer: 1
+      }
+    ],
     funFact: "Domain names daily thousands of dollars-ku reselling nadakkum bro! 💰",
   },
 
@@ -286,11 +440,33 @@ export const topics = [
       mistake: "Production-la try/catch illama syntax error pannitaen. Users ellarukkum 500 error vandhuduchu.",
       lesson: "Always handle errors gracefully. Don't let 500 errors reach the user frequently.",
     },
-    quiz: {
-      question: "Server Side error category entha number-la start aagum?",
-      options: ["4xx", "5xx", "2xx"],
-      answer: 1
-    },
+    quizzes: [
+      {
+        question: "Server Side error category entha number-la start aagum?",
+        options: ["4xx", "5xx", "2xx"],
+        answer: 1
+      },
+      {
+        question: "404 Not Found-naa enna artham?",
+        options: ["Request Successful", "Intha page kidaikala (Page not found)", "Server crash aaiduchu"],
+        answer: 1
+      },
+      {
+        question: "200 Success-naa enna artham?",
+        options: ["Ellamae super-aa nadandhu mudinjiduchu", "Server slow-aa irukku", "Login failed"],
+        answer: 0
+      },
+      {
+        question: "301 Redirect ethukku use pannuvom?",
+        options: ["Page-ah permanent-aa vera URL-ku maatha", "Page-ah delete panna", "Images-ah optimize panna"],
+        answer: 0
+      },
+      {
+        question: "Client-side error status codes entha number-la start aagum?",
+        options: ["2xx", "4xx", "5xx"],
+        answer: 1
+      }
+    ],
     funFact: "418 status code 'I'm a teapot' nu onnu irukku! Actually adhu oru joke code. ☕",
   },
 
@@ -322,11 +498,33 @@ export const topics = [
       mistake: "CDN configuration thappa pannitaen. US users-ku old outdated images load aachu.",
       lesson: "CDN cache invalidation correct-ah handle pannanum. New update vandha cache-ah purge panna maranthuraatha.",
     },
-    quiz: {
-      question: "CDN core feature enna?",
-      options: ["Hosting Database", "Speeding up Content", "Writing Code"],
-      answer: 1
-    },
+    quizzes: [
+      {
+        question: "CDN core feature enna?",
+        options: ["Hosting Database", "Speeding up Content Delivery", "Writing Code"],
+        answer: 1
+      },
+      {
+        question: "CDN content-ah enga store pannum?",
+        options: ["Orae oru server-la mattum", "World pooraa irukkira edge servers-la", "Unga mobile-la mattum"],
+        answer: 1
+      },
+      {
+        question: "US user-ku India server-la irundhu data vara delay aana enna pannanum?",
+        options: ["CDN use pannanum", "Internet speed adhigamaakkanum", "Server-ah shutdown pannanum"],
+        answer: 0
+      },
+      {
+        question: "Cloudflare enna category logic?",
+        options: ["CDN & Security", "Database", "Design Tool"],
+        answer: 0
+      },
+      {
+        question: "CDN-naa full form enna?",
+        options: ["Content Delivery Network", "Cool Data Node", "Clickable Data Now"],
+        answer: 0
+      }
+    ],
     funFact: "Netflix use panra global speed-ku 50% reason CDN thaan! 🍿",
   },
 
@@ -358,11 +556,33 @@ export const topics = [
       mistake: "Main keywords ellathayum images-la vachutaen. Google bots-ala text-ah padikka mudiyaama site ignore aaiduchu.",
       lesson: "Use semantic HTML. Content is king for SEO!",
     },
-    quiz: {
-      question: "Search engines-ku unga site pages pathi solra file ethu?",
-      options: ["index.html", "Sitemap.xml", "main.css"],
-      answer: 1
-    },
+    quizzes: [
+      {
+        question: "Search engines-ku unga site pages pathi solra file ethu?",
+        options: ["index.html", "Sitemap.xml", "main.css"],
+        answer: 1
+      },
+      {
+        question: "SEO-naa full form enna?",
+        options: ["Safe Engine Order", "Search Engine Optimization", "Super Electronic Object"],
+        answer: 1
+      },
+      {
+        question: "Robots.txt file-oda vellai enna?",
+        options: ["Design panna", "Search bots ethai scan pannanum, ethai panna koodathu-nu solrathu", "Virus-ah kandupikka"],
+        answer: 1
+      },
+      {
+        question: "H1 matrum Meta tags SEO-ku mukkiyamaa?",
+        options: ["Aamaa, romba mukkiyam", "Illa, backup thaan", "Theriyala"],
+        answer: 0
+      },
+      {
+        question: "Keyword stuffing pannunaa enna aagum?",
+        options: ["Google ranking increase aagum", "Google unga site-ah penalize panni rank koraikkum", "No changes"],
+        answer: 1
+      }
+    ],
     funFact: "Google algorithms daily change aagite irukkum to avoid spam content! 🕷️",
   },
 
@@ -394,18 +614,40 @@ export const topics = [
       mistake: "Motha layout-um `<div>` vachu built pannittaen. Screen readers kulla site unusable aaiduchu.",
       lesson: "Use proper semantic tags. It costs nothing but adds huge value.",
     },
-    quiz: {
-      question: "SEO-ku entha tags adhighama help pannanum?",
-      options: ["Divs", "Semantic Tags", "Styles"],
-      answer: 1
-    },
+    quizzes: [
+      {
+        question: "SEO-ku entha tags adhighama help pannanum?",
+        options: ["Divs mattum", "Meaningful Semantic Tags", "Inline Styles"],
+        answer: 1
+      },
+      {
+        question: "Navigation menu-ku entha tag use pannanum?",
+        options: ["<nav>", "<menu>", "<div>"],
+        answer: 0
+      },
+      {
+        question: "Footer-ku use aagum tag ethu?",
+        options: ["<bottom>", "<footer>", "<end>"],
+        answer: 1
+      },
+      {
+        question: "Main article content-ku entha tag use aagum?",
+        options: ["<article>", "<text>", "<div-main>"],
+        answer: 0
+      },
+      {
+        question: "Semantic HTML na enna artham?",
+        options: ["Meaningful coding foundation", "Colorful design", "JavaScript logic"],
+        answer: 0
+      }
+    ],
     funFact: "There are over 100 HTML tags but periya developers 20-30 thaan adhighama use pannuvaanga! 🏗️",
   },
 
   {
     id: "seo-basics-simp",
     emoji: "🔍",
-    title: "SEO Basics",
+    title: "Google Ranking Strategy",
     shortDesc: "Search Engine Optimization.",
     accentColor: "#f59e0b",
     tagline: "Get on Google's Page 1!",
@@ -430,11 +672,33 @@ export const topics = [
       mistake: "Title-la verum 'Home' nu vachutten. Yarukkume search result-la site identify aala.",
       lesson: "Use clear, keyword-rich titles for every page.",
     },
-    quiz: {
-      question: "SEO helps in what?",
-      options: ["Code Security", "Ranking on Search Engines", "Database Speed"],
-      answer: 1
-    },
+    quizzes: [
+      {
+        question: "SEO helps in what?",
+        options: ["Code Security", "Ranking on Search Engines", "Database Speed"],
+        answer: 1
+      },
+      {
+        question: "Google-la page 1-la vara enna pannanum?",
+        options: ["SEO optimize pannanum", "Google-ku mail pannanum", "Site-ah hide pannanum"],
+        answer: 0
+      },
+      {
+        question: "Backlinks-naa enna artham?",
+        options: ["Other sites unga site-ah link panradhu", "Site-ah back-up edukkudhu", "Logo design"],
+        answer: 0
+      },
+      {
+        question: "Mobile responsiveness SEO-ku mukkiyamaa?",
+        options: ["Aamaa, mobile users thaan adhigam", "Illa, desktop mattum pothum", "Theriyala"],
+        answer: 0
+      },
+      {
+        question: "Title tag-la enna irukkanum?",
+        options: ["Verum 'Home'", "Relevant keywords and descriptive title", "Empty-aa irukkalam"],
+        answer: 1
+      }
+    ],
     funFact: "Google roughly 200 ranking factors vachu unga site-ah rank pannum! 📈",
   },
 
@@ -466,11 +730,33 @@ export const topics = [
       mistake: "Late-ah load aagura ads vachutten. Layout sudden-ah move aagi (CLS) users thappa click pannittaanga.",
       lesson: "Maintain layout stability. No sudden UI shifts!",
     },
-    quiz: {
-      question: "Google site speed measure panna use panra standard enna?",
-      options: ["Core Web Vitals", "RAM metrics", "Lines of Code"],
-      answer: 0
-    },
+    quizzes: [
+      {
+        question: "Google site speed measure panna use panra standard enna?",
+        options: ["Core Web Vitals", "RAM metrics", "Lines of Code"],
+        answer: 0
+      },
+      {
+        question: "LCP (Largest Contentful Paint) ethai measure pannum?",
+        options: ["Interaction speed", "Main content load aaga aagura time", "Layout shift"],
+        answer: 1
+      },
+      {
+        question: "CLS (Cumulative Layout Shift) nalla score-naa enna?",
+        options: ["Elements nagaraa koodathu (Stable layout)", "Elements fast-aa move aaganum", "Images hide aaganum"],
+        answer: 0
+      },
+      {
+        question: "FID (First Input Delay) ethai track pannum?",
+        options: ["User click pannonaa evlo fast-aa respond aagudhu", "Server speed", "Download speed"],
+        answer: 0
+      },
+      {
+        question: "Core Web Vitals improvement SEO-ku help pannumaa?",
+        options: ["Kandippaa, adhu oru ranking factor", "Illa, speed mattum thaan matter", "Theriyala"],
+        answer: 0
+      }
+    ],
     funFact: "Chrome UX Report (CrUX) thaan intha real-world data-ah collect pannum! 📊",
   },
 
@@ -504,11 +790,33 @@ export const topics = [
       mistake: "Backend logic nalla ezhudhinen, aana UI mosama irunthathala users reject pantaanga.",
       lesson: "Don't ignore Frontend! Apps should look good and work well.",
     },
-    quiz: {
-      question: "React JS ethu category?",
-      options: ["Backend", "Frontend", "Database"],
-      answer: 1
-    },
+    quizzes: [
+      {
+        question: "React JS ethu category?",
+        options: ["Backend", "Frontend", "Database"],
+        answer: 1
+      },
+      {
+        question: "Database handling matrum business logic enga nadakkum?",
+        options: ["Frontend", "Backend", "Middleware"],
+        answer: 1
+      },
+      {
+        question: "User interface (UI) and design enna category?",
+        options: ["Frontend", "Backend", "Testing"],
+        answer: 0
+      },
+      {
+        question: "API connects which two?",
+        options: ["Frontend and Backend", "HTML and CSS", "Keyboard and Mouse"],
+        answer: 0
+      },
+      {
+        question: "Frontend languages-la main ethu?",
+        options: ["HTML, CSS, JS", "Node, Python, Go", "SQL, MongoDB"],
+        answer: 0
+      }
+    ],
     funFact: "Full Stack Developer na oru 'One Man Army' mathiri, rendu side-layum gethu kaatalaam! 💪",
   },
 
@@ -541,11 +849,33 @@ export const topics = [
       mistake: "Starting-la structure illama library use panni code-ah 'Spaghetti' (kuzhappi) maari ezhudhinen.",
       lesson: "Frameworks teach you good patterns. Framework use pannalaalum patterns-ah follow pannu!",
     },
-    quiz: {
-      question: "Ethu strict structure follow panna vekkum?",
-      options: ["Library", "Framework", "Text Editor"],
-      answer: 1
-    },
+    quizzes: [
+      {
+        question: "Ethu strict structure follow panna vekkum?",
+        options: ["Library", "Framework", "Text Editor"],
+        answer: 1
+      },
+      {
+        question: "React JS officially enna category?",
+        options: ["Framework", "Library", "Operating System"],
+        answer: 1
+      },
+      {
+        question: "Next.js officially enna category?",
+        options: ["Framework", "Library", "Database"],
+        answer: 0
+      },
+      {
+        question: "Library flexibility tharumaa?",
+        options: ["Aamaa, nee thaan context decide pannanum", "Illa, adhu romba strict", "Library slow-aa irukkum"],
+        answer: 0
+      },
+      {
+        question: "Framework logic-la 'Inversion of Control' na enna?",
+        options: ["Framework code calls you", "You call the framework", "No control"],
+        answer: 0
+      }
+    ],
     funFact: "React library-ah irundhaalum ecosystem poora oru framework maari treat aaguthu! ⚛️",
   },
 
@@ -578,11 +908,33 @@ export const topics = [
       mistake: "JSON-la extra comma poatadhala full API syntax error aagi crash aaiduchu.",
       lesson: "Always use JSON validator! Comma position romba important bro.",
     },
-    quiz: {
-      question: "JSON standard-la values eppadi record aagum?",
-      options: ["Rows", "Key-Value Pairs", "Binary Code"],
-      answer: 1
-    },
+    quizzes: [
+      {
+        question: "JSON standard-la values eppadi record aagum?",
+        options: ["Rows", "Key-Value Pairs", "Binary Code"],
+        answer: 1
+      },
+      {
+        question: "JSON-la `[]` ethai kurikkudhu?",
+        options: ["Object", "Array", "String"],
+        answer: 1
+      },
+      {
+        question: "JSON-la `{}` ethai kurikkudhu?",
+        options: ["Object", "Array", "Function"],
+        answer: 0
+      },
+      {
+        question: "Lightweight data format-ku ethu king?",
+        options: ["XML", "JSON", "CSV"],
+        answer: 1
+      },
+      {
+        question: "JSON full form enna?",
+        options: ["Java Source Object Network", "JavaScript Object Notation", "Just Simple Object Node"],
+        answer: 1
+      }
+    ],
     funFact: "JSON stands for JavaScript Object Notation, aana idhai ellaa languages-um use pannalaam! 🌐",
   },
 
@@ -615,11 +967,33 @@ export const topics = [
       mistake: "Terminal-la `rm -rf` (Delete all) command thappa run panni desktop files full-ah delete pannitaen.",
       lesson: "Terminal is powerful! Double check every command before hitting Enter.",
     },
-    quiz: {
-      question: "Terminal-la folder create panna shortcut command enna?",
-      options: ["create-folder", "mkdir", "new-dir"],
-      answer: 1
-    },
+    quizzes: [
+      {
+        question: "Terminal-la folder create panna shortcut command enna?",
+        options: ["create-folder", "mkdir", "new-dir"],
+        answer: 1
+      },
+      {
+        question: "CLI full form enna?",
+        options: ["Command Line Interface", "Code Line Interaction", "Computer Logic Input"],
+        answer: 0
+      },
+      {
+        question: "Mouse illama text commands moolamaa PC-ah control panradhu ethu?",
+        options: ["GUI", "CLI", "Desktop"],
+        answer: 1
+      },
+      {
+        question: "Windows-la default CLI tool ethu?",
+        options: ["PowerShell / Command Prompt", "Notepad", "Chrome"],
+        answer: 0
+      },
+      {
+        question: "Linux/Mac servers access panna ethu romba mukkiyam?",
+        options: ["Mouse skills", "Terminal/CLI skills", "Design skills"],
+        answer: 1
+      }
+    ],
     funFact: "Linux servers-la 99% CLI moolama thaan vellai nadakkum! 🐧",
   },
 
@@ -652,11 +1026,33 @@ export const topics = [
       mistake: "Project move pannum pothu 'node_modules' folder-iyum serthu zip panni 500MB aakinaen.",
       lesson: "Never share node_modules! Just share package.json, mathavanga `npm install` panni download pannipanga.",
     },
-    quiz: {
-      question: "npm full form enna?",
-      options: ["New Package Manager", "Node Package Manager", "None"],
-      answer: 1
-    },
+    quizzes: [
+      {
+        question: "npm full form enna?",
+        options: ["New Package Manager", "Node Package Manager", "None"],
+        answer: 1
+      },
+      {
+        question: "External libraries install panna enna order use pannanum?",
+        options: ["npm install <package>", "npm download", "npm get"],
+        answer: 0
+      },
+      {
+        question: "Package versions and info enga store aagum?",
+        options: ["index.js", "package.json", "styles.css"],
+        answer: 1
+      },
+      {
+        question: "Installed code files enga store aagum?",
+        options: ["package.json", "node_modules", "src folder"],
+        answer: 1
+      },
+      {
+        question: "Project-ah vera yaarukkavathu share pannum pothu ethai thavirkkanum?",
+        options: ["package.json", "node_modules", "README"],
+        answer: 1
+      }
+    ],
     funFact: "npm-la more than 2 million free packages available bro! 🌏",
   },
 
@@ -689,11 +1085,33 @@ export const topics = [
       mistake: "Margin use panni button-ah center panna try pannittaen. Screen size maarum pothu layout break aaiduchu.",
       lesson: "Use Flex/Grid for layout. Padding/Margin is for small spacing tweaks.",
     },
-    quiz: {
-      question: "Content-ku ulla space create panna ethu use aagum?",
-      options: ["Margin", "Padding", "Border"],
-      answer: 1
-    },
+    quizzes: [
+      {
+        question: "Content-ku ulla space create panna ethu use aagum?",
+        options: ["Margin", "Padding", "Border"],
+        answer: 1
+      },
+      {
+        question: "Element-ku veliyila space tharuradhu ethu?",
+        options: ["Padding", "Margin", "Background"],
+        answer: 1
+      },
+      {
+        question: "Box-model-la content-ah suthi first ethu irukkum?",
+        options: ["Padding", "Border", "Margin"],
+        answer: 0
+      },
+      {
+        question: "Border-ku veliyaa ethu irukkum?",
+        options: ["Padding", "Content", "Margin"],
+        answer: 2
+      },
+      {
+        question: "Button size-ah increase panna ethu easy-ana vithi?",
+        options: ["Padding increase panradhu", "Font size mattum maathuradhu", "Margin increase panradhu"],
+        answer: 0
+      }
+    ],
     funFact: "CSS-la 'box-sizing: border-box' poatta thaan intha prachana logic correct-ah puriyum! 📦",
   },
 
@@ -725,11 +1143,33 @@ export const topics = [
       mistake: "Grid irukkura pothu Flexbox vachu complex layout panna try panni 100 lines CSS ezhuthittaen.",
       lesson: "Right tool for the right job! Simple alignments-ku Flex, Complex structure-ku Grid.",
     },
-    quiz: {
-      question: "Rows and Columns rendayum onna handle panna ethu best?",
-      options: ["Flexbox", "Grid", "Float"],
-      answer: 1
-    },
+    quizzes: [
+      {
+        question: "Rows and Columns rendayum onna handle panna ethu best?",
+        options: ["Flexbox", "Grid", "Float"],
+        answer: 1
+      },
+      {
+        question: "Navbar alignment or internal items-ku ethu best?",
+        options: ["Flexbox", "Grid", "Tables"],
+        answer: 0
+      },
+      {
+        question: "Grid-la columns-ah gap panna enna property use pannanum?",
+        options: ["gap", "padding", "margin"],
+        answer: 0
+      },
+      {
+        question: "Flexbox-la items-ah vertical-aa align panna ethu use aagum?",
+        options: ["align-items", "justify-content", "flex-direction"],
+        answer: 0
+      },
+      {
+        question: "Modern layout design-ku Flex and Grid-ah onnaa use pannalaamaa?",
+        options: ["Aamaa, adhu thaan standard mathod", "Illa, ethavathu onnu thaan use pannanum", "Chrome support pannaathu"],
+        answer: 0
+      }
+    ],
     funFact: "Flexbox vandha apuram thaan 'Centering a Div' easy aachu bro! 😌",
   },
 
@@ -761,11 +1201,33 @@ export const topics = [
       mistake: ".env file-ah .gitignore-la poda marantaen. $200 bill vandhuduchu!",
       lesson: "First rule of coding: Always gitignore your .env file!",
     },
-    quiz: {
-      question: "Env files-ah GitHub-la push pannalaama?",
-      options: ["Yes", "Kandippa koodathu"],
-      answer: 1
-    },
+    quizzes: [
+      {
+        question: "Env files-ah GitHub-la push pannalaama?",
+        options: ["Yes", "Kandippa koodathu", "Private repo-naa pannalam"],
+        answer: 1
+      },
+      {
+        question: "API Keys and Passwords-ah enga store pannanum?",
+        options: ["HTML main file", "Environment Variables (.env)", "README file"],
+        answer: 1
+      },
+      {
+        question: "Node.js-la env variables-ah eppadi access pannanum?",
+        options: ["process.env.VARIABLE_NAME", "getEnv()", "fetch('.env')"],
+        answer: 0
+      },
+      {
+        question: ".env file-ah ignore panna entha file-la add pannanum?",
+        options: [".gitignore", "package.json", "index.js"],
+        answer: 0
+      },
+      {
+        question: ".env file development matrum production-ku vera vera irukkumaa?",
+        options: ["Aamaa, connection strings maarum", "Illa, rendum onnu thaan", "Env production-la thevai illa"],
+        answer: 0
+      }
+    ],
     funFact: "Environment variables local and production-ku different-ah irukkum! 🔄",
   },
 
@@ -797,11 +1259,33 @@ export const topics = [
       mistake: "Full stack nu solid-ah sollikittu, mobile response logic pathi nothing theriyama interview-la maatikitaen.",
       lesson: "One layer-la master-ah iru, mathavuthula proficient-ah iru. Fundamental knowledge is core.",
     },
-    quiz: {
-      question: "MERN stack-la 'M' ethai kurikkudhu?",
-      options: ["MySQL", "MongoDB", "Messaging"],
-      answer: 1
-    },
+    quizzes: [
+      {
+        question: "MERN stack-la 'M' ethai kurikkudhu?",
+        options: ["MySQL", "MongoDB", "Messaging"],
+        answer: 1
+      },
+      {
+        question: "Full Stack developer na enna artham?",
+        options: ["Frontend + Backend + DB therinjavar", "Verum Design therinjavar", "Hardware skills mattum"],
+        answer: 0
+      },
+      {
+        question: "React JS MERN stack-la entha letter?",
+        options: ["M", "E", "R"],
+        answer: 2
+      },
+      {
+        question: "Full stack aaga enna concentration mukkiyam?",
+        options: ["Master one stack (like MERN)", "Ella languages-um bit-aa padikkanum", "Hardware engineer aaganum"],
+        answer: 0
+      },
+      {
+        question: "Database-la data store panna ethu useful?",
+        options: ["Express", "MongoDB / SQL", "React"],
+        answer: 1
+      }
+    ],
     funFact: "Full stack devs-ku high demand startups-la thaan, because they need all-rounders! 💰",
   },
 
@@ -822,10 +1306,10 @@ export const topics = [
     conversation: [
       { speaker: "Nila", avatar: "👩", message: "Bro, REST API-la extra data adhigama varuthey?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Adhukku thaan GraphQL bro! Client site-la enna fields venumnu specify pannina, server correct-ah antha data mattum anuppum. No over-fetching!" },
-      { speaker: "Nila", avatar: "👩", message: "Multiple requests avoid palla ma bro?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Aama! Single query-la interconnected data (Users + Orders + Products) mothama eduthukalaam. Multiple endpoints-ku poi network delay palla thevai illai." },
+      { speaker: "Nila", avatar: "👩", message: "Multiple requests avoid panna ma bro?" },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Aama! Single query-la interconnected data (Users + Orders + Products) mothama eduthukalaam. Multiple endpoints-ku poi network delay panna thevai illai." },
       { speaker: "Nila", avatar: "👩", message: "GraphQL setup complex-ah?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Schema ezhutha palla pothu konjam backend logic thevai. Aana frontend team-ku idhu oru Dream tool. Integration speed semma-ah boost aagum." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Schema ezhutha panna pothu konjam backend logic thevai. Aana frontend team-ku idhu oru Dream tool. Integration speed semma-ah boost aagum." },
       { speaker: "Nila", avatar: "👩", message: "GraphQL for precise data fetching." },
     ],
     whenToUse: ["Large complex data (GraphQL)", "Simple projects (REST)"],
@@ -833,11 +1317,33 @@ export const topics = [
       mistake: "Sinna project-ku GraphQL setup panni build time-ah adhigamaakitaen.",
       lesson: "Don't over-engineer. REST is still the king for simple APIs.",
     },
-    quiz: {
-      question: "Ethula exact attributes mattum keka mudiyum?",
-      options: ["REST", "GraphQL", "SSH"],
-      answer: 1
-    },
+    quizzes: [
+      {
+        question: "Ethula exact attributes mattum keka mudiyum?",
+        options: ["REST", "GraphQL", "SSH"],
+        answer: 1
+      },
+      {
+        question: "Multiple URLs for multiple data delivery ethu logic?",
+        options: ["REST", "GraphQL", "TCP"],
+        answer: 0
+      },
+      {
+        question: "Over-fetching (extra data) avoid panna ethu hero?",
+        options: ["REST", "GraphQL", "JSON"],
+        answer: 1
+      },
+      {
+        question: "Single endpoint strategy ethula use aagum?",
+        options: ["GraphQL", "REST", "HTTP/2"],
+        answer: 0
+      },
+      {
+        question: "Facebook yen GraphQL-ah create pannanga?",
+        options: ["Backend speed increase panna", "Mobile app REST speed issue solve panna", "Design maatha"],
+        answer: 1
+      }
+    ],
     funFact: "Facebook created GraphQL because their mobile app was struggling with slow REST loading! 📱",
   },
 
@@ -859,9 +1365,9 @@ export const topics = [
       { speaker: "Logu", avatar: "🧑", message: "Dei, en site phone-la paartha side-la scroll aaguthu, elements cut aaguthu!" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Responsive illa bro! Media queries use panni layout-ah rearrange pannanum. Use 100% width instead of fixed pixels." },
       { speaker: "Logu", avatar: "🧑", message: "Viewport tag mukkiyama bro?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Romba! Device-oda width-ku app-ah fit palla logic viewport meta tag thaan basic foundation. Browser-ku 'Scale to fit' nu instruction kudukkum." },
-      { speaker: "Logu", avatar: "🧑", message: "Flex and Grid help palla ma?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Kandippa! CSS Flexbox/Grid use pannuna automatically elements wrap and stack aagum logic follow palla patterns. Modern CSS-la idhu thaan power." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Romba! Device-oda width-ku app-ah fit panna logic viewport meta tag thaan basic foundation. Browser-ku 'Scale to fit' nu instruction kudukkum." },
+      { speaker: "Logu", avatar: "🧑", message: "Flex and Grid help panna ma?" },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Kandippa! CSS Flexbox/Grid use pannuna automatically elements wrap and stack aagum logic follow panna patterns. Modern CSS-la idhu thaan power." },
       { speaker: "Logu", avatar: "🧑", message: "Responsive first strategy enabled." },
     ],
     whenToUse: ["Every single website in the world!"],
@@ -869,11 +1375,33 @@ export const topics = [
       mistake: "Verum desktop view mattum design pannittu, client demo-la client phone-la paarthu reject pannitaaru.",
       lesson: "Always build Mobile-First. Scaling up is easier than scaling down.",
     },
-    quiz: {
-      question: "Responsive layout panna CSS-la enna use pannuvaanga?",
-      options: ["Media Queries", "Hover effects", "Animations"],
-      answer: 0
-    },
+    quizzes: [
+      {
+        question: "Responsive layout panna CSS-la enna use pannuvaanga?",
+        options: ["Media Queries", "Hover effects", "Animations"],
+        answer: 0
+      },
+      {
+        question: "Mobile-first approach na enna artham?",
+        options: ["First mobile-ku design panni apprum scale up panradhu", "First desktop-ku panni apprum scale down panradhu", "Verum mobile logic mattum write panradhu"],
+        answer: 0
+      },
+      {
+        question: "Viewport meta tag-oda main use enna?",
+        options: ["Colors maatha", "Browser-ah device width-ku fit panna", "Font size adhigamaakka"],
+        answer: 1
+      },
+      {
+        question: "Phone-la elements cut aagaama irukka enna unit use panna num?",
+        options: ["Fixed pixels (px)", "Relative units (%, rem, vw)", "Inch"],
+        answer: 1
+      },
+      {
+        question: "Desktop, Tablet, matrum Mobile moonukum different layout kudukka mudiyumaa?",
+        options: ["Aamaa, Media Queries moolamaa", "Illa, mobile mattum thaan fix panna mudiyum", "No, HTML thirumbaa write pannanum"],
+        answer: 0
+      }
+    ],
     funFact: "More than 60% of web traffic ippo mobile-vazhiya thaan varudhu! 🌎",
   },
 
@@ -895,9 +1423,9 @@ export const topics = [
       { speaker: "Pavi", avatar: "👩", message: "React-la props passing thaan kashtama irukku bro." },
       { speaker: "Dev", avatar: "👨‍💻", message: "Props drilling avoids panna thaan State Management (Zustand/Redux) use pannuvom. Data center-la irukkum, yaaru venumnaalum eduthukalaam." },
       { speaker: "Pavi", avatar: "👩", message: "Centralized store safety-ah bro?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Aama! Data flow unidirectional-ah irukkum so debugging palla palla palla easy-ah aagum. 'Who changed what' nu track palla patterns use pannanum." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Aama! Data flow unidirectional-ah irukkum so debugging panna easy-ah aagum. 'Who changed what' nu track panna patterns use pannanum." },
       { speaker: "Pavi", avatar: "👩", message: "Performance impact irukkuma?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Unnecessary re-renders thadukka selectors use pannanum logic follow palla korthu efficiency manage palla num. Correct-ana state model structure system scaling-ku help pannum." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Unnecessary re-renders thadukka selectors use pannanum logic follow panna korthu efficiency manage panna num. Correct-ana state model structure system scaling-ku help pannum." },
       { speaker: "Pavi", avatar: "👩", message: "State management architecture planned." },
     ],
     whenToUse: ["Complex apps with many shared datas", "E-commerce carts"],
@@ -905,11 +1433,33 @@ export const topics = [
       mistake: "Sinna to-do list app-ku Redux setup panni logic-ah unnecessarily complex-aakitaen.",
       lesson: "Simple apps-ku local state (useState) pothum. Use management tools only when needed.",
     },
-    quiz: {
-      question: "Application-oda 'Memory' category-ku enna peru?",
-      options: ["State", "Effect", "Style"],
-      answer: 0
-    },
+    quizzes: [
+      {
+        question: "Application-oda 'Memory' category-ku enna peru?",
+        options: ["State", "Effect", "Style"],
+        answer: 0
+      },
+      {
+        question: "Props drilling avoids panna ethu help pannum?",
+        options: ["State Management (Redux/Zustand)", "For loop", "Inline CSS"],
+        answer: 0
+      },
+      {
+        question: "E-commerce-la cart elements-ah track panna ethu use aagum?",
+        options: ["State", "HTML comment", "URL path"],
+        answer: 0
+      },
+      {
+        question: "React-la simple local state-ku enna hook use pannanum?",
+        options: ["useState", "useEffect", "useRef"],
+        answer: 0
+      },
+      {
+        question: "Centralized state architecture-la logic flow eppadi irukkum?",
+        options: ["Unidirectional (One-way)", "Random", "Bidirectional"],
+        answer: 0
+      }
+    ],
     funFact: "Context API is now built-in to React for simple state management! ⚛️",
   },
 
@@ -930,7 +1480,7 @@ export const topics = [
     conversation: [
       { speaker: "Kiran", avatar: "🧑", message: "Bro, client color maatha solraanga. 50 files-la poi hex code-ah maathanuma?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Hard-code panniya bro? CSS Variables (`--main-color`) use panniruntha, :root kulla oru line mathuna vellai mudinjirukkum." },
-      { speaker: "Kiran", avatar: "🧑", message: "JS-la use palla ma bro?" },
+      { speaker: "Kiran", avatar: "🧑", message: "JS-la use panna ma bro?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Aama! `setProperty` vachu runtime-la colors-ah user choice-ku ethapadi mathalaam. Dynamic theming-ku idhu thaan best approach." },
       { speaker: "Kiran", avatar: "🧑", message: "Fallback support irukka?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Modern browsers-la support super-ah irukku. Variable missing aana default color varra mathiri logic ezhuthalaam. Code cleanliness peaks!" },
@@ -941,11 +1491,33 @@ export const topics = [
       mistake: "Hard-coded colors use panni, client dark mode ketapo full night ukkanthu code rewrite pannittaen.",
       lesson: "Always use variables for colors and spacing. It's a lifesaver.",
     },
-    quiz: {
-      question: "CSS variable declare panna enna prefix prefix pannanum?",
-      options: ["$", "--", "@"],
-      answer: 1
-    },
+    quizzes: [
+      {
+        question: "CSS variable declare panna enna prefix pannanum?",
+        options: ["$", "--", "@"],
+        answer: 1
+      },
+      {
+        question: "Dark mode / Light mode toggle panna ethu efficiency?",
+        options: ["CSS Variables", "Multiple HTML files", "Inline styles every logic"],
+        answer: 0
+      },
+      {
+        question: "CSS variables-ah JS-la access panna mudiyumaa?",
+        options: ["Aamaa, setProperty vachu maathalaam", "Illa, CSS mattum thaan", "Theriyala"],
+        answer: 0
+      },
+      {
+        question: "Variables-ah enga declare panna full project-kum kidaikkum?",
+        options: [":root selector-la", "body tag-la", "button kulla"],
+        answer: 0
+      },
+      {
+        question: "CSS variable-naa enna benefit?",
+        options: ["Oru idathula maathunaa ellam idathalayum reflect aagum", "Code speed increase aagum", "Virus kidaikkaathu"],
+        answer: 0
+      }
+    ],
     funFact: "Tailwind CSS also uses CSS variables under the hood for its magic! ✨",
   },
 
@@ -967,7 +1539,7 @@ export const topics = [
       { speaker: "Siva", avatar: "🧑", message: "Bro, chat app build panna HTML refresh aaganuma data vara?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Illai bro! Websockets (Socket.io) use pannu. WhatsApp mathiri message vandha udane screen-la update aagum, refresh-ae thevai illa." },
       { speaker: "Siva", avatar: "🧑", message: "Bi-directional na enna bro?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Rendo side-um eppo venumnaalum pesikkalaam. Server korthu client-ku 'New message' nu push palla logic idhu. Conventional HTTP request-response patterns bypass aagum." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Rendo side-um eppo venumnaalum pesikkalaam. Server korthu client-ku 'New message' nu push panna logic idhu. Conventional HTTP request-response patterns bypass aagum." },
       { speaker: "Siva", avatar: "🧑", message: "Battery power adhighama aagu ma?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Aama, connection eppavume open-ah irukkum. So needed apps-ku mattum use pannu. Real-time dashboards and multi-player gaming-ku hero idhu thaan." },
       { speaker: "Siva", avatar: "🧑", message: "Instant sync achieved." },
@@ -977,11 +1549,33 @@ export const topics = [
       mistake: "Refresh (Polling) vachu chat app panni, server-ah crash pannitaen.",
       lesson: "Real-time updates-ku sockets thaan correct-ana choice.",
     },
-    quiz: {
-      question: "Continuous connection maintenance panrathu ethu?",
-      options: ["HTTP", "Websockets", "FTP"],
-      answer: 1
-    },
+    quizzes: [
+      {
+        question: "Continuous connection maintenance panrathu ethu?",
+        options: ["HTTP", "Websockets", "FTP"],
+        answer: 1
+      },
+      {
+        question: "Chat app-ku refresh pannaama data vara ethu best?",
+        options: ["Websockets", "HTTP Polling", "Static HTML"],
+        answer: 0
+      },
+      {
+        question: "Websocket connection 'Bidirectional' na enna artham?",
+        options: ["Rendu side-um eppo venumnaalum pesikkalaam", "Oru side mattum thaan", "Internet cut aaidum"],
+        answer: 0
+      },
+      {
+        question: "Real-time stock prices update panna ethu hero?",
+        options: ["Websockets", "Local storage", "CSV files"],
+        answer: 0
+      },
+      {
+        question: "Websockets permanent-aa connection-ah open-aa vachurukkumaa?",
+        options: ["Aamaa", "Illa, data anupunaa udanae close aaidum", "Theriyala"],
+        answer: 0
+      }
+    ],
     funFact: "Discord uses websockets to show you who is typing in real-time! ⌨️",
   },
 
@@ -1003,9 +1597,9 @@ export const topics = [
       { speaker: "Nila", avatar: "👩", message: "Bro, intha API-ku enna body anuppanum nu puriyala?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Swagger doc share pandren bro, check pannu. Athula details clear-ah field names and types-oda irukkum. Manual testing panna thevai illa." },
       { speaker: "Nila", avatar: "👩", message: "Try it out feature irukku ma bro?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Aama! Swagger UI-laye directly values kuduthu results check pannikalam. Postman path palla palla palla delay aagum pothu idhu thaan best communication tool." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Aama! Swagger UI-laye directly values kuduthu results check pannikalam. Postman path panna delay aagum pothu idhu thaan best communication tool." },
       { speaker: "Nila", avatar: "👩", message: "Versioning doc-la maintain aaguma?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Kandippa! Different API versions-ku separate docs maintain palla logic follow palla num. Team collaboration improvement-ku documentation thaan base." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Kandippa! Different API versions-ku separate docs maintain panna logic follow panna num. Team collaboration improvement-ku documentation thaan base." },
       { speaker: "Nila", avatar: "👩", message: "API documentation guide ready." },
     ],
     whenToUse: ["Team projects", "Public API products"],
@@ -1013,11 +1607,33 @@ export const topics = [
       mistake: "Documentation pannilaama vacation poittaen. Full team enna thitta start pannittaanga because nobody knew how to use my API.",
       lesson: "Write docs as you code. It's respect for your fellow developers.",
     },
-    quiz: {
-      question: "Visual API testing matrum documentation-ku popular tool enna?",
-      options: ["Postman / Swagger", "VS Code", "Paint"],
-      answer: 0
-    },
+    quizzes: [
+      {
+        question: "Visual API testing matrum documentation-ku popular tool enna?",
+        options: ["Postman / Swagger", "VS Code", "Paint"],
+        answer: 0
+      },
+      {
+        question: "API documentation illana enna aagum?",
+        options: ["Other devs-ku API eppadi use pannanum-nu puriyaathu", "Internet slow aaidum", "API work aagaathu"],
+        answer: 0
+      },
+      {
+        question: "Swagger-la irukkira 'Try it out' feature ethukku?",
+        options: ["Direct-aa API-ah test panni results paakka", "Code-ah delete panna", "Images download panna"],
+        answer: 0
+      },
+      {
+        question: "API versioning documentation-la maintain panna numaa?",
+        options: ["Aamaa, changes track panna helps pannum", "Illa, old version-ae pothum", "Theriyala"],
+        answer: 0
+      },
+      {
+        question: "Frontend team-ku logic puriya backend dev enna kudukkanum?",
+        options: ["Laptop", "Proper API Documentation", "Coffee"],
+        answer: 1
+      }
+    ],
     funFact: "Swagger and Postman tools oru single click-la un API live-ah test panna vekkum! 🚀",
   },
 
@@ -1039,9 +1655,9 @@ export const topics = [
       { speaker: "Deepa", avatar: "👩", message: "Bro, intha string-la letters mattum thaan irukkanum nu eppadi check pannanum?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Regex use pannu bro! `^[a-zA-Z]+$` — intha pattern-ah match pannina numbers skip aaidum. 10 lines of `if-else` vellai 1 line-la mudinjirum." },
       { speaker: "Deepa", avatar: "👩", message: "Complexity adhighama aaguma bro?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Regex readability konjam kashtam thaan. Aana powerful searching and validation-ku idhu thaan standard logic. Read once, master everywhere patterns follows palla num." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Regex readability konjam kashtam thaan. Aana powerful searching and validation-ku idhu thaan standard logic. Read once, master everywhere patterns follows panna num." },
       { speaker: "Deepa", avatar: "👩", message: "Performance impact?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Very long strings-la nested regex slow palla chance irukku (Catastrophic Backtracking). Correct-ana patterns use pannuna speed semma-ah irukkum." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Very long strings-la nested regex slow panna chance irukku (Catastrophic Backtracking). Correct-ana patterns use pannuna speed semma-ah irukkum." },
       { speaker: "Deepa", avatar: "👩", message: "Regex patterns mastery focus." },
     ],
     whenToUse: ["Form validation (Email, Password)", "Text searching/replacing"],
@@ -1049,11 +1665,33 @@ export const topics = [
       mistake: "Internet-la irundha oru complex regex-ah copy panni use pannittaen. Adhu some edge cases-la wrong-ah work aachu, bug find panna full day aachu.",
       lesson: "Always test your regex patterns with tools like Regex101. Don't use what you don't understand!",
     },
-    quiz: {
-      question: "Email format-ah check panna ethu best choice?",
-      options: ["Math.random()", "Regex", "Array mapping"],
-      answer: 1
-    },
+    quizzes: [
+      {
+        question: "Email format-ah check panna ethu best choice?",
+        options: ["Math.random()", "Regex", "Array mapping"],
+        answer: 1
+      },
+      {
+        question: "Regex full form enna?",
+        options: ["Regular Expressions", "Regional Execution", "Registered Exit"],
+        answer: 0
+      },
+      {
+        question: "String-la verum numbers mattum thaan irukkaa-nu kandupidikka ethu use aagum?",
+        options: ["Regex patterns", "CSS selectors", "HTML tags"],
+        answer: 0
+      },
+      {
+        question: "Regex almost ellaa coding languages-layum common-aa?",
+        options: ["Aamaa, syntax almost same thaan", "Illa, JS-ku mattum thaan", "Theriyala"],
+        answer: 0
+      },
+      {
+        question: "Regex test panna popular website ethu?",
+        options: ["Regex101.com", "Google.com", "Facebook.com"],
+        answer: 0
+      }
+    ],
     funFact: "Regex almost ellaa programming languages-layum common syntax-la thaan irukkum! 🌍",
   },
 
@@ -1074,9 +1712,9 @@ export const topics = [
     conversation: [
       { speaker: "Arun", avatar: "🧑", message: "Bro, ovvoru API room-layum login check pannanuma?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Illai bro! Oru Middleware ezhutha pothum. Adhu ellaa incoming requests-ayum check pannittu, correct-ah irundha mattum thaan room kulla (Route) anuppum." },
-      { speaker: "Arun", avatar: "🧑", message: "Error status eppadi handles palla ma?" },
+      { speaker: "Arun", avatar: "🧑", message: "Error status eppadi handles panna ma?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Auth failed-na `401 Unauthorized` status anuppalaam. Node/Express-la central error handling middleware vachukka logic super comfort-ah irukkum." },
-      { speaker: "Arun", avatar: "🧑", message: "Logging-um palla ma bro?" },
+      { speaker: "Arun", avatar: "🧑", message: "Logging-um panna ma bro?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Aama! Morgan or custom logger middleware vachu every request analytics track pannalaam. Debugging and monitoring-ku idhu thaan gatekeeper." },
       { speaker: "Arun", avatar: "🧑", message: "Middleware patterns implemented." },
     ],
@@ -1085,11 +1723,33 @@ export const topics = [
       mistake: "Middleware-la `next()` call panna maranthen. Request anga-aye hang aagi screen spinning aagite irunthathu.",
       lesson: "Always call `next()` to move the request to the next block!",
     },
-    quiz: {
-      question: "Request-ah next block-ku move panna enna call pannanum?",
-      options: ["exit()", "next()", "stop()"],
-      answer: 1
-    },
+    quizzes: [
+      {
+        question: "Request-ah next block-ku move panna enna call pannanum?",
+        options: ["exit()", "next()", "stop()"],
+        answer: 1
+      },
+      {
+        question: "Middleware-oda main vellai enna?",
+        options: ["Request and Response naduvula intercept panni check panradhu", "Database design panradhu", "UI color maathurathu"],
+        answer: 0
+      },
+      {
+        question: "User login check panna middleware use pannalaamaa?",
+        options: ["Aamaa, auth check-ku idhu thaan best", "Illa, direct route-la thaan pannanum", "Middleware slow-aa irukkum"],
+        answer: 0
+      },
+      {
+        question: "Logging matrum Analytics-ku middleware help pannumaa?",
+        options: ["Aamaa, every request-ah intercept panna mudiyum", "Illa, frontend-la thaan pannanum", "Theriyala"],
+        answer: 0
+      },
+      {
+        question: "Express.js-la middleware pattern adhighamaa use aagumaa?",
+        options: ["Aamaa, full framework-ae middleware thaan", "Illa, middleware deprecated", "No"],
+        answer: 0
+      }
+    ],
     funFact: "Express.js framework is full of middlewares bro! 🏗️",
   },
 
@@ -1113,7 +1773,7 @@ export const topics = [
       { speaker: "Kiran", avatar: "🧑", message: "Iterative-ah vida complex-ah?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Some problems-ku iterative (for loop) hard-ah irukkum. Tree traversal or nested menus-ku recursion logic romba clean-ah elegant-ah irukkum choices." },
       { speaker: "Kiran", avatar: "🧑", message: "Memory usage adhighama ma?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Aama, call stack storage edukkum. Tail-call optimization patterns learned palla pothu memory-ah save palla korthu logic handle palla num." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Aama, call stack storage edukkum. Tail-call optimization patterns learned panna pothu memory-ah save panna korthu logic handle panna num." },
       { speaker: "Kiran", avatar: "🧑", message: "Recursion depth management clear." },
     ],
     whenToUse: ["Tree structures scanning", "Mathematical factorials", "Folder structure navigation"],
@@ -1121,11 +1781,33 @@ export const topics = [
       mistake: "Base case ezhuthaama recursion run palli browser-ah freeze pannittaen.",
       lesson: "Always write the 'Stop' condition first before calling the function itself.",
     },
-    quiz: {
-      question: "Recursion-la function stop aaga enna condition venum?",
-      options: ["Main Case", "Base Case", "Exit Case"],
-      answer: 1
-    },
+    quizzes: [
+      {
+        question: "Recursion-la function stop aaga enna condition venum?",
+        options: ["Main Case", "Base Case", "Exit Case"],
+        answer: 1
+      },
+      {
+        question: "Recursion na enna artham?",
+        options: ["Function calling itself", "Function calling another function", "Function deleting itself"],
+        answer: 0
+      },
+      {
+        question: "Base case illana enna error varum?",
+        options: ["Stack Overflow", "Low memory", "File not found"],
+        answer: 0
+      },
+      {
+        question: "Tree structure or folders scan panna ethu elegant-aa irukkum?",
+        options: ["Recursion", "Single if-else", "Manual click"],
+        answer: 0
+      },
+      {
+        question: "Recursion loop-kulla loop mathiri work aagumaa?",
+        options: ["Aamaa, base case varra varaikum thirumbaa thirumbaa run aagum", "Illa, orae oru thadavaa thaan", "Theriyala"],
+        answer: 0
+      }
+    ],
     funFact: "Google-la 'Recursion' nu search pannina, 'Did you mean: Recursion?' nu thirumba thirumba kekkum! Google joke bro. 😂",
   },
 
@@ -1148,8 +1830,8 @@ export const topics = [
       { speaker: "Senior", avatar: "👨‍💻", message: "Work aaguradhu vera, efficient-ah irukkuradhu vera bro! 100 entries-la un code fast-ah irukkum, millions of entries varum pothu O(n^2) logic site-ah hang pannidum. Interview-la idhu romba mukkiyam." },
       { speaker: "Logu", avatar: "🧑", message: "Space complexity-um irukka?" },
       { speaker: "Senior", avatar: "👨‍💻", message: "Aama! Memory evlo consume pannuthu nu calculate pannanum. Low memory devices-la logic efficiency logic thaan system stability determination check." },
-      { speaker: "Logu", avatar: "🧑", message: "Scalability predict palla ma bro?" },
-      { speaker: "Senior", avatar: "👨‍💻", message: "Exactly! Growth graph-ah pathu logic optimize palla num. Algorithm mastery level determination idhu thaan way patterns." },
+      { speaker: "Logu", avatar: "🧑", message: "Scalability predict panna ma bro?" },
+      { speaker: "Senior", avatar: "👨‍💻", message: "Exactly! Growth graph-ah pathu logic optimize panna num. Algorithm mastery level determination idhu thaan way patterns." },
       { speaker: "Logu", avatar: "🧑", message: "Efficiency metrics understood." },
     ],
     whenToUse: ["Algorithm design", "Interview preparation", "Performance optimization"],
@@ -1157,11 +1839,33 @@ export const topics = [
       mistake: "Nested loops use panni complexity-ah ignore pannitaen. Product release aagi 1 month-la database crash aaiduchu.",
       lesson: "Always evaluate Big O before finalizing logic for large datasets.",
     },
-    quiz: {
-      question: "Ethu fast-ana complexity?",
-      options: ["O(1)", "O(n^2)", "O(n)"],
-      answer: 0
-    },
+    quizzes: [
+      {
+        question: "Ethu fast-ana complexity?",
+        options: ["O(1)", "O(n^2)", "O(n)"],
+        answer: 0
+      },
+      {
+        question: "Big O Notation ethai measure panna use aagum?",
+        options: ["Code beauty", "Algorithm execution efficiency as data scales", "Font size analysis"],
+        answer: 1
+      },
+      {
+        question: "O(n) na enna artham?",
+        options: ["Linear time (Data adhigamaana time-um proportionate-aa adhigamaagum)", "Constant time", "Infinite time"],
+        answer: 0
+      },
+      {
+        question: "Nested loops (loop kulla loop) entha category-la varum?",
+        options: ["O(1)", "O(n^2)", "O(log n)"],
+        answer: 1
+      },
+      {
+        question: "O(1) meaning 'Constant Time'-naa enna artham?",
+        options: ["Data evlo size-aa irundhaalum speed onnu thaan", "Data adhigamaana code slow aagum", "No data"],
+        answer: 0
+      }
+    ],
     funFact: "O(1) means 'Constant Time' — data size evlo irundhaalum speed onnudhaan! ⚡",
   },
 
@@ -1182,7 +1886,7 @@ export const topics = [
     conversation: [
       { speaker: "Arun", avatar: "🧑", message: "React ethuku ivlo fast-ah irukku bro?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Virtual DOM thaan bro! Ovvoru click-kum full page-ah repaint pannaama, enna change-oh athai mattum 'Diffing' algorithm vachu update pannum. Adhaan smoother experience." },
-      { speaker: "Arun", avatar: "🧑", message: "Direct DOM manipulate palla ma?" },
+      { speaker: "Arun", avatar: "🧑", message: "Direct DOM manipulate panna ma?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Palaam, aana periya app-la manual tracking sethu sethu delay aagum. React automation logic andha complexity-ah maraikkum. Declarative UI power idhu thaan." },
       { speaker: "Arun", avatar: "🧑", message: "Reconciliation na?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Adhaan bro antha compare & update process name context. Efficient UI updates through virtual trees thaan React-oda foundation pillar logic." },
@@ -1193,11 +1897,33 @@ export const topics = [
       mistake: "Virtual DOM logic-ah thappa purinjittu, full page-ah unnecessarily re-render panna vaitaen.",
       lesson: "Use keys correctly in lists! It helps Virtual DOM to identify changes faster.",
     },
-    quiz: {
-      question: "React endhathai compare panni updates pannum?",
-      options: ["Two Buttons", "Virtual & Real DOM", "Two Browsers"],
-      answer: 1
-    },
+    quizzes: [
+      {
+        question: "React endhathai compare panni updates pannum?",
+        options: ["Two Buttons", "Virtual & Real DOM", "Two Browsers"],
+        answer: 1
+      },
+      {
+        question: "Virtual DOM yen use panroam?",
+        options: ["UI updates fast-aa panna", "Internet speed-ah increase panna", "Design maatha"],
+        answer: 0
+      },
+      {
+        question: "Diffing algorithm-oda vellai enna?",
+        options: ["Two virtual trees-ah compare panni changes-ah find panradhu", "Code errors-ah find panradhu", "Images delete panradhu"],
+        answer: 0
+      },
+      {
+        question: "Real DOM-ah directly manipulate pannunaa enna aagum?",
+        options: ["Complex apps slow aaga rathuku chance irukku", "Site crash aaidum", "Always faster"],
+        answer: 0
+      },
+      {
+        question: "Virtual DOM logic-ah popular-aakinathu ethu?",
+        options: ["React JS", "jQuery", "Notepad"],
+        answer: 0
+      }
+    ],
     funFact: "Virtual DOM logic-ah first popular-aakinathu React thaan bro! ⚛️",
   },
 
@@ -1220,8 +1946,8 @@ export const topics = [
       { speaker: "Dev", avatar: "👨‍💻", message: "SSH log-in pannu bro! `ssh user@ip` nu sonna un terminal remote computer terminal-ah maaridum. Appuram ella vellaiyum commands vazhiya-ae pannalaam." },
       { speaker: "Arun", avatar: "🧑", message: "SCP and SFTP difference enna?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Rendum SSH security vachu thaan work aagum. SCP single file transfer-ku fast, SFTP interactive session-ku best choice logic pattern. Secure communication protocol guarantee." },
-      { speaker: "Arun", avatar: "🧑", message: "Key pairs generate palla ma?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Aama! `ssh-keygen` vachu Public/Private keys create palla num. Password typing avoids palla idhu thaan ultra-secure standard. Automation-ku idhu thaan base." },
+      { speaker: "Arun", avatar: "🧑", message: "Key pairs generate panna ma?" },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Aama! `ssh-keygen` vachu Public/Private keys create panna num. Password typing avoids panna idhu thaan ultra-secure standard. Automation-ku idhu thaan base." },
       { speaker: "Arun", avatar: "🧑", message: "Remote access security mastered." },
     ],
     whenToUse: ["Managing Linux servers", "GitHub key authentication"],
@@ -1229,11 +1955,33 @@ export const topics = [
       mistake: "Publicly accessible servers-la username/password vachite SSH setup pannittaen. Bot attack-la sethu pochu.",
       lesson: "Always use SSH Keys instead of passwords for remote server logins.",
     },
-    quiz: {
-      question: "Remote server-ku securely connect panna entha protocol use aagum?",
-      options: ["HTTP", "SSH", "FTP"],
-      answer: 1
-    },
+    quizzes: [
+      {
+        question: "Remote server-ku securely connect panna entha protocol use aagum?",
+        options: ["HTTP", "SSH", "FTP"],
+        answer: 1
+      },
+      {
+        question: "SSH full form enna?",
+        options: ["Secure Shell", "System Super Hook", "Simple Server Handle"],
+        answer: 0
+      },
+      {
+        question: "Password-ku bathilaa innum secure-aa connect panna ethu use pannuvaanga?",
+        options: ["SSH Keys (Public/Private)", "Voice note", "OTP"],
+        answer: 0
+      },
+      {
+        question: "SSH default-aa entha port-la run aagum?",
+        options: ["80", "443", "22"],
+        answer: 2
+      },
+      {
+        question: "SCP matrum SFTP ethu moolamaa work aagum?",
+        options: ["SSH Tunnel", "Bluetooth", "Radio waves"],
+        answer: 0
+      }
+    ],
     funFact: "SSH stands for Secure Shell, idhu 22nd port-la default-ah run aagum! 🐚",
   },
 
@@ -1252,12 +2000,12 @@ export const topics = [
       visual: [{ icon: "🏠", label: "A.com" }, { icon: "🚫", label: "Block" }, { icon: "🏢", label: "B.com" }, { icon: "✅", label: "CORS On" }],
     },
     conversation: [
-      { speaker: "Nila", avatar: "👩", message: "Bro, localhost-la irundhu Render API-ah call palla 'CORS Error' varuthey?" },
+      { speaker: "Nila", avatar: "👩", message: "Bro, localhost-la irundhu Render API-ah call panna 'CORS Error' varuthey?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Handshake miss aaguthu bro! Server-side code-la `cors` library use panni, un localhost URL-ku permission kudukka num. Browser appo thaan request-ah accept pannum." },
       { speaker: "Nila", avatar: "👩", message: "Pre-flight request na enna?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "OPTIONS method vachu browser first server-kitta 'Naan intha JSON anuppalaama?' nu permission kekkum logic. Green signal vandhone thaan actual POST/PUT request palla palla delay avoids aagum." },
-      { speaker: "Nila", avatar: "👩", message: "Credentials send palla ma?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Aama, Cookies/Auth headers anuppa `credentials: include` frontend-layum, server-la `AllowCredentials` TRUE-um irukkanum logic patterns follows palla num." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "OPTIONS method vachu browser first server-kitta 'Naan intha JSON anuppalaama?' nu permission kekkum logic. Green signal vandhone thaan actual POST/PUT request panna delay avoids aagum." },
+      { speaker: "Nila", avatar: "👩", message: "Credentials send panna ma?" },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Aama, Cookies/Auth headers anuppa `credentials: include` frontend-layum, server-la `AllowCredentials` TRUE-um irukkanum logic patterns follows panna num." },
       { speaker: "Nila", avatar: "👩", message: "CORS configuration protocols clear." },
     ],
     whenToUse: ["Calling frontend from different backend domain", "Public APIs"],
@@ -1265,11 +2013,33 @@ export const topics = [
       mistake: "Security logic puriyaama `cors: *` (allow all) nu production-la poaten. Vulnerability create pannittaen.",
       lesson: "Always whitelist only specific trusted domains in CORS settings.",
     },
-    quiz: {
-      question: "CORS error-ah front-end-la fix pallaama, server-la fix pannanuma?",
-      options: ["Yes, Server only", "No, Frontend only", "Both"],
-      answer: 0
-    },
+    quizzes: [
+      {
+        question: "CORS error-ah front-end-la fix pannama, server-la fix pannanuma?",
+        options: ["Yes, Server only", "No, Frontend only", "Both"],
+        answer: 0
+      },
+      {
+        question: "CORS full form enna?",
+        options: ["Cross-Origin Resource Sharing", "Cool Online Remote System", "Common Order Response State"],
+        answer: 0
+      },
+      {
+        question: "Browser yen CORS call-ah block pannudhu?",
+        options: ["Security reasons-kaaga (prevent malicious cross-domain calls)", "Internet pathala", "Design thappa irukku"],
+        answer: 0
+      },
+      {
+        question: "Pre-flight request na enna HTTP method use pannum?",
+        options: ["OPTIONS", "GET", "POST"],
+        answer: 0
+      },
+      {
+        question: "Whitelist domain-naa enna?",
+        options: ["Namma trust panra domains-ku mattum permission tharurathu", "Ella domains-ahyum block panradhu", "Domain name maathuradhu"],
+        answer: 0
+      }
+    ],
     funFact: "CORS is a browser-only security feature. Postman or CLI call pannina intha error varaathu! 🛠️",
   },
 
@@ -1282,18 +2052,18 @@ export const topics = [
     tagline: "The magic behind single-threaded JS!",
     level: 2,
     readTime: "4 min",
-    quickSummary: "JavaScript orae oru vellai thaan oru time-la palla mudiyum. Aana event loop vachu, time-taking vellaigal-ah (API, Timers) background-la palla vachu, result vandhona main stream-la update pannum.",
+    quickSummary: "JavaScript orae oru vellai thaan oru time-la panna mudiyum. Aana event loop vachu, time-taking vellaigal-ah (API, Timers) background-la panna vachu, result vandhona main stream-la update pannum.",
     analogy: {
       description: "It's like a Waiter 🤵 in a hotel. Oridathula order eduthuttu, kitchen-la solittu (Async), matha table-ku povaaru. Food ready-aana thirumba vandhu serve panna (Event Loop task).",
       visual: [{ icon: "🎡", label: "Loop" }, { icon: "🏗️", label: "Stack" }, { icon: "📥", label: "Queue" }],
     },
     conversation: [
       { speaker: "Kiran", avatar: "🧑", message: "Bro, JS single-threaded thaan, aana eppadi same time-la many things panrathu?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Event loop thaan bro hero! Heavy tasks-ah background-la (Web APIs) palla vachurums, simple tasks-ah code-la run pannum. Background task mudinchona, loop adhai 'Callback Queue'-la irundha thirupi main thread-ku kondu dharum." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Event loop thaan bro hero! Heavy tasks-ah background-la (Web APIs) panna vachurums, simple tasks-ah code-la run pannum. Background task mudinchona, loop adhai 'Callback Queue'-la irundha thirupi main thread-ku kondu dharum." },
       { speaker: "Kiran", avatar: "🧑", message: "Microtasks vs Macrotasks differ-ah?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Aama! Promises (Microtasks) priority flow logic adhighama irukkum. SetTimeout (Macrotasks) wait palla queue order patterns follows palla mechanism idhu. Performance key." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Aama! Promises (Microtasks) priority flow logic adhighama irukkum. SetTimeout (Macrotasks) wait panna queue order patterns follows panna mechanism idhu. Performance key." },
       { speaker: "Kiran", avatar: "🧑", message: "Call stack overflow eppadi avoiding?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Recursion depth management careful panna num. Event loop-ah block pallaama chunks-ah data process palla logic patterns master palla num. Efficiency maximized." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Recursion depth management careful panna num. Event loop-ah block pannama chunks-ah data process panna logic patterns master panna num. Efficiency maximized." },
       { speaker: "Kiran", avatar: "🧑", message: "JS concurrency model understood." },
     ],
     whenToUse: ["Performance debugging", "Understanding SetTimeout and Fetch"],
@@ -1301,11 +2071,33 @@ export const topics = [
       mistake: "Main thread-la heavy calculation logic potten. Browser full-ah hang aagi system 'Not Responding' aaiduchu.",
       lesson: "Don't block the main thread. Heavy logic-ah background-la or workers-la run pannu.",
     },
-    quiz: {
-      question: "JavaScript background tasks-ah thirumba main-ku eppadi kondu varum?",
-      options: ["Event Loop", "If-else", "Hard drive"],
-      answer: 0
-    },
+    quizzes: [
+      {
+        question: "JavaScript background tasks-ah thirumba main-ku eppadi kondu varum?",
+        options: ["Event Loop", "If-else", "Hard drive"],
+        answer: 0
+      },
+      {
+        question: "JavaScript single-threaded-naa enna artham?",
+        options: ["Orae time-la oru vellai mattum thaan panna mudiyum", "Multiple brains irukkum", "No threads"],
+        answer: 0
+      },
+      {
+        question: "Event Loop-la 'Microtasks' (Promises) priority adhighamaa?",
+        options: ["Aamaa, promises logic first run aagum", "Illa, timeouts thaan base", "Rendum onnu thaan"],
+        answer: 0
+      },
+      {
+        question: "Callback Queue-la irundha tasks-ah entha condition-la loop edukkum?",
+        options: ["Call stack empty-aa irukkum pothu", "CPU slow-aa irukkum pothu", "User click panna mattum"],
+        answer: 0
+      },
+      {
+        question: "Event loop block aana enna aagum?",
+        options: ["Browser freeze/hang aaidum", "Internet speed adhigamaagum", "Website color maarum"],
+        answer: 0
+      }
+    ],
     funFact: "Event loop logic illaama Node.js eppavume successful aagi irukkaathu! ⚡",
   },
 
@@ -1318,16 +2110,16 @@ export const topics = [
     tagline: "Don't exclude anyone!",
     level: 2,
     readTime: "3 min",
-    quickSummary: "Accessibility (a11y) na blind or disabled people also unga website-ah use palla mudiyanum nu care edukurathu. Use proper HTML tags and screen reader support.",
+    quickSummary: "Accessibility (a11y) na blind or disabled people also unga website-ah use panna mudiyanum nu care edukurathu. Use proper HTML tags and screen reader support.",
     analogy: {
       description: "It's like Adding a Ramp ♿ for wheelchairs next to the stairs. Everyone can enter the building now.",
       visual: [{ icon: "⌨️", label: "Keyboard" }, { icon: "↔️", label: "" }, { icon: "♿", label: "A11y" }],
     },
     conversation: [
-      { speaker: "Pavi", avatar: "👩", message: "Bro, buttons-ku eppovume `<button>` thaan palla num-ah? `<div>` vacha enna?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "A11y logic palla bro! Screen readers-ku `<div>` oru simple box mathiri thaan puriyum. Adhuve `<button>` types use pannuna thaan, blind user-ku adhu click palla mudiyum nu theriyum." },
+      { speaker: "Pavi", avatar: "👩", message: "Bro, buttons-ku eppovume `<button>` thaan panna num-ah? `<div>` vacha enna?" },
+      { speaker: "Dev", avatar: "👨‍💻", message: "A11y logic panna bro! Screen readers-ku `<div>` oru simple box mathiri thaan puriyum. Adhuve `<button>` types use pannuna thaan, blind user-ku adhu click panna mudiyum nu theriyum." },
       { speaker: "Pavi", avatar: "👩", message: "Color contrast mukkiyama bro?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Romba! Low vision users-ku text readable-ah irukkanum logic patterns follows palla num. WCAG guidelines check panni design palla mechanism professional standards." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Romba! Low vision users-ku text readable-ah irukkanum logic patterns follows panna num. WCAG guidelines check panni design panna mechanism professional standards." },
       { speaker: "Pavi", avatar: "👩", message: "Keyboard navigation works-ah?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Aama, TAB key vachu every interactive element reach aaga mudiya num patterns. Focus rings visible-ah irukanum. Inclusivity thaan web ethics logic." },
       { speaker: "Pavi", avatar: "👩", message: "Accessibility rules applied." },
@@ -1337,11 +2129,33 @@ export const topics = [
       mistake: "Aura images-ku alt text kudukka marandhu poatten. Unreadable experience-ah blind users-ku kuduthutten.",
       lesson: "Always use `alt` for images and `aria-labels` for interactive elements.",
     },
-    quiz: {
-      question: "Accessibility-ku short form enna shorthand?",
-      options: ["a11y", "accs", "i18n"],
-      answer: 0
-    },
+    quizzes: [
+      {
+        question: "Accessibility-ku short form enna shorthand?",
+        options: ["a11y", "accs", "i18n"],
+        answer: 0
+      },
+      {
+        question: "Screen readers support-ku HTML-la ethu mukkiyam?",
+        options: ["Semantic tags and aria-labels", "Colorful background", "JavaScript loops"],
+        answer: 0
+      },
+      {
+        question: "Aria-label-oda main use enna?",
+        options: ["Styles track panna", "Screen readers-ku extra context thara", "Code-ah hide panna"],
+        answer: 1
+      },
+      {
+        question: "Keyboard users-ku focus outline remove panradhu nallathaa?",
+        options: ["Illa, outline irundha thaan focus theriyum", "Aamaa, removal better look", "No effect"],
+        answer: 0
+      },
+      {
+        question: "Alt text (alt='...') images-ku yen poodanum?",
+        options: ["Image load aala-naa description kaatta matrum blind users-kaaga", "Image-ah perusaakka", "Server space save panna"],
+        answer: 0
+      }
+    ],
     funFact: "Dark mode actually accessibility-la oru category thaan (for photosensitive users)! 🌘",
   },
 
@@ -1363,9 +2177,9 @@ export const topics = [
       { speaker: "Raj", avatar: "🧑", message: "Bro, search box-la ovvoru letter type pannum pothu API call poodu ma?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Venaam bro! Server crash aaidum. Debouncing use pannu. User typing stop panni 500ms aana mattum API call poodu. Periya saving idhu." },
       { speaker: "Raj", avatar: "🧑", message: "Throttle eppo panna num?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Continuous events like scroll or game firing-ku throttle use pannu logic. Fixed interval-la executions execute aagum patterns follows palla mechanism." },
-      { speaker: "Raj", avatar: "🧑", message: "Lodash helper use palla ma?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Aama! Pre-built functions available-ah irukkum patterns. Zero effort-la optimal performance achieve palla korthu logic handle palla num. Efficiency king." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Continuous events like scroll or game firing-ku throttle use pannu logic. Fixed interval-la executions execute aagum patterns follows panna mechanism." },
+      { speaker: "Raj", avatar: "🧑", message: "Lodash helper use panna ma?" },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Aama! Pre-built functions available-ah irukkum patterns. Zero effort-la optimal performance achieve panna korthu logic handle panna num. Efficiency king." },
       { speaker: "Raj", avatar: "🧑", message: "Rate limiting logic cleared." },
     ],
     whenToUse: ["Search input (Debounce)", "Scroll event (Throttling)"],
@@ -1373,11 +2187,33 @@ export const topics = [
       mistake: "Scroll event-la heavy calculation logic poaten. Performance lag-ula mobile users thitta start pannitaanga.",
       lesson: "Use throttling for high-frequency events like scroll or resize.",
     },
-    quiz: {
-      question: "User pause palla panna apram logic run palla panna ethu use aagum?",
-      options: ["Throttling", "Debouncing", "Looping"],
-      answer: 1
-    },
+    quizzes: [
+      {
+        question: "User pause panna panna apram logic run panna panna ethu use aagum?",
+        options: ["Throttling", "Debouncing", "Looping"],
+        answer: 1
+      },
+      {
+        question: "Scroll event-ah optimize panna ethu best choice?",
+        options: ["Throttling (Fixed interval execution)", "Debouncing", "Window.alert"],
+        answer: 0
+      },
+      {
+        question: "Search input typing-la API limit thadukka ethu use aagum?",
+        options: ["Debouncing", "Long for-loop", "If-else check"],
+        answer: 0
+      },
+      {
+        question: "Elevator analogy (Every 5 mins) ethai kurikkudhu?",
+        options: ["Throttling", "Debouncing", "Recursion"],
+        answer: 0
+      },
+      {
+        question: "Debounce-la 'short wait' enna benefit tharum?",
+        options: ["User typing mudikkira varaikkum API call panna koodathu", "Internet speed increase aagum", "Code beauty adhigamaagum"],
+        answer: 0
+      }
+    ],
     funFact: "Window resizing logic-la debouncing adhighama use aaguthu bro! 📐",
   },
 
@@ -1390,7 +2226,7 @@ export const topics = [
     tagline: "Don't repeat your queries!",
     level: 2,
     readTime: "2 min",
-    quickSummary: "Fragments na GraphQL-la reusable pieces of fields. Oru set of fields (Ex: User name, email, avatar) multiple queries-la use palla num pothu, athai fragment-ah mathi share pannikalaam.",
+    quickSummary: "Fragments na GraphQL-la reusable pieces of fields. Oru set of fields (Ex: User name, email, avatar) multiple queries-la use panna num pothu, athai fragment-ah mathi share pannikalaam.",
     analogy: {
       description: "It's like a Template 📋. Instead of writing unga full address 10 times, you create a 'Home Address' stamp and use it everywhere.",
       visual: [{ icon: "🧩", label: "Fragment" }, { icon: "→", label: "" }, { icon: "📝", label: "Query A" }, { icon: "📝", label: "Query B" }],
@@ -1399,9 +2235,9 @@ export const topics = [
       { speaker: "Nila", avatar: "👩", message: "Bro, ovvoru time-um 20 fields korthu ezhutha kashtama irukke?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Fragment use pannu bro! `fragment UserInfo on User { name, email }` nu define pannittu, query kulla `...UserInfo` nu poatta pothum. Code romba clean-ah irukkum." },
       { speaker: "Nila", avatar: "👩", message: "Inline fragments irukka ma?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Aama! Union types and Interfaces logic handles palla pothu `... on Admin` mathiri inline fragments use palla security patterns power follows palla num." },
-      { speaker: "Nila", avatar: "👩", message: "Caching help palla ma?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Apollo/Relay fragments-ah automatic-ah cache normalization logic-ku use pannippaanga. Consistency maintain palla adhisaya tool idhu patterns." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Aama! Union types and Interfaces logic handles panna pothu `... on Admin` mathiri inline fragments use panna security patterns power follows panna num." },
+      { speaker: "Nila", avatar: "👩", message: "Caching help panna ma?" },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Apollo/Relay fragments-ah automatic-ah cache normalization logic-ku use pannippaanga. Consistency maintain panna adhisaya tool idhu patterns." },
       { speaker: "Nila", avatar: "👩", message: "GraphQL fragments logic integrated." },
     ],
     whenToUse: ["Large GraphQL schemas", "Consistent UI components"],
@@ -1409,11 +2245,33 @@ export const topics = [
       mistake: "Fragments illama redundant-ah fields ezhuthunathaala, oru field name maathunappo 10 places-la marandhu vitten. Bug city-ah aaiduchu.",
       lesson: "DRY (Don't Repeat Yourself) principle-ah GraphQL-layum follow pannu.",
     },
-    quiz: {
-      question: "GraphQL-la reusable field lists-ku enna peru?",
-      options: ["Schemas", "Fragments", "Resolvers"],
-      answer: 1
-    },
+    quizzes: [
+      {
+        question: "GraphQL-la reusable field lists-ku enna peru?",
+        options: ["Schemas", "Fragments", "Resolvers"],
+        answer: 1
+      },
+      {
+        question: "Fragments-naa enna artham?",
+        options: ["Reusable data pieces for queries", "Code pieces for UI", "Database tables"],
+        answer: 0
+      },
+      {
+        question: "DRY (Don't Repeat Yourself) principle-ah GraphQL-la eppadi follow pannalaam?",
+        options: ["Using Fragments", "Using long strings", "Manually typing every time"],
+        answer: 0
+      },
+      {
+        question: "Fragment usage syntax enna?",
+        options: ["...FragmentName", "&&FragmentName", "!!FragmentName"],
+        answer: 0
+      },
+      {
+        question: "Large schema maintenance-ku fragments helping-aa?",
+        options: ["Aamaa, clean-aa maintain panna helps pannum", "Illa, complexity adhigamaagum", "No"],
+        answer: 0
+      }
+    ],
     funFact: "Fragments help pannurathaala frontend and backend data sync romba easy-ah irukkum! 🔗",
   },
 
@@ -1426,7 +2284,7 @@ export const topics = [
     tagline: "Speedy first paint!",
     level: 2,
     readTime: "3 min",
-    quickSummary: "SSR na website-ah server-laye korthu (HTML-ah mathi) browser-ku anupurathu. Browser-la JS load palla palla palla delay pallaama, immediately content theriyum.",
+    quickSummary: "SSR na website-ah server-laye korthu (HTML-ah mathi) browser-ku anupurathu. Browser-la JS load panna delay pannama, immediately content theriyum.",
     analogy: {
       description: "It's like Ordering a Ready-made Meal 🍱. Food cooked and packed server-la (Server), nee just open panni saapudalam. Adhuve Client-side na elements kulla kitchen set (JS) varum, nee anga thaan cook pannanum (Rendering).",
       visual: [{ icon: "⚙️", label: "Server" }, { icon: "🥗", label: "HTML" }, { icon: "→", label: "User" }],
@@ -1435,14 +2293,14 @@ export const topics = [
       { speaker: "Kiran", avatar: "🧑", message: "Bro, React site initial-ah blank screen kaatta maattaen-u solraanga?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Next.js mathiri framework use panni SSR enable pannu bro! First page server-laye render aagi HTML-ah varum. Semma fast initial load and SEO-kum best tool idhu." },
       { speaker: "Kiran", avatar: "🧑", message: "Hydration na enna bro?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Server-la vandha static HTML-ah React JS vachu interactive-ah mathura process logic idhu. Browser-la app-ku life kudukkura patterns follows palla mechanism." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Server-la vandha static HTML-ah React JS vachu interactive-ah mathura process logic idhu. Browser-la app-ku life kudukkura patterns follows panna mechanism." },
       { speaker: "Kiran", avatar: "🧑", message: "Data fetching eppo nadakkum?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Server-laye `getServerSideProps` logic moolama pre-fetch aaidum. API calls browser-la palla palla palla delay aakaathu efficiency logic peaks." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Server-laye `getServerSideProps` logic moolama pre-fetch aaidum. API calls browser-la panna delay aakaathu efficiency logic peaks." },
       { speaker: "Kiran", avatar: "🧑", message: "SSR strategies clear." },
     ],
     whenToUse: ["Dynamic content needed fast", "SEO critical sites (Blogs, E-commerce)"],
     devConfession: {
-      mistake: "Every single page-ku SSR enable palla panni server load-ah adhigamaakitaen. Static pages-ku unnecessary-ah server use pannittaen.",
+      mistake: "Every single page-ku SSR enable panna panni server load-ah adhigamaakitaen. Static pages-ku unnecessary-ah server use pannittaen.",
       lesson: "Use SSR only for pages where data changes for every user.",
     },
     quiz: {
@@ -1462,27 +2320,27 @@ export const topics = [
     tagline: "The fastest possible web!",
     level: 2,
     readTime: "3 min",
-    quickSummary: "SSG na build time-laye (Nee deploy palla palla palla pothu) ellaa HTML files-ayum generate panni vachururathu. Request varum pothu server calculations thevai illa, just file delivery thaan.",
+    quickSummary: "SSG na build time-laye (Nee deploy panna pothu) ellaa HTML files-ayum generate panni vachururathu. Request varum pothu server calculations thevai illa, just file delivery thaan.",
     analogy: {
       description: "It's like Buying a Pre-packed Snack 🍪. Everything is ready in the shelf. Delivery is instant, no cooking time needed during request.",
       visual: [{ icon: "🛠️", label: "Build" }, { icon: "→", label: "📄" }, { icon: "📄" }, { icon: "📄" }],
     },
     conversation: [
-      { speaker: "Arun", avatar: "🧑", message: "Bro, blog pages-ku SSR pallaama SSG pallaama?" },
+      { speaker: "Arun", avatar: "🧑", message: "Bro, blog pages-ku SSR pannama SSG pannama?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "SSG thaan best bro! Blog content 1000 perukku onnu thaan. So build time-laye generate pannitta, CDN vazhiya lightning fast-ah load aagum. Cost-um kammi." },
-      { speaker: "Arun", avatar: "🧑", message: "ISR help palla ma bro?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Aama! Incremental Static Regeneration vachu full site-ah rebuild pallaama single page-ah mattum background-la update palla logic patterns follows palla num." },
+      { speaker: "Arun", avatar: "🧑", message: "ISR help panna ma bro?" },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Aama! Incremental Static Regeneration vachu full site-ah rebuild pannama single page-ah mattum background-la update panna logic patterns follows panna num." },
       { speaker: "Arun", avatar: "🧑", message: "Performance differences?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "SSG is fastest. ZERO server response time logic efficiency handle palla patterns korthu maintain palla patterns follows palla power logic peaks." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "SSG is fastest. ZERO server response time logic efficiency handle panna patterns korthu maintain panna patterns follows panna power logic peaks." },
       { speaker: "Arun", avatar: "🧑", message: "SSG workflow mastered." },
     ],
     whenToUse: ["Blogs", "Documentation", "Portfolio sites"],
     devConfession: {
-      mistake: "Dynamic dashboard-ku SSG use palla palla try pannittaen. Data update aaga full site-ah thirumba rebuild palla palla palla delay aaiduchu.",
+      mistake: "Dynamic dashboard-ku SSG use panna try pannittaen. Data update aaga full site-ah thirumba rebuild panna delay aaiduchu.",
       lesson: "SSG is for data that doesn't change frequently.",
     },
     quiz: {
-      question: "Build time-la pages generate palla logic-ku enna peru?",
+      question: "Build time-la pages generate panna logic-ku enna peru?",
       options: ["SSR", "SSG", "ISR"],
       answer: 1
     },
@@ -1504,17 +2362,17 @@ export const topics = [
       visual: [{ icon: "💻", label: "Server" }, { icon: "📡", label: "Stream" }, { icon: "→", label: "User" }],
     },
     conversation: [
-      { speaker: "Raj", avatar: "🧑", message: "Bro, price updates-ku websockets thaan palla num-ah?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "SSE check pannu bro! Simple HTTP logic thaan. Real-time updates push palla it is lightweight and easier to scale than full 2-way websockets." },
+      { speaker: "Raj", avatar: "🧑", message: "Bro, price updates-ku websockets thaan panna num-ah?" },
+      { speaker: "Dev", avatar: "👨‍💻", message: "SSE check pannu bro! Simple HTTP logic thaan. Real-time updates push panna it is lightweight and easier to scale than full 2-way websockets." },
       { speaker: "Raj", avatar: "🧑", message: "Re-connection handling auto-ah?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Aama! SSE internal-ah reconnection attempt logic patterns follows palla mechanism idhu. Websockets patterns palla pothu manual logic needed patterns utility power." },
-      { speaker: "Raj", avatar: "🧑", message: "Large payloads support palla ma?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Text-based updates-ku hero idhu thaan. Audio/Video streaming na different protocols (WebRTC) thaan choice logic follows palla num efficiency king patterns." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Aama! SSE internal-ah reconnection attempt logic patterns follows panna mechanism idhu. Websockets patterns panna pothu manual logic needed patterns utility power." },
+      { speaker: "Raj", avatar: "🧑", message: "Large payloads support panna ma?" },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Text-based updates-ku hero idhu thaan. Audio/Video streaming na different protocols (WebRTC) thaan choice logic follows panna num efficiency king patterns." },
       { speaker: "Raj", avatar: "🧑", message: "SSE live streaming integrated." },
     ],
     whenToUse: ["Live score boards", "Notification systems", "Stock ticker"],
     devConfession: {
-      mistake: "SSE-la adhigama connection open palla vachi browser limit (6 per domain) hit aairuchu.",
+      mistake: "SSE-la adhigama connection open panna vachi browser limit (6 per domain) hit aairuchu.",
       lesson: "Use SSE wisely. Browser limitations logic-ah handle pannanum.",
     },
     quiz: {
@@ -1534,27 +2392,27 @@ export const topics = [
     tagline: "Don't freeze the UI!",
     level: 2,
     readTime: "3 min",
-    quickSummary: "Web workers na JavaScript processing-ah background-la palla vachurathu. Heavy calculations screen-ah lag palla pallaama parallel-ah nadakkum.",
+    quickSummary: "Web workers na JavaScript processing-ah background-la panna vachurathu. Heavy calculations screen-ah lag pannaama parallel-ah nadakkum.",
     analogy: {
       description: "It's like a Cook 👨‍🍳 having a Kitchen Assistant. Cook main vellai (UI) paapaaru, assistant heavy vegetable cutting (Heavy logic) background-la parallel-ah paapaaru. Main kitchen free-ah irukkum.",
       visual: [{ icon: "👨‍💻", label: "Main Thread" }, { icon: "↔️", label: "" }, { icon: "👨‍🏭", label: "Worker" }],
     },
     conversation: [
-      { speaker: "Arun", avatar: "🧑", message: "Bro, periya image process pannu pothu button click vellai palla maattaen-u error varuthu?" },
+      { speaker: "Arun", avatar: "🧑", message: "Bro, periya image process pannu pothu button click vellai panna maattaen-u error varuthu?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Vellai main thread-la pookuthu bro! Web worker use pannu. Parallel-ah oru JS file run aagum, calculation mudinjona main thread-ku message anuppum. UI semma smooth-ah irukkum." },
       { speaker: "Arun", avatar: "🧑", message: "Data sharing zero-copy-ah?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Transferable objects use palla memory-ah direct-ah move palla mudiya logic mechanism. Performance peaks patterns security focus logic handling power." },
-      { speaker: "Arun", avatar: "🧑", message: "Worker kulla fetch palla ma?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Kandippa! Network calls background-la palli result-ah postMessage via main UI thread-ku sync palla security patterns follows palla num efficiency." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Transferable objects use panna memory-ah direct-ah move panna mudiya logic mechanism. Performance peaks patterns security focus logic handling power." },
+      { speaker: "Arun", avatar: "🧑", message: "Worker kulla fetch panna ma?" },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Kandippa! Network calls background-la palli result-ah postMessage via main UI thread-ku sync panna security patterns follows panna num efficiency." },
       { speaker: "Arun", avatar: "🧑", message: "Web worker background processing fixed." },
     ],
     whenToUse: ["Image/Video processing in browser", "Massive data sorting", "Encryption logic"],
     devConfession: {
-      mistake: "Main thread logic and Web worker logic mix pannitaen. Workers-ala directly DOM-ah access palla mudiyaathu nu theriyama bug pannitaen.",
+      mistake: "Main thread logic and Web worker logic mix pannitaen. Workers-ala directly DOM-ah access panna mudiyaathu nu theriyama bug pannitaen.",
       lesson: "Web workers can't touch the DOM. Always communicate via messages.",
     },
     quiz: {
-      question: "Web workers logic UI-ah affect pallaama parallel-ah run aaguma?",
+      question: "Web workers logic UI-ah affect pannama parallel-ah run aaguma?",
       options: ["Yes", "No"],
       answer: 0
     },
@@ -1578,10 +2436,10 @@ export const topics = [
     conversation: [
       { speaker: "Pavi", avatar: "👩", message: "Bro, refresh panna dark mode poyiduthu?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "LocalStorage-la preference-ah store pannu bro! Page load aaguva pothu antha key pathu correct-ana theme class apply pannu. No more white flash!" },
-      { speaker: "Pavi", avatar: "👩", message: "OS preference detect palla ma?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Aama! `prefers-color-scheme` media query vachu user laptop/mobile dark mode logic-ah automatic-ah sync palla security patterns follows palla num." },
+      { speaker: "Pavi", avatar: "👩", message: "OS preference detect panna ma?" },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Aama! `prefers-color-scheme` media query vachu user laptop/mobile dark mode logic-ah automatic-ah sync panna security patterns follows panna num." },
       { speaker: "Pavi", avatar: "👩", message: "Transition smooth-ah irukkuma?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "CSS transitions vachu colors gradually fade palla logic visibility improve pannum patterns. Eye comfort logic thaan main priority here patterns." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "CSS transitions vachu colors gradually fade panna logic visibility improve pannum patterns. Eye comfort logic thaan main priority here patterns." },
       { speaker: "Pavi", avatar: "👩", message: "Dark mode persistent logic done." },
     ],
     whenToUse: ["Every modern user-centric web app"],
@@ -1590,7 +2448,7 @@ export const topics = [
       lesson: "Always check your image assets in both themes.",
     },
     quiz: {
-      question: "User theme preference save palla browser-la enna storage use aagum?",
+      question: "User theme preference save panna browser-la enna storage use aagum?",
       options: ["LocalStorage", "RAM", "URL"],
       answer: 0
     },
@@ -1606,18 +2464,18 @@ export const topics = [
     tagline: "Installable websites!",
     level: 2,
     readTime: "3 min",
-    quickSummary: "Progressive Web Apps (PWA) na websites-ah browser kulla irundhe 'Install' palla palla Mobile App mathiri use pannalaam. Offline support and push notifications-um kedaikum.",
+    quickSummary: "Progressive Web Apps (PWA) na websites-ah browser kulla irundhe 'Install' panna Mobile App mathiri use pannalaam. Offline support and push notifications-um kedaikum.",
     analogy: {
       description: "It's like a Food Truck 🚚 that can also become a stationary restaurant. It's flexible, and you can 'Bookmark' (Install) it on your home screen.",
       visual: [{ icon: "🌐", label: "Web" }, { icon: "➕", label: "" }, { icon: "📱", label: "App" }],
     },
     conversation: [
-      { speaker: "Arun", avatar: "🧑", message: "Bro, app palla Play Store-ku pay palla palla money ille?" },
+      { speaker: "Arun", avatar: "🧑", message: "Bro, app panna Play Store-ku pay panna money ille?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Site-ah PWA-ah mathu bro! Users unna site-ah 'Add to Home Screen' pannuvaanga. Icons, splash screens, offline support ellam irukkum. Semma cheap and powerful solution." },
       { speaker: "Arun", avatar: "🧑", message: "Push notifications possible-ah?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Aama! Web Push API vachu browser close aanaalum alerts anuppa mudiya logic mechanism security patterns follows palla power execution logic efficiency." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Aama! Web Push API vachu browser close aanaalum alerts anuppa mudiya logic mechanism security patterns follows panna power execution logic efficiency." },
       { speaker: "Arun", avatar: "🧑", message: "Update handling simple-ah?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Service worker automatically background-la check palli update notifications tharum patterns follows palla security logic efficiency mastery power logic." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Service worker automatically background-la check palli update notifications tharum patterns follows panna security logic efficiency mastery power logic." },
       { speaker: "Arun", avatar: "🧑", message: "PWA transition strategy locked." },
     ],
     whenToUse: ["Low budget startups", "Content focused apps"],
@@ -1642,30 +2500,52 @@ export const topics = [
     tagline: "Store large data in browser!",
     level: 2,
     readTime: "3 min",
-    quickSummary: "LocalStorage chinna data-ku thaan (5MB limit). IndexedDB na periya datasets, images, files-ah browser-laye database mathiri store palla mudiyum.",
+    quickSummary: "LocalStorage chinna data-ku thaan (5MB limit). IndexedDB na periya datasets, images, files-ah browser-laye database mathiri store panna mudiyum.",
     analogy: {
       description: "LocalStorage is like a Pocket 👛 (Small, quick). IndexedDB is like a Wardrobe 👗 (Large, organized, can hold many things).",
       visual: [{ icon: "🗄️", label: "Browser DB" }, { icon: "↔️", label: "" }, { icon: "📉", label: "Offline Data" }],
     },
     conversation: [
-      { speaker: "Pavi", avatar: "👩", message: "Bro, 1000 items offline cache palla local storage pothuma?" },
+      { speaker: "Pavi", avatar: "👩", message: "Bro, 1000 items offline cache panna local storage pothuma?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Pothaathu bro! IndexedDB use pannu. Adhu full-blown NoSQL database mathiri browser kulla work aagum. Much more space and powerful features." },
-      { speaker: "Pavi", avatar: "👩", message: "Binary data store palla ma?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Aama! Blobs and buffers directly store palla mudiya logic mechanism. Media heavy offline apps-ku idhu thaan proper foundation patterns security logic efficiency." },
+      { speaker: "Pavi", avatar: "👩", message: "Binary data store panna ma?" },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Aama! Blobs and buffers directly store panna mudiya logic mechanism. Media heavy offline apps-ku idhu thaan proper foundation patterns security logic efficiency." },
       { speaker: "Pavi", avatar: "👩", message: "Queries complex-ah ezhutha ma?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Indexes build panni fast scanning palla patterns follows palla power execution logic mechanism security metrics power efficiency mastery patterns." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Indexes build panni fast scanning panna patterns follows panna power execution logic mechanism security metrics power efficiency mastery patterns." },
       { speaker: "Pavi", avatar: "👩", message: "IndexedDB data management clear." },
     ],
     whenToUse: ["Offline-first apps", "Caching heavy API responses"],
     devConfession: {
-      mistake: "IndexedDB logic romba complex-ah irukku nu skip palla palla app slow aakiten.",
+      mistake: "IndexedDB logic romba complex-ah irukku nu skip panna app slow aakiten.",
       lesson: "Use wrapper libraries like `idb` or `Dexie` to make IndexedDB easy to use.",
     },
-    quiz: {
-      question: "Browser-la periya data store palla ethu best?",
-      options: ["LocalStorage", "IndexedDB", "Cookies"],
-      answer: 1
-    },
+    quizzes: [
+      {
+        question: "Browser-la periya data store panna ethu best?",
+        options: ["LocalStorage", "IndexedDB", "Cookies"],
+        answer: 1
+      },
+      {
+        question: "IndexedDB-la binary data (Images/Files) store pannalaamaa?",
+        options: ["Aamaa, natively support pannum", "Illa, verum strings mattum thaan", "Theriyala"],
+        answer: 0
+      },
+      {
+        question: "IndexedDB logic-ah handle panna popular wrapper enna?",
+        options: ["Axios", "Dexie.js / idb", "jQuery"],
+        answer: 1
+      },
+      {
+        question: "IndexedDB enna type database?",
+        options: ["SQL", "NoSQL (Key-Value)", "File system"],
+        answer: 1
+      },
+      {
+        question: "LocalStorage limit 5MB-naa, IndexedDB-ku limit evlo?",
+        options: ["Adhe 5MB thaan", "Porae space (Disk space-la oru percentage)", "No limit"],
+        answer: 1
+      }
+    ],
     funFact: "Many modern drawing apps save unga progress in IndexedDB! 🎨",
   },
 
@@ -1680,16 +2560,16 @@ export const topics = [
     readTime: "3 min",
     quickSummary: "Subscriptions na GraphQL-la real-time data flow. Database-la oru change vandha directly browser-ku update poodum (Over websockets).",
     analogy: {
-      description: "It's like a YouTube Subscription 🔔. Content (Data) upload aana pothu unakku notification varuthu. Nee eppovume check palla palla palla thevai illa.",
+      description: "It's like a YouTube Subscription 🔔. Content (Data) upload aana pothu unakku notification varuthu. Nee eppovume check panna thevai illa.",
       visual: [{ icon: "🔔", label: "Sub" }, { icon: "→", label: "" }, { icon: "📱", label: "Client" }, { icon: "💬", label: "New Msg" }],
     },
     conversation: [
       { speaker: "Nila", avatar: "👩", message: "Bro, chat app-ku GraphQL query works-ah?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Query verum single fetch thaan bro. Chat-ku Subscription use pannu. Pudhu message vandha backend directly frontend-ku push pannidum." },
       { speaker: "Nila", avatar: "👩", message: "Websockets needed-ah?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Aama! Background-la websocket tunnel protocol via logic handle aagum patterns follows palla mechanism security metrics power logic execution levels." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Aama! Background-la websocket tunnel protocol via logic handle aagum patterns follows panna mechanism security metrics power logic execution levels." },
       { speaker: "Nila", avatar: "👩", message: "Pub/Sub system usage?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Redis mathiri external PubSub vacha thaan multiple server scalability-ku subcriptions work aagum patterns follows palla power efficiency king patterns power." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Redis mathiri external PubSub vacha thaan multiple server scalability-ku subcriptions work aagum patterns follows panna power efficiency king patterns power." },
       { speaker: "Nila", avatar: "👩", message: "GraphQL real-time logic integrated." },
     ],
     whenToUse: ["Chat applications", "Live score updates", "Stock dashboard"],
@@ -1697,11 +2577,33 @@ export const topics = [
       mistake: "Every simple update-kum subscription use palli server memory-ah full panni crash pannittaen.",
       lesson: "Use subscriptions only for critical live updates. Others-ku Polling or Refresh pothum.",
     },
-    quiz: {
-      question: "GraphQL-la real-time data update palla korthu use aaguva mechanism enna?",
-      options: ["Mutation", "Subscription", "Query"],
-      answer: 1
-    },
+    quizzes: [
+      {
+        question: "GraphQL-la real-time data update panna korthu use aaguva mechanism enna?",
+        options: ["Mutation", "Subscription", "Query"],
+        answer: 1
+      },
+      {
+        question: "Subscriptions background-la entha protocol use pannum?",
+        options: ["HTTP", "WebSockets", "FTP"],
+        answer: 1
+      },
+      {
+        question: "Chat app-la pudhu message vara ethu use pannuvom?",
+        options: ["Query", "Mutation", "Subscription"],
+        answer: 2
+      },
+      {
+        question: "Subscription run aaga server-la enna system venum?",
+        options: ["Pub/Sub system", "Verum file storage", "No system"],
+        answer: 0
+      },
+      {
+        question: "GraphQL Subscriptions permanent connection-ah maintain pannumaa?",
+        options: ["Aamaa", "Illa, single call thaan", "Internet speed pothum"],
+        answer: 0
+      }
+    ],
     funFact: "Subscriptions usually websockets connectivity background-la use pannuvanga! 🔌",
   },
 
@@ -1714,18 +2616,18 @@ export const topics = [
     tagline: "Empower non-tech teams!",
     level: 2,
     readTime: "3 min",
-    quickSummary: "CMS na oru dashboard. Coding knowledge illatha normal managers kooda website content-ah (Blogs, Photos) update palla mudiyum (Example: WordPress, Strapi, Contentful).",
+    quickSummary: "CMS na oru dashboard. Coding knowledge illatha normal managers kooda website content-ah (Blogs, Photos) update panna mudiyum (Example: WordPress, Strapi, Contentful).",
     analogy: {
       description: "It's like a Notice Board 📋. Teacher (Admin) changes the paper. Students (Users) see the update. Teacher codes the board background, not the paper every time.",
       visual: [{ icon: "📑", label: "CMS" }, { icon: "→", label: "" }, { icon: "🎨", label: "UI" }],
     },
     conversation: [
-      { speaker: "Deepa", avatar: "👩", message: "Bro, blog poodu korthu ovvoru time-um HTML update palla num-ah?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Illa bro! Strapi or Sanity mathiri CMS setup pannu. Nee verum interface build palla palla pothum, writing team anga post poodu vaanga, automatic-ah site-la vandhurum." },
+      { speaker: "Deepa", avatar: "👩", message: "Bro, blog poodu korthu ovvoru time-um HTML update panna num-ah?" },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Illa bro! Strapi or Sanity mathiri CMS setup pannu. Nee verum interface build panna pothum, writing team anga post poodu vaanga, automatic-ah site-la vandhurum." },
       { speaker: "Deepa", avatar: "👩", message: "Headless vs Traditional CMS?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Headless verum JSON API tharum, nee frontend React/Next-la palla mudiya logic mechanism follows palla patterns power logic execution metrics power patterns." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Headless verum JSON API tharum, nee frontend React/Next-la panna mudiya logic mechanism follows panna patterns power logic execution metrics power patterns." },
       { speaker: "Deepa", avatar: "👩", message: "Asset management easy-ah?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Aama! Images/Videos optimization and CDN delivery korthu CMS pathukoovum patterns follows palla security logic efficiency mastery power logic execution." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Aama! Images/Videos optimization and CDN delivery korthu CMS pathukoovum patterns follows panna security logic efficiency mastery power logic execution." },
       { speaker: "Deepa", avatar: "👩", message: "CMS workflow strategy ready." },
     ],
     whenToUse: ["Blogs", "E-commerce catalogs", "Marketing sites"],
@@ -1733,11 +2635,33 @@ export const topics = [
       mistake: "Hard-coded content vachu periya site build palli, daily update korthu dev team head-ache aakiten.",
       lesson: "Use proper CMS for content-heavy sites.",
     },
-    quiz: {
-      question: "Content update palla mechanism korthu enna tool category?",
-      options: ["IDE", "CMS", "VPC"],
-      answer: 1
-    },
+    quizzes: [
+      {
+        question: "Content update panna mechanism korthu enna tool category?",
+        options: ["IDE", "CMS", "VPC"],
+        answer: 1
+      },
+      {
+        question: "Headless CMS na enna artham?",
+        options: ["No UI, verum API (JSON) data mattum tharum", "No Database", "No Admin dashboard"],
+        answer: 0
+      },
+      {
+        question: "WordPress enna category?",
+        options: ["Library", "CMS", "Browser"],
+        answer: 1
+      },
+      {
+        question: "Strapi pathi unga karuthu enna (In case of Headless)?",
+        options: ["Adhu oru popular Headless CMS", "Adhu oru design tool", "Database software"],
+        answer: 0
+      },
+      {
+        question: "Non-tech teams content-ah manage panna CMS help pannumaa?",
+        options: ["Aamaa, code illama interface moolamaa pannaalam", "Illa, dev team thaan pannanum", "Theriyala"],
+        answer: 0
+      }
+    ],
     funFact: "WordPress powers over 40% of all websites in the world! 🌏",
   },
 
@@ -1757,11 +2681,11 @@ export const topics = [
     },
     conversation: [
       { speaker: "Nila", avatar: "👩", message: "Bro, SSR-la page vandhona button work aala, 1 sec kazhuichu thaan click aaguthu?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Hydration delay bro! HTML first vandhurum, aana React antha HTML-ah korthu 'Hydrate' panni event listeners add palla num. Athu mudinja thaan clicks work aagum." },
-      { speaker: "Nila", avatar: "👩", message: "Islands architecture help palla ma?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Aama! Astro mathiri frameworks-la needed components mattum hydrate palla logic patterns follows palla power execution levels mastery metrics power logic." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Hydration delay bro! HTML first vandhurum, aana React antha HTML-ah korthu 'Hydrate' panni event listeners add panna num. Athu mudinja thaan clicks work aagum." },
+      { speaker: "Nila", avatar: "👩", message: "Islands architecture help panna ma?" },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Aama! Astro mathiri frameworks-la needed components mattum hydrate panna logic patterns follows panna power execution levels mastery metrics power logic." },
       { speaker: "Nila", avatar: "👩", message: "Performance impact visible-ah?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Definitely! TBT (Total Blocking Time) koraikka partial hydration is the champion logic patterns follows palla efficiency king logic metrics power patterns." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Definitely! TBT (Total Blocking Time) koraikka partial hydration is the champion logic patterns follows panna efficiency king logic metrics power patterns." },
       { speaker: "Nila", avatar: "👩", message: "Hydration strategy optimized." },
     ],
     whenToUse: ["Understanding SSR/Next.js performance", "Debugging 'TBT' (Total Blocking Time)"],
@@ -1769,11 +2693,33 @@ export const topics = [
       mistake: "Hydration error (Server vs Client content mismatch) ignore pannittaen. Sudden-ah UI change aai users confuse aaitaanga.",
       lesson: "Always ensure Server and Client render the same initial HTML to avoid hydration flickering.",
     },
-    quiz: {
-      question: "Static HTML-ah interactive-ah mathura process enna?",
-      options: ["Rendering", "Hydration", "Compilation"],
-      answer: 1
-    },
+    quizzes: [
+      {
+        question: "Static HTML-ah interactive-ah mathura process enna?",
+        options: ["Rendering", "Hydration", "Compilation"],
+        answer: 1
+      },
+      {
+        question: "SSR-la HTML vandha udanae buttons click panna work aagumaa?",
+        options: ["Aamaa, instantly", "Illa, Hydration mudiyira varaikkum wait pannanum", "Internet speed pathala"],
+        answer: 1
+      },
+      {
+        question: "Hydration error eppo varum?",
+        options: ["Server-um Client-um same HTML render pannala-naa", "Internet cut aana", "Vercel crash aana"],
+        answer: 0
+      },
+      {
+        question: "Next.js-la hydration priority automatically handle aagumaa?",
+        options: ["Aamaa", "Illa, manual-aa pannanum", "No support"],
+        answer: 0
+      },
+      {
+        question: "Dried plant analogy-la water (💧) ethai kurikkudhu?",
+        options: ["HTML", "JavaScript / Hydration", "CSS"],
+        answer: 1
+      }
+    ],
     funFact: "Pure static sites (No JS) don't need hydration at all! ⚡",
   },
 
@@ -1788,16 +2734,16 @@ export const topics = [
     readTime: "3 min",
     quickSummary: "Tree shaking na unga final code bundle-la use pallaatha (Dead code) functions or components-ah automatically remove panrathu. Bundlers (Webpack/Vite) idhai pannum.",
     analogy: {
-      description: "It's like Shaking a Tree 🌲. Unnaku thevaiyaana fruits (Functions you use) tree-la irukkum. Dead leaves (Unused code) shake palla pothu kooda vizhundhurum. Light tree stays!",
+      description: "It's like Shaking a Tree 🌲. Unnaku thevaiyaana fruits (Functions you use) tree-la irukkum. Dead leaves (Unused code) shake panna pothu kooda vizhundhurum. Light tree stays!",
       visual: [{ icon: "🌲", label: "Full Code" }, { icon: "🫨", label: "Shake" }, { icon: "🍃", label: "Clean Bundle" }],
     },
     conversation: [
       { speaker: "Logu", avatar: "🧑", message: "Bro, periya library use pannuna full space edukkuma?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Export/Import correct-ah use pannuna 'Tree Shaking' nadakkum bro! Use pallaatha functions final bundle-ku varathu. Adhaan bundle size kammi-ah irukkum." },
       { speaker: "Logu", avatar: "🧑", message: "Dead code automatically remove aagu ma?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Aama! Bundler code-ah analysis panni yaru yarai call pannuraanga nu check pannum patterns follows palla mechanism security metrics power logic execution levels." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Aama! Bundler code-ah analysis panni yaru yarai call pannuraanga nu check pannum patterns follows panna mechanism security metrics power logic execution levels." },
       { speaker: "Logu", avatar: "🧑", message: "CommonJS vs ESM impact?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "ESM (import/export) thaan static analysis-ku help pannum logic patterns follows palla power efficiency king logic metrics power patterns." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "ESM (import/export) thaan static analysis-ku help pannum logic patterns follows panna power efficiency king logic metrics power patterns." },
       { speaker: "Logu", avatar: "🧑", message: "Tree shaking for slim bundles." },
     ],
     whenToUse: ["Optimizing JS bundle size", "Using modern libraries like Lodash-es"],
@@ -1805,11 +2751,33 @@ export const topics = [
       mistake: "CommonJS (require) use panni tree-shaking block pannittaen. Bundle size 5MB-ku pochu.",
       lesson: "Use ES Modules (import/export) for effective tree shaking.",
     },
-    quiz: {
-      question: "Unused code-ah remove palla process-ku enna peru?",
-      options: ["Minification", "Tree Shaking", "Uglify"],
-      answer: 1
-    },
+    quizzes: [
+      {
+        question: "Unused code-ah remove panna process-ku enna peru?",
+        options: ["Minification", "Tree Shaking", "Uglify"],
+        answer: 1
+      },
+      {
+        question: "Tree Shaking-ku endha module system best?",
+        options: ["CommonJS (require)", "ES Modules (import/export)", "Script tags"],
+        answer: 1
+      },
+      {
+        question: "Bundlers like Webpack/Vite tree shaking pannumaa?",
+        options: ["Aamaa, default-aa support pannum", "Illa, manual removal venum", "Theriyala"],
+        answer: 0
+      },
+      {
+        question: "Final bundle size tree shaking-ala kuraiyumaa?",
+        options: ["Aamaa, redundant code pogum", "Illa, size adhigamaagum", "No change"],
+        answer: 0
+      },
+      {
+        question: "Dead code na enna artham?",
+        options: ["Functions never used in the project", "Bugs in the code", "Old versions of code"],
+        answer: 0
+      }
+    ],
     funFact: "The term 'Tree Shaking' was first popularized by Rollup bundler! 🍁",
   },
 
@@ -1822,30 +2790,52 @@ export const topics = [
     tagline: "Don't recalculate twice!",
     level: 2,
     readTime: "3 min",
-    quickSummary: "Memoization na oru heavy function-oda result-ah korthu vachukura logic. Same input thirumba vandha, recalculate pallaama cached result-ah immediately kudukkalaam.",
+    quickSummary: "Memoization na oru heavy function-oda result-ah korthu vachukura logic. Same input thirumba vandha, recalculate pannama cached result-ah immediately kudukkalaam.",
     analogy: {
-      description: "It's like Remembering Math Answers 🧠. 15 x 6 = 90 nu oru time calculate palla palla palla unnaala memory-la vachukka mudiyum. Next time yaravadhu ketaa instantly '90!' nu sollalaam.",
+      description: "It's like Remembering Math Answers 🧠. 15 x 6 = 90 nu oru time calculate panna unnaala memory-la vachukka mudiyum. Next time yaravadhu ketaa instantly '90!' nu sollalaam.",
       visual: [{ icon: "📥", label: "Input" }, { icon: "↔️", label: "Cache" }, { icon: "🧠", label: "Result" }],
     },
     conversation: [
       { speaker: "Deepa", avatar: "👩", message: "Bro, heavy loop ovvoru re-render-layum run aagudhey?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "React.useMemo use pannu bro! Input maaraatha varai recalculate aakaathu. Performance semma-ah boost aagum." },
       { speaker: "Deepa", avatar: "👩", message: "Result-ah cache panni vachukuma bro?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Aama! Memory-la previous result irukkum. Adhe input thirumba vandha, process pallaama antha result-ah tharum." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Aama! Memory-la previous result irukkum. Adhe input thirumba vandha, process pannama antha result-ah tharum." },
       { speaker: "Deepa", avatar: "👩", message: "Recursion-la idhu help pannuma?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Kandippa! Fibonacci mathiri repetitive calculations-ku memoization thaan hero. Millions of calculations-ah koraikkum." },
       { speaker: "Deepa", avatar: "👩", message: "Semma optimize pannidan!" },
     ],
     whenToUse: ["Complex calculations", "Preventing unnecessary re-renders in React"],
     devConfession: {
-      mistake: "Every simple function-kum memoization palla try palli memory-ah waste pallaen. Result caching overhead adhighama aaiduchu.",
+      mistake: "Every simple function-kum memoization panna try palli memory-ah waste pannaen. Result caching overhead adhighama aaiduchu.",
       lesson: "Use memoization only for truly expensive operations.",
     },
-    quiz: {
-      question: "Function result-ah cache palla technique enna?",
-      options: ["Memoization", "Recursion", "Iteration"],
-      answer: 0
-    },
+    quizzes: [
+      {
+        question: "Function result-ah cache panna technique enna?",
+        options: ["Memoization", "Recursion", "Iteration"],
+        answer: 0
+      },
+      {
+        question: "Memoization eppo use pannanum?",
+        options: ["Every simple function-ku", "Expensive/Heavy calculations-ku", "Verum display logic-ku"],
+        answer: 1
+      },
+      {
+        question: "React-la memoization-ku enna hook use aagum?",
+        options: ["useEffect", "useMemo / useCallback", "useRef"],
+        answer: 1
+      },
+      {
+        question: "Same input-ku recalculate pannumaa memoized function?",
+        options: ["Illa, cached result tharum", "Aamaa, full process thirumbaa nadakkum", "Theriyala"],
+        answer: 0
+      },
+      {
+        question: "Memoization logic space vs time trade-off panna help pannumaa?",
+        options: ["Aamaa, memory use panni speed adhigamaakum", "Illa, speed koraikkum", "No"],
+        answer: 0
+      }
+    ],
     funFact: "Memoization is a specific form of caching used inside a program! 🧠",
   },
 
@@ -1864,11 +2854,11 @@ export const topics = [
       visual: [{ icon: "🍪", label: "Auto-sent" }, { icon: "↔️", label: "" }, { icon: "📓", label: "Storage" }],
     },
     conversation: [
-      { speaker: "Siva", avatar: "🧑", message: "Bro, dark mode theme save palla Cookie pothuma?" },
+      { speaker: "Siva", avatar: "🧑", message: "Bro, dark mode theme save panna Cookie pothuma?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "LocalStorage best bro! Cookie 4KB limit thaan. Theme details server-ku anuppa thevai illa, so local-laye irukkattum. Sessions logic mattum Cookies-la vachukka." },
       { speaker: "Siva", avatar: "🧑", message: "Cookie-la safety adhighama bro?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "HttpOnly cookies script-ala thiruda mudiyaathu, so tokens-ku adhu thaan safe. LocalStorage accessibility adhighama, but risky for secrets." },
-      { speaker: "Siva", avatar: "🧑", message: "Storage choice duration pathu mudivu palla ma?" },
+      { speaker: "Siva", avatar: "🧑", message: "Storage choice duration pathu mudivu panna ma?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Aama! Persistence venum na LocalStorage. Server interaction venum na Cookies. Simple rule idhu thaan." },
       { speaker: "Siva", avatar: "🧑", message: "Perfect bro, theme local-la save pannitan." },
     ],
@@ -1877,12 +2867,34 @@ export const topics = [
       mistake: "Large json and images-ah cookies-la pooda try pannitaen. Cookies weight-ala every API call slow aaiduchu.",
       lesson: "Cookies should be tiny! Fast data-ku use LocalStorage or IndexedDB.",
     },
-    quiz: {
-      question: "Server-ku automatic-ah anuppa paduva item enna?",
-      options: ["LocalStorage", "Cookie", "Memory"],
-      answer: 1
-    },
-    funFact: "Cookies support expiration time automatically, aana LocalStorage manually clear palla num! 🍪",
+    quizzes: [
+      {
+        question: "Server-ku automatic-ah anuppa paduva item enna?",
+        options: ["LocalStorage", "Cookie", "Memory"],
+        answer: 1
+      },
+      {
+        question: "LocalStorage storage limit evlo rough-aa?",
+        options: ["4KB", "5MB", "1GB"],
+        answer: 1
+      },
+      {
+        question: "HttpOnly cookie-ah code-la read panna mudiyumaa (frontend JS)?",
+        options: ["Illa, security-kaaga block aagum", "Aamaa, eppavume mudiyum", "Theriyala"],
+        answer: 0
+      },
+      {
+        question: "Tokens store panna ethu safer (with proper flags)?",
+        options: ["LocalStorage", "Cookies", "SessionStorage"],
+        answer: 1
+      },
+      {
+        question: "Tab close pannuna LocalStorage data poyidumaa?",
+        options: ["Illa, persistent-aa irukkum", "Aamaa, vanish aaidum", "Laptop restart pannunaa pogum"],
+        answer: 0
+      }
+    ],
+    funFact: "Cookies support expiration time automatically, aana LocalStorage manually clear panna num! 🍪",
   },
 
   {
@@ -1894,7 +2906,7 @@ export const topics = [
     tagline: "Small screen, small image!",
     level: 2,
     readTime: "3 min",
-    quickSummary: "Responsive images na desktop-ku periya image and mobile-ku chinna image load panra logic using `srcset`. Mobile users database-ah waste palla korthu avoid panrathu.",
+    quickSummary: "Responsive images na desktop-ku periya image and mobile-ku chinna image load panra logic using `srcset`. Mobile users database-ah waste panna korthu avoid panrathu.",
     analogy: {
       description: "It's like Choosing a Plate 🍽️ based on hunger. 5-star meal size image to a sample cup size (Mobile) plate is a waste. Serve what fits!",
       visual: [{ icon: "🖥️", label: "4K Img" }, { icon: "↔️", label: "" }, { icon: "📱", label: "1KB Img" }],
@@ -1904,7 +2916,7 @@ export const topics = [
       { speaker: "Dev", avatar: "👨‍💻", message: "Mobile users-ku heavy images load poodara bro! `srcset` and `sizes` attributes use pannu. Browser automatic-ah current screen size-ku yetha image-ah mattum download pannum." },
       { speaker: "Nila", avatar: "👩", message: "Resolution logic dhane bro?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Aama! Retina display-ku high quality, simple phone-ku low size context. Efficient-ah mobile data save pannuvom." },
-      { speaker: "Nila", avatar: "👩", message: "Format-um impact palla ma?" },
+      { speaker: "Nila", avatar: "👩", message: "Format-um impact panna ma?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Exactly! WebP or AVIF formats use pannuna original size-la pathiya koraikkum without losing quality. Optimized sites are better." },
       { speaker: "Nila", avatar: "👩", message: "Optimized images leading the way!" },
     ],
@@ -1913,11 +2925,33 @@ export const topics = [
       mistake: "5MB PNG image-ah every user mobile-ku anuppittaen. Traffic bills skyrocketing!",
       lesson: "Always optimize and provide multiple resolutions for images.",
     },
-    quiz: {
-      question: "Different screens-ku different images anuppa attribute enna?",
-      options: ["src", "srcset", "href"],
-      answer: 1
-    },
+    quizzes: [
+      {
+        question: "Different screens-ku different images anuppa attribute enna?",
+        options: ["src", "srcset", "href"],
+        answer: 1
+      },
+      {
+        question: "Mobile users-ku image size optimize panna enna format best?",
+        options: ["PNG", "WebP / AVIF", "GIF"],
+        answer: 1
+      },
+      {
+        question: "srcset-la 'w' descriptor ethai kurikkudhu?",
+        options: ["Width of the image", "Weight of the image", "Watermark"],
+        answer: 0
+      },
+      {
+        question: "Picture tag use panna conditions specify panna mudiyumaa?",
+        options: ["Aamaa, different media conditions-ku different images", "Illa, picture tag redundant", "Theriyala"],
+        answer: 0
+      },
+      {
+        question: "Responsive images-ala bandwidth (data) save aagumaa?",
+        options: ["Aamaa, millions of data save aagum mobile users-ku", "Illa, full size thaan download aagum", "No change"],
+        answer: 0
+      }
+    ],
     funFact: "Using `.webp` format automatically reduces image size by 30% or more! 🖼️",
   },
 
@@ -1936,24 +2970,46 @@ export const topics = [
       visual: [{ icon: "🎨", label: "Plain CSS" }, { icon: "→", label: "💅" }, { icon: "🎨", label: "Sass" }],
     },
     conversation: [
-      { speaker: "Nila", avatar: "👩", message: "Bro, CSS file 2000 lines line aaiduchu, manage palla kashtama irukke?" },
+      { speaker: "Nila", avatar: "👩", message: "Bro, CSS file 2000 lines line aaiduchu, manage panna kashtama irukke?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Sass use pannu bro! Variables vachu colors track pannalaam. Partial files-ah split panni organize pannina maintenance romba easy-ah aaidum." },
       { speaker: "Nila", avatar: "👩", message: "Mixins na enna bro?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Reusable code snippets bro! Flexbox logic or gradients patterns-ah single line call-la handle pannidalaam. Redundancy-ah koraikkum." },
-      { speaker: "Nila", avatar: "👩", message: "Logic use palla mudiyu ma?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Aama, `@if` and `@for` loops kooda Sass-la possible. CSS-ah oru programming language mathiri use palla idhu thaan way." },
+      { speaker: "Nila", avatar: "👩", message: "Logic use panna mudiyu ma?" },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Aama, `@if` and `@for` loops kooda Sass-la possible. CSS-ah oru programming language mathiri use panna idhu thaan way." },
       { speaker: "Nila", avatar: "👩", message: "Sass logic implementation super." },
     ],
     whenToUse: ["Large projects with generic styling", "Theming systems"],
     devConfession: {
-      mistake: "Nesting romba deep-ah (10 levels) palla try palli CSS output-ah weight aakhiten.",
+      mistake: "Nesting romba deep-ah (10 levels) panna try palli CSS output-ah weight aakhiten.",
       lesson: "Keep nesting shallow. Modular code is better than nested mess.",
     },
-    quiz: {
-      question: "CSS-la variables support palla popular preprocessor enna?",
-      options: ["Sass", "C++", "HTML"],
-      answer: 0
-    },
+    quizzes: [
+      {
+        question: "CSS-la variables support panna popular preprocessor enna?",
+        options: ["Sass", "C++", "HTML"],
+        answer: 0
+      },
+      {
+        question: "Sass-la 'Nesting' na enna?",
+        options: ["Styles-ah folder kulla poodura logic", "Parent selector kulla child selector-ah ezhutha udhavum", "No use"],
+        answer: 1
+      },
+      {
+        question: "Mixins na enna artham Sass-la?",
+        options: ["Reusable code snippets / groups of styles", "Colors only", "Font family"],
+        answer: 0
+      },
+      {
+        question: "@extend vs @include differ-aa?",
+        options: ["Aamaa, logic and usage patterns veru", "Rendum onnu thaan", "Theriyala"],
+        answer: 0
+      },
+      {
+        question: "Browser direct-aa Sass-ah purinjukkumaa?",
+        options: ["Illa, CSS-aa compile panna thaan puriyum", "Aamaa, direct-aa logic run aagum", "Chrome only"],
+        answer: 0
+      }
+    ],
     funFact: "Browser natively Sass-ah purinjukkaathu, athuku compilation thevai! 🔄",
   },
 
@@ -1974,22 +3030,44 @@ export const topics = [
     conversation: [
       { speaker: "Meena", avatar: "👩", message: "Bro, 'Cannot read property of undefined' error tholla thangala?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "TypeScript use pannu bro! Variable endha type-nu solitta, thappa data vandhappa code ezhuthum bothe error kaattidum. Production-la bugs romba koraivum." },
-      { speaker: "Meena", avatar: "👩", message: "Interfaces use palla num-ah?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Aama! Object structure-ah define palla interfaces best. Database results logic-ku idhu thaan documentation mathiri work aagum." },
+      { speaker: "Meena", avatar: "👩", message: "Interfaces use panna num-ah?" },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Aama! Object structure-ah define panna interfaces best. Database results logic-ku idhu thaan documentation mathiri work aagum." },
       { speaker: "Meena", avatar: "👩", message: "Runtime-la safety irukkuma?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "TS verum development tool thaan bro. Browser-la JS-ah thaan run aagum. Aana development time-la mistakes thaduthu super safety tharum." },
-      { speaker: "Meena", avatar: "👩", message: "TS master palla try pannuraen." },
+      { speaker: "Meena", avatar: "👩", message: "TS master panna try pannuraen." },
     ],
     whenToUse: ["Team projects", "Large codebases", "Enterprise apps"],
     devConfession: {
-      mistake: "Everywhere `any` type use palla try palli TS redundancy-ah nullify pannittaen.",
+      mistake: "Everywhere `any` type use panna try palli TS redundancy-ah nullify pannittaen.",
       lesson: "Don't use `any`. Use proper interfaces for safety.",
     },
-    quiz: {
-      question: "JavaScript code-ku documentation and safety thara logic enna?",
-      options: ["PHP", "TypeScript", "Python"],
-      answer: 1
-    },
+    quizzes: [
+      {
+        question: "JavaScript code-ku documentation and safety thara logic enna?",
+        options: ["PHP", "TypeScript", "Python"],
+        answer: 1
+      },
+      {
+        question: "TypeScript-la 'any' type use panna nallathaa?",
+        options: ["Illa, TS benefit-ae poyidum (avoid it)", "Aamaa, eppavume use pannalaam", "No"],
+        answer: 0
+      },
+      {
+        question: "Interfaces TS-la ethukkaaga use panroam?",
+        options: ["Object structure-ah define panna", "Styles-ku", "HTML tags-ku"],
+        answer: 0
+      },
+      {
+        question: "TS file direct-aa browser-la run aagumaa?",
+        options: ["Illa, JS-aa compile (transpile) aagi thaan run aagum", "Aamaa", "Sometimes"],
+        answer: 0
+      },
+      {
+        question: "Strongly typed language-naa enna benefits?",
+        options: ["Development time-la bugs-ah seekkiram kandupidikalaam", "Internet speed adhigamaagum", "Design beauty"],
+        answer: 0
+      }
+    ],
     funFact: "Microsoft built TypeScript manually inside and then released it to the world! 🟦",
   },
 
@@ -2011,9 +3089,9 @@ export const topics = [
       { speaker: "Logu", avatar: "🧑", message: "Bro, API fail aana site full white aaiduthey?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Try/Catch block poadu bro! API call fail aana 'Loading Error' message kaata vachidalaam. Safe and professional handling idhu." },
       { speaker: "Logu", avatar: "🧑", message: "Asynchronous-la eppadi handling?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "`await` munaadi try/catch block vachuko bro. Promise rejection-ah catch palla idhu thaan easiest way. No more unhandled promise errors!" },
+      { speaker: "Dev", avatar: "👨‍💻", message: "`await` munaadi try/catch block vachuko bro. Promise rejection-ah catch panna idhu thaan easiest way. No more unhandled promise errors!" },
       { speaker: "Logu", avatar: "🧑", message: "Finally block ethukka?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Success or failure endha case aanaalum loading spinner stop palla palla palla logic handle palla `finally` hero mathiri help pannum." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Success or failure endha case aanaalum loading spinner stop panna logic handle panna `finally` hero mathiri help pannum." },
       { speaker: "Logu", avatar: "🧑", message: "Graceful error handling mastery." },
     ],
     whenToUse: ["API requests", "JSON parsing", "Critical calculations"],
@@ -2021,11 +3099,33 @@ export const topics = [
       mistake: "Catch block kulla summaa empty curly braces `{}` poattu errors-ah hide pannittaen. Bug enge irukku nu kandupidiikka 2 days aaiduchu.",
       lesson: "Always log your errors in catch block. Knowledge is power.",
     },
-    quiz: {
-      question: "Error-ah trap palla keyword enna?",
-      options: ["throw", "catch", "finally"],
-      answer: 1
-    },
+    quizzes: [
+      {
+        question: "Error-ah trap panna keyword enna?",
+        options: ["throw", "catch", "finally"],
+        answer: 1
+      },
+      {
+        question: "Finally block eppo run aagum?",
+        options: ["Success or Failure - eppavume running", "Only on Success", "Only on Error"],
+        answer: 0
+      },
+      {
+        question: "Try/Catch block illana app crash aagumaa?",
+        options: ["Aamaa, unhandled error app-ah stop pannidum", "Illa, automatic handling irukkum", "No"],
+        answer: 0
+      },
+      {
+        question: "Async function-la error handle panna enna pannanum?",
+        options: ["Await munaadi try/catch block vachuko", "Verum if-else", "No handling"],
+        answer: 0
+      },
+      {
+        question: "Custom error throw panna keyword enna?",
+        options: ["return", "throw", "exit"],
+        answer: 1
+      }
+    ],
     funFact: "You can also use `finally` to run code regardless of success or failure! 🔄",
   },
 
@@ -2038,30 +3138,52 @@ export const topics = [
     tagline: "Notify me when it's done!",
     level: 2,
     readTime: "3 min",
-    quickSummary: "Normal API na nee request palla palla palla delay aagum. Webhooks na server-ae action mudinjona unga URL-ku oru notification anuppum. 'Ping me' logic idhu.",
+    quickSummary: "Normal API na nee request panna delay aagum. Webhooks na server-ae action mudinjona unga URL-ku oru notification anuppum. 'Ping me' logic idhu.",
     analogy: {
-      description: "It's like a Doorbell 🔔. Nee eppovume vaasal-la yeetti palla num palla num thevai illa. Yaravadhu vandha Bell (Webhook) adippaanga, appo thaan nee door open pannuva.",
+      description: "It's like a Doorbell 🔔. Nee eppovume vaasal-la yeetti panna num panna num thevai illa. Yaravadhu vandha Bell (Webhook) adippaanga, appo thaan nee door open pannuva.",
       visual: [{ icon: "⚙️", label: "Worker" }, { icon: "→", label: "⚓" }, { icon: "📱", label: "Notify" }],
     },
     conversation: [
       { speaker: "Raj", avatar: "🧑", message: "Bro, payment success aana eppadi theriyum?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Stripe Webhooks use pannu bro! Payment mudinjona unga logic URL-ku antha details vandhurum. Background-la automatic-ah order success pannikalam." },
       { speaker: "Raj", avatar: "🧑", message: "Polling-ah vida best-ah?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Romba best! Polling-la every 5 secs nee call palla palla palla server load adhighamaakum. Webhook 'Push' logic, so instant response." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Romba best! Polling-la every 5 secs nee call panna server load adhighamaakum. Webhook 'Push' logic, so instant response." },
       { speaker: "Raj", avatar: "🧑", message: "Security risk irukka?" },
       { speaker: "Security Dev", avatar: "👨‍💻", message: "Provider sign panni anupuvaanga. Neenga antha signature-ah verify pannuna fake calls-ah thaduthudalaam. Safe and real-time mechanism." },
       { speaker: "Raj", avatar: "🧑", message: "Webhooks for automation connected." },
     ],
     whenToUse: ["Payment gateways", "GitHub CI/CD triggers", "Chat notifications"],
     devConfession: {
-      mistake: "Webhook endpoint security check pallaama vachutten. Attacker fake webhook call panni orders-ah fake-ah confirm pannitaanga.",
+      mistake: "Webhook endpoint security check pannama vachutten. Attacker fake webhook call panni orders-ah fake-ah confirm pannitaanga.",
       lesson: "Always verify Webhook Signatures from the provider. Security first!",
     },
-    quiz: {
-      question: "Server-la irundhu client-ku automation trigger aaga logic enna?",
-      options: ["Polling", "Webhook", "Hashing"],
-      answer: 1
-    },
+    quizzes: [
+      {
+        question: "Server-la irundhu client-ku automation trigger aaga logic enna?",
+        options: ["Polling", "Webhook", "Hashing"],
+        answer: 1
+      },
+      {
+        question: "Polling-ah vida Webhook yen efficient?",
+        options: ["Webhook 'Push' logic (instant), Polling 'Request/Pull' logic (waste of resources)", "Polling is faster", "Webhook uses manual logic"],
+        answer: 0
+      },
+      {
+        question: "Webhook security-ku enna check pannanum?",
+        options: ["Verify signature from provider", "Check background colors", "No security needed"],
+        answer: 0
+      },
+      {
+        question: "Stripe payment success aana notification eppadi varum?",
+        options: ["Via Webhook", "Via Email context", "Manual call only"],
+        answer: 0
+      },
+      {
+        question: "Webhook endpoint na enna?",
+        options: ["Oru public URL server antha events-ah send panna", "Private folders", "Browser extensions"],
+        answer: 0
+      }
+    ],
     funFact: "Webhooks basically 'Don't call us, we'll call you' concept! 📱",
   },
 
@@ -2076,13 +3198,13 @@ export const topics = [
     readTime: "3 min",
     quickSummary: "API Documentation na oru public or private API-ah eppadi call pannanum, enna inputs tharanum nu solra guide. Swagger, Redoc common tools.",
     analogy: {
-      description: "It's like a Restaurant Menu 🏷️. Menu pathu oru item sequence-la (Endpoints) order palla mudiyum. Documentation illana guessing logic thaan.",
+      description: "It's like a Restaurant Menu 🏷️. Menu pathu oru item sequence-la (Endpoints) order panna mudiyum. Documentation illana guessing logic thaan.",
       visual: [{ icon: "📔", label: "Guide" }, { icon: "→", label: "⚡" }, { icon: "🚀", label: "App" }],
     },
     conversation: [
       { speaker: "Logu", avatar: "🧑", message: "Bro, en internal API components puriyala?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Swagger/OpenAPI setup pannu bro! Automatic-ah un endpoints pathi documentation generate aaidum. Pudhu team members-ku romba comfort-ah irukkum." },
-      { speaker: "Logu", avatar: "🧑", message: "Postman-la check palla ma bro?" },
+      { speaker: "Logu", avatar: "🧑", message: "Postman-la check panna ma bro?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Aama! Swagger UI-laye 'Try it out' option irukkum. Parameters kuduthu directly results check pannikalam. Interactive user guide idhu." },
       { speaker: "Logu", avatar: "🧑", message: "Manually ezhutha num-ah?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Node libraries vachu automatically models and routes parse pannidalaam. Fast documentation builds repo quality." },
@@ -2093,11 +3215,33 @@ export const topics = [
       mistake: "Documentation outdated-ah vachitaen. Team members old endpoints-ah call palli errors face pannitaanga.",
       lesson: "Keep your docs in sync with your code. Always.",
     },
-    quiz: {
-      question: "API guide-ku standard interactive tool enna?",
-      options: ["Swagger", "Postman", "Excel"],
-      answer: 0
-    },
+    quizzes: [
+      {
+        question: "API guide-ku standard interactive tool enna?",
+        options: ["Swagger", "Postman", "Excel"],
+        answer: 0
+      },
+      {
+        question: "API Doc edhukkaaga thevai?",
+        options: ["Other developers logic context puriya", "Code-ah hide panna", "Internet speed increase panna"],
+        answer: 0
+      },
+      {
+        question: "Swagger-la 'Try it out' option enna pannum?",
+        options: ["Direct-aa endpoints call panni test pannalaam", "Code delete pannum", "Theme maathum"],
+        answer: 0
+      },
+      {
+        question: "OpenAPI specification-naa enna?",
+        options: ["Standard format for documenting APIs", "New programming language", "Database architecture"],
+        answer: 0
+      },
+      {
+        question: "Documentation out-of-sync aana enna aagum?",
+        options: ["Team confusion and errors varum (End-to-End failure)", "No problem", "Fast loading"],
+        answer: 0
+      }
+    ],
     funFact: "Good APIs are defined by their documentation quality, not just code! 📝",
   },
 
@@ -2117,23 +3261,45 @@ export const topics = [
     },
     conversation: [
       { speaker: "Arun", avatar: "🧑", message: "Bro, modern React features older device-la work aakuma?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Babel compile pannidum bro! Unga shiny new code-ah older compatible version-ku mathiduvom. So almost ellaa users-um site-ah access palla mudiyum." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Babel compile pannidum bro! Unga shiny new code-ah older compatible version-ku mathiduvom. So almost ellaa users-um site-ah access panna mudiyum." },
       { speaker: "Arun", avatar: "🧑", message: "Polyfill na enna bro?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Older browser-la `Array.flat()` mathiri features irukkathu. Polyfill antha missing code-ah korta browser-ku inject pannirum. Browser compatibility king!" },
       { speaker: "Arun", avatar: "🧑", message: "Bundle size adhighama aagu ma?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Needed polyfills mattum add palla filters vachukklaam. Core-js library automatically handling pannum. Efficient for users." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Needed polyfills mattum add panna filters vachukklaam. Core-js library automatically handling pannum. Efficient for users." },
       { speaker: "Arun", avatar: "🧑", message: "Legacy support enabled." },
     ],
     whenToUse: ["Cross-browser compatibility", "Using latest JS features safely"],
     devConfession: {
-      mistake: "Polyfills add palla marandhu, older Safari-la site functionality-ae poyiduchu.",
+      mistake: "Polyfills add panna marandhu, older Safari-la site functionality-ae poyiduchu.",
       lesson: "Know your audience's browser versions and transpile accordingly.",
     },
-    quiz: {
-      question: "New version JS-ah old-ah mathura tool enna?",
-      options: ["Node", "Babel", "Vite"],
-      answer: 1
-    },
+    quizzes: [
+      {
+        question: "New version JS-ah old-ah mathura tool enna?",
+        options: ["Node", "Babel", "Vite"],
+        answer: 1
+      },
+      {
+        question: "Polyfill na enna artham?",
+        options: ["Missing features-ah older browsers-ku inject panradhu", "Code colors maathuradhu", "Database design"],
+        answer: 0
+      },
+      {
+        question: "Babel yen code-ah transpile pannudhu?",
+        options: ["Cross-browser compatibility (older browsers also support newer features)", "Code size increase panna", "Beauty only"],
+        answer: 0
+      },
+      {
+        question: "Transpilation literally enna logic?",
+        options: ["Translate + Compile", "Transparent + Filter", "Transfer + Logic"],
+        answer: 0
+      },
+      {
+        question: "Old browser compatibility important-aa?",
+        options: ["Aamaa, wide audience reach panna context mastery", "Illa, logic skip pannalaam", "No usage"],
+        answer: 0
+      }
+    ],
     funFact: "Transpilation literally means 'Translate' + 'Compile'! 🧪",
   },
 
@@ -2148,28 +3314,50 @@ export const topics = [
     readTime: "3 min",
     quickSummary: "Debugging na app-la enga logic break aaguthu nu search panra process. Browser console, breakpoints, and Rubber Ducking are classic methods.",
     analogy: {
-      description: "It's like Finding a Water Leak 🚿. Pipe line-ah step by step check palla num. Enga leak aagutho anga thaan 'Bug' irukku.",
+      description: "It's like Finding a Water Leak 🚿. Pipe line-ah step by step check panna num. Enga leak aagutho anga thaan 'Bug' irukku.",
       visual: [{ icon: "🕵️", label: "Investigate" }, { icon: "→", label: "🐛" }, { icon: "🔨", label: "Fix" }],
     },
     conversation: [
       { speaker: "Logu", avatar: "🧑", message: "Bro, loop kulla enna nadakkuthu nu puriyala?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Breakpoints vachidhu bro! Chrome DevTools-la line by line execute panni variables-ah pathuko. Console.log mattum pothaathu, real debugging logic semi-pro thaan." },
       { speaker: "Logu", avatar: "🧑", message: "Rubber Ducking na enna bro?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Un prachanaiya oru dummy object kitta explain pannu bro. Explain palla pothu logic enga leakage aaguthu nu unakku automate-ah bulb eriyum. Psychology-ae debug palla help pannum." },
-      { speaker: "Logu", avatar: "🧑", message: "Network calls-um track palla ma?" },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Un prachanaiya oru dummy object kitta explain pannu bro. Explain panna pothu logic enga leakage aaguthu nu unakku automate-ah bulb eriyum. Psychology-ae debug panna help pannum." },
+      { speaker: "Logu", avatar: "🧑", message: "Network calls-um track panna ma?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Kandippa! Network tab-la response patterns and headers pathuko. API side error-ah illa UI side error-ah nu instantly isolate pannidalaam." },
       { speaker: "Logu", avatar: "🧑", message: "Debugging is a detective work." },
     ],
     whenToUse: ["Every time code doesn't work!", "Performance optimization"],
     devConfession: {
-      mistake: "5 hours debugging pallaen, final-ah oru semicolon missing. Sethu poattaen!",
+      mistake: "5 hours debugging pannaen, final-ah oru semicolon missing. Sethu poattaen!",
       lesson: "Take breaks. Refresh-ana kannoda patha bug seekkiram kedaikkum.",
     },
-    quiz: {
-      question: "Enga prachana nu isolate palla standard method?",
-      options: ["Console Logging", "Deleting project", "Re-installing OS"],
-      answer: 0
-    },
+    quizzes: [
+      {
+        question: "Enga prachana nu isolate panna standard method?",
+        options: ["Console Logging", "Deleting project", "Re-installing OS"],
+        answer: 0
+      },
+      {
+        question: "Rubber Ducking na enna technique?",
+        options: ["Prachanaiya explain panni solution find panradhu (Psychology hack)", "Duck-ah vaangi computer-la poodura logic", "Playing games"],
+        answer: 0
+      },
+      {
+        question: "Breakpoints chrome browser-la enga irukkum?",
+        options: ["Sources tab-la line numbers mela click pannanum", "Console-la", "Network tab-la"],
+        answer: 0
+      },
+      {
+        question: "Network tab debugging-ku eppadi help pannum?",
+        options: ["API response and errors check panna", "Styles maatha", "Memory check panna"],
+        answer: 0
+      },
+      {
+        question: "Bug first time 1947-la enga kidaichudhu?",
+        options: ["In a real computer circuit (actual insect)", "In a book", "In the sea"],
+        answer: 0
+      }
+    ],
     funFact: "The word 'Bug' literally came from a real insect found in a computer in 1947! 🦋",
   },
 
@@ -2201,12 +3389,34 @@ export const topics = [
       mistake: "Variables-ah ellaam Tamil transliteration-la (peru, vayas) nu naming vachutten. Team-la irundha other state dev thitta start pannitaaru.",
       lesson: "Stick to English technical standards for worldwide compatibility.",
     },
-    quiz: {
-      question: "JS-la standard variable naming style enna?",
-      options: ["snake_case", "camelCase", "kebab-case"],
-      answer: 1
-    },
-    funFact: "Variable names space allow pallaathu, adhaan casing logic vandhuchu! 🏷️",
+    quizzes: [
+      {
+        question: "JS-la standard variable naming style enna?",
+        options: ["snake_case", "camelCase", "kebab-case"],
+        answer: 1
+      },
+      {
+        question: "PascalCase enga usage context?",
+        options: ["React Components and Classes", "Normal variables", "Folder names"],
+        answer: 0
+      },
+      {
+        question: "Constants naming convention enna standard logic?",
+        options: ["UPPER_SNAKE_CASE", "Lower case only", "No standard"],
+        answer: 0
+      },
+      {
+        question: "Naming semantics yen mukkiyam?",
+        options: ["Team members-ku code puriya (Readability)", "Internet speed help", "No use"],
+        answer: 0
+      },
+      {
+        question: "CamelCase vs Snake Case difference enna?",
+        options: ["Words between logic spaces/underlines vs Caps starting words", "Colors only", "Font style"],
+        answer: 0
+      }
+    ],
+    funFact: "Variable names space allow pannathu, adhaan casing logic vandhuchu! 🏷️",
   },
 
   {
@@ -2227,21 +3437,43 @@ export const topics = [
       { speaker: "Raj", avatar: "🧑", message: "Bro, `npm start` eppadi work aaguthu?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "package.json-la 'scripts' section-ah check pannu bro! Anga 'start' keyword-ku enna command kuduthurukaaro, athu thaan background-la run aagum. Logic control center idhu." },
       { speaker: "Raj", avatar: "🧑", message: "Dependencies-la version symbol enna bro?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "^ symbol vacha recent minor updates allow pannanum nu meaning. Exact version freeze palla package-lock.json help pannum. Dependency management and configuration heart!" },
+      { speaker: "Dev", avatar: "👨‍💻", message: "^ symbol vacha recent minor updates allow pannanum nu meaning. Exact version freeze panna package-lock.json help pannum. Dependency management and configuration heart!" },
       { speaker: "Raj", avatar: "🧑", message: "DevDependencies ethukka?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Testing or build tools production-ku thevai illa, verum development stage-ku mattum pothumna devDependencies-la poodalaam. Bundle size efficiency patterns!" },
       { speaker: "Raj", avatar: "🧑", message: "package.json project metadata boss." },
     ],
     whenToUse: ["Starting a new JS project", "Configuring build steps"],
     devConfession: {
-      mistake: "Scripts-la thappa path vachutten. `npm run dev` palla palla palla error-ae vandhuchu.",
+      mistake: "Scripts-la thappa path vachutten. `npm run dev` panna error-ae vandhuchu.",
       lesson: "Always verify your script paths and versions in package.json.",
     },
-    quiz: {
-      question: "Project dependencies enga listed aagi irukkum?",
-      options: ["node_modules", "package.json", "index.js"],
-      answer: 1
-    },
+    quizzes: [
+      {
+        question: "Project dependencies enga listed aagi irukkum?",
+        options: ["node_modules", "package.json", "index.js"],
+        answer: 1
+      },
+      {
+        question: "package-lock.json ethukkaaga thevai?",
+        options: ["Exact versions-ah freeze panna (Reproducible installs)", "Files-ah lock panna", "UI design-ku"],
+        answer: 0
+      },
+      {
+        question: "Scripts section-la 'dev' keyword enna pannum?",
+        options: ["Development server-ah start panna command manual utility", "Code delete pannum", "Theme maathum"],
+        answer: 0
+      },
+      {
+        question: "devDependencies na enna?",
+        options: ["Verum development time-la thevaiyaana tools (not production)", "Secret dependencies", "Files context"],
+        answer: 0
+      },
+      {
+        question: "Version symbol '^' na enna artham?",
+        options: ["Compatible minor updates allow pannalaam", "Major updates allow pannalaam", "No version"],
+        answer: 0
+      }
+    ],
     funFact: "package-lock.json na dependencies-oda exact version frozen state! 🔒",
   },
 
@@ -2263,21 +3495,43 @@ export const topics = [
       { speaker: "Meena", avatar: "👩", message: "Bro, user login login vandhuttu irukke?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Slight data storage-ku SessionStorage pothum bro! Safety-ku idhu thaan best mechanism for temporary states. Long term preferences-ku LocalStorage use pannidalaam." },
       { speaker: "Meena", avatar: "👩", message: "Tab change aana data irukkuma bro?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Aama, same tab-la navigation palla pothu irukkum. Aana pudhu tab open pannuna antha data anga kedaikkaathu. Isolation level adhigham." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Aama, same tab-la navigation panna pothu irukkum. Aana pudhu tab open pannuna antha data anga kedaikkaathu. Isolation level adhigham." },
       { speaker: "Meena", avatar: "👩", message: "LocalStorage eppavume clear aakaatha?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Aama! User manually browser clear palla num or korthu code-la `localStorage.clear()` palla num. Permanent local DB mathiri work aagum." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Aama! User manually browser clear panna num or korthu code-la `localStorage.clear()` panna num. Permanent local DB mathiri work aagum." },
       { speaker: "Meena", avatar: "👩", message: "Storage strategy finalized." },
     ],
     whenToUse: ["Temporary form data", "Single session tracking"],
     devConfession: {
-      mistake: "User password-ah sessionStorage-la pooda try pallaen. Tab switch pannuna data sethu poattaen.",
+      mistake: "User password-ah sessionStorage-la pooda try pannaen. Tab switch pannuna data sethu poattaen.",
       lesson: "Storage type choose panrathu munaadi data duration logic yosinga.",
     },
-    quiz: {
-      question: "Tab close panna vanish aagura storage enna?",
-      options: ["LocalStorage", "SessionStorage", "Cookies"],
-      answer: 1
-    },
+    quizzes: [
+      {
+        question: "Tab close panna vanish aagura storage enna?",
+        options: ["LocalStorage", "SessionStorage", "Cookies"],
+        answer: 1
+      },
+      {
+        question: "SessionStorage logic same tab-la refresh panna poyidumaa?",
+        options: ["Illa, refresh panna kooda irukkum", "Aamaa", "Sometimes"],
+        answer: 0
+      },
+      {
+        question: "LocalStorage storage capacity roughly evlo?",
+        options: ["5-10MB", "1GB", "4KB"],
+        answer: 0
+      },
+      {
+        question: "Temporary data or single session-ku ethu best?",
+        options: ["SessionStorage", "Hard drive", "URL params"],
+        answer: 0
+      },
+      {
+        question: "LocalStorage manually clear panna thevai illayaa?",
+        options: ["Thevai! Code logic moolamaa or user clean panna thaan pogum", "Auto clear aagum", "Daily removal needed"],
+        answer: 0
+      }
+    ],
     funFact: "SessionStorage is independent for each tab, even for the same website! 💾",
   },
 
@@ -2301,7 +3555,7 @@ export const topics = [
       { speaker: "Logu", avatar: "🧑", message: "Java static typed thaane bro?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Aama! Compiling phase-laye error vandhurum. Python logic mostly dynamic, so development-la fast-ah irukkum aana production-la tricky behavior vara chance irukku." },
       { speaker: "Logu", avatar: "🧑", message: "Scaling-ku static type hero-ah?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Exactly! Large teams-la yaravadhu type maathuna code compile aagaathu, so breaking changes seekkiram identify palla mudiyum logic idhu thaan." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Exactly! Large teams-la yaravadhu type maathuna code compile aagaathu, so breaking changes seekkiram identify panna mudiyum logic idhu thaan." },
       { speaker: "Logu", avatar: "🧑", message: "Static typing for robust systems." },
     ],
     whenToUse: ["Dynamic: Prototyping/Scripting", "Static: Scaling/Robust systems"],
@@ -2309,11 +3563,33 @@ export const topics = [
       mistake: "Dynamic typing logic-ala variable suddenly number-la irundha string-ah maariduchu. Math calculations full-ah 'NaN' aaiduchu.",
       lesson: "Consistency is better than flexibility in production.",
     },
-    quiz: {
-      question: "Strict types define panra language enna category?",
-      options: ["Static", "Dynamic", "Floating"],
-      answer: 0
-    },
+    quizzes: [
+      {
+        question: "Strict types define panra language enna category?",
+        options: ["Static", "Dynamic", "Floating"],
+        answer: 0
+      },
+      {
+        question: "JavaScript eppo types identify pannum?",
+        options: ["Runtime-la (Dynamic)", "Compile time-la", "Coding while writing"],
+        answer: 0
+      },
+      {
+        question: "Scaling and Team projects-ku ethu safer logic?",
+        options: ["Static typing", "Dynamic typing", "No typing"],
+        answer: 0
+      },
+      {
+        question: "Typescript vs JavaScript difference main logic?",
+        options: ["TS manual typing safety tharum (Static), JS doesn't (Dynamic)", "JS is faster", "TS is for UI only"],
+        answer: 0
+      },
+      {
+        question: "Dynamic typing redundancy risks context?",
+        options: ["Sudden type changes and runtime errors chance (NaN calculations)", "No risk", "Speed limit"],
+        answer: 0
+      }
+    ],
     funFact: "Python is dynamically typed but supports 'Type Hints' for better safety! ⚖️",
   },
 
@@ -2332,24 +3608,46 @@ export const topics = [
       visual: [{ icon: "📐", label: "Fluid" }, { icon: "↔️", label: "" }, { icon: "🧱", label: "Fixed" }],
     },
     conversation: [
-      { speaker: "Nila", avatar: "👩", message: "Bro, logic change palla pothu elements overlap aaguthu?" },
+      { speaker: "Nila", avatar: "👩", message: "Bro, logic change panna pothu elements overlap aaguthu?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Responsive/Fluid grid use pannu bro! %, vw/vh units help pannum. Adaptive design pothum if you have very specific UI for specific devices. Future web mostly responsive thaan." },
-      { speaker: "Nila", avatar: "👩", message: "Breakpoints eppadi set palla num?" },
+      { speaker: "Nila", avatar: "👩", message: "Breakpoints eppadi set panna num?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Mobile-first approach follow pannu. Basic styles mobiles-ku ezhuthuttu, `@media` query vachu tablet and desktop-ku adjust pannu. Logic semma clean-ah irukkum." },
       { speaker: "Nila", avatar: "👩", message: "Adaptive site extra work-ah?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Aama, ovvoru common device size-kum absolute layout design palla num. Maintenance heavy aagum. Responsive is more scalable for millions of screen variations." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Aama, ovvoru common device size-kum absolute layout design panna num. Maintenance heavy aagum. Responsive is more scalable for millions of screen variations." },
       { speaker: "Nila", avatar: "👩", message: "Fluid layouts logic implementation." },
     ],
     whenToUse: ["Modern web apps (Responsive)", "Device specific optimized sites (Adaptive)"],
     devConfession: {
-      mistake: "Fixed pixel (px) vachu layout built pallaen. Mobile-la pathi site-ae kanama poyiduchu.",
+      mistake: "Fixed pixel (px) vachu layout built pannaen. Mobile-la pathi site-ae kanama poyiduchu.",
       lesson: "Think in relative units. Pixels are dangerous for multi-screen.",
     },
-    quiz: {
-      question: "Fluid screen adjustment logic category enna?",
-      options: ["Adaptive", "Responsive", "Static"],
-      answer: 1
-    },
+    quizzes: [
+      {
+        question: "Fluid screen adjustment logic category enna?",
+        options: ["Adaptive", "Responsive", "Static"],
+        answer: 1
+      },
+      {
+        question: "Adaptive design-la layouts eppadi irukkum?",
+        options: ["Fixed presets for specific sizes (Mobile, Tablet, etc)", "Completely fluid", "No layout"],
+        answer: 0
+      },
+      {
+        question: "Responsive-la percentages (%) units help-aa?",
+        options: ["Aamaa, screen-ku yethu mathiri element adjust aaga help pannum", "Illa, fixed pixel pothum", "No use"],
+        answer: 0
+      },
+      {
+        question: "Adaptive layout maintenance eppadi group context?",
+        options: ["Maintenance heavy (separate logic for each device)", "Very light", "Auto logic"],
+        answer: 0
+      },
+      {
+        question: "Modern web standard mostly ethai follow pannum?",
+        options: ["Responsive", "Adaptive", "Full width only"],
+        answer: 0
+      }
+    ],
     funFact: "Ethan Marcotte thaan 'Responsive Web Design' term-ah 2010-la introduce pannaaru! 📐",
   },
 
@@ -2373,7 +3671,7 @@ export const topics = [
       { speaker: "Meena", avatar: "👩", message: "Finite state machine na enna bro?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Oru logic-ku limited (finite) set of states thaan candidate logic. Example: Video player (Play, Pause, Buffering). Intha 3 states vittu vera engaum poga mudiyaathu. Predictable system!" },
       { speaker: "Meena", avatar: "👩", message: "Visual tool irukka?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Aama, XState Visualizer vachu unga logic flow-ah diagram mathiri paakalaam. Frontend developer logic complexity handle palla idhu thaan best tool." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Aama, XState Visualizer vachu unga logic flow-ah diagram mathiri paakalaam. Frontend developer logic complexity handle panna idhu thaan best tool." },
       { speaker: "Meena", avatar: "👩", message: "State machines for reliable UI." },
     ],
     whenToUse: ["Complex forms", "Multi-step checkout flows", "Game logic"],
@@ -2381,11 +3679,33 @@ export const topics = [
       mistake: "Manual boolean flags (`isLoading`, `isError`) vachu logic built panni, same time-la rendume `true` aagi bug vandhuchu.",
       lesson: "Use state machines for predictable UI logic. Only one state at a time!",
     },
-    quiz: {
-      question: "Predictable logic flow manage palla technique enna?",
-      options: ["Loops", "State Machines", "Recursion"],
-      answer: 1
-    },
+    quizzes: [
+      {
+        question: "Predictable logic flow manage panna technique enna?",
+        options: ["Loops", "State Machines", "Recursion"],
+        answer: 1
+      },
+      {
+        question: "State machine-la orae time-la multiple states irukkumaa?",
+        options: ["Illa, orae oru active state thaan irukkum", "Aamaa", "3 states"],
+        answer: 0
+      },
+      {
+        question: "Elevator analogy logic patterns patterns follows context?",
+        options: ["Sequential state transition (No jumping states)", "Free state jumping", "Logic failure"],
+        answer: 0
+      },
+      {
+        question: "XState library frontend logic help features?",
+        options: ["Visualize logic and predictable transitions handling", "Style generation", "Database calls"],
+        answer: 0
+      },
+      {
+        question: "Complex dashboard or checkout flows-ku state machine yen best?",
+        options: ["Logic hell avoids panna (Clean state management)", "Fastest loading", "Cheap cost"],
+        answer: 0
+      }
+    ],
     funFact: "State machines concept software engineering munaadiye math-la irundhathu! ⚙️",
   },
 
@@ -2398,7 +3718,7 @@ export const topics = [
     tagline: "Your component, your rules!",
     level: 2,
     readTime: "3 min",
-    quickSummary: "Shadow DOM na oru component-oda HTML and CSS-ah global DOM-la irundha isolate panni vacha logic. Inthukulla ezhuthura CSS veliya irukura styles-ah affect palla palla palla palla palla mudiyaathu.",
+    quickSummary: "Shadow DOM na oru component-oda HTML and CSS-ah global DOM-la irundha isolate panni vacha logic. Inthukulla ezhuthura CSS veliya irukura styles-ah affect panna mudiyaathu.",
     analogy: {
       description: "It's like a Soundproof Room 🚪. Outside noise (Global CSS) kulla varathu, inside music (Component CSS) veliya kekaathu. Perfect isolation!",
       visual: [{ icon: "🌍", label: "Light DOM" }, { icon: "↔️", label: "🚪" }, { icon: "👤", label: "Shadow DOM" }],
@@ -2414,14 +3734,36 @@ export const topics = [
     ],
     whenToUse: ["Building reusable widget libraries", "Browser native components"],
     devConfession: {
-      mistake: "Shadow DOM kulla global font apply aala nu 2 hours debug pallaen. Boundary isolation romba strict-ah irukkum!",
+      mistake: "Shadow DOM kulla global font apply aala nu 2 hours debug pannaen. Boundary isolation romba strict-ah irukkum!",
       lesson: "Understand the 'tree' structure before using Shadow DOM.",
     },
-    quiz: {
-      question: "CSS encapsulation-ku browser level logic enna?",
-      options: ["Divs", "Shadow DOM", "Headings"],
-      answer: 1
-    },
+    quizzes: [
+      {
+        question: "CSS encapsulation-ku browser level logic enna?",
+        options: ["Divs", "Shadow DOM", "Headings"],
+        answer: 1
+      },
+      {
+        question: "Shadow DOM kulla irukka CSS global logic affect pannumaa?",
+        options: ["Illa, strictly isolated (Encapsulated)", "Aamaa", "Depends"],
+        answer: 0
+      },
+      {
+        question: "Native custom elements Shadow DOM usage features?",
+        options: ["Style isolation and local boundary management", "Internet speed", "Colors only"],
+        answer: 0
+      },
+      {
+        question: "Shadow tree logic isolation context?",
+        options: ["Component styles and DOM hidden from global scope", "Files hidden", "Servers hidden"],
+        answer: 0
+      },
+      {
+        question: "Encapsulation na enna artham?",
+        options: ["Secrets/Styles boundary kulla hide panni protection logic", "Showing everything", "Encryption"],
+        answer: 0
+      }
+    ],
     funFact: "Native HTML items like `<video>` or `<input>` internally Shadow DOM thaan use pannuvanga! 👤",
   },
 
@@ -2434,30 +3776,52 @@ export const topics = [
     tagline: "Don't overload your RAM!",
     level: 2,
     readTime: "4 min",
-    quickSummary: "Streams na data-ah full-ah load pallaama chinna chinna chunks-ah (Buffer) handle panra process. Large files (Video/Logs) process palla idhu thaan best.",
+    quickSummary: "Streams na data-ah full-ah load pannama chinna chinna chunks-ah (Buffer) handle panra process. Large files (Video/Logs) process panna idhu thaan best.",
     analogy: {
       description: "It's like Watching YouTube 🍿. Video full-ah download aalaama light-ah stream aagura bits-ah parthu mudikka mudiyum. RAM-la full file storage thevai illa.",
       visual: [{ icon: "📥", label: "Data Source" }, { icon: "🌊", label: "Stream" }, { icon: "💿", label: "Buffer" }],
     },
     conversation: [
-      { speaker: "Logu", avatar: "🧑", message: "Bro, 1GB file read palla pothu node app crash aaguthu?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Full file-ah `readFile` pallaatha bro! `createReadStream` use pannu. Memory efficient-ah chunks-ah handle pannalaam. Semma high-performance backend logic idhu." },
+      { speaker: "Logu", avatar: "🧑", message: "Bro, 1GB file read panna pothu node app crash aaguthu?" },
+      { speaker: "Dev", "avatar": "👨‍💻", message: "Full file-ah `readFile` pallaatha bro! `createReadStream` use pannu. Memory efficient-ah chunks-ah handle pannalaam. Semma high-performance backend logic idhu." },
       { speaker: "Logu", avatar: "🧑", message: "Data loss aagu ma bro?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Illa! Buffer la logic-ah temporary storage vachittu bit by bit thaan processing nadakkum. Event driven logic thaan Node.js scalable power-ae." },
-      { speaker: "Logu", avatar: "🧑", message: "Piping use palla ma?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Aama! `.pipe()` vachu input stream-ah output stream-ku (Example: File to Network) directly connect pannalaam. Memory handling level pro!" },
+      { speaker: "Dev", "avatar": "👨‍💻", message: "Illa! Buffer la logic-ah temporary storage vachittu bit by bit thaan processing nadakkum. Event driven logic thaan Node.js scalable power-ae." },
+      { speaker: "Logu", avatar: "🧑", message: "Piping use panna ma?" },
+      { speaker: "Dev", "avatar": "👨‍💻", message: "Aama! `.pipe()` vachu input stream-ah output stream-ku (Example: File to Network) directly connect pannalaam. Memory handling level pro!" },
       { speaker: "Logu", avatar: "🧑", message: "Streaming for large data efficiency." },
     ],
     whenToUse: ["Large file uploads", "Video streaming", "Processing big logs"],
     devConfession: {
-      mistake: "Log files-ah memory-la full-ah parse palla try palli production server memory full-ah block pannittaen.",
+      mistake: "Log files-ah memory-la full-ah parse panna try palli production server memory full-ah block pannittaen.",
       lesson: "Always stream large data. Protect your RAM power.",
     },
-    quiz: {
-      question: "Chunk by chunk data processing term enna?",
-      options: ["Indexing", "Streaming", "Hashing"],
-      answer: 1
-    },
+    quizzes: [
+      {
+        question: "Chunk by chunk data processing term enna?",
+        options: ["Indexing", "Streaming", "Hashing"],
+        answer: 1
+      },
+      {
+        question: "Streaming use panna RAM memory save aagumaa?",
+        options: ["Aamaa, bit-by-bit processing logic (Large file doesn't overload RAM)", "Illa, usage adhigam", "No change"],
+        answer: 0
+      },
+      {
+        question: "Node.js-la streams piping logic name?",
+        options: [".pipe()", ".link()", ".connect()"],
+        answer: 0
+      },
+      {
+        question: "Buffer na enna artham in streaming context?",
+        options: ["Temporary storage for data chunks before processing", "A bug in stream", "Style sheet"],
+        answer: 0
+      },
+      {
+        question: "Large video or logs handle panna ethu proper route?",
+        options: ["Streams", "Full memory load", "Wait and click"],
+        answer: 0
+      }
+    ],
     funFact: "Node.js core itself built on top of event-driven streams! 🌊",
   },
 
@@ -2477,20 +3841,20 @@ export const topics = [
     },
     conversation: [
       { speaker: "Meena", avatar: "👩", message: "Bro, button click panna card modal-um close aaguvey?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Bubbling logic bro! `event.stopPropagation()` use pannu. Ripple effect-ah stop panni local action mattum run palla vachidalaam. Event handling semma control logic idhu." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Bubbling logic bro! `event.stopPropagation()` use pannu. Ripple effect-ah stop panni local action mattum run panna vachidalaam. Event handling semma control logic idhu." },
       { speaker: "Meena", avatar: "👩", message: "Event delegation ethukka bro?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Parent-la orae listeners vachikkanum logic. 1000 items-ku 1000 listeners palla palla palla palla pothu, parent oru listener vachu check palla num. Performance boost logic idhu." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Parent-la orae listeners vachikkanum logic. 1000 items-ku 1000 listeners panna pothu, parent oru listener vachu check panna num. Performance boost logic idhu." },
       { speaker: "Meena", avatar: "👩", message: "Capturing phase use aaguma?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Outside-in travel path. In-depth logic implementation-ku capturing rare cases-la hero mathiri help pannum. Browser events flow purinjiko!" },
       { speaker: "Meena", avatar: "👩", message: "Bubbling control mastered." },
     ],
     whenToUse: ["Stopping nested click actions", "Delegation logic"],
     devConfession: {
-      mistake: "Every click logic-um stop palla try palli, global tracking/analytics components break pannittaen.",
+      mistake: "Every click logic-um stop panna try palli, global tracking/analytics components break pannittaen.",
       lesson: "Stop propagation only when absolutely needed.",
     },
     quiz: {
-      question: "Event child-la irundhu parent-ku travel palla logic name?",
+      question: "Event child-la irundhu parent-ku travel panna logic name?",
       options: ["Capturing", "Bubbling", "Hoisting"],
       answer: 1
     },
@@ -2516,8 +3880,8 @@ export const topics = [
       { speaker: "Dev", avatar: "👨‍💻", message: "Illa bro! Backend-la ovvoru field-kum oru 'Resolver' function ezhutha num. Athu thaan API call or DB query panni result kudukkum. Real power logic resolvers kulla thaan irukku." },
       { speaker: "Raj", avatar: "🧑", message: "Multiple sources source-la data eduka ma?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Kandippa! User details DB-layum, Orders details 3rd party API-layum irundhaatum, resolvers rendayum merge panni single response-ah JSON logic anuppum." },
-      { speaker: "Raj", avatar: "🧑", message: "Graphql middleware support palla ma?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Aama, resolvers call palla munaadi authentication or logging palla middleware setup pannuvom. Flexible data gateway idhu." },
+      { speaker: "Raj", avatar: "🧑", message: "Graphql middleware support panna ma?" },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Aama, resolvers call panna munaadi authentication or logging panna middleware setup pannuvom. Flexible data gateway idhu." },
       { speaker: "Raj", avatar: "🧑", message: "Resolvers are the brain of GQL." },
     ],
     whenToUse: ["Custom GraphQL backends", "Merging multiple data sources"],
@@ -2525,11 +3889,33 @@ export const topics = [
       mistake: "Heavy DB logic-ah directly resolver kulla vachu 'N+1 problem' (Too many queries) create pannittaen.",
       lesson: "Use DataLoader or caching layers inside resolvers for performance.",
     },
-    quiz: {
-      question: "Mapping queries to actual data backend logic-ku term enna?",
-      options: ["Schemas", "Resolvers", "Types"],
-      answer: 1
-    },
+    quizzes: [
+      {
+        question: "Mapping queries to actual data backend logic-ku term enna?",
+        options: ["Schemas", "Resolvers", "Types"],
+        answer: 1
+      },
+      {
+        question: "N+1 problem resolvers context-la yen varum?",
+        options: ["Poor query optimization in nested data fetching handling", "Fast loading", "Colors issues"],
+        answer: 0
+      },
+      {
+        question: "Resolvers multiple sources multiple DB values-ah merge pannumaa?",
+        options: ["Aamaa, gateway role logic patterns follows", "Illa, single source only", "No support"],
+        answer: 0
+      },
+      {
+        question: "DataLoader library resolver performance-ku helper-aa?",
+        options: ["Aamaa, batching and caching queries efficiently handling", "Illa, error logic", "Styles helper"],
+        answer: 0
+      },
+      {
+        question: "Resolver function brain of query patterns context logic?",
+        options: ["Yes, actual execution logic happens here", "Style only", "UI design"],
+        answer: 0
+      }
+    ],
     funFact: "Single query-la 10+ resolvers different servers-la irundhu parallel-ah data fetch pannalaam! 🔌",
   },
 
@@ -2542,7 +3928,7 @@ export const topics = [
     tagline: "Fix the data drips!",
     level: 2,
     readTime: "3 min",
-    quickSummary: "Memory leak na unreachable variables or objects ram-la stuck aagi space waste panrathu. Event listeners clear pallaama vacha ithe prachana varum.",
+    quickSummary: "Memory leak na unreachable variables or objects ram-la stuck aagi space waste panrathu. Event listeners clear pannama vacha ithe prachana varum.",
     analogy: {
       description: "It's like a Leaking Tap 🚰. Solpama thaan dropping aagum, aana 1 week-la tank (RAM) full aai room full-ah overflow aaidum. App crash logic idhu thaan.",
       visual: [{ icon: "💿", label: "RAM" }, { icon: "→", label: "🚰" }, { icon: "💥", label: "Crash" }],
@@ -2550,7 +3936,7 @@ export const topics = [
     conversation: [
       { speaker: "Arun", avatar: "🧑", message: "Bro, site 2 hours use panna slow aaguthu?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Memory leak check pannu bro! Component unmount aana pothu event listeners remove aagaala thaan intha bug varum. Browser DevTools (Memory tab) vachu heap snapshot check pannu." },
-      { speaker: "Arun", avatar: "🧑", message: "Garbage collector sethu help palla ma bro?" },
+      { speaker: "Arun", avatar: "🧑", message: "Garbage collector sethu help panna ma bro?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "GC unused objects-ah clear pannum. Aana global variables or open timers references irundha athu 'Leaked' memory thaan. Manual cleanup is duty for devs." },
       { speaker: "Arun", avatar: "🧑", message: "Closure leakage common-ah?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Aama! Reference cycle loops build pannuna context release aagaathu. Avoid global pollution and clean up intervals. Performance maintenance logic done." },
@@ -2561,11 +3947,33 @@ export const topics = [
       mistake: "Infinite loop kulla global array-la data add pannikittae irundhaen. Live production-la RAM short aai sethu poattaen.",
       lesson: "Clean up your timers and listeners. GC (Garbage Collection) is not magic.",
     },
-    quiz: {
-      question: "Unused RAM occupied logic category enna?",
-      options: ["Memory Leak", "Security Hole", "Data Loss"],
-      answer: 0
-    },
+    quizzes: [
+      {
+        question: "Unused RAM occupied logic category enna?",
+        options: ["Memory Leak", "Security Hole", "Data Loss"],
+        answer: 0
+      },
+      {
+        question: "Component unmount aana pothu enna cleaning pannanum?",
+        options: ["Event listeners and Timers-ah remove pannanum", "RAM delete pannanum", "Computer off pannanum"],
+        answer: 0
+      },
+      {
+        question: "Memory leak identify panna chrome-la endha developer tab use aagum?",
+        options: ["Memory tab (Heap snapshots)", "Elements tab", "Network tab"],
+        answer: 0
+      },
+      {
+        question: "Garbage Collector everything automatically clear pannumaa?",
+        options: ["Illa, reference loops context irukura leaked patterns manual cleaning needed", "Aamaa magically", "No usage"],
+        answer: 0
+      },
+      {
+        question: "Leaking tap analogy results context patterns follows?",
+        options: ["Over time memory increase aagi app crash aagum", "Speed increase", "No effect"],
+        answer: 0
+      }
+    ],
     funFact: "Even global variables marandhu poona memory leak create pannum logic dangerous! 🕸️",
   },
 
@@ -2599,11 +4007,33 @@ export const topics = [
       mistake: "NoSQL-la logic illama data kotti vachu, retrieval panna mudiyamal thavanichu poitten.",
       lesson: "NoSQL flexibility-ah missuse pannatha! Proper schema design angaayum mukkiyam.",
     },
-    quiz: {
-      question: "Table format-la store panra database ethu?",
-      options: ["SQL", "NoSQL", "Text file"],
-      answer: 0
-    },
+    quizzes: [
+      {
+        question: "Table format-la store panra database ethu?",
+        options: ["SQL", "NoSQL", "Text file"],
+        answer: 0
+      },
+      {
+        question: "Flexible JSON-mathiri data store panna ethu best?",
+        options: ["SQL", "NoSQL (MongoDB)", "Excel"],
+        answer: 1
+      },
+      {
+        question: "Banking systems-ku mostly ethu use pannuvaanga?",
+        options: ["SQL (Strict consistency)", "NoSQL", "Word doc"],
+        answer: 0
+      },
+      {
+        question: "NoSQL-la 'Schema-less' na enna artham?",
+        options: ["Data structure predefined-aa thevai illa (flexible)", "No database", "No storage"],
+        answer: 0
+      },
+      {
+        question: "SQL database-ku example sollu?",
+        options: ["PostgreSQL / MySQL", "MongoDB", "Redis"],
+        answer: 0
+      }
+    ],
     funFact: "Facebook SQL-um use panuvaanga, NoSQL-um use panuvaanga! Project-ku thaguntha maari.",
   },
 
@@ -2635,11 +4065,33 @@ export const topics = [
       mistake: "Primary key illama table create pannitten. Data update pannum pothu unwanted records-um delete aaiduchu.",
       lesson: "Always define a PK (Primary Key). It's the anchor of your data.",
     },
-    quiz: {
-      question: "Primary Key duplicate aaga mudiyuma?",
-      options: ["Yes", "No"],
-      answer: 1
-    },
+    quizzes: [
+      {
+        question: "Primary Key duplicate aaga mudiyuma?",
+        options: ["Yes", "No"],
+        answer: 1
+      },
+      {
+        question: "Primary Key null-ah (empty) irukkalaamaa?",
+        options: ["Illa, eppavume value irukkanum", "Aamaa", "Sometimes"],
+        answer: 0
+      },
+      {
+        question: "UUID na enna artham?",
+        options: ["Universally Unique Identifier", "User ID", "Unique URL ID"],
+        answer: 0
+      },
+      {
+        question: "Primary key automatically indexed-aa?",
+        options: ["Aamaa, search speed increase panna auto-index aagum", "Illa", "No use"],
+        answer: 0
+      },
+      {
+        question: "Aadhaar number analogy-la Aadhaar ethai kurikkudhu?",
+        options: ["Primary Key", "Row", "Column"],
+        answer: 0
+      }
+    ],
     funFact: "SQL-la 'Composite Key' nu onnu irukku, rendu column-ah onna sethu PK-ah use pannuvaanga! 🤯",
   },
 
@@ -2671,11 +4123,33 @@ export const topics = [
       mistake: "Delete operation-la 'WHERE' clause kulla check panna maranthen. Full table-um delete aaiduchu.",
       lesson: "Be extremely careful with 'Update' and 'Delete'. Triple check your conditions!",
     },
-    quiz: {
-      question: "CRUD-la 'U' stands for?",
-      options: ["Undo", "Update", "Upload"],
-      answer: 1
-    },
+    quizzes: [
+      {
+        question: "CRUD-la 'U' stands for?",
+        options: ["Undo", "Update", "Upload"],
+        answer: 1
+      },
+      {
+        question: "Data-ah read panna key operation enna?",
+        options: ["Create", "Read", "Delete"],
+        answer: 1
+      },
+      {
+        question: "SQL-la 'Create' operation-ku enna command?",
+        options: ["INSERT", "SELECT", "DROP"],
+        answer: 0
+      },
+      {
+        question: "Soft delete na enna artham?",
+        options: ["Data-ah permanently delete pannaama 'deleted: true' nu tag panradhu", "Force delete", "Theme color change panna"],
+        answer: 0
+      },
+      {
+        question: "Facebook status post panradhu entha CRUD operation?",
+        options: ["Create", "Read", "Update", "Delete"],
+        answer: 0
+      }
+    ],
     funFact: "SQL-la Create-ku pathila 'INSERT' nu command use pannuvom! ✍️",
   },
 
@@ -2707,11 +4181,33 @@ export const topics = [
       mistake: "Row numbers-ah column design-la korthu confuse pannittaen.",
       lesson: "Keep data atomized. One column, one type of data.",
     },
-    quiz: {
-      question: "Oru user-oda full details (Name, Age, Email) onna irundha adhu enna?",
-      options: ["Column", "Row", "Database"],
-      answer: 1
-    },
+    quizzes: [
+      {
+        question: "Oru user-oda full details (Name, Age, Email) onna irundha adhu enna?",
+        options: ["Column", "Row", "Database"],
+        answer: 1
+      },
+      {
+        question: "Vertical category of data-ku enna peru?",
+        options: ["Column / Field", "Row", "Table"],
+        answer: 0
+      },
+      {
+        question: "Database table literally enna?",
+        options: ["Collection of related rows and columns", "A physical table", "A UI component"],
+        answer: 0
+      },
+      {
+        question: "Excel spreadsheet-la oru horizontal line ethai kurikkudhu?",
+        options: ["Row", "Column", "File name"],
+        answer: 0
+      },
+      {
+        question: "Data type mapping (Name -> String, Age -> Int) yen mukkiyama?",
+        options: ["Storage optimization and validation-ku", "Beauty only", "No use"],
+        answer: 0
+      }
+    ],
     funFact: "Large scale apps-la thousands of columns irukkalaam, aana simple-ah vachukrathu thaan speed! 🚀",
   },
 
@@ -2743,11 +4239,33 @@ export const topics = [
       mistake: "Schema-la email column length koraiva kuduthutaen. Periya email ids vandha ellam cutoff aai data corrupted aairuchu.",
       lesson: "Future needs predict panni field types and sizes-ah allot pannu.",
     },
-    quiz: {
-      question: "Database blueprint-ku enna peru?",
-      options: ["CSS", "Schema", "JSON"],
-      answer: 1
-    },
+    quizzes: [
+      {
+        question: "Database blueprint-ku enna peru?",
+        options: ["CSS", "Schema", "JSON"],
+        answer: 1
+      },
+      {
+        question: "ER Diagram na enna artham?",
+        options: ["Entity Relationship Diagram", "Error Report Diagram", "External Register"],
+        answer: 0
+      },
+      {
+        question: "Schema design eppo pannanum?",
+        options: ["Project starting stage-la (Before coding)", "Release-ku appram", "Testing time-la"],
+        answer: 0
+      },
+      {
+        question: "Normalization scheme logic yen use pannanum?",
+        options: ["Data redundancy (repetition) koraikka", "Internet speed increase panna", "No use"],
+        answer: 0
+      },
+      {
+        question: "NoSQL-la schema rigid-aa irukkumaa?",
+        options: ["Illa, flexible-aa irukkum (Schemaless capability)", "Aamaa", "Sometimes"],
+        answer: 0
+      }
+    ],
     funFact: "ER Diagram means 'Entity Relationship' diagram. Idhu thaan developer's communication language.",
   },
 
@@ -2769,9 +4287,9 @@ export const topics = [
       { speaker: "Kiran", avatar: "🧑", message: "Bro, `SELECT * FROM users` nu ezhutha madippa irukku. Easy vazhi illaiya?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Prisma or Mongoose use pannu bro! Just `db.user.findMany()` nu sonna pothum, back-end-la adhuve SQL-ah mathikum. Semma fast development!" },
       { speaker: "Kiran", avatar: "🧑", message: "Typesafety irukkuma bro?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Aama! Tables data TS types-ah automate-ah generate aagum. Wrong field name type palla pothu error kaattidum. Developer experience logic hero idhu." },
-      { speaker: "Kiran", avatar: "🧑", message: "Migrations handle palla ma?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "ORM logic database schema updates-ah version track pannum. Code changes change aaguva pothu DB column alterations logic handle palla patterns power." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Aama! Tables data TS types-ah automate-ah generate aagum. Wrong field name type panna pothu error kaattidum. Developer experience logic hero idhu." },
+      { speaker: "Kiran", avatar: "🧑", message: "Migrations handle panna ma?" },
+      { speaker: "Dev", avatar: "👨‍💻", message: "ORM logic database schema updates-ah version track pannum. Code changes change aaguva pothu DB column alterations logic handle panna patterns power." },
       { speaker: "Kiran", avatar: "🧑", message: "ORM for rapid coding." },
     ],
     whenToUse: ["Rapid dev", "Avoiding complex SQL queries"],
@@ -2779,11 +4297,33 @@ export const topics = [
       mistake: "ORM logic-ah full-ah nambi complex queries-ah optimize pannaama vitutaen. App slow aaiduchu.",
       lesson: "ORM is good for speed, but deep logic-ku raw SQL knowledge-um mukkiyam.",
     },
-    quiz: {
-      question: "JavaScript code-ah SQL-ah mathura tool enna?",
-      options: ["Browser", "ORM", "CLI"],
-      answer: 1
-    },
+    quizzes: [
+      {
+        question: "JavaScript code-ah SQL-ah mathura tool enna?",
+        options: ["Browser", "ORM", "CLI"],
+        answer: 1
+      },
+      {
+        question: "Popular JS ORM ethu?",
+        options: ["Prisma / Mongoose", "Axios", "Vite"],
+        answer: 0
+      },
+      {
+        question: "ORM main advantage enna?",
+        options: ["Developer speed and typesafety", "Faster internet", "Small screen support"],
+        answer: 0
+      },
+      {
+        question: "Raw SQL knowledge-um thevayaa?",
+        options: ["Aamaa, complex queries optimize panna knowledge mukkiyam", "Illa, ORM pothum", "Theriyala"],
+        answer: 0
+      },
+      {
+        question: "Mongoose enthaa DB-ku use aagum?",
+        options: ["MongoDB", "MySQL", "Oracle"],
+        answer: 0
+      }
+    ],
     funFact: "Prisma thaoa ippo modern JS ecosystem-la most popular ORM! 💎",
   },
 
@@ -2803,11 +4343,11 @@ export const topics = [
     },
     conversation: [
       { speaker: "Pavi", avatar: "👩", message: "Bro, en DB scan panna 5 seconds aaguthu. Millions of data irukku!" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Index palla bro! Search panra column (Example: Email) mela index poatta, nanoseconds-la query mudinjirum. Semma difference theriyum!" },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Index panna bro! Search panra column (Example: Email) mela index poatta, nanoseconds-la query mudinjirum. Semma difference theriyum!" },
       { speaker: "Pavi", avatar: "👩", message: "Storage space adhighama aagu ma?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Aama, index oru separate table mathiri space edukkum. So frequently searched columns-ku mattum indexing kudukkira logic patterns follows palla num." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Aama, index oru separate table mathiri space edukkum. So frequently searched columns-ku mattum indexing kudukkira logic patterns follows panna num." },
       { speaker: "Pavi", avatar: "👩", message: "Write operations slow aaguma?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Kandippa! Every insert/update-la index update aaganum, so excessive indexing avoid palla num. Search vs Write balance thaan pro level DB management." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Kandippa! Every insert/update-la index update aaganum, so excessive indexing avoid panna num. Search vs Write balance thaan pro level DB management." },
       { speaker: "Pavi", avatar: "👩", message: "Database performance indexing done." },
     ],
     whenToUse: ["Large tables", "Frequently searched columns"],
@@ -2815,11 +4355,33 @@ export const topics = [
       mistake: "Ella columns-layum index pottaen. Selection speed-u adhigamaachu, aana inserting data romba slow aaiduchu.",
       lesson: "Don't over-index! It takes space and slows down write operations.",
     },
-    quiz: {
-      question: "Search speed-ah increase panna enna pannanum?",
-      options: ["Add data", "Create Index", "Delete data"],
-      answer: 1
-    },
+    quizzes: [
+      {
+        question: "Search speed-ah increase panna enna pannanum?",
+        options: ["Add data", "Create Index", "Delete data"],
+        answer: 1
+      },
+      {
+        question: "Book's Index page analogy-la index yen speed-ah irukku?",
+        options: ["Direct pointer to page number (no full scan)", "It has more pages", "No use"],
+        answer: 0
+      },
+      {
+        question: "Indexing storage space edukkumaa?",
+        options: ["Aamaa, separate index table space edukkum", "Illa", "Sometimes"],
+        answer: 0
+      },
+      {
+        question: "Write operations (Insert/Update) yen slow aagum?",
+        options: ["Every change-kum index-ah update pannanum", "Internet slow", "No change"],
+        answer: 0
+      },
+      {
+        question: "Ella columns-layum index poodalaamaa?",
+        options: ["Illa, needed/frequent search columns-ku mattum poodanum", "Aamaa", "Depends"],
+        answer: 0
+      }
+    ],
     funFact: "Primary keys are automatically indexed by the database! 🔑",
   },
 
@@ -2841,9 +4403,9 @@ export const topics = [
       { speaker: "Pavi", avatar: "👩", message: "Single table-la ella details-um vacha enna bro?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Update pannum pothu prachana varum bro! Oru user name maathuna, 10 places-la maathanum. Normalization pannitta, oru idathula mathuna pothum, relation-la sync aaidum." },
       { speaker: "Pavi", avatar: "👩", message: "Joins complex-ah aagu ma?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Aama, splitting logic adhighamaana queries-la Joins thevai padum. Performance drop avoid palla indexing and query optimization patterns use palla num. Database architecture heart idhu thaan." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Aama, splitting logic adhighamaana queries-la Joins thevai padum. Performance drop avoid panna indexing and query optimization patterns use panna num. Database architecture heart idhu thaan." },
       { speaker: "Pavi", avatar: "👩", message: "De-normalization eppo panna?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "High read frequency apps-la speed-kaaga redundant data vachuppom. Rendum specific cases application context logic-ah pathu mudivu palla korthu follow palla num." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "High read frequency apps-la speed-kaaga redundant data vachuppom. Rendum specific cases application context logic-ah pathu mudivu panna korthu follow panna num." },
       { speaker: "Pavi", avatar: "👩", message: "Schema normalization logic clear." },
     ],
     whenToUse: ["Database schema design", "Reducing storage waste"],
@@ -2851,11 +4413,33 @@ export const topics = [
       mistake: "Mothama mix panni tables vachutten. Data delete pannum pothu unwanted linked data-vum delete aairuchu.",
       lesson: "Follow 3NF (3rd Normal Form) for stable database designs.",
     },
-    quiz: {
-      question: "Data redundancy-ah koraikka enna methodology use pannanum?",
-      options: ["Indexing", "Normalization", "Hashing"],
-      answer: 1
-    },
+    quizzes: [
+      {
+        question: "Data redundancy-ah koraikka enna methodology use pannanum?",
+        options: ["Indexing", "Normalization", "Hashing"],
+        answer: 1
+      },
+      {
+        question: "3NF na full form enna artham?",
+        options: ["3rd Normal Form", "3 New Files", "3 Network Filters"],
+        answer: 0
+      },
+      {
+        question: "Normalization yen performance issues tharum sometimes?",
+        options: ["Too many tables split aana Joins adhigamaagi overhead varum", "Database size adhigamaagum", "No issue"],
+        answer: 0
+      },
+      {
+        question: "De-normalization eppo best?",
+        options: ["High-speed READ optimization thevai padumpothu (Redundant data for speed)", "Always", "Starting stage-la"],
+        answer: 0
+      },
+      {
+        question: "Sorting clothes cupboard analogy-la normalization enna artham?",
+        options: ["Organized separation for easy retrieval", "Messy storage", "Washing only"],
+        answer: 0
+      }
+    ],
     funFact: "Sometimes high-performance apps 'Denormalize' (join tables) to increase search speed! 🔄",
   },
 
@@ -2868,7 +4452,7 @@ export const topics = [
     tagline: "Ensure data integrity!",
     level: 3,
     readTime: "4 min",
-    quickSummary: "Atomicity, Consistency, Isolation, Durability. Intha 4 rules irundha thaan oru database reliable-ah safe-ah transactions-ah palla mudiyum nu meaning.",
+    quickSummary: "Atomicity, Consistency, Isolation, Durability. Intha 4 rules irundha thaan oru database reliable-ah safe-ah transactions-ah panna mudiyum nu meaning.",
     analogy: {
       description: "It's like a Bank Transaction 🏦. Money debit aana opposite side credit aaganum (Atomicity). Pathila failure aana full transaction cancel aaganum. Ithu thaan ACID logic.",
       visual: [{ icon: "💸", label: "Send" }, { icon: "↔️", label: "Sync" }, { icon: "✅", label: "Done" }],
@@ -2877,21 +4461,43 @@ export const topics = [
       { speaker: "Meena", avatar: "👩", message: "SQL vs NoSQL-la ACID diff irukka bro?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Aama bro! SQL eppavume strict-ah ACID follow pannum, so banking-ku best. NoSQL (like Mongo) faster performance-ku ACID conditions-ah chinna flex pannuvaanga." },
       { speaker: "Meena", avatar: "👩", message: "Consistency eppo crucial-ah?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Stock management or balances update-la latest data mandatory patterns korthu check pannanum. Isolation multiple users access palla confusion thadukkura security logic mechanism idhu." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Stock management or balances update-la latest data mandatory patterns korthu check pannanum. Isolation multiple users access panna confusion thadukkura security logic mechanism idhu." },
       { speaker: "Meena", avatar: "👩", message: "Durability guarantees DB down aanaalum irukkuma?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Aama! Translog or Journal storage logs-la vachikittu, power failure aanaalum recovery palla security backup logic thaan durability principle patterns power." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Aama! Translog or Journal storage logs-la vachikittu, power failure aanaalum recovery panna security backup logic thaan durability principle patterns power." },
       { speaker: "Meena", avatar: "👩", message: "Database reliability standards fixed." },
     ],
     whenToUse: ["Designing financial systems", "Choosing between SQL and NoSQL"],
     devConfession: {
-      mistake: "ACID principles illama manual-ah multi-table update palla panni, intermediate crash-la data mismatch akkiten.",
+      mistake: "ACID principles illama manual-ah multi-table update panna panni, intermediate crash-la data mismatch akkiten.",
       lesson: "Use Database Transactions (Commit/Rollback) for multi-table updates.",
     },
-    quiz: {
-      question: "Full-ah vellai aaganum illa mothama cancel aaganum — idhu entha property?",
-      options: ["Atomicity", "Isolation", "Durability"],
-      answer: 0
-    },
+    quizzes: [
+      {
+        question: "Full-ah vellai aaganum illa mothama cancel aaganum — idhu entha property?",
+        options: ["Atomicity", "Isolation", "Durability"],
+        answer: 0
+      },
+      {
+        question: "Isolation na enna artham?",
+        options: ["Multiple users simultaneously access pannaalum consistency maintain aagum", "Alone only", "No internet"],
+        answer: 0
+      },
+      {
+        question: "Consistent state database-la eppavume irukkura logic enna?",
+        options: ["Consistency", "Availability", "Speed"],
+        answer: 0
+      },
+      {
+        question: "Durability guarantees results permanently stored persistent-aa?",
+        options: ["Aamaa, system crash aanaalum recovery log kedaikkum", "Illa", "Sometimes"],
+        answer: 0
+      },
+      {
+        question: "Banking transaction failure-la balance change aaga koodaathu — idhu ethu?",
+        options: ["Atomicity", "Scaling", "Caching"],
+        answer: 0
+      }
+    ],
     funFact: "SQLite kooda ACID compliant bro, even though adhu oru sinna file-based DB! 📁",
   },
 
@@ -2913,9 +4519,9 @@ export const topics = [
       { speaker: "Meena", avatar: "👩", message: "Bro, AI-ku enna storage best?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "AI learning-ku Data Lake thaan best bro! Raw data available-ah irukkannum. Adhuve business reports build panna Data Warehouse thaan correct-ana choice." },
       { speaker: "Meena", avatar: "👩", message: "Lake-la structured data podala ma?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Palaam, aana context illaama raw-ah korthu vachinga logic mechanism. Warehouse-la ETL logic (Extract, Transform, Load) vachu clean palli korthu store palla num patterns." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Palaam, aana context illaama raw-ah korthu vachinga logic mechanism. Warehouse-la ETL logic (Extract, Transform, Load) vachu clean palli korthu store panna num patterns." },
       { speaker: "Meena", avatar: "👩", message: "Cost differences?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Lake cheap (S3), Warehouse expensive (Snowflake/BigQuery). Needed speed vs volume pathu pick palla korthu follow palla patterns." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Lake cheap (S3), Warehouse expensive (Snowflake/BigQuery). Needed speed vs volume pathu pick panna korthu follow panna patterns." },
       { speaker: "Meena", avatar: "👩", message: "Data storage architecture sorted." },
     ],
     whenToUse: ["Big data analytics", "Enterprise reporting"],
@@ -2923,11 +4529,33 @@ export const topics = [
       mistake: "Raw data-ah directly Data Warehouse-la dump pannittaen. Clean data mothama messy aairuchu.",
       lesson: "Store raw data first, then process and move to warehouse.",
     },
-    quiz: {
-      question: "Cleaned and structured data-ku ethu king?",
-      options: ["Data Lake", "Data Warehouse", "Local Text file"],
-      answer: 1
-    },
+    quizzes: [
+      {
+        question: "Cleaned and structured data-ku ethu king?",
+        options: ["Data Lake", "Data Warehouse", "Local Text file"],
+        answer: 1
+      },
+      {
+        question: "Data Lake-la enna type data store pannalaam?",
+        options: ["Raw, unstructured format (Images, Logs, PDFs)", "CSV only", "Table only"],
+        answer: 0
+      },
+      {
+        question: "ETL na enna artham?",
+        options: ["Extract, Transform, Load", "Email, Task, Link", "Every Time Light"],
+        answer: 0
+      },
+      {
+        question: "Business reporting-ku ethu best analytical storage?",
+        options: ["Data Warehouse", "Data Lake", "USB Drive"],
+        answer: 0
+      },
+      {
+        question: "Data Lakehouse na enna?",
+        options: ["Lake and Warehouse features rendaiyum combine panna modern tech", "A house near lake", "Building blueprints"],
+        answer: 0
+      }
+    ],
     funFact: "Modern clouds combine both and call it 'Data Lakehouse'! 🏗️",
   },
 
@@ -2940,18 +4568,18 @@ export const topics = [
     tagline: "Horizontal DB scaling!",
     level: 3,
     readTime: "4 min",
-    quickSummary: "Sharding na oru periya database-ah chinna chinna pieces (Shards)-ah split panni different servers-la podurathu. Millions of rows handle palla idhu thaan real solution.",
+    quickSummary: "Sharding na oru periya database-ah chinna chinna pieces (Shards)-ah split panni different servers-la podurathu. Millions of rows handle panna idhu thaan real solution.",
     analogy: {
       description: "It's like Spliting a Huge Book 📚 into 5 volumes. Everyone can read it separately without crowding over one single desk.",
       visual: [{ icon: "🗄️", label: "Big DB" }, { icon: "→", label: "" }, { icon: "📦", icon: "📦", icon: "📦" }],
     },
     conversation: [
-      { speaker: "Raj", avatar: "🧑", message: "Bro, single server DB limit hit aairuchu, enna palla?" },
-      { speaker: "Senior", avatar: "👨‍💻", message: "Sharding logic use pannu bro! User IDs 1-1M Server A-la podu, 1M-2M Server B-la podu. Hardware limitations-ah cross palla idhu thaan pro vazhi." },
+      { speaker: "Raj", avatar: "🧑", message: "Bro, single server DB limit hit aairuchu, enna panna?" },
+      { speaker: "Senior", avatar: "👨‍💻", message: "Sharding logic use pannu bro! User IDs 1-1M Server A-la podu, 1M-2M Server B-la podu. Hardware limitations-ah cross panna idhu thaan pro vazhi." },
       { speaker: "Raj", avatar: "🧑", message: "Shard key choice mukkiyama?" },
       { speaker: "Senior", avatar: "👨‍💻", message: "Romba! Data distribution balance-ah irukanum logic handles patterns. WRong key select panna oru shard heavy-ah aagi crash aaidum mechanism security logic check." },
       { speaker: "Raj", avatar: "🧑", message: "Joins cross-shard work aaguma?" },
-      { speaker: "Senior", avatar: "👨‍💻", message: "Illa, adhu thaan drawback logic complexity. Application layer-la thaan korthu merge palla num security patterns follows palla patterns power logic peaks." },
+      { speaker: "Senior", avatar: "👨‍💻", message: "Illa, adhu thaan drawback logic complexity. Application layer-la thaan korthu merge panna num security patterns follows panna patterns power logic peaks." },
       { speaker: "Raj", avatar: "🧑", message: "DB sharding strategies understood." },
     ],
     whenToUse: ["Global scale applications (Facebook, Twitter)", "Massive data sets"],
@@ -2959,11 +4587,33 @@ export const topics = [
       mistake: "Simple project-ku unnecessary-ah sharding setup panni architecture-ah complex-aakitaen. Querying multiple shards became a headache.",
       lesson: "Use sharding only when you truly hit vertical limits of a single DB node.",
     },
-    quiz: {
-      question: "Data-ah horizontal-ah pirichu multiple servers-la podura technique enna?",
-      options: ["Indexing", "Sharding", "Clustering"],
-      answer: 1
-    },
+    quizzes: [
+      {
+        question: "Data-ah horizontal-ah pirichu multiple servers-la podura technique enna?",
+        options: ["Indexing", "Sharding", "Clustering"],
+        answer: 1
+      },
+      {
+        question: "Shard key choice yen critical-aa?",
+        options: ["Data distribution balance-ah irukka (Avoid 'Hot Shards')", "Colors-ku", "No reason"],
+        answer: 0
+      },
+      {
+        question: "Sharding eppo thevai padum?",
+        options: ["Single DB node hardware limits hit aagum pothu (Millions of rows)", "Starting stage-la", "Styling-ku"],
+        answer: 0
+      },
+      {
+        question: "Cross-shard joins easy-aa?",
+        options: ["Illa, complex and performance heavy", "Aamaa", "Depends"],
+        answer: 0
+      },
+      {
+        question: "Vertical scaling vs Horizontal scaling (Sharding) main difference?",
+        options: ["Sharding means adding more machines (Horizontal)", "Adding more RAM to same machine", "No difference"],
+        answer: 0
+      }
+    ],
     funFact: "Scaling databases is much harder than scaling web servers bro! 🐘",
   },
 
@@ -2976,18 +4626,18 @@ export const topics = [
     tagline: "Pick any two!",
     level: 3,
     readTime: "4 min",
-    quickSummary: "Consistency, Availability, and Partition Tolerance. Database distributed-ah irukkum pothu, intha moonula eppavume render thaan unnaala achieve palla mudiyum nu solra logic.",
+    quickSummary: "Consistency, Availability, and Partition Tolerance. Database distributed-ah irukkum pothu, intha moonula eppavume render thaan unnaala achieve panna mudiyum nu solra logic.",
     analogy: {
-      description: "It's like a Fast Food Shop 🍔. Fast delivery (Availability) and Correct Order (Consistency) and No Mistakes in crowd (Partition). Crowd vandha (Partition hit), nee fast-ah delivery palla numna mistakes vara chance irukku (Lose Consistency).",
+      description: "It's like a Fast Food Shop 🍔. Fast delivery (Availability) and Correct Order (Consistency) and No Mistakes in crowd (Partition). Crowd vandha (Partition hit), nee fast-ah delivery panna numna mistakes vara chance irukku (Lose Consistency).",
       visual: [{ icon: "C", label: "Same Data" }, { icon: "A", label: "Live Always" }, { icon: "P", label: "Distributed" }],
     },
     conversation: [
       { speaker: "Logu", avatar: "🧑", message: "Bro, site fallback-ey aaka koodathu aana data eppavume latest-ah sync-la irukkannum?" },
-      { speaker: "Senior", avatar: "👨‍💻", message: "CAP Theorem purinjiko bro. Millions of users varum pothu render-ey achieve palla palla delay aagum. Logic pick palla num. DynamoDB availability focus pannum, adhuve SQL consistency-ku importance kudukkum." },
+      { speaker: "Senior", avatar: "👨‍💻", message: "CAP Theorem purinjiko bro. Millions of users varum pothu render-ey achieve panna delay aagum. Logic pick panna num. DynamoDB availability focus pannum, adhuve SQL consistency-ku importance kudukkum." },
       { speaker: "Logu", avatar: "🧑", message: "Partition Tolerance compulsory-ah?" },
       { speaker: "Senior", avatar: "👨‍💻", message: "Aama, distributed network failures common logic patterns mechanism idhu. So P eppavume irukkum. Nee C (Consistency) vs A (Availability) kulla thaan choice pannanum patterns." },
-      { speaker: "Logu", avatar: "🧑", message: "Trade-off eppo decide palla num?" },
-      { speaker: "Senior", avatar: "👨‍💻", message: "Project scale and user needs korthu choose palla num. Banking na C, Social media na A logic handles security and performance balance patterns power." },
+      { speaker: "Logu", avatar: "🧑", message: "Trade-off eppo decide panna num?" },
+      { speaker: "Senior", avatar: "👨‍💻", message: "Project scale and user needs korthu choose panna num. Banking na C, Social media na A logic handles security and performance balance patterns power." },
       { speaker: "Logu", avatar: "🧑", message: "CAP theorem logic clear." },
     ],
     whenToUse: ["Distributed system design", "Choosing NoSQL databases"],
@@ -2995,11 +4645,33 @@ export const topics = [
       mistake: "CAP tradeoff puriyaama strong consistency-ah national scale app-ku try panni global delay aakiten.",
       lesson: "Understand your app's need. Social media-ku Availability mukkiyam, Banking-ku Consistency mukkiyam!",
     },
-    quiz: {
-      question: "Consistency, Availability kooda moonavathu enna property?",
-      options: ["Partition Tolerance", "Persistence", "Performance"],
-      answer: 0
-    },
+    quizzes: [
+      {
+        question: "Consistency, Availability kooda moonavathu enna property?",
+        options: ["Partition Tolerance", "Persistence", "Performance"],
+        answer: 0
+      },
+      {
+        question: "CAP Theorem-la enna rule?",
+        options: ["Pick any two (Consistency, Availability, Partition Tolerance)", "Pick all three", "Pick none"],
+        answer: 0
+      },
+      {
+        question: "Social media app mostly ethai prioritize pannum?",
+        options: ["Availability", "Consistency", "Storage"],
+        answer: 0
+      },
+      {
+        question: "Banking transactions mostly ethai prioritize pannum?",
+        options: ["Consistency", "Availability", "Speed"],
+        answer: 0
+      },
+      {
+        question: "Distributed system-la Partition Tolerance yen compulsory?",
+        options: ["Network partitions/failures common-aa nadakkum", "For fun", "No use"],
+        answer: 0
+      }
+    ],
     funFact: "No computer system in the world can achieve all 3 perfectly at the same time! 📐",
   },
 
@@ -3012,7 +4684,7 @@ export const topics = [
     tagline: "Link your data!",
     level: 3,
     readTime: "4 min",
-    quickSummary: "Internal, Left, Right, Full Joins. Tables-ah connect palla korthu data edukurathu thaan Joins. Correct mapping logic design-ku idhu mukkiyam.",
+    quickSummary: "Internal, Left, Right, Full Joins. Tables-ah connect panna korthu data edukurathu thaan Joins. Correct mapping logic design-ku idhu mukkiyam.",
     analogy: {
       description: "It's like a Marriage Matching 🤵👰. Inner Join is 'Matching pairs only'. Left Join is 'Everyone from Bride's side + matching Grooms side'.",
       visual: [{ icon: "🔴", label: "A" }, { icon: "∩", label: "" }, { icon: "🔵", label: "B" }],
@@ -3021,9 +4693,9 @@ export const topics = [
       { speaker: "Deepa", avatar: "👩", message: "Bro, users table and orders table korthu eppadi data edukanum?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Join use pannu bro! `INNER JOIN` poatta, orders poatta users details mattum varum. `LEFT JOIN` poatta orders pallaatha users-um varuvaanga. Requirements pathu pick pannu." },
       { speaker: "Deepa", avatar: "👩", message: "Right join eppo useful-ah?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Rare cases-la thaan, oru table second table focus patterns logic handles mechanism. Mostly Left join logic-ae swapping tables moolama achieve palla num patterns power." },
-      { speaker: "Deepa", avatar: "👩", message: "Multiple joins palla performance affect aaguma?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Aama! Proper indexing and query optimization mandatory logic follows palla num efficiency levels increase palla patterns metrics power logic." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Rare cases-la thaan, oru table second table focus patterns logic handles mechanism. Mostly Left join logic-ae swapping tables moolama achieve panna num patterns power." },
+      { speaker: "Deepa", avatar: "👩", message: "Multiple joins panna performance affect aaguma?" },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Aama! Proper indexing and query optimization mandatory logic follows panna num efficiency levels increase panna patterns metrics power logic." },
       { speaker: "Deepa", avatar: "👩", message: "SQL joins concept clear." },
     ],
     whenToUse: ["Relational data analysis", "Complex reports"],
@@ -3031,11 +4703,33 @@ export const topics = [
       mistake: "Million rows tables-la proper indexing illama `FULL OUTER JOIN` poatten. Server full-ah hang aairuchu.",
       lesson: "Join operations are expensive. Always ensure columns are indexed before joining.",
     },
-    quiz: {
-      question: "Both tables-layum matching data edukurathu enna join?",
-      options: ["Left Join", "Inner Join", "Right Join"],
-      answer: 1
-    },
+    quizzes: [
+      {
+        question: "Both tables-layum matching data edukurathu enna join?",
+        options: ["Left Join", "Inner Join", "Right Join"],
+        answer: 1
+      },
+      {
+        question: "Left Join na enna artham?",
+        options: ["Left table-la irukka ellaa rows-um + matching right table rows", "Right table focus only", "Only matching rows"],
+        answer: 0
+      },
+      {
+        question: "SQL Join logic entha mathematical theory-la irundhu vandhudhu?",
+        options: ["Set Theory (Venn Diagrams)", "Calculus", "Geometry"],
+        answer: 0
+      },
+      {
+        question: "Multiple Joins panna speed koraaiyumaa?",
+        options: ["Aamaa, properly index pannala-naa performance drop aagum", "Illa", "No change"],
+        answer: 0
+      },
+      {
+        question: "Tables-ah orae query-la combine panna use aaguva keyword enna?",
+        options: ["JOIN", "LINK", "ATTACH"],
+        answer: 0
+      }
+    ],
     funFact: "SQL Joins logic sets theory-la irundha vandhuthu bro! 📐",
   },
 
@@ -3054,12 +4748,12 @@ export const topics = [
       visual: [{ icon: "📝", label: "Update" }, { icon: "→", label: "⚡" }, { icon: "📋", label: "Log" }],
     },
     conversation: [
-      { speaker: "Raj", avatar: "🧑", message: "Bro, ovvoru time profile update aagum pothu track palla dummy table create palla palla palla manual logic palla num-ah?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Venaam bro! Database Trigger setup pannu. App level code-la changes thevai illa. DB-laye logic irukkum, and user save palla palla palla pothu automatic-ah log create aaidum." },
+      { speaker: "Raj", avatar: "🧑", message: "Bro, ovvoru time profile update aagum pothu track panna dummy table create panna manual logic panna num-ah?" },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Venaam bro! Database Trigger setup pannu. App level code-la changes thevai illa. DB-laye logic irukkum, and user save panna pothu automatic-ah log create aaidum." },
       { speaker: "Raj", avatar: "🧑", message: "Before vs After triggers differ-ah?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Aama! Data save aaga munaadi validation palla 'Before', save aanona logging palla 'After' patterns choice logic mechanism security power patterns." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Aama! Data save aaga munaadi validation panna 'Before', save aanona logging panna 'After' patterns choice logic mechanism security power patterns." },
       { speaker: "Raj", avatar: "🧑", message: "Performance overhead irukkuma?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Slightly! Complex logic triggers kulla poatta DB slow aagum patterns flows palla num. Critical actions-ku mattum judicious-ah use palla mechanism patterns power logic utility." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Slightly! Complex logic triggers kulla poatta DB slow aagum patterns flows panna num. Critical actions-ku mattum judicious-ah use panna mechanism patterns power logic utility." },
       { speaker: "Raj", avatar: "🧑", message: "DB automation via triggers understood." },
     ],
     whenToUse: ["Maintaining audit logs", "Enforcing complex data rules", "Syncing tables"],
@@ -3067,12 +4761,34 @@ export const topics = [
       mistake: "Triggers logic circular-ah ezhuthutaen. A updates B, B updates A... infinite loop-la DB crash aaiduchu.",
       lesson: "Be very careful with triggers. They are powerful but hidden logic.",
     },
-    quiz: {
-      question: "Data change aagum pothu automatically run aaguva DB logic enna?",
-      options: ["Index", "Trigger", "View"],
-      answer: 1
-    },
-    funFact: "Triggers help palla application code-ah romba clean-ah vachukalaam! 🧼",
+    quizzes: [
+      {
+        question: "Data change aagum pothu automatically run aaguva DB logic enna?",
+        options: ["Index", "Trigger", "View"],
+        answer: 1
+      },
+      {
+        question: "Audit logs (tracking changes) panna ethu best mechanism?",
+        options: ["Triggers", "Manual coding", "Text filters"],
+        answer: 0
+      },
+      {
+        question: "Before Trigger eppo run aagum?",
+        options: ["Actual data change aaga munaadiye validation-kaaga", "After saving data", "Only on errors"],
+        answer: 0
+      },
+      {
+        question: "Triggers eppo risky logic redundancy-ku chance irukku?",
+        options: ["Circular triggers (A triggers B, B triggers A) call panna", "Simple inserts-ku", "No risk"],
+        answer: 0
+      },
+      {
+        question: "Alarm analogy-la 'Bell ringing' ethai kurikkudhu?",
+        options: ["Trigger execution", "Insert operation", "Delete operation"],
+        answer: 0
+      }
+    ],
+    funFact: "Triggers help panna application code-ah romba clean-ah vachukalaam! 🧼",
   },
 
   {
@@ -3086,28 +4802,50 @@ export const topics = [
     readTime: "2 min",
     quickSummary: "Views na oru complex SQL query-ah save panni oru 'Virtual Table' create panrathu. Table mathiriye query pannalaam, aana data storage physically view-la irukathu, live query results thaan.",
     analogy: {
-      description: "It's like a Saved Filter 📑 in a search app. Nee ovvoru time filters activate palla palla palla palla palla thevai illa, just antha saved view click pannina pothum.",
+      description: "It's like a Saved Filter 📑 in a search app. Nee ovvoru time filters activate panna thevai illa, just antha saved view click pannina pothum.",
       visual: [{ icon: "🖼️", label: "View" }, { icon: "→", label: "" }, { icon: "📊", label: "Live Data" }],
     },
     conversation: [
-      { speaker: "Raj", avatar: "🧑", message: "Bro, 5 tables join palla logic-ah app code-la vachiruka num-ah?" },
+      { speaker: "Raj", avatar: "🧑", message: "Bro, 5 tables join panna logic-ah app code-la vachiruka num-ah?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Illa bro! DB-laye antha join query-ah 'View' ah save pannu. App-la irundha verum antha view table-ah query pannina pothum. Code clean-ah irukkum." },
       { speaker: "Raj", avatar: "🧑", message: "Read-only performance impact?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Regular views query execute pannum, aana 'Materialized Views' results-ah cache palli fast extraction tharum logic patterns follows palla mechanism security power." },
-      { speaker: "Raj", avatar: "🧑", message: "Encryption hidden korthu palla ma?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Aama! Specific columns-ah mattum view-la kaatu, sensitive data-ah hide palli security abstraction layer build palla logic follows palla power efficiency." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Regular views query execute pannum, aana 'Materialized Views' results-ah cache palli fast extraction tharum logic patterns follows panna mechanism security power." },
+      { speaker: "Raj", avatar: "🧑", message: "Encryption hidden korthu panna ma?" },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Aama! Specific columns-ah mattum view-la kaatu, sensitive data-ah hide palli security abstraction layer build panna logic follows panna power efficiency." },
       { speaker: "Raj", avatar: "🧑", message: "DB views architecture clear." },
     ],
     whenToUse: ["Simplifying complex joins", "Restricting data access (Hide sensitive columns)"],
     devConfession: {
-      mistake: "View na actual table-nu nanachu update palla try pannitaen. Many views are read-only.",
+      mistake: "View na actual table-nu nanachu update panna try pannitaen. Many views are read-only.",
       lesson: "Understand your DB's view capabilities (Materialized vs Normal).",
     },
-    quiz: {
-      question: "Complex query-ah simple virtual table-ah save palla mechanism?",
-      options: ["Index", "View", "Schema"],
-      answer: 1
-    },
+    quizzes: [
+      {
+        question: "Complex query-ah simple virtual table-ah save panna mechanism?",
+        options: ["Index", "View", "Schema"],
+        answer: 1
+      },
+      {
+        question: "View-la physical data storage irukkumaa?",
+        options: ["Illa, it's a virtual table based on a query", "Aamaa", "Only for IDs"],
+        answer: 0
+      },
+      {
+        question: "Materialized View na enna special?",
+        options: ["Query result-ah cache panni physically store pannum for speed", "No change", "It's hidden"],
+        answer: 0
+      },
+      {
+        question: "Sensitive columns-ah hide panna View help pannumaa?",
+        options: ["Aamaa, abstraction layer code security-ku help pannum", "Illa", "No use"],
+        answer: 0
+      },
+      {
+        question: "View-ah normal table-ah update panna eppavume mudiyumaa?",
+        options: ["Illa, many views are Read-Only (query based)", "Aamaa", "Depends on RAM"],
+        answer: 0
+      }
+    ],
     funFact: "Materialized Views can even cache results for ultra-fast performance! ⚡",
   },
 
@@ -3129,21 +4867,43 @@ export const topics = [
       { speaker: "Meena", avatar: "👩", message: "Bro, startup projects-ku ethu best?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Monolith-la start pannunga bro! Complexity kammi, fast-ah development pannalaam. App scale aagi multi-team work vandhona microservices pathi yosikalaam. Monolith approach starting phase-ku king." },
       { speaker: "Meena", avatar: "👩", message: "Microservices maintenance kashtama bro?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Aama, networking, deployment, monitoring ellaam adhighama complex aagum. Aana large teams different services-ah parallel-ah work palla logic super helper." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Aama, networking, deployment, monitoring ellaam adhighama complex aagum. Aana large teams different services-ah parallel-ah work panna logic super helper." },
       { speaker: "Meena", avatar: "👩", message: "Scaling eppadi differ aagum?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Monolith full app scale pannanum. Microservices-la verum 'Payment service' mattum high traffic vandha adhai mattum scale pannalaam. Resource efficient!" },
       { speaker: "Meena", avatar: "👩", message: "Architecture decisions pathu edukuraen." },
     ],
     whenToUse: ["Monolith: Small apps/Startups", "Microservices: Large enterprise/Netflix-level scale"],
     devConfession: {
-      mistake: "Innum user-ae illatha app-ku microservices palla try palli network latency-laye logic sethu poattaen.",
+      mistake: "Innum user-ae illatha app-ku microservices panna try palli network latency-laye logic sethu poattaen.",
       lesson: "Don't over-engineer. Start simple (Monolith), then scale.",
     },
-    quiz: {
-      question: "Large systems-ah independent services-ah pirikura term enna?",
-      options: ["Microservices", "Mini-apps", "Segments"],
-      answer: 0
-    },
+    quizzes: [
+      {
+        question: "Large systems-ah independent services-ah pirikura term enna?",
+        options: ["Microservices", "Mini-apps", "Segments"],
+        answer: 0
+      },
+      {
+        question: "Monolith system starting phase-ku yen best?",
+        options: ["Complexity kammi, development faster-aa irukkum", "High cost", "Hard to manage"],
+        answer: 0
+      },
+      {
+        question: "Swiss Army Knife analogy-la Monolith na enna?",
+        options: ["Single unit with multiple functions joined", "Separate tools", "A house"],
+        answer: 0
+      },
+      {
+        question: "Microservices-la communications mostly eppadi nadakkum?",
+        options: ["APIs (REST, gRPC) / Message Queues", "Calling functions direct-aa", "Sharing variables"],
+        answer: 0
+      },
+      {
+        question: "Microservices performance-la network latency oru issue-aa?",
+        options: ["Aamaa, services inter-communicate panna time edukkum", "Illa", "Only on mobile"],
+        answer: 0
+      }
+    ],
     funFact: "Amazon first single monolith-ah thaan irundhathu, apram thaan microservices-ku switch pannuvaanga! 🚀",
   },
 
@@ -3177,11 +4937,33 @@ export const topics = [
       mistake: "Build error check pannama deploy pannitaen. Production-la full black screen vandhuchu.",
       lesson: "Always test in local before pushing to production.",
     },
-    quiz: {
-      question: "Deploy pannina unga site URL epdi generic-ah maarum?",
-      options: ["localhost:3000", "yoursite.com", "C:/Desktop/index.html"],
-      answer: 1
-    },
+    quizzes: [
+      {
+        question: "Deploy pannina unga site URL epdi generic-ah maarum?",
+        options: ["localhost:3000", "yoursite.com", "C:/Desktop/index.html"],
+        answer: 1
+      },
+      {
+        question: "Deployment na enna artham?",
+        options: ["Code-ah production server-la podurathu (Go Live)", "Code delete panradhu", "Email anupuradhu"],
+        answer: 0
+      },
+      {
+        question: "Vercel / Netlify yen popular deployment-ku?",
+        options: ["Easy single-click automation support tharum", "It's expensive", "No free tier"],
+        answer: 0
+      },
+      {
+        question: "Site deploy panna 'Build' state cross panna num-ah?",
+        options: ["Aamaa, production-ready assets generate aaganum", "Illa", "Sometimes"],
+        answer: 0
+      },
+      {
+        question: "CI/CD deployment automated process-ah?",
+        options: ["Aamaa, push panna automatic-ah live-ku poga help pannum", "Illa, manual thaan", "No use"],
+        answer: 0
+      }
+    ],
     funFact: "CI/CD help-la top companies oru nallai-ku 1000 times deploy panuvaanga! ⚡",
   },
 
@@ -3214,11 +4996,33 @@ export const topics = [
       mistake: "Serverless-la infinite loop create panni sudden bill $50 vandhuduchu.",
       lesson: "Always set usage limits and avoid long-running loops in serverless functions.",
     },
-    quiz: {
-      question: "Serverless-la nee care panna vendiyathu enna?",
-      options: ["Hardware Setup", "Your Code", "Electricity Bill"],
-      answer: 1
-    },
+    quizzes: [
+      {
+        question: "Serverless-la nee care panna vendiyathu enna?",
+        options: ["Hardware Setup", "Your Code", "Electricity Bill"],
+        answer: 1
+      },
+      {
+        question: "Serverless-la bill eppadi calculatable usage follows?",
+        options: ["Verum function run aaguva time-ku mattum pay panna pothum", "Monthly fixed rent", "Yearly only"],
+        answer: 0
+      },
+      {
+        question: "Cold Start na enna issue serverless-la?",
+        options: ["First time function launch panna konjam delay aagum", "Internet cut off", "Laptop charging poodura logic"],
+        answer: 0
+      },
+      {
+        question: "Infinite loop serverless-la poatta enna aagum?",
+        options: ["Unexpected budget bill blast aagum (Watch your loops!)", "No problem", "Fast loading"],
+        answer: 0
+      },
+      {
+        question: "Serverless literally server illama run aagurathaa?",
+        options: ["Illa, provider server handle pannuvaanga, nee care panna thevai illa context", "Aamaa", "Magic only"],
+        answer: 0
+      }
+    ],
     funFact: "Serverless is not 'less servers', it's just 'less work for you'! 😎",
   },
 
@@ -3250,11 +5054,33 @@ export const topics = [
       mistake: "CI/CD setup pannitu, broken code-ah direct-ah master-la merge pannittaen. Script automatic aana thaala broken code live-ku poiduchu.",
       lesson: "Test cases (CI part) must be strong before deployment (CD part) starts.",
     },
-    quiz: {
-      question: "CD-la full form-la deployment illama vera enna varalaam?",
-      options: ["Data", "Delivery", "Disk"],
-      answer: 1
-    },
+    quizzes: [
+      {
+        question: "CD-la full form-la deployment illama vera enna varalaam?",
+        options: ["Data", "Delivery", "Disk"],
+        answer: 1
+      },
+      {
+        question: "Continuous Integration (CI) yen mukkiyam?",
+        options: ["Broken code automation flow-la block panna (Testing safety)", "Speed increase panna", "Styles-ku"],
+        answer: 0
+      },
+      {
+        question: "Assembly line analogy-la assembly process ethai kurikkudhu?",
+        options: ["Build and Test flow", "Packaging", "Buying car"],
+        answer: 0
+      },
+      {
+        question: "GitHub Actions CI/CD helper tool-aa?",
+        options: ["Aamaa, common automation tool", "Illa, adhu chat tool", "Search engine"],
+        answer: 0
+      },
+      {
+        question: "CD (Deployment) pipeline success criteria results follows?",
+        options: ["Tests pass aana mattum thaan live-ku push pannanum mechanism", "Direct skip", "No rules"],
+        answer: 0
+      }
+    ],
     funFact: "CI/CD thaan ippo DevOps mindset-oda core pillar! 🏗️",
   },
 
@@ -3277,7 +5103,7 @@ export const topics = [
       { speaker: "Dev", avatar: "👨‍💻", message: "Adhukku thaan bro Docker! Code-ah Docker image-ah mathita, server-la enna version irundhaalum un container kulla irukka version thaan run aagum. 'Works on my machine' issue closed!" },
       { speaker: "Kiran", avatar: "🧑", message: "VM mathiri thaana bro?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Illa, VM romba heavy. Docker verum 'Kernel' share pannittu isolated-ah irukkum, so multiple containers orae server-la lightweight-ah run pannalaam. Efficiency king!" },
-      { speaker: "Kiran", avatar: "🧑", message: "Images eppadi recreate palla ma?" },
+      { speaker: "Kiran", avatar: "🧑", message: "Images eppadi recreate panna ma?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Docker Hub-la irundu pre-built images edukkalaam. Or Dockerfile ezhuthi unga customization logic-ah build pannalaam. Portability semma simple." },
       { speaker: "Kiran", avatar: "🧑", message: "Containerization approach clear bro." },
     ],
@@ -3286,11 +5112,33 @@ export const topics = [
       mistake: "Docker image weight adhigama (5GB) pannittaen. Server deploy panna full night aachu.",
       lesson: "Always use slim/alpine base images to keep containers lightweight.",
     },
-    quiz: {
-      question: "Docker images run aaguva platform-ku enna peru?",
-      options: ["VM", "Container", "Library"],
-      answer: 1
-    },
+    quizzes: [
+      {
+        question: "Docker images run aaguva platform-ku enna peru?",
+        options: ["VM", "Container", "Library"],
+        answer: 1
+      },
+      {
+        question: "Docker main benefit in team development context?",
+        options: ["'Works on my machine' issue resolves handling (Same env everywhere)", "Fast internet", "Colors beauty"],
+        answer: 0
+      },
+      {
+        question: "Docker image weight yen koraiva vachukkanum?",
+        options: ["Fast deployment and build time-ku (use alpine/slim images)", "No reason", "Style only"],
+        answer: 0
+      },
+      {
+        question: "Dockerfile na enna artham?",
+        options: ["Configuration recipe to build a Docker Image", "Database file", "User manual"],
+        answer: 0
+      },
+      {
+        question: "Container registry (Docker Hub) ethukkaaga usage follows?",
+        options: ["Images-ah store panni share panna korthu utility", "To buy products", "Web browsing"],
+        answer: 0
+      }
+    ],
     funFact: "Docker whale icon-la irukkira boxes ellam containers-ah kurikkum bro! 🐳",
   },
 
@@ -3311,7 +5159,7 @@ export const topics = [
     conversation: [
       { speaker: "Logu", avatar: "🧑", message: "Bro, en product-u yaarkum vikura mathiri illையே, software thaane?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Adhu thaan SaaS business model bro! Products-ah direct-ah cell pannaama, use panravur kitta monthly fees vaangu." },
-      { speaker: "Logu", avatar: "🧑", message: "Update palla pothu user computer-la maatha num-ah?" },
+      { speaker: "Logu", avatar: "🧑", message: "Update panna pothu user computer-la maatha num-ah?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Illa, cloud-la nee oru update poatta motha users-kum instant-ah feature vandhurum. Low friction distribution logic idhu. Zero installation required." },
       { speaker: "Logu", avatar: "🧑", message: "Scalability eppadi?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Multi-tenant architecture use pannuvom. Thousands of users single server application logic-ah share pannippaanga with data isolation. Huge cashflow potential!" },
@@ -3322,11 +5170,33 @@ export const topics = [
       mistake: "One-time payment-la life-time support kuduthu, server bill kooda katta mudiyaame kashatapatten.",
       lesson: "SaaS model is better for recurring server costs.",
     },
-    quiz: {
-      question: "Ethu oru SaaS product?",
-      options: ["Netflix", "DVD", "Radio"],
-      answer: 0
-    },
+    quizzes: [
+      {
+        question: "Ethu oru SaaS product?",
+        options: ["Netflix", "DVD", "Radio"],
+        answer: 0
+      },
+      {
+        question: "SaaS model distribution model eppadi results follows context?",
+        options: ["Subscription based online access (No local install needed)", "One-time CD sale", "Hardware only"],
+        answer: 0
+      },
+      {
+        question: "Recurring revenue SaaS logic key benefit results?",
+        options: ["Consistent monthly cashflow for company", "Loss", "Fast typing"],
+        answer: 0
+      },
+      {
+        question: "User browser moolamaa cloud software use panna tech category?",
+        options: ["SaaS", "OS", "Drivers"],
+        answer: 0
+      },
+      {
+        question: "SaaS automatic updates possible-aa?",
+        options: ["Aamaa, cloud provider update panna instant-aa ellaa users-um latest feature paakkalaam", "Illa", "Manual check needed"],
+        answer: 0
+      }
+    ],
     funFact: "Salesforce thaan world-oda first major successful SaaS company! 🌩️",
   },
 
@@ -3348,7 +5218,7 @@ export const topics = [
       { speaker: "Arun", avatar: "🧑", message: "Bro, Flipkart big billion days appo eppadi handle panraanga?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Orae server-la handle panna sethurum bro! Hundreds of servers back-end-la irukkum. Load balancer traffic-ah ellathukkum share panni anuppum." },
       { speaker: "Arun", avatar: "🧑", message: "Automatic-ah servers add aagu ma?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Aama! Auto-scaling setup pannina, load adhighamaakum pothu LB automatically pudhu servers launch panni road-ah expansion palla logic follow pannum." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Aama! Auto-scaling setup pannina, load adhighamaakum pothu LB automatically pudhu servers launch panni road-ah expansion panna logic follow pannum." },
       { speaker: "Arun", avatar: "🧑", message: "Server fail aana?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Health checks panni, dead server-ku traffic-ah anuppaama avoid pannidum. High availability logic mechanism idhu." },
       { speaker: "Arun", avatar: "🧑", message: "Reliable scaling architecture logic." },
@@ -3358,11 +5228,33 @@ export const topics = [
       mistake: "Load balancer illama marketing campaign panni, single server crash aai motha loss-um vandhuduchu.",
       lesson: "Predict traffic and use load balancers for production apps.",
     },
-    quiz: {
-      question: "Traffic distribution help panrathu ethu?",
-      options: ["Database", "Load Balancer", "Browser"],
-      answer: 1
-    },
+    quizzes: [
+      {
+        question: "Traffic distribution help panrathu ethu?",
+        options: ["Database", "Load Balancer", "Browser"],
+        answer: 1
+      },
+      {
+        question: "Traffic Police analogy-la LB enna vellai pakkudhu?",
+        options: ["Incoming traffic-ah balanced-aa servers-ku split panni anupura handling", "Fine poodum", "Stopping traffic"],
+        answer: 0
+      },
+      {
+        question: "Server Health Check yen mukkiyam?",
+        options: ["Dead/Slow servers-ku traffic divert pannaama avoid panna", "No use", "Style only"],
+        answer: 0
+      },
+      {
+        question: "Auto-scaling LB kooda yen combine pannuvaanga?",
+        options: ["High traffic vandha automatically more servers launch panna mechanism", "To save money only", "No reason"],
+        answer: 0
+      },
+      {
+        question: "Scalability and High Availability-ku LB hero-aa?",
+        options: ["Aamaa, infrastructure reliability-ku standard tool", "Illa", "Sometimes"],
+        answer: 0
+      }
+    ],
     funFact: "Cloud providers like AWS automated load balancing panni scale pannuvaanga! ⚖️",
   },
 
@@ -3383,8 +5275,8 @@ export const topics = [
     conversation: [
       { speaker: "Logu", avatar: "🧑", message: "Bro, Netflix eppadi crash aagaama irukku?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Avanga 1000s of Microservices use panraanga bro. Payment service down aanaalum, unnaala video paakka mudiyum. Rendum separate-ah run aaguva apps!" },
-      { speaker: "Logu", avatar: "🧑", message: "API Gateway thevai palla ma bro?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Aama! Clients orae oru URL via connect aaguvaanga, Gateway thaan endha request endha service-ku poga num nu route palla logic handling." },
+      { speaker: "Logu", avatar: "🧑", message: "API Gateway thevai panna ma bro?" },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Aama! Clients orae oru URL via connect aaguvaanga, Gateway thaan endha request endha service-ku poga num nu route panna logic handling." },
       { speaker: "Logu", avatar: "🧑", message: "Communication eppadi nadakkum?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "REST, gRPC, or Message Queues (RabbitMQ) vachu services results-ah share pannippaanga. Fault tolerance level peaks-la irukkum." },
       { speaker: "Logu", avatar: "🧑", message: "Resilient systems mastery." },
@@ -3394,11 +5286,33 @@ export const topics = [
       mistake: "Sinna startup-ku Microservices build pannittaen. Managing it became a nightmare!",
       lesson: "Starting-la Monolith is best. Scale aagum pothu thaan Microservices-ku poga num.",
     },
-    quiz: {
-      question: "Independently deployable small services-ku enna peru?",
-      options: ["Monolith", "Microservices", "Functions"],
-      answer: 1
-    },
+    quizzes: [
+      {
+        question: "Independently deployable small services-ku enna peru?",
+        options: ["Monolith", "Microservices", "Functions"],
+        answer: 1
+      },
+      {
+        question: "Microservices inter-communication standard protocol results?",
+        options: ["REST / gRPC / RabbitMQ", "Memory sharing", "Calling numbers"],
+        answer: 0
+      },
+      {
+        question: "Netflix millions of microservices follows principle logic handles?",
+        options: ["Fault isolation (One service down doesn't kill full app)", "Beauty only", "Fast typing"],
+        answer: 0
+      },
+      {
+        question: "API Gateway microservices context role enna handles context?",
+        options: ["Central entry point for all client requests and routing", "A backup DB", "Theme manager"],
+        answer: 0
+      },
+      {
+        question: "Microservices maintenance startup-ku yen headache follows?",
+        options: ["High complexity operational overhead follows mechanism", "Cheap but slow", "No reason"],
+        answer: 0
+      }
+    ],
     funFact: "Amazon has over 100,000 microservices running simultaneously! 🤯",
   },
 
@@ -3422,7 +5336,7 @@ export const topics = [
       { speaker: "Raj", avatar: "🧑", message: "Cost difference eppadi?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "PaaS konjam expensive aana developer time save pannum. IaaS cheap thaan, aana maintenance-ku extra human effort thevai padum logic patterns mechanism idhu." },
       { speaker: "Raj", avatar: "🧑", message: "Scaling easy-ah bro?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "PaaS-la oru slider move panna scale aaium. IaaS-la auto-scaling groups setup palla num. Depends on control vs convenience choice logic." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "PaaS-la oru slider move panna scale aaium. IaaS-la auto-scaling groups setup panna num. Depends on control vs convenience choice logic." },
       { speaker: "Raj", avatar: "🧑", message: "Cloud model choice cleared." },
     ],
     whenToUse: ["Full control (IaaS)", "Speed & Ease (PaaS)"],
@@ -3430,11 +5344,33 @@ export const topics = [
       mistake: "Simple project-ku IaaS setup panni, maintenance panna mudiyaatha complex level-ku poyitaen.",
       lesson: "Start with PaaS. Scale to IaaS only if you need very specific low-level control.",
     },
-    quiz: {
-      question: "Heroku / Vercel entha category cloud?",
-      options: ["IaaS", "PaaS", "SaaS"],
-      answer: 1
-    },
+    quizzes: [
+      {
+        question: "Heroku / Vercel entha category cloud?",
+        options: ["IaaS", "PaaS", "SaaS"],
+        answer: 1
+      },
+      {
+        question: "IaaS (Infrastructure) na enna manage follows responsibility context?",
+        options: ["Raw servers, hardware and OS management responsibility", "UI only", "Code only"],
+        answer: 0
+      },
+      {
+        question: "PaaS developer experience results follows power logic handles?",
+        options: ["Focus on CODE only, provider handles infrastructure setup", "Slow coding", "Maintenance heavy"],
+        answer: 0
+      },
+      {
+        question: "Fully Furnished Home analogy PaaS context follows?",
+        options: ["Ready-to-move platform experience", "Buying land only", "No house"],
+        answer: 0
+      },
+      {
+        question: "Amazon EC2 (Raw server) entha category results follows?",
+        options: ["IaaS", "PaaS", "SaaS"],
+        answer: 0
+      }
+    ],
     funFact: "PaaS prices usually cost more but save huge amount of developer time! ⏳",
   },
 
@@ -3457,8 +5393,8 @@ export const topics = [
       { speaker: "Dev", avatar: "👨‍💻", message: "Limit irukku bro! Adhukku thaan horizontal scaling. Multiple servers vachikitta, oru server failure aanaalum site live-ah irukkum. Modern cloud system horizontal layout-la thaan work aaguthu." },
       { speaker: "Raj", avatar: "🧑", message: "Vertical scaling cheap-ah?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Initial-ah ok, aana hardware limit reach aana cost exponential-ah erum logic. Horizontal scaling pay-as-you-go model-ku perfect match. Zero downtime migration-um easy." },
-      { speaker: "Raj", avatar: "🧑", message: "Load balancer thevai palla ma?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Kandippa! Horizontal palla pothu traffic-ah distribute palla Load Balancer thaan Traffic Cop mathiri vellai pannanum. Cloud elasticity logic base idhu thaan." },
+      { speaker: "Raj", avatar: "🧑", message: "Load balancer thevai panna ma?" },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Kandippa! Horizontal panna pothu traffic-ah distribute panna Load Balancer thaan Traffic Cop mathiri vellai pannanum. Cloud elasticity logic base idhu thaan." },
       { speaker: "Raj", avatar: "🧑", message: "Scaling strategies understood." },
     ],
     whenToUse: ["System architecture design", "Cloud engineering"],
@@ -3466,11 +5402,33 @@ export const topics = [
       mistake: "Vertical scaling mattum nambi, server limit hit aana pothu site full-ah crash aaiduchu.",
       lesson: "Design for horizontal scaling from day 1 if you expect high traffic.",
     },
-    quiz: {
-      question: "More servers-ah network-la add panrathu enna scaling?",
-      options: ["Vertical", "Horizontal", "Diagonal"],
-      answer: 1
-    },
+    quizzes: [
+      {
+        question: "More servers-ah network-la add panrathu enna scaling?",
+        options: ["Vertical", "Horizontal", "Diagonal"],
+        answer: 1
+      },
+      {
+        question: "Vertical Scaling results follows hardware context limits follows?",
+        options: ["Upgrading RAM/CPU of current single server hardware", "Adding new pc", "No scaling"],
+        answer: 0
+      },
+      {
+        question: "Modern cloud and reliability-ku ethu king model follows?",
+        options: ["Horizontal scaling (fault tolerant)", "Vertical only", "No use"],
+        answer: 0
+      },
+      {
+        question: "Scaling limit vertical context results risk follows?",
+        options: ["Single server hardware ceiling hit aana system crash aaga chance results", "No risk", "Fast speed"],
+        answer: 0
+      },
+      {
+        question: "Horizontal scaling cost model benefit follows context?",
+        options: ["Pay-as-you-grow elasticity support mechanism", "Fixed price heavy", "Free always"],
+        answer: 0
+      }
+    ],
     funFact: "Google runs millions of tiny servers instead of a few giant ones! 🌏",
   },
 
@@ -3485,16 +5443,16 @@ export const topics = [
     readTime: "3 min",
     quickSummary: "Zero downtime na update poodum pothu site stop aakaama seamless-ah new version-ku switch aagaruthu. Blue-Green deployment or Rolling updates use pannuvaanga.",
     analogy: {
-      description: "It's like Working on a Water Pipeline 🚿. Puraa ooru-ku water stop pallaama, alternate pipe vazhiya water anuppittu, main pipe-ah update palla panni mathurathu.",
+      description: "It's like Working on a Water Pipeline 🚿. Puraa ooru-ku water stop pannama, alternate pipe vazhiya water anuppittu, main pipe-ah update panna panni mathurathu.",
       visual: [{ icon: "🔄", label: "Update" }, { icon: "↔️", label: "" }, { icon: "🟢", label: "Live" }],
     },
     conversation: [
       { speaker: "Siva", avatar: "🧑", message: "Bro, update poodum pothu users-ku error varaatha?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Zero downtime deployment setup pannitta varaathu bro! New version first side-la app-ah start palla vachuttu, readiness confirm aanona traffic-ah antha kulla switch pannuvom. Semma experience!" },
-      { speaker: "Siva", avatar: "🧑", message: "Health checks eppadi help palla ma?" },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Zero downtime deployment setup pannitta varaathu bro! New version first side-la app-ah start panna vachuttu, readiness confirm aanona traffic-ah antha kulla switch pannuvom. Semma experience!" },
+      { speaker: "Siva", avatar: "🧑", message: "Health checks eppadi help panna ma?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Container ready aana thaan Load Balancer-ku signal kudukkum. Ready illana traffic antha side pogaathu logic handles patterns. Safety first." },
       { speaker: "Siva", avatar: "🧑", message: "Rollback easy-ah?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Aama! Version history maintain palla patterns follows palla num. Any bug detected na immediately switch back to previous stable version in seconds logic." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Aama! Version history maintain panna patterns follows panna num. Any bug detected na immediately switch back to previous stable version in seconds logic." },
       { speaker: "Siva", avatar: "🧑", message: "Zero downtime mastery." },
     ],
     whenToUse: ["High traffic production apps", "SaaS platforms"],
@@ -3502,11 +5460,33 @@ export const topics = [
       mistake: "Manually server restart panni 1 min downtime kuduthen. Critical payment time-la users cancel pannitu poitaanga.",
       lesson: "Use Vercel, Render or Kubernetes that handle zero downtime automatically.",
     },
-    quiz: {
-      question: "Deployment pothu site stop aagaama irukka logic-ku enna peru?",
-      options: ["Static Deploy", "Zero Downtime", "Cold Start"],
-      answer: 1
-    },
+    quizzes: [
+      {
+        question: "Deployment pothu site stop aagaama irukka logic-ku enna peru?",
+        options: ["Static Deploy", "Zero Downtime", "Cold Start"],
+        answer: 1
+      },
+      {
+        question: "Rolling Update deployment methodology results follows context?",
+        options: ["One server update aaguva pothu matthavanga traffic handle panna mechanism", "All stop at once", "Random delete"],
+        answer: 0
+      },
+      {
+        question: "Zero downtime logic seamless switch results patterns?",
+        options: ["New version ready aana thaan traffic-ah switch panna mechanism", "Wait and watch", "Hard restart"],
+        answer: 0
+      },
+      {
+        question: "Readiness probe/Health check role in deployment context?",
+        options: ["New container fully start aucha nu verify panna mechanism", "Style check", "Color filter"],
+        answer: 0
+      },
+      {
+        question: "Water pipeline analogy zero downtime context results follows?",
+        options: ["Switching paths without stopping flow mechanism safety", "Broken pipes", "No water"],
+        answer: 0
+      }
+    ],
     funFact: "Large sites like YouTube never show a 'Site Maintenance' page for updates! 📈",
   },
 
@@ -3519,7 +5499,7 @@ export const topics = [
     tagline: "Speed of light delivery!",
     level: 4,
     readTime: "3 min",
-    quickSummary: "Edge computing na data-ah central server logic pallaama, user-ku physical-ah kitta irukka edge nodes-laye process panrathu. CDN kooda oru form of edge thaan.",
+    quickSummary: "Edge computing na data-ah central server logic pannama, user-ku physical-ah kitta irukka edge nodes-laye process panrathu. CDN kooda oru form of edge thaan.",
     analogy: {
       description: "It's like a Local Branch Library 🏤. Instead of going to the Main City Library (Central Server), you find the book in your own street branch. Faster and less travel!",
       visual: [{ icon: "📲", label: "User" }, { icon: "↔️", label: "Edge" }, { icon: "↔️", label: "Main DB" }],
@@ -3528,9 +5508,9 @@ export const topics = [
       { speaker: "Logu", avatar: "🧑", message: "Bro, Vercel Edge functions na enna?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Normal function server-la run aagum (Ex: US). Edge function user kitta irukka Chennai server-laye run aagum. Logic fast-ah execute aagi result vandhurum. Low latency logic idhu." },
       { speaker: "Logu", avatar: "🧑", message: "Static CDN mathiri thaana?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Illa, CDN verum files tharum. Edge logic code-ae execute pannum logic handles security patterns mechanism. Dynamic personalization at global scale patterns flows palla num." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Illa, CDN verum files tharum. Edge logic code-ae execute pannum logic handles security patterns mechanism. Dynamic personalization at global scale patterns flows panna num." },
       { speaker: "Logu", avatar: "🧑", message: "Cost effective-ah?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Usage based pricing thaan patterns. Infrastructure management full-ah cloud provider kitta logic patterns follows palla power execution logic efficiency." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Usage based pricing thaan patterns. Infrastructure management full-ah cloud provider kitta logic patterns follows panna power execution logic efficiency." },
       { speaker: "Logu", avatar: "🧑", message: "Edge computing strategies realized." },
     ],
     whenToUse: ["A/B testing on the fly", "Geo-specific content", "IoT data processing"],
@@ -3539,7 +5519,7 @@ export const topics = [
       lesson: "Edge functions should be small and lightning fast. Heavy logic-ah main server-la vachukonga.",
     },
     quiz: {
-      question: "User kitta irukka servers-la logic run palla technique enna?",
+      question: "User kitta irukka servers-la logic run panna technique enna?",
       options: ["Cloud Computing", "Edge Computing", "Localhost"],
       answer: 1
     },
@@ -3555,23 +5535,23 @@ export const topics = [
     tagline: "The captain of your containers!",
     level: 4,
     readTime: "4 min",
-    quickSummary: "Kubernetes na multiple Docker containers-ah manage panni, scale panni, monitor panra platform. Oru container fail aanaalum, pudhusa innonu start palla vachukkum (Self-healing).",
+    quickSummary: "Kubernetes na multiple Docker containers-ah manage panni, scale panni, monitor panra platform. Oru container fail aanaalum, pudhusa innonu start panna vachukkum (Self-healing).",
     analogy: {
       description: "It's like a Ship Captain 🧑‍✈️. Containers (Rooms) adhighama irukkalaam, aana K8s pathukoovaru correct-ah endha room-la endha passenger (App) irukkannum, and ship balance-ah pookannum nu.",
       visual: [{ icon: "☸️", label: "K8s" }, { icon: "→", label: "" }, { icon: "🐳", label: "C1" }, { icon: "🐳", label: "C2" }, { icon: "🐳", label: "C3" }],
     },
     conversation: [
       { speaker: "Logu", avatar: "🧑", message: "Bro, Docker mattum pothatha, en K8s?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Docker oru individual container building block bro. K8s na oru periya network of computers-la 100 containers-ah automatic-ah maintain palla num na K8s thaan king. Enterprise scale-ku idhu thaan standard." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Docker oru individual container building block bro. K8s na oru periya network of computers-la 100 containers-ah automatic-ah maintain panna num na K8s thaan king. Enterprise scale-ku idhu thaan standard." },
       { speaker: "Logu", avatar: "🧑", message: "Self-healing na enna bro?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Oru pod (container) crash aana, K8s automatic-ah pudhusa innonu start palla mudiya logic mechanism patterns follows palla power logic execution metrics power patterns." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Oru pod (container) crash aana, K8s automatic-ah pudhusa innonu start panna mudiya logic mechanism patterns follows panna power logic execution metrics power patterns." },
       { speaker: "Logu", avatar: "🧑", message: "Rolling updates easy-ah?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Aama! Users affect aagaama sequence-ah update palli zero downtime maintain palla security patterns efficiency level pro logic follows palla power mechanism." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Aama! Users affect aagaama sequence-ah update palli zero downtime maintain panna security patterns efficiency level pro logic follows panna power mechanism." },
       { speaker: "Logu", avatar: "🧑", message: "Kubernetes orchestration mastered." },
     ],
     whenToUse: ["Large scale microservices", "Auto-scaling infrastructure"],
     devConfession: {
-      mistake: "Simple app-ku K8s use palla try palli configuration-laye sethu poattaen. Infrastructure cost-um adhighama aaiduchu.",
+      mistake: "Simple app-ku K8s use panna try palli configuration-laye sethu poattaen. Infrastructure cost-um adhighama aaiduchu.",
       lesson: "Use K8s only if you have many microservices and dedicated infra team.",
     },
     quiz: {
@@ -3591,13 +5571,13 @@ export const topics = [
     tagline: "Your own private network!",
     level: 4,
     readTime: "4 min",
-    quickSummary: "VPC na cloud-kulla (AWS/Azure) unakkunu oru private isolated network segment korthu create panrathu. Inthe network kulla irukke servers outside world access palla mudiyaathu unless allowed.",
+    quickSummary: "VPC na cloud-kulla (AWS/Azure) unakkunu oru private isolated network segment korthu create panrathu. Inthe network kulla irukke servers outside world access panna mudiyaathu unless allowed.",
     analogy: {
       description: "It's like a Gated Community 🏰. Cloud is the whole city, but VPC is your own fenced area where only authorized guests can enter.",
       visual: [{ icon: "🏰", label: "VPC" }, { icon: "←", label: "VGW" }, { icon: "🌍", label: "Internet" }],
     },
     conversation: [
-      { speaker: "Arun", avatar: "🧑", message: "Bro, en database-ah hacker access palla mudiyuma?" },
+      { speaker: "Arun", avatar: "🧑", message: "Bro, en database-ah hacker access panna mudiyuma?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Database-ah Private Subnet (inside VPC) kulla vachukko bro! Public internet access-um direct-ah irukkaathu. Security level semma scale-la irukkum." },
       { speaker: "Arun", avatar: "🧑", message: "VPC-kulla orae app thaan irukkanum-ah?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Illai, multiple apps and DBs isolate panni vachukkalaam. Security groups vachu gatekeepers mathiri protect pannalaam." },
@@ -3634,9 +5614,9 @@ export const topics = [
     },
     conversation: [
       { speaker: "Raj", avatar: "🧑", message: "Bro, site launch panni traffic vandha enna aakum?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Load testing tools like JMeter or k6 use pannu bro! Fake users request anuppi site-oda limit point kandupidiikkalaam. Crash vara munaadi scaling palla logic idhu thaan." },
-      { speaker: "Raj", avatar: "🧑", message: "Actual user patterns simulate palla mudiya ma?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Kandippa! Login, search, checkout patterns palla vachu stress level test pannuvom. Result pathu infrastructure scale pannalaam." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Load testing tools like JMeter or k6 use pannu bro! Fake users request anuppi site-oda limit point kandupidiikkalaam. Crash vara munaadi scaling panna logic idhu thaan." },
+      { speaker: "Raj", avatar: "🧑", message: "Actual user patterns simulate panna mudiya ma?" },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Kandippa! Login, search, checkout patterns panna vachu stress level test pannuvom. Result pathu infrastructure scale pannalaam." },
       { speaker: "Raj", avatar: "🧑", message: "Site hang aana bottle-neck kandupidiikka mudiyuma?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Aama, DB slow-ah illa backend loop heavy-ah nu data stats kedaikkum. Semma useful before big marketing campaigns!" },
       { speaker: "Raj", avatar: "🧑", message: "Safe launch verification done bro." },
@@ -3647,7 +5627,7 @@ export const topics = [
       lesson: "Load test before you go big. Production performance matters.",
     },
     quiz: {
-      question: "System limits-ah traffic vachu check palla process?",
+      question: "System limits-ah traffic vachu check panna process?",
       options: ["Unit Testing", "Load Testing", "A/B Testing"],
       answer: 1
     },
@@ -3672,14 +5652,14 @@ export const topics = [
       { speaker: "Raj", avatar: "🧑", message: "Bro, user computer-la crash vandha eppadi theriyum?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Logging library setup pannu bro! Error vandhona automate-ah un mail or Slack-ku bug details vandhurum. User solla munaadiye nee fix pannidalaam. High-level DevOps idhu." },
       { speaker: "Raj", avatar: "🧑", message: "Sentry mathiri tools-ah bro?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Aama! User browser, OS, and stack trace full-ah kedaikum. Monitoring logs kooda aggregate palla Datadog or ELK stack vachu live health track pannuvom." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Aama! User browser, OS, and stack trace full-ah kedaikum. Monitoring logs kooda aggregate panna Datadog or ELK stack vachu live health track pannuvom." },
       { speaker: "Raj", avatar: "🧑", message: "Privacy problem varuma?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "PII (Private Identifiable Info) mask palla config pannanum. Verum technical errors mattum log palla logic follow palla num. Industrial standard idhu thaan." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "PII (Private Identifiable Info) mask panna config pannanum. Verum technical errors mattum log panna logic follow panna num. Industrial standard idhu thaan." },
       { speaker: "Raj", avatar: "🧑", message: "Live production visibility enabled." },
     ],
     whenToUse: ["Live products", "Tracking API performance"],
     devConfession: {
-      mistake: "Logging illama release pallaen. Users complaint pannunaalum enga issue nu trace palla mudiyaala.",
+      mistake: "Logging illama release pannaen. Users complaint pannunaalum enga issue nu trace panna mudiyaala.",
       lesson: "Production visibility is binary (Eyes open or shut). Coding is not enough.",
     },
     quiz: {
@@ -3888,8 +5868,8 @@ export const topics = [
     conversation: [
       { speaker: "Arun", avatar: "🧑", message: "Bro, VS Code free-ah? Eppadi?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Adu Open Source bro! Even though Microsoft controls it, world full-ah irukka devs help panni develop pannuraanga. Adhaan antha power!" },
-      { speaker: "Arun", avatar: "🧑", message: "Naan korthu contribute palla ma bro?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Kandippa! Pull Request (PR) anuppalaam. World level projects-la unga name contribution list-la varrathu periya portfolio boost. Git learn palla idhu thaan best way." },
+      { speaker: "Arun", avatar: "🧑", message: "Naan korthu contribute panna ma bro?" },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Kandippa! Pull Request (PR) anuppalaam. World level projects-la unga name contribution list-la varrathu periya portfolio boost. Git learn panna idhu thaan best way." },
       { speaker: "Arun", avatar: "🧑", message: "Licensing rules irukkuma?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Aama, MIT/Apache mathiri licenses allow panna patterns thaan use pannanum. Software freedom thaan core concept. Community empowerment is key." },
       { speaker: "Arun", avatar: "🧑", message: "Open source community-la engage aaguvaen." },
@@ -3924,7 +5904,7 @@ export const topics = [
     conversation: [
       { speaker: "Kiran", avatar: "🧑", message: "Bro, intha feature-ah 1 hour-la mudikka 'hard-code' pannittaen." },
       { speaker: "Senior", avatar: "👨‍💻", message: "Warning bro! Debt create pannitta. Later scalability prachana varum pothu mothama ukkanthu rework pannanum. Pay your debt early!" },
-      { speaker: "Kiran", avatar: "🧑", message: "Interest rate eppadi calculate palla bro?" },
+      { speaker: "Kiran", avatar: "🧑", message: "Interest rate eppadi calculate panna bro?" },
       { speaker: "Senior", avatar: "👨‍💻", message: "Interest means future effort. Ippo oru simple hack panna, future-la athu bugs kondu varum pothu 10x-time extra-ah spending pannanum. Maintenance hell logic idhu." },
       { speaker: "Kiran", avatar: "🧑", message: "Refactoring correct-ah eppo pannanum?" },
       { speaker: "Senior", avatar: "👨‍💻", message: "Every sprint-la konjam code cleaning-ku time allot pannu. Don't let the debt pile up until the whole system crashes. Clean code is wealth." },
@@ -3963,7 +5943,7 @@ export const topics = [
       { speaker: "Kiran", avatar: "🧑", message: "Breaking change na enna bro?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Unga pudhu code update install pannuna old code work aakaathu logic. Appo Major version (v2.x.x) thaan switch aaganum. Communication medium idhu." },
       { speaker: "Kiran", avatar: "🧑", message: "Beta versions-um irukka?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Aama, v1.0.0-beta nu label poatta incomplete work nu artham. Standards follow palla ecosystem clean-ah maintain aagum." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Aama, v1.0.0-beta nu label poatta incomplete work nu artham. Standards follow panna ecosystem clean-ah maintain aagum." },
       { speaker: "Kiran", avatar: "🧑", message: "Versioning standards locked." },
     ],
     whenToUse: ["Releasing libraries", "App deployment tracking"],
@@ -3997,8 +5977,8 @@ export const topics = [
       { speaker: "Arun", avatar: "🧑", message: "Bro, code ezhuthunatha solli mudikka time illa, testing vera pannanuma?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Kandippa bro! Ippo time save panni testing skip panna, future-la oru chinna bug kandupidikka hours aagum. Tests irundha manual-ah ellaam check panna thevai illa." },
       { speaker: "Arun", avatar: "🧑", message: "Mocking na enna bro?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "DAtabase or API simulation bro. Real DB usage palla sethu fake memory storage vachu results verify palla patterns use palla num. Speed and reliability king." },
-      { speaker: "Arun", avatar: "🧑", message: "Coverage report help palla ma?" },
+      { speaker: "Dev", avatar: "👨‍💻", message: "DAtabase or API simulation bro. Real DB usage panna sethu fake memory storage vachu results verify panna patterns use panna num. Speed and reliability king." },
+      { speaker: "Arun", avatar: "🧑", message: "Coverage report help panna ma?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Aama! Code-la evlo percentage logic tested-nu clear graph vandhurum. Solid professional coding standard idhu thaan." },
       { speaker: "Arun", avatar: "🧑", message: "Quality first development started." },
     ],
@@ -4033,9 +6013,9 @@ export const topics = [
       { speaker: "Meena", avatar: "👩", message: "Bro, merge-kum rebase-kum enna diff?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Merge na history-la intersection points irukkums. Rebase na un history logic-ah current update mela rewrite pannum. Professional-ah irukkும், aana force push panna జాగ్రత్త-ah irukkanum." },
       { speaker: "Meena", avatar: "👩", message: "Conflicts eppadi handling?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Rebase-la step-by-step resolve palla num. It's more interactive. Clean history venum na rebase thaan senior developers preference logic mechanism idhu." },
-      { speaker: "Meena", avatar: "👩", message: "Main branch-la palla ma?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Venaam! Only unga local feature branch-ah clean palla rebase logic use pannunga. Collaborative branches-la merge is safer choice patterns." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Rebase-la step-by-step resolve panna num. It's more interactive. Clean history venum na rebase thaan senior developers preference logic mechanism idhu." },
+      { speaker: "Meena", avatar: "👩", message: "Main branch-la panna ma?" },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Venaam! Only unga local feature branch-ah clean panna rebase logic use pannunga. Collaborative branches-la merge is safer choice patterns." },
       { speaker: "Meena", avatar: "👩", message: "Git workflow rebase strategy." },
     ],
     whenToUse: ["Keeping feature branch up to date with main", "Cleaning commit history"],
@@ -4066,12 +6046,12 @@ export const topics = [
       visual: [{ icon: "📝", label: "Wait" }, { icon: "→", label: "" }, { icon: "🧺", label: "Stash" }, { icon: "→", label: "" }, { icon: "🌲", label: "Main" }],
     },
     conversation: [
-      { speaker: "Meena", avatar: "👩", message: "Bro, feature-A branch-la work pannittu irukkaen, urgent-ah feature-B palla nu thitaraanga. Aana commitment palla mudiyaathu?" },
+      { speaker: "Meena", avatar: "👩", message: "Bro, feature-A branch-la work pannittu irukkaen, urgent-ah feature-B panna nu thitaraanga. Aana commitment panna mudiyaathu?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Simple bro! `git stash` pannu. Un changes ellam hidden basket kulla poyidum. Work finished nu branch switch pannu. Vellai mudinja apuram `git stash pop` pannina changes thirumba vandhurum!" },
-      { speaker: "Meena", avatar: "👩", message: "Multiple stashes palla ma?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Kandippa! `git stash save 'name'` kuduthu organize pannikalaam. `git stash list` vazhiya ellaam check palla mudiya logic mechanism idhu. Productivity booster." },
-      { speaker: "Meena", avatar: "👩", message: "Dropped stash recover palla ma?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Konjam kashtam, aana `git fsck` vachu recover palla chances irukku patterns. Aana stash-ah judicious-ah use palla vellai safe-ah irukkum. Clean workspace focus." },
+      { speaker: "Meena", avatar: "👩", message: "Multiple stashes panna ma?" },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Kandippa! `git stash save 'name'` kuduthu organize pannikalaam. `git stash list` vazhiya ellaam check panna mudiya logic mechanism idhu. Productivity booster." },
+      { speaker: "Meena", avatar: "👩", message: "Dropped stash recover panna ma?" },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Konjam kashtam, aana `git fsck` vachu recover panna chances irukku patterns. Aana stash-ah judicious-ah use panna vellai safe-ah irukkum. Clean workspace focus." },
       { speaker: "Meena", avatar: "👩", message: "Stash workflow integrated." },
     ],
     whenToUse: ["Urgent context switching", "Pulling latest code without committing your messy work"],
@@ -4096,7 +6076,7 @@ export const topics = [
     tagline: "Get that specific fix!",
     level: 5,
     readTime: "2 min",
-    quickSummary: "Cherry-pick na oru branch-la irukka orae oru specific commit-ah mattum unga current branch-ku kondu varurathu. Full branch-ah merge pallaama needed fix-ah mattum edukkalam.",
+    quickSummary: "Cherry-pick na oru branch-la irukka orae oru specific commit-ah mattum unga current branch-ku kondu varurathu. Full branch-ah merge pannama needed fix-ah mattum edukkalam.",
     analogy: {
       description: "It's like Picking a Specific Fruit 🍒 from a basket of fruits. Full merge logic thevai illa, antha oru fruit (Commit) mattum pothum.",
       visual: [{ icon: "🌲", label: "Main" }, { icon: "➕", label: "" }, { icon: "🍒", label: "Commit" }],
@@ -4105,14 +6085,14 @@ export const topics = [
       { speaker: "Logu", avatar: "🧑", message: "Bro, production branch-la oru urgent bug fix pannanum, aana antha fix 'feature' branch naduvula irukku?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Cherry-pick pannu bro! Antha commit ID-ah eduthu `git cherry-pick <id>` poatta, antha fix mattum main branch-ku vandhurum. Motha feature-um merge panna thevai illa." },
       { speaker: "Logu", avatar: "🧑", message: "Commit history messy aagaatha?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Konjam careful-ah palla num. Replicated commits history-la varum patterns logic mechanism idhu. Selective integration strategy-ku idhu thaan gold standard." },
-      { speaker: "Logu", avatar: "🧑", message: "Range cherry-pick palla ma?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Aama, `A...B` logic vachu multiple commits-ah sequential-ah pick palla mudiyums. Hotfix management-ku Git-la idhu thaan life saver feature patterns." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Konjam careful-ah panna num. Replicated commits history-la varum patterns logic mechanism idhu. Selective integration strategy-ku idhu thaan gold standard." },
+      { speaker: "Logu", avatar: "🧑", message: "Range cherry-pick panna ma?" },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Aama, `A...B` logic vachu multiple commits-ah sequential-ah pick panna mudiyums. Hotfix management-ku Git-la idhu thaan life saver feature patterns." },
       { speaker: "Logu", avatar: "🧑", message: "Selective commit syncing enabled." },
     ],
     whenToUse: ["Backporting bug fixes", "Pulling specific shared utility commits"],
     devConfession: {
-      mistake: "Conflict check pallaama cherry-pick pannittaen. Code logic mothama messed up aairuchu.",
+      mistake: "Conflict check pannama cherry-pick pannittaen. Code logic mothama messed up aairuchu.",
       lesson: "Always verify your branch state after a cherry-pick. Conflicts may occur.",
     },
     quiz: {
@@ -4132,27 +6112,27 @@ export const topics = [
     tagline: "Catch bugs early!",
     level: 5,
     readTime: "2 min",
-    quickSummary: "Git Hooks na Git Actions (Commit, Push) nadakkum pothu automatically run aaguva scripts. Example: `pre-commit` hook vachu un code-la lint errors irundha commit-ae pallaama block pannalaam.",
+    quickSummary: "Git Hooks na Git Actions (Commit, Push) nadakkum pothu automatically run aaguva scripts. Example: `pre-commit` hook vachu un code-la lint errors irundha commit-ae pannama block pannalaam.",
     analogy: {
       description: "It's like a Guard 👮 checking your dress code at the office entrance. Dress correct-ah illana (Lint error), ulla vidamaattaaru (Commit blocked).",
       visual: [{ icon: "📸", label: "Commit" }, { icon: "→", label: "🎣" }, { icon: "✅", label: "Success" }],
     },
     conversation: [
-      { speaker: "Logu", avatar: "🧑", message: "Bro, en team members messy code push panraanga, enna palla?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Husky use panni pre-commit hooks setup pannu bro! Code formatting and lint check pass aana mattum thaan commit palla mudiyum nu rule poadu. DevOps automation ippadi thaan start aagum." },
+      { speaker: "Logu", avatar: "🧑", message: "Bro, en team members messy code push panraanga, enna panna?" },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Husky use panni pre-commit hooks setup pannu bro! Code formatting and lint check pass aana mattum thaan commit panna mudiyum nu rule poadu. DevOps automation ippadi thaan start aagum." },
       { speaker: "Logu", avatar: "🧑", message: "Script failure aana block aagu ma?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Aama! Exit code non-zero vandha git action-ah abort pannirum patterns logic handles security. Standards maintain palla mechanism idhu." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Aama! Exit code non-zero vandha git action-ah abort pannirum patterns logic handles security. Standards maintain panna mechanism idhu." },
       { speaker: "Logu", avatar: "🧑", message: "Post-merge hooks irukka?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Kandippa! Merge aanona automatically `npm install` palla hooks patterns korthu manage palla logic patterns follows palla power logic execution." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Kandippa! Merge aanona automatically `npm install` panna hooks patterns korthu manage panna logic patterns follows panna power logic execution." },
       { speaker: "Logu", avatar: "🧑", message: "Git hooks automation fixed." },
     ],
     whenToUse: ["Team standardization", "Running tests before push"],
     devConfession: {
-      mistake: "Hook-la palla heavy test cases poaten. Sinna typo commit-ku kooda 10 mins wait palla vaitaen, team full thitta start pannitaanga.",
+      mistake: "Hook-la panna heavy test cases poaten. Sinna typo commit-ku kooda 10 mins wait panna vaitaen, team full thitta start pannitaanga.",
       lesson: "Hooks should be fast. Only run critical checks like linting or unit tests.",
     },
     quiz: {
-      question: "Commit palla munaadi code check palla hook category enna?",
+      question: "Commit panna munaadi code check panna hook category enna?",
       options: ["pre-commit", "post-commit", "pre-push"],
       answer: 0
     },
@@ -4176,19 +6156,19 @@ export const topics = [
     conversation: [
       { speaker: "Meena", avatar: "👩", message: "Bro, app slow-ah irukku, aana endha service slow-nu theriyala?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Distributed tracing (OpenTelemetry) use pannu bro! Oru trace ID pass pannina, ovvoru service call-um log aagum. Semma visual-ah paakalaam enge block aaguthu nu." },
-      { speaker: "Meena", avatar: "👩", message: "Jaeger or Zipkin help palla ma?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Aama! Analysis visualization panels-la bottleneck detection logic handle palla patterns korthu check pannanum efficiency security metrics power logic execution." },
+      { speaker: "Meena", avatar: "👩", message: "Jaeger or Zipkin help panna ma?" },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Aama! Analysis visualization panels-la bottleneck detection logic handle panna patterns korthu check pannanum efficiency security metrics power logic execution." },
       { speaker: "Meena", avatar: "👩", message: "Spans na enna bro?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Single service operation context logic name. Multiple spans korthu thaan oru full trace build aagum patterns follows palla mechanism security." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Single service operation context logic name. Multiple spans korthu thaan oru full trace build aagum patterns follows panna mechanism security." },
       { speaker: "Meena", avatar: "👩", message: "Distributed tracing diagnostics ready." },
     ],
     whenToUse: ["Microservices debugging", "Performance monitoring"],
     devConfession: {
-      mistake: "Log mattum vachu debug palla try palli hours waste pallaen. Tracing graph pothu thaan prachana 3rd party API call-la nu therinjuthu.",
+      mistake: "Log mattum vachu debug panna try palli hours waste pannaen. Tracing graph pothu thaan prachana 3rd party API call-la nu therinjuthu.",
       lesson: "In distributed systems, logs are not enough. You need traces.",
     },
     quiz: {
-      question: "Multiple services request flow-ah track palla tool category enna?",
+      question: "Multiple services request flow-ah track panna tool category enna?",
       options: ["Unit Testing", "Distributed Tracing", "Indexing"],
       answer: 1
     },
@@ -4210,21 +6190,21 @@ export const topics = [
       visual: [{ icon: "🚩", label: "Off" }, { icon: "↔️", label: "" }, { icon: "🚩", label: "On" }],
     },
     conversation: [
-      { speaker: "Logu", avatar: "🧑", message: "Bro, pudhu update-la bug irundha deploy palla palla palla delay palla mudiyuma?" },
+      { speaker: "Logu", avatar: "🧑", message: "Bro, pudhu update-la bug irundha deploy panna delay panna mudiyuma?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Feature flag use pannu bro! Bug vandha instant-ah dashboard-la off pannidalaam. No need to roll back code. Semma safe methodology idhu." },
       { speaker: "Logu", avatar: "🧑", message: "Canary releases-ku use aaguma?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Kandippa! 5% users-ku mattum beta feature visible-ah vachikittu reliability patterns confirm palla logic follows palla power mechanism patterns execution." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Kandippa! 5% users-ku mattum beta feature visible-ah vachikittu reliability patterns confirm panna logic follows panna power mechanism patterns execution." },
       { speaker: "Logu", avatar: "🧑", message: "Config changes runtime-la nadakkuma?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Aama, without code redeploy config changes propagate aagum patterns follows palla security metrics power logic efficiency mastery." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Aama, without code redeploy config changes propagate aagum patterns follows panna security metrics power logic efficiency mastery." },
       { speaker: "Logu", avatar: "🧑", message: "Feature flags for safe rollouts." },
     ],
     whenToUse: ["A/B testing", "Gradual rollouts", "Beta testing"],
     devConfession: {
-      mistake: "Flag-ah on palla maranthu, marketing post pooda vaitaen. Users vandhappa feature visible-ah illai.",
+      mistake: "Flag-ah on panna maranthu, marketing post pooda vaitaen. Users vandhappa feature visible-ah illai.",
       lesson: "Always verify flag status before making announcements.",
     },
     quiz: {
-      question: "Code rewrite pallaama feature-ah hide palla logic enna?",
+      question: "Code rewrite pannama feature-ah hide panna logic enna?",
       options: ["CSS Display None", "Feature Flags", "Git Branch"],
       answer: 1
     },
@@ -4246,12 +6226,12 @@ export const topics = [
       visual: [{ icon: "➕", label: "Merge" }, { icon: "↕️", label: "" }, { icon: "📈", label: "Rebase" }],
     },
     conversation: [
-      { speaker: "Logu", avatar: "🧑", message: "Bro, Rebase palla numna sethu poattaen?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Rebase local-la safe bro! Branch history-ah clean-ah vachukkum. Aana shared branch-la (Like Main) palla palla palla koodathu, history diverge aagi team full-ah conflict aagum. Safe-ah palla `git merge` is okay." },
-      { speaker: "Logu", avatar: "🧑", message: "Interactive rebase help palla ma?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Absolutely! `git rebase -i` vachu multiple small commits-ah oru single clean commit-ah squash palla mudiya logic mechanism patterns power security flows." },
+      { speaker: "Logu", avatar: "🧑", message: "Bro, Rebase panna numna sethu poattaen?" },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Rebase local-la safe bro! Branch history-ah clean-ah vachukkum. Aana shared branch-la (Like Main) panna koodathu, history diverge aagi team full-ah conflict aagum. Safe-ah panna `git merge` is okay." },
+      { speaker: "Logu", avatar: "🧑", message: "Interactive rebase help panna ma?" },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Absolutely! `git rebase -i` vachu multiple small commits-ah oru single clean commit-ah squash panna mudiya logic mechanism patterns power security flows." },
       { speaker: "Logu", avatar: "🧑", message: "Conflicts handling differ-ah?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Rebase-la commit by commit solve pannanum patterns. Merge-la single big conflict solve palla patterns follows palla power logic efficiency metrics power logic." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Rebase-la commit by commit solve pannanum patterns. Merge-la single big conflict solve panna patterns follows panna power logic efficiency metrics power logic." },
       { speaker: "Logu", avatar: "🧑", message: "Git branch strategy mastered." },
     ],
     whenToUse: ["Cleaning local commits (Rebase)", "Combining shared work (Merge)"],
@@ -4282,21 +6262,21 @@ export const topics = [
       visual: [{ icon: "⚙️", label: "Logic" }, { icon: "→", label: "🧪" }, { icon: "✅", label: "Pass" }],
     },
     conversation: [
-      { speaker: "Meena", avatar: "👩", message: "Bro, manual-ah check palla palla palla delay aaguthey?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Unit test ezhuthu bro! Jest or Vitest use pannu. Code-ah commit palla palla palla pothu automation test cases run aagi result sollidum. Bug-free-ah release pannalaam." },
+      { speaker: "Meena", avatar: "👩", message: "Bro, manual-ah check panna delay aaguthey?" },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Unit test ezhuthu bro! Jest or Vitest use pannu. Code-ah commit panna pothu automation test cases run aagi result sollidum. Bug-free-ah release pannalaam." },
       { speaker: "Meena", avatar: "👩", message: "Mocking na enna bro?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Real DB usage pallaama fake data vachu test logic run panrathu. Speed and reliability increase aagum. Logic isolation thaan core." },
-      { speaker: "Meena", avatar: "👩", message: "Coverage check palla mudiya ma?" },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Real DB usage pannama fake data vachu test logic run panrathu. Speed and reliability increase aagum. Logic isolation thaan core." },
+      { speaker: "Meena", avatar: "👩", message: "Coverage check panna mudiya ma?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Kandippa! Code-la evlo percentage testing coverage irukku nu report vandhurum. Solid developer workflow idhu." },
       { speaker: "Meena", avatar: "👩", message: "Unit testing builds confidence!" },
     ],
     whenToUse: ["Complex business logic", "E-commerce price calculations"],
     devConfession: {
-      mistake: "Unit test illama release pallaen. Oru chinna logic change-ala site full-ah crash aaiduchu.",
+      mistake: "Unit test illama release pannaen. Oru chinna logic change-ala site full-ah crash aaiduchu.",
       lesson: "Writing tests takes time, but saving 10 hours of debugging is worth it.",
     },
     quiz: {
-      question: "Single function-ah test palla logic-ku enna peru?",
+      question: "Single function-ah test panna logic-ku enna peru?",
       options: ["Unit Testing", "UI Testing", "System Testing"],
       answer: 0
     },
@@ -4322,8 +6302,8 @@ export const topics = [
       { speaker: "Dev", avatar: "👨‍💻", message: "ESLint and Prettier config setup pannu bro! Save pannum pothu auto-format aai uniform code style maintain aagum. Code reviews-la unnecessary debates-ah avoid pannalaam." },
       { speaker: "Raj", avatar: "🧑", message: "Auto-fix possible-ah bro?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Aama! Semicolons, single vs double quotes ellaam Prettier pathukoovum. ESLint logic errors-ah underline panni warning level-la kaattum." },
-      { speaker: "Raj", avatar: "🧑", message: "Github actions-la add palla ma?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Kandippa! Code style thappa irundha merge block palla mathiri setup pannuna, repo eppavume clean-ah irukkum." },
+      { speaker: "Raj", avatar: "🧑", message: "Github actions-la add panna ma?" },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Kandippa! Code style thappa irundha merge block panna mathiri setup pannuna, repo eppavume clean-ah irukkum." },
       { speaker: "Raj", avatar: "🧑", message: "Standards check automation super." },
     ],
     whenToUse: ["Team collaboration", "Every single project for clean habits"],
@@ -4332,7 +6312,7 @@ export const topics = [
       lesson: "Linter is your friend. Listen to it early.",
     },
     quiz: {
-      question: "Code style and formatting handle palla tool enna?",
+      question: "Code style and formatting handle panna tool enna?",
       options: ["Git", "Prettier", "Node"],
       answer: 1
     },
@@ -4355,7 +6335,7 @@ export const topics = [
     },
     conversation: [
       { speaker: "Meena", avatar: "👩", message: "Bro, ovvoru naal-um yen meeting vakkuraanga?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Adhaan bro 'Daily Standup'! Enna pannaen, enna palla palla palla palla palla palla pothu blocks irukku nu team-ku solli align aaka logic thaan Scrum. Semma transparency kedaikkum." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Adhaan bro 'Daily Standup'! Enna pannaen, enna panna pothu blocks irukku nu team-ku solli align aaka logic thaan Scrum. Semma transparency kedaikkum." },
       { speaker: "Meena", avatar: "👩", message: "Sprint end-la enna pannuvom?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Sprint Demo/Review pannuvom. Client-ku panna features kaata vachu feedback vaanguvom. Constant communication thaan success key." },
       { speaker: "Meena", avatar: "👩", message: "Backlog na enna?" },
@@ -4364,7 +6344,7 @@ export const topics = [
     ],
     whenToUse: ["Working in modern tech teams", "Managing project deadlines"],
     devConfession: {
-      mistake: "Scrum meetings-ah waste nu nenachu ignore pallaen. Final release-la team logic mismatch aai sethu poattaen.",
+      mistake: "Scrum meetings-ah waste nu nenachu ignore pannaen. Final release-la team logic mismatch aai sethu poattaen.",
       lesson: "Communication is half the coding work. Agile makes it structured.",
     },
     quiz: {
@@ -4384,7 +6364,7 @@ export const topics = [
     tagline: "Two heads are better than one!",
     level: 5,
     readTime: "3 min",
-    quickSummary: "Code Review na nee ezhuthina code-ah innoru developer check panni feed back tharunrathu. Bugs and logic improvements-ah find palla idhu thaan best way.",
+    quickSummary: "Code Review na nee ezhuthina code-ah innoru developer check panni feed back tharunrathu. Bugs and logic improvements-ah find panna idhu thaan best way.",
     analogy: {
       description: "It's like Getting your Homework Checked 📝 by a friend. Avar corrections solluvaaru, unga output innum mass-ah aagum.",
       visual: [{ icon: "👨‍💻", label: "Coder" }, { icon: "→", label: "PR" }, { icon: "🧐", label: "Reviewer" }],
@@ -4394,8 +6374,8 @@ export const topics = [
       { speaker: "Senior Dev", avatar: "👨‍💻", message: "Insult illa bro, learning! Reviewer unga code-ah innum safety-ah efficiency-ah matha thaan help panraanga. Accept feedback and grow. Professional life-la idhu mandatory process." },
       { speaker: "Arun", avatar: "🧑", message: "Code standard-ah pathu follow pannala ma bro?" },
       { speaker: "Senior Dev", avatar: "👨‍💻", message: "Aama! Best architectural decisions, naming improvements, and edge cases handling-ah peers kitta irundha seekkiram seekirum kethukkalam. Peer learning power." },
-      { speaker: "Arun", avatar: "🧑", message: "Commit palla munaadiye checks irukkuma?" },
-      { speaker: "Senior Dev", avatar: "👨‍💻", message: "Aama, andha team-oda standards-ku align aaga feedback loop idhu. Semma quality product release palla idhu thaan way." },
+      { speaker: "Arun", avatar: "🧑", message: "Commit panna munaadiye checks irukkuma?" },
+      { speaker: "Senior Dev", avatar: "👨‍💻", message: "Aama, andha team-oda standards-ku align aaga feedback loop idhu. Semma quality product release panna idhu thaan way." },
       { speaker: "Arun", avatar: "🧑", message: "Review feedback helps to improve." },
     ],
     whenToUse: ["Every PR merge", "Learning best practices from seniors"],
@@ -4404,7 +6384,7 @@ export const topics = [
       lesson: "Ego-ah pakkathula vachuttu code-ah mattum focus pannunga.",
     },
     quiz: {
-      question: "Code quality-ah peer-to-peer check palla process?",
+      question: "Code quality-ah peer-to-peer check panna process?",
       options: ["Compiling", "Code Review", "Formatting"],
       answer: 1
     },
@@ -4431,12 +6411,12 @@ export const topics = [
       { speaker: "Nila", avatar: "👩", message: "Code comments pothatha bro?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Comments individual lines logic sollum. Aana overall project structure and usage 'Why' and 'How'-ah doc thaan sollum. Documentation is communication." },
       { speaker: "Nila", avatar: "👩", message: "Markdown styles useful-ah?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Kandippa! Code blocks, tables, and images vachu visualize palla mudiyum. Professional repo quality determine palla doc thaan first impression." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Kandippa! Code blocks, tables, and images vachu visualize panna mudiyum. Professional repo quality determine panna doc thaan first impression." },
       { speaker: "Nila", avatar: "👩", message: "Documentation skills improved." },
     ],
     whenToUse: ["Open source projects", "Internal team handovers"],
     devConfession: {
-      mistake: "Documentation illama periya library built pallaen. 0 users down aai project sethu poattaen.",
+      mistake: "Documentation illama periya library built pannaen. 0 users down aai project sethu poattaen.",
       lesson: "Docs are part of the product. Don't build in a vacuum.",
     },
     quiz: {
@@ -4456,23 +6436,23 @@ export const topics = [
     tagline: "Clean, testable code!",
     level: 5,
     readTime: "4 min",
-    quickSummary: "DI na oru class kulla manually instatiate pallaama (Hardcoded), outside provider kitta irundha tools-ah pass (Inject) panra method. Testing and scaling-ku idhu semma help pannum.",
+    quickSummary: "DI na oru class kulla manually instatiate pannama (Hardcoded), outside provider kitta irundha tools-ah pass (Inject) panra method. Testing and scaling-ku idhu semma help pannum.",
     analogy: {
-      description: "It's like Hiring a Plumber 🪠 who brings his own Tools. Nee avarukkul tool fix palla mudiyaathu, avar korthu tools-ah kudukkanum. You just hire the skill.",
+      description: "It's like Hiring a Plumber 🪠 who brings his own Tools. Nee avarukkul tool fix panna mudiyaathu, avar korthu tools-ah kudukkanum. You just hire the skill.",
       visual: [{ icon: "🛠️", label: "Tool" }, { icon: "➕", label: "💉" }, { icon: "🏗️", label: "Class" }],
     },
     conversation: [
-      { speaker: "Meena", avatar: "👩", message: "Bro, hardcoded DB connections change palla kashtama irukke?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Dependency Injection use pannu bro! Constructor via DB service-ah inject pannuna, mock DB vachu test palla easy-ah aaidum. Solid design pattern idhu." },
+      { speaker: "Meena", avatar: "👩", message: "Bro, hardcoded DB connections change panna kashtama irukke?" },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Dependency Injection use pannu bro! Constructor via DB service-ah inject pannuna, mock DB vachu test panna easy-ah aaidum. Solid design pattern idhu." },
       { speaker: "Meena", avatar: "👩", message: "Loose coupling na idhu thaana bro?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Exactly! Direct dependencies illatha pothu components swap palla palla palla ease kedaikum. Unit testing capability logic adhigham aagum." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Exactly! Direct dependencies illatha pothu components swap panna ease kedaikum. Unit testing capability logic adhigham aagum." },
       { speaker: "Meena", avatar: "👩", message: "NestJS logic standard-ah use pannuva ma?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Aama, NestJS fully DI centered framework. Clean architecture and scalable backends-ku idhu thaan primary logic helper." },
       { speaker: "Meena", avatar: "👩", message: "DI for better modularity." },
     ],
     whenToUse: ["Enterprise Node/NestJS projects", "Unit testing heavy components"],
     devConfession: {
-      mistake: "Manual DI-ah over-complicate palla try palli 'Circular Dependency' loop-la sethu poattaen.",
+      mistake: "Manual DI-ah over-complicate panna try palli 'Circular Dependency' loop-la sethu poattaen.",
       lesson: "Use DI frameworks like Nest or Inversify for better management.",
     },
     quiz: {
@@ -4535,7 +6515,7 @@ export const topics = [
       visual: [{ icon: "📱", label: "App" }, { icon: "🗝️", label: "Key" }, { icon: "→", label: "" }, { icon: "☁️", label: "Service" }],
     },
     conversation: [
-      { speaker: "Kiran", avatar: "🧑", message: "Bro, Google Maps integrate palla try pandren. Enna ketta Key kekaanga?" },
+      { speaker: "Kiran", avatar: "🧑", message: "Bro, Google Maps integrate panna try pandren. Enna ketta Key kekaanga?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Aama bro, free-ah ellaarum use panna service crash aaidum. So oru special key kudupaanga, athu un application-oda fingerprint maari." },
       { speaker: "Kiran", avatar: "🧑", message: "Password mathiri hide panna venduma?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Kandippa! Environment variables (.env) use panni hide pannanum. Illana bill unakku vanthurum!" },
@@ -4611,7 +6591,7 @@ export const topics = [
       { speaker: "Dev", avatar: "👨‍💻", message: "Adu thaan bro logic! Nee successfully 'Authenticated' (login) aayitta, aana Admin panel-ku unakku 'Authorization' (permission) illai." },
       { speaker: "Pradeep", avatar: "🧑", message: "Oh! Apo identity vera, access vera va?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Exactly! Identity common, access depends on your role (User vs Admin)." },
-      { speaker: "Pradeep", avatar: "🧑", message: "JWT-la rendayum handle palla ma?" },
+      { speaker: "Pradeep", avatar: "🧑", message: "JWT-la rendayum handle panna ma?" },
       { speaker: "Security Dev", avatar: "👨‍💻", message: "Aama! Token kulla ID (Authn) and Roles (Authz) rendayum payload-la vachukka mudiyum. Request vara pothu middleware check pannikkum. Robust security pattern idhu." },
       { speaker: "Pradeep", avatar: "🧑", message: "Authentication vs Authorization mastered." },
     ],
@@ -4646,8 +6626,8 @@ export const topics = [
       { speaker: "Deepa", avatar: "👩", message: "Bro, sensitive message-ah anuppa enna use pannanum?" },
       { speaker: "Security Dev", avatar: "👨‍💻", message: "Encryption bro (AES/RSA). Message anupum pothu lock panni, recipient kitta irukka key vach open pannalaam. Hashing verum passwords-ku thaan." },
       { speaker: "Deepa", avatar: "👩", message: "Passwords-ku hashing yen best?" },
-      { speaker: "Security Dev", avatar: "👨‍💻", message: "Hacker password hash-ah thirudinaalum, reverse logic palla mudiyaathu. 'Salt' add palli innum ultra-secure-ah mathidalam. One-way logic patterns are safe." },
-      { speaker: "Deepa", avatar: "👩", message: "Encryption keys eppadi share palla num?" },
+      { speaker: "Security Dev", avatar: "👨‍💻", message: "Hacker password hash-ah thirudinaalum, reverse logic panna mudiyaathu. 'Salt' add palli innum ultra-secure-ah mathidalam. One-way logic patterns are safe." },
+      { speaker: "Deepa", avatar: "👩", message: "Encryption keys eppadi share panna num?" },
       { speaker: "Security Dev", avatar: "👨‍💻", message: "Public-key cryptography use pannalaam (Asymmetric). One key for locking, another for unlocking. Modern security pillar idhu thaan." },
       { speaker: "Deepa", avatar: "👩", message: "Security choices clarified." },
     ],
@@ -4680,11 +6660,11 @@ export const topics = [
     },
     conversation: [
       { speaker: "Raj", avatar: "🧑", message: "Bro, en bank-la irundhu call panni OTP ketaanga, koduthutaen. Account-la money empty!" },
-      { speaker: "Security Dev", avatar: "👨‍💻", message: "Adhu thaan bro Social Engineering! Avanga system hack palla, unna emathi un kitta irundhu details vaangitaanga. Never share OTPs on calls!" },
+      { speaker: "Security Dev", avatar: "👨‍💻", message: "Adhu thaan bro Social Engineering! Avanga system hack panna, unna emathi un kitta irundhu details vaangitaanga. Never share OTPs on calls!" },
       { speaker: "Raj", avatar: "🧑", message: "Phishing na idhu thaana bro?" },
-      { speaker: "Security Dev", avatar: "👨‍💻", message: "Aama, fake emails and links via login palla emathura logic. Human emotions thaan leverage pannuvaாங்க. Always verify source authenticity patterns." },
+      { speaker: "Security Dev", avatar: "👨‍💻", message: "Aama, fake emails and links via login panna emathura logic. Human emotions thaan leverage pannuvaாங்க. Always verify source authenticity patterns." },
       { speaker: "Raj", avatar: "🧑", message: "Tailgating na?" },
-      { speaker: "Security Dev", avatar: "👨‍💻", message: "Oru employee pinneye ulla gate kulla permission illama poakurathu. Physical secure entry logic follows palla num as a team." },
+      { speaker: "Security Dev", avatar: "👨‍💻", message: "Oru employee pinneye ulla gate kulla permission illama poakurathu. Physical secure entry logic follows panna num as a team." },
       { speaker: "Raj", avatar: "🧑", message: "Human firewall strengthened." },
     ],
     whenToUse: ["Security awareness training"],
@@ -4716,11 +6696,11 @@ export const topics = [
     },
     conversation: [
       { speaker: "Siva", avatar: "🧑", message: "Bro, comment box-la text thaane pooduvaanga, script eppadi run aagum?" },
-      { speaker: "Security Dev", avatar: "👨‍💻", message: "Attacker `<script>steal_cookie()</script>` nu type panna, nee antha text-ah sanitize pallaana, adhu page-la actual script-ah execute aagidum bro! Semma danger code idhu." },
+      { speaker: "Security Dev", avatar: "👨‍💻", message: "Attacker `<script>steal_cookie()</script>` nu type panna, nee antha text-ah sanitize pannalana, adhu page-la actual script-ah execute aagidum bro! Semma danger code idhu." },
       { speaker: "Siva", avatar: "🧑", message: "Cookies thirudinaal?" },
       { speaker: "Security Dev", avatar: "👨‍💻", message: "User session impersonate panniruvanga. Unauthorized access logic easy-ah kedaikum. Always use HttpOnly cookies to block script access patterns security." },
       { speaker: "Siva", avatar: "🧑", message: "HTML escaping pothuma?" },
-      { speaker: "Security Dev", avatar: "👨‍💻", message: "Aama, `<` and `>` tags-ah character entities-ah mathitta browser script execute palla mudiyaathu. Simple prevention logic for XSS." },
+      { speaker: "Security Dev", avatar: "👨‍💻", message: "Aama, `<` and `>` tags-ah character entities-ah mathitta browser script execute panna mudiyaathu. Simple prevention logic for XSS." },
       { speaker: "Siva", avatar: "🧑", message: "XSS protection rules on." },
     ],
     whenToUse: ["Building any public input forms", "Security audits"],
@@ -4753,10 +6733,10 @@ export const topics = [
     conversation: [
       { speaker: "Siva", avatar: "🧑", message: "Bro, normal-ah link click pannuna login panni vachirukura sites affect aaguma?" },
       { speaker: "Security Dev", avatar: "👨‍💻", message: "Aama bro! Adhukku thaan 'CSRF Tokens' use pannuvaanga. Ovvoru form submission-kum oru unique random secret key irukkannum. Token illana browser request-ah reject pannidum." },
-      { speaker: "Siva", avatar: "🧑", message: "SameSite cookies help palla ma?" },
-      { speaker: "Security Dev", avatar: "👨‍💻", message: "Absolutely! `SameSite=Strict` poatta browser cross-domain requests-ku cookie-ah anuppaathu. Double protection layer logic security patterns follows palla num." },
-      { speaker: "Siva", avatar: "🧑", message: "State-changing actions-ku GET use palla ma?" },
-      { speaker: "Security Dev", avatar: "👨‍💻", message: "BIG NO! GET requests cookies automatically share palla possibility irukku patterns. Always use POST for modifications. Secure engineering principle idhu thaan." },
+      { speaker: "Siva", avatar: "🧑", message: "SameSite cookies help panna ma?" },
+      { speaker: "Security Dev", avatar: "👨‍💻", message: "Absolutely! `SameSite=Strict` poatta browser cross-domain requests-ku cookie-ah anuppaathu. Double protection layer logic security patterns follows panna num." },
+      { speaker: "Siva", avatar: "🧑", message: "State-changing actions-ku GET use panna ma?" },
+      { speaker: "Security Dev", avatar: "👨‍💻", message: "BIG NO! GET requests cookies automatically share panna possibility irukku patterns. Always use POST for modifications. Secure engineering principle idhu thaan." },
       { speaker: "Siva", avatar: "🧑", message: "CSRF vulnerabilities closed." },
     ],
     whenToUse: ["Every POST request in sensitive apps", "E-commerce & Banking security"],
@@ -4788,11 +6768,11 @@ export const topics = [
     },
     conversation: [
       { speaker: "Arun", avatar: "🧑", message: "Bro, site-la external script thaan adhigama use pannurom, safety eppadi?" },
-      { speaker: "Security Dev", avatar: "👨‍💻", message: "CSP header enable pannu bro! 'Only load scripts from Google or Cloudflare' nu sonna, oru attacker random script inject palla pallaalum browser athai execute pallaathu." },
+      { speaker: "Security Dev", avatar: "👨‍💻", message: "CSP header enable pannu bro! 'Only load scripts from Google or Cloudflare' nu sonna, oru attacker random script inject pannaalum browser athai execute pannathu." },
       { speaker: "Arun", avatar: "🧑", message: "XSS-ku idhu thaan best solution-ah?" },
-      { speaker: "Security Dev", avatar: "👨‍💻", message: "Aama, last line of defense idhu thaan. Scripts, styles, even font domains-ah kooda whitelist palla mudiya logic security mechanism idhu. Deep defense patterns." },
+      { speaker: "Security Dev", avatar: "👨‍💻", message: "Aama, last line of defense idhu thaan. Scripts, styles, even font domains-ah kooda whitelist panna mudiya logic security mechanism idhu. Deep defense patterns." },
       { speaker: "Arun", avatar: "🧑", message: "Reporting mode irukka?" },
-      { speaker: "Security Dev", avatar: "👨‍💻", message: "Kandippa! `Content-Security-Policy-Report-Only` vachu bugs and breaches tracking palla patterns use pannalaam. Real-time alerts detect palla security team-ku romba help aagum." },
+      { speaker: "Security Dev", avatar: "👨‍💻", message: "Kandippa! `Content-Security-Policy-Report-Only` vachu bugs and breaches tracking panna patterns use pannalaam. Real-time alerts detect panna security team-ku romba help aagum." },
       { speaker: "Arun", avatar: "🧑", message: "Security policy architecture enabled." },
     ],
     whenToUse: ["Preventing XSS attacks", "Ensuring data privacy"],
@@ -4801,7 +6781,7 @@ export const topics = [
       lesson: "Make your CSP as strict as possible. Don't allow inline scripts unless necessary.",
     },
     quiz: {
-      question: "Attacker script browser execute pallaama thadukka ethu use aagum?",
+      question: "Attacker script browser execute pannama thadukka ethu use aagum?",
       options: ["CSP", "CSS", "JSON"],
       answer: 0
     },
@@ -4817,18 +6797,18 @@ export const topics = [
     tagline: "Safe access without sharing passwords!",
     level: 6,
     readTime: "4 min",
-    quickSummary: "OAuth2 na oru app-ku unga data-ah (Example: Profile pic) access palla permission kudukurathu without sharing unga actual password. Third-party logins-ku idhu thaan standard.",
+    quickSummary: "OAuth2 na oru app-ku unga data-ah (Example: Profile pic) access panna permission kudukurathu without sharing unga actual password. Third-party logins-ku idhu thaan standard.",
     analogy: {
-      description: "It's like a Valet Key 🔑 for your car. Nee un actual key-ah (Password) driver-ku kudukka thevai illa. Oru temporary limited key (Token) kudukura, adhai vachu avar car-ah mattum park pannuvaaru, un globbox-ah open palla mudiyaathu.",
+      description: "It's like a Valet Key 🔑 for your car. Nee un actual key-ah (Password) driver-ku kudukka thevai illa. Oru temporary limited key (Token) kudukura, adhai vachu avar car-ah mattum park pannuvaaru, un globbox-ah open panna mudiyaathu.",
       visual: [{ icon: "👤", label: "User" }, { icon: "↔️", label: "Google" }, { icon: "↔️", label: "Your App" }],
     },
     conversation: [
-      { speaker: "Deepa", avatar: "👩", message: "Bro, 'Login with GitHub' palla password GitHub-ku poguma?" },
+      { speaker: "Deepa", avatar: "👩", message: "Bro, 'Login with GitHub' panna password GitHub-ku poguma?" },
       { speaker: "Security Dev", avatar: "👨‍💻", message: "Illai bro! GitHub unakku oru 'Access Token' mattum thaan kudukkum un verification moolama. Password eppavume GitHub kitta thaan safe-ah irukkum. App-ku verum un name and photo access mattum thaan kedaikum." },
       { speaker: "Deepa", avatar: "👩", message: "Scopes na enna bro? Ovvoru time-um kekkurangale?" },
-      { speaker: "Security Dev", avatar: "👨‍💻", message: "Permissions list bro! App-ku un email mattum pothumna, athu un documents-ah access palla mudiyaathus. Specific range logic set palla idhu thaan way." },
+      { speaker: "Security Dev", avatar: "👨‍💻", message: "Permissions list bro! App-ku un email mattum pothumna, athu un documents-ah access panna mudiyaathus. Specific range logic set panna idhu thaan way." },
       { speaker: "Deepa", avatar: "👩", message: "Profile access safer-ah?" },
-      { speaker: "Security Dev", avatar: "👨‍💻", message: "Aama! Token only specific actions-ku thaan valid logic follows palla num. Any time nee un settings-la app access-ah revoke palla mudiyum patterns utility logic." },
+      { speaker: "Security Dev", avatar: "👨‍💻", message: "Aama! Token only specific actions-ku thaan valid logic follows panna num. Any time nee un settings-la app access-ah revoke panna mudiyum patterns utility logic." },
       { speaker: "Deepa", avatar: "👩", message: "OAuth2 authentication understood." },
     ],
     whenToUse: ["Social logins", "API access delegations"],
@@ -4859,17 +6839,17 @@ export const topics = [
       visual: [{ icon: "🎟️", label: "Short" }, { icon: "↔️", label: "" }, { icon: "🪪", label: "Long" }],
     },
     conversation: [
-      { speaker: "Siva", avatar: "🧑", message: "Bro, 15 mins-ku oru time user thirumba login palla num-ah?" },
-      { speaker: "Security Dev", avatar: "👨‍💻", message: "Illa bro! Access token time-ah koraikka (Safety), aana Refresh token vachukko. App internal-ah refresh token vachu sessions extend palla nalla safe-ana experience kedaikum." },
-      { speaker: "Siva", avatar: "🧑", message: "XSS via token theft avoid palla ma?" },
-      { speaker: "Security Dev", avatar: "👨‍💻", message: "Aama! HttpOnly cookies-la store pannuna scripts-ala access palla mudiya logic security mechanism follows palla num efficiency king patterns metrics power logic." },
+      { speaker: "Siva", avatar: "🧑", message: "Bro, 15 mins-ku oru time user thirumba login panna num-ah?" },
+      { speaker: "Security Dev", avatar: "👨‍💻", message: "Illa bro! Access token time-ah koraikka (Safety), aana Refresh token vachukko. App internal-ah refresh token vachu sessions extend panna nalla safe-ana experience kedaikum." },
+      { speaker: "Siva", avatar: "🧑", message: "XSS via token theft avoid panna ma?" },
+      { speaker: "Security Dev", avatar: "👨‍💻", message: "Aama! HttpOnly cookies-la store pannuna scripts-ala access panna mudiya logic security mechanism follows panna num efficiency king patterns metrics power logic." },
       { speaker: "Siva", avatar: "🧑", message: "Revoke possible-ah?" },
-      { speaker: "Security Dev", avatar: "👨‍💻", message: "Yes! Backend-la blacklist or versioning logic vachu specific session-ah kick out palla mudiya logic patterns follows palla mechanism security power." },
+      { speaker: "Security Dev", avatar: "👨‍💻", message: "Yes! Backend-la blacklist or versioning logic vachu specific session-ah kick out panna mudiya logic patterns follows panna mechanism security power." },
       { speaker: "Siva", avatar: "🧑", message: "Refresh token flow mastery." },
     ],
     whenToUse: ["Secure long-term sessions", "Banking/Social apps"],
     devConfession: {
-      mistake: "Refresh token-ah encryption pallaama database-la vachutten. DB leak aana pothu hackers permanent-ah account access pannitaanga.",
+      mistake: "Refresh token-ah encryption pannama database-la vachutten. DB leak aana pothu hackers permanent-ah account access pannitaanga.",
       lesson: "Store refresh tokens securely and rotate them frequently (Refresh Token Rotation).",
     },
     quiz: {
@@ -4889,7 +6869,7 @@ export const topics = [
     tagline: "Find bugs before hackers do!",
     level: 6,
     readTime: "4 min",
-    quickSummary: "Pen Testing na oru system-ah deliberate-ah hack palla try palli, athula irukka security holes-ah kandupidiikkura process. Ithu oru certified security drill.",
+    quickSummary: "Pen Testing na oru system-ah deliberate-ah hack panna try palli, athula irukka security holes-ah kandupidiikkura process. Ithu oru certified security drill.",
     analogy: {
       description: "It's like Hiring a Thief 🕵️‍♀️ to check if your house lock is strong. Avar door udayikka try pannu vaaru, success aana nee lock-ah maathikalam real thief vara munaadi.",
       visual: [{ icon: "🕵️‍♀️", label: "Tester" }, { icon: "→", label: "🚫" }, { icon: "🏰", label: "Your Site" }],
@@ -4897,10 +6877,10 @@ export const topics = [
     conversation: [
       { speaker: "Arun", avatar: "🧑", message: "Bro, site secure-ah nu eppadi confirm panrathu?" },
       { speaker: "Security Dev", avatar: "👨‍💻", message: "Pen testing pannu bro! Kali Linux toolset vachu vulnerability scanners run pannu. Bugs report vandhona fix pannidalaam. Proactive security idhu." },
-      { speaker: "Arun", avatar: "🧑", message: "SQL injection tests palla ma?" },
-      { speaker: "Security Dev", avatar: "👨‍💻", message: "Aama! Payloads anuppi database vulnerability check palla logic mechanism follows palla num security metrics power logic execution levels master patterns." },
+      { speaker: "Arun", avatar: "🧑", message: "SQL injection tests panna ma?" },
+      { speaker: "Security Dev", avatar: "👨‍💻", message: "Aama! Payloads anuppi database vulnerability check panna logic mechanism follows panna num security metrics power logic execution levels master patterns." },
       { speaker: "Arun", avatar: "🧑", message: "Reporting standard enna?" },
-      { speaker: "Security Dev", avatar: "👨‍💻", message: "Critical, High, Medium, Low nu classify panni fixes priority set palla num patterns follows palla security power efficiency king logic mastery." },
+      { speaker: "Security Dev", avatar: "👨‍💻", message: "Critical, High, Medium, Low nu classify panni fixes priority set panna num patterns follows panna security power efficiency king logic mastery." },
       { speaker: "Arun", avatar: "🧑", message: "Security assessment flow mastered." },
     ],
     whenToUse: ["Before major product release", "Annual security audits"],
@@ -4925,9 +6905,9 @@ export const topics = [
     tagline: "One request at a time!",
     level: 6,
     readTime: "3 min",
-    quickSummary: "Rate limiting na oru user or IP address limited amount of requests thaan palla mudiyum nu rule vachururathu. Ithu DDOS attacks mathiri high traffic abuse thadukkum.",
+    quickSummary: "Rate limiting na oru user or IP address limited amount of requests thaan panna mudiyum nu rule vachururathu. Ithu DDOS attacks mathiri high traffic abuse thadukkum.",
     analogy: {
-      description: "It's like a Coffee Machine ☕. Per day 5 cups limited nu rule vacha, orae la 1000 cups palla mudiyaathu and machine safe-ah irukkum.",
+      description: "It's like a Coffee Machine ☕. Per day 5 cups limited nu rule vacha, orae la 1000 cups panna mudiyaathu and machine safe-ah irukkum.",
       visual: [{ icon: "🚦", label: "Limit" }, { icon: "→", label: "" }, { icon: "🚫", label: "Block Abuse" }],
     },
     conversation: [
@@ -4936,12 +6916,12 @@ export const topics = [
       { speaker: "Siva", avatar: "🧑", message: "429 Too Many Requests status code varuma?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Aama! Browser-ku 'Wait panni thirumba vaa' nu signal anuppu mudiya logic mechanism security flows patterns logic execution level mastery metrics." },
       { speaker: "Siva", avatar: "🧑", message: "Redis usage context?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Rate counters-ah Redis-la vachikitta fast logic execution kedaikum patterns follows palla power efficiency king logic metrics power patterns." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Rate counters-ah Redis-la vachikitta fast logic execution kedaikum patterns follows panna power efficiency king logic metrics power patterns." },
       { speaker: "Siva", avatar: "🧑", message: "API abuse protection ready." },
     ],
     whenToUse: ["Protecting public APIs", "Preventing password brute force attacks"],
     devConfession: {
-      mistake: "Rate limit romba strict-ah vachutten. Genuine users normal browser actions palla pothu block aai thitta start pannitaanga.",
+      mistake: "Rate limit romba strict-ah vachutten. Genuine users normal browser actions panna pothu block aai thitta start pannitaanga.",
       lesson: "Find the right balance in limits. Don't block your real users.",
     },
     quiz: {
@@ -4961,7 +6941,7 @@ export const topics = [
     tagline: "Fine-grained access!",
     level: 6,
     readTime: "3 min",
-    quickSummary: "Scopes na OAuth-la permission lists. Oru app-ku unga 'Email' mattum pothumna, athu 'Full Account' logic-ah access palla mudiyaatha mathiri restrict panra filter list.",
+    quickSummary: "Scopes na OAuth-la permission lists. Oru app-ku unga 'Email' mattum pothumna, athu 'Full Account' logic-ah access panna mudiyaatha mathiri restrict panra filter list.",
     analogy: {
       description: "It's like a Hotel Room Key 🔑. Card works only for 'Your Room' (Specific scope), not for the 'Manager Room' or 'Kitchen' (Higher scope).",
       visual: [{ icon: "🔑", label: "Token" }, { icon: "🔭", label: "Email scope" }, { icon: "🚫", label: "Private File" }],
@@ -4970,18 +6950,18 @@ export const topics = [
       { speaker: "Pavi", avatar: "👩", message: "Bro, app permissions dialog-la 'Read only' vs 'Read & Write' kekkuthey?" },
       { speaker: "Security Dev", avatar: "👨‍💻", message: "Adhaan scopes bro! Privacy-ku idhu thaan base. Nee needed permissions mattum thaan app-ku kudukura nu meaning. Always check scopes before clicking allow." },
       { speaker: "Pavi", avatar: "👩", message: "Incremental authorization possible-ah?" },
-      { speaker: "Security Dev", avatar: "👨‍💻", message: "Kandippa! Needed action-ku mattum then and there pudhu scope logic authorization vaangikalaam patterns follows palla security logic efficiency metrics power." },
+      { speaker: "Security Dev", avatar: "👨‍💻", message: "Kandippa! Needed action-ku mattum then and there pudhu scope logic authorization vaangikalaam patterns follows panna security logic efficiency metrics power." },
       { speaker: "Pavi", avatar: "👩", message: "User privacy settings impact?" },
       { speaker: "Security Dev", avatar: "👨‍💻", message: "Scopes usage user control-la irukkannum logic mechanism security flows patterns logic execution level mastery metrics power patterns." },
       { speaker: "Pavi", avatar: "👩", message: "Permission granularity understood." },
     ],
     whenToUse: ["OAuth implementation", "Privacy protection"],
     devConfession: {
-      mistake: "Unnecessary-ah 'Delete account' scope-ah en demo app-ku ketaen. Users bayanthu site-ae use palla matti-taanga.",
+      mistake: "Unnecessary-ah 'Delete account' scope-ah en demo app-ku ketaen. Users bayanthu site-ae use panna matti-taanga.",
       lesson: "Request the minimum scopes needed. Politeness builds trust.",
     },
     quiz: {
-      question: "Token-oda access level-ah restrict palla logic enna?",
+      question: "Token-oda access level-ah restrict panna logic enna?",
       options: ["Schemas", "Scopes", "Routes"],
       answer: 1
     },
@@ -4997,23 +6977,23 @@ export const topics = [
     tagline: "Self-contained security!",
     level: 6,
     readTime: "4 min",
-    quickSummary: "JWT na encoded strings. Backend-la sign panni anupuvaanga. User identity pathi ella details-um antha token kulla-ae irukkum. Server-la session store palla palla palla thevai illa.",
+    quickSummary: "JWT na encoded strings. Backend-la sign panni anupuvaanga. User identity pathi ella details-um antha token kulla-ae irukkum. Server-la session store panna thevai illa.",
     analogy: {
-      description: "It's like a Digital ID Card 🎟️. Un name, age, permissions ellaam korthu card-laye printed (Encoded). Secure-ana sign (Signature) irukkurathaala yaarum dummy card create palla mudiyaathu.",
+      description: "It's like a Digital ID Card 🎟️. Un name, age, permissions ellaam korthu card-laye printed (Encoded). Secure-ana sign (Signature) irukkurathaala yaarum dummy card create panna mudiyaathu.",
       visual: [{ icon: "📄", label: "Payload" }, { icon: "→", label: "🎟️" }, { icon: "🔒", label: "Signature" }],
     },
     conversation: [
       { speaker: "Raj", avatar: "🧑", message: "Bro, server refresh aana users logout aaguraanga?" },
       { speaker: "Security Dev", avatar: "👨‍💻", message: "JWT use pannu bro! Token client-kitta irukkum. Server restart aanaalum token-ah verify panna session continue aagum. 'Stateless' logic idhu." },
       { speaker: "Raj", avatar: "🧑", message: "Database check thevai illaiya bro?" },
-      { speaker: "Security Dev", avatar: "👨‍💻", message: "Prathi request-kum DB access palla palla palla delay aagum. JWT-la information encoded-ah irukkum, so server verify mattum panna pothum." },
+      { speaker: "Security Dev", avatar: "👨‍💻", message: "Prathi request-kum DB access panna delay aagum. JWT-la information encoded-ah irukkum, so server verify mattum panna pothum." },
       { speaker: "Raj", avatar: "🧑", message: "Hacker token-ah thirudinaal?" },
       { speaker: "Security Dev", avatar: "👨‍💻", message: "Expiry time short-ah vachikkanum. Put it in HttpOnly cookies for extra safety. JWT is standard for microservices!" },
       { speaker: "Raj", avatar: "🧑", message: "Stateless scalability super bro." },
     ],
     whenToUse: ["Modern web authentication", "API security"],
     devConfession: {
-      mistake: "JWT kulla sensitive data (Password) pooda vaitaen. JWT data-ah easy-ah anyone decode palla mudiyum nu maranthuttaen!",
+      mistake: "JWT kulla sensitive data (Password) pooda vaitaen. JWT data-ah easy-ah anyone decode panna mudiyum nu maranthuttaen!",
       lesson: "Never put secret data in JWT payload. Only use public IDs or roles.",
     },
     quiz: {
@@ -5033,23 +7013,23 @@ export const topics = [
     tagline: "Hackers in the input box!",
     level: 6,
     readTime: "4 min",
-    quickSummary: "SQL Injection na attacker oru normal input box-la (Like username) SQL commands-ah type palli unga database-ah access palla try panrathu. Improper coding-ala variable data logic SQL command-ah maaridum.",
+    quickSummary: "SQL Injection na attacker oru normal input box-la (Like username) SQL commands-ah type palli unga database-ah access panna try panrathu. Improper coding-ala variable data logic SQL command-ah maaridum.",
     analogy: {
-      description: "It's like a Thief 👺 writing a fake 'Open all doors' command on the Guest Sign-in book. Oru manager antha book-ah readout panni 'Oh logic command okay!' nu ellarthayum open palla palla disaster aaidum.",
+      description: "It's like a Thief 👺 writing a fake 'Open all doors' command on the Guest Sign-in book. Oru manager antha book-ah readout panni 'Oh logic command okay!' nu ellarthayum open panna disaster aaidum.",
       visual: [{ icon: "💬", label: "User Input" }, { icon: "→", label: "💉" }, { icon: "🗄️", label: "PWNED!" }],
     },
     conversation: [
       { speaker: "Meena", avatar: "👩", message: "Bro, input-la SQL panna eppadi run aagum?" },
-      { speaker: "Security Dev", avatar: "👨‍💻", message: "String concat panni SQL ezhutha koodathu bro! Attacker `OR 1=1; DROP TABLE Users` nu type palla chance irukku. Always use 'Prepared Statements' or 'Parameterized Queries'. Security logic standard idhu." },
+      { speaker: "Security Dev", avatar: "👨‍💻", message: "String concat panni SQL ezhutha koodathu bro! Attacker `OR 1=1; DROP TABLE Users` nu type panna chance irukku. Always use 'Prepared Statements' or 'Parameterized Queries'. Security logic standard idhu." },
       { speaker: "Meena", avatar: "👩", message: "ORM logic protect panni ma bro?" },
       { speaker: "Security Dev", avatar: "👨‍💻", message: "Aama, Mongoose or Prisma behind the scenes prepared statements thaan use pannuvaanga. So safe-ah irukkums. Manual-ah query ezhutha thaan problem." },
-      { speaker: "Meena", avatar: "👩", message: "Database encryption-um palla num-ah?" },
+      { speaker: "Meena", avatar: "👩", message: "Database encryption-um panna num-ah?" },
       { speaker: "Security Dev", avatar: "👨‍💻", message: "Injection-ku SQL logic control logic thaan focus. Encryption is for data leak. Rendum separate security layers!" },
       { speaker: "Meena", avatar: "👩", message: "Parameterized queries follow pannuraen." },
     ],
     whenToUse: ["Every SQL query handling user input"],
     devConfession: {
-      mistake: "Simple concatenation vachu admin login built pallaen. Hacker dummy query use panni password illatha log-in pannitaanga.",
+      mistake: "Simple concatenation vachu admin login built pannaen. Hacker dummy query use panni password illatha log-in pannitaanga.",
       lesson: "Treat all user input as malicious. Use ORM/Parameters always.",
     },
     quiz: {
@@ -5191,7 +7171,7 @@ export const topics = [
       { speaker: "Prasad", avatar: "🧑", message: "Training eppadi nadakkum?" },
       { speaker: "Arul", avatar: "👨‍🔬", message: "Backpropagation algorithm use pannuvaanga. Error-ah mudivula pathu weights-ah adjust panni target output-ku kondu varra process. Iterative learning logic idhu." },
       { speaker: "Prasad", avatar: "🧑", message: "GPU adhigama thevai padu ma?" },
-      { speaker: "Arul", avatar: "👨‍🔬", message: "Aama! Massive matrix multiplications parallel-ah palla GPU thaan speed kudukkum. Computing power thaan intha AI revolution capital energy logic." },
+      { speaker: "Arul", avatar: "👨‍🔬", message: "Aama! Massive matrix multiplications parallel-ah panna GPU thaan speed kudukkum. Computing power thaan intha AI revolution capital energy logic." },
       { speaker: "Prasad", avatar: "🧑", message: "Neural network architecture overview done." },
     ],
     whenToUse: ["Deep learning projects", "Complex data patterns"],
@@ -5223,16 +7203,16 @@ export const topics = [
     },
     conversation: [
       { speaker: "Raj", avatar: "🧑", message: "ChatGPT eppadi weather predict pannuma bro?" },
-      { speaker: "Arul", avatar: "👨‍🔬", message: "ChatGPT GenAI bro, logic ezhuthum, kavithai ezhuthum. Weather prediction-ku simple patterns-ah handle palla palla Predictive AI models (Regression) thaan correct-ana category." },
+      { speaker: "Arul", avatar: "👨‍🔬", message: "ChatGPT GenAI bro, logic ezhuthum, kavithai ezhuthum. Weather prediction-ku simple patterns-ah handle panna Predictive AI models (Regression) thaan correct-ana category." },
       { speaker: "Raj", avatar: "🧑", message: "Hallucination na enna bro?" },
       { speaker: "Arul", avatar: "👨‍🔬", message: "GenAI summave confidence-oda thappaana info kudukkura patterns logic. Facts-ku andha models-ah blindly namba koodathu. Verification mandatory mechanism." },
-      { speaker: "Raj", avatar: "🧑", message: "Use cases mixture palla ma?" },
+      { speaker: "Raj", avatar: "🧑", message: "Use cases mixture panna ma?" },
       { speaker: "Arul", avatar: "👨‍🔬", message: "Kandippa! Predictive AI trends-ah analyze pannum, GenAI athukku report ezhuthum patterns combination peaks-la irukkum power logic." },
       { speaker: "Raj", avatar: "🧑", message: "AI classification mastered." },
     ],
     whenToUse: ["Content creation (GenAI)", "Data analytics (Predictive)"],
     devConfession: {
-      mistake: "GenAI model-ah vachu accurate mathematical predictions palla palla panni failure aanaen. LLMs are not good at precise math yet.",
+      mistake: "GenAI model-ah vachu accurate mathematical predictions panna panni failure aanaen. LLMs are not good at precise math yet.",
       lesson: "Use the right model for the right task. Creativity vs Accuracy!",
     },
     quiz: {
@@ -5252,7 +7232,7 @@ export const topics = [
     tagline: "Search by meaning, not words!",
     level: 7,
     readTime: "4 min",
-    quickSummary: "Vector DB na data-ah numerical coordinates (Vectors)-ah store pannum. Exact keyword matching palla pallaama, 'meaning' matching palla idhu thaan AI generation logic-kulla core (Example: Pinecone, Weaviate).",
+    quickSummary: "Vector DB na data-ah numerical coordinates (Vectors)-ah store pannum. Exact keyword matching pannaama, 'meaning' matching panna idhu thaan AI generation logic-kulla core (Example: Pinecone, Weaviate).",
     analogy: {
       description: "Normal DB is like a Dictionary 📖 (Search by word). Vector DB is like a Concept Map 🗺️ (Search by similarity. You search for 'Rain', it also finds 'Cloud' because they are physically close in meaning).",
       visual: [{ icon: "📐", label: "Vector" }, { icon: "↔️", label: "" }, { icon: "🧠", label: "Semantic" }],
@@ -5261,14 +7241,14 @@ export const topics = [
       { speaker: "Raj", avatar: "🧑", message: "Bro, AI-ku eppadi unga company internal data-ah korthu solrathu?" },
       { speaker: "Arul", avatar: "👨‍🔬", message: "Unga data-ah vectors-ah mathi Vector DB-la podung bro! ChatGPT unga data-la semantically search panni, accurate-ana context eduthu answer dharum." },
       { speaker: "Raj", avatar: "🧑", message: "Embeddings na enna bro?" },
-      { speaker: "Arul", avatar: "👨‍🔬", message: "Text-ah numbers-ah mathura process logic idhu. Vectors thaan AI purinjikkira language patterns follows palla mechanism security metrics power logic efficiency." },
+      { speaker: "Arul", avatar: "👨‍🔬", message: "Text-ah numbers-ah mathura process logic idhu. Vectors thaan AI purinjikkira language patterns follows panna mechanism security metrics power logic efficiency." },
       { speaker: "Raj", avatar: "🧑", message: "Scaling limits irukka?" },
       { speaker: "Arul", avatar: "👨‍🔬", message: "Billion vectors kooda handle panna mudiya cloud providers (Pinecone) irukkaanga patterns. Fast ingestion logic efficiency peaks power patterns." },
       { speaker: "Raj", avatar: "🧑", message: "Vector DB architecture understood." },
     ],
     whenToUse: ["RAG (Context for AI)", "Image similarity search", "Recommendation systems"],
     devConfession: {
-      mistake: "Normal SQL logic vachu meaning search palla try pallaen. Result eppavume wrong-ah vandhuchu.",
+      mistake: "Normal SQL logic vachu meaning search panna try pannaen. Result eppavume wrong-ah vandhuchu.",
       lesson: "For AI context, keyword search fails. Use Vector similarity search.",
     },
     quiz: {
@@ -5295,11 +7275,11 @@ export const topics = [
     },
     conversation: [
       { speaker: "Kiran", avatar: "🧑", message: "Bro, AI model thappa solliduthe?" },
-      { speaker: "Arul", avatar: "👨‍🔬", message: "Fine-tune palla palla thevai illa bro! RAG use pannu. First data-ah search panni context-ah palla vachu, prompt-kulla korthu anuppu. Results semma accurate-ah irukkum." },
+      { speaker: "Arul", avatar: "👨‍🔬", message: "Fine-tune panna thevai illa bro! RAG use pannu. First data-ah search panni context-ah panna vachu, prompt-kulla korthu anuppu. Results semma accurate-ah irukkum." },
       { speaker: "Kiran", avatar: "🧑", message: "Source citations varuma?" },
-      { speaker: "Arul", avatar: "👨‍🔬", message: "Aama! RAG logic-la exactly endha source file/page-la irundhu info eduthom nu citation check palla link kudukka mudiya logic mechanism patterns power logic efficiency." },
-      { speaker: "Kiran", avatar: "🧑", message: "Hallucination control palla ma?" },
-      { speaker: "Arul", avatar: "👨‍🔬", message: "Definitely! Prompt constraints vachu 'Book-la irukka content mattum sollu' nu strict logic set palla security patterns follows palla efficiency king power." },
+      { speaker: "Arul", avatar: "👨‍🔬", message: "Aama! RAG logic-la exactly endha source file/page-la irundhu info eduthom nu citation check panna link kudukka mudiya logic mechanism patterns power logic efficiency." },
+      { speaker: "Kiran", avatar: "🧑", message: "Hallucination control panna ma?" },
+      { speaker: "Arul", avatar: "👨‍🔬", message: "Definitely! Prompt constraints vachu 'Book-la irukka content mattum sollu' nu strict logic set panna security patterns follows panna efficiency king power." },
       { speaker: "Kiran", avatar: "🧑", message: "RAG implementation strategy locked." },
     ],
     whenToUse: ["Building custom AI chatbots for websites", "Processing company private docs"],
@@ -5324,23 +7304,23 @@ export const topics = [
     tagline: "AI that does work!",
     level: 7,
     readTime: "4 min",
-    quickSummary: "AI Agents na verum chat palla palla pallaama, oru task-ah mudikka tools (Internet search, code run, file edit) use panra program. Agent-ku goal kuduthitta, adhuve steps plan panni execute pannum.",
+    quickSummary: "AI Agents na verum chat pannaama, oru task-ah mudikka tools (Internet search, code run, file edit) use panra program. Agent-ku goal kuduthitta, adhuve steps plan panni execute pannum.",
     analogy: {
       description: "Normal AI is like a Consultant 🗣️ (Gives advice). AI Agent is like an Employee 👷 (Takes advice and actually does the work).",
       visual: [{ icon: "🧠", label: "Plan" }, { icon: "→", label: "" }, { icon: "🛠️", label: "Action" }, { icon: "→", label: "" }, { icon: "✅", label: "Done" }],
     },
     conversation: [
       { speaker: "Raj", avatar: "🧑", message: "Bro, AI-ae browser open panni ticket book pannuma?" },
-      { speaker: "Arul", avatar: "👨‍🔬", message: "Agent-ala mudiyum bro! Anthu un instructions korthu browser tool-ah use panni steps palla palla palla automatic-ah pannidum. Antigravity kooda oru powerful AI agent thaan!" },
+      { speaker: "Arul", avatar: "👨‍🔬", message: "Agent-ala mudiyum bro! Anthu un instructions korthu browser tool-ah use panni steps panna automatic-ah pannidum. Antigravity kooda oru powerful AI agent thaan!" },
       { speaker: "Raj", avatar: "🧑", message: "Tools integration eppadi bro?" },
-      { speaker: "Arul", avatar: "👨‍🔬", message: "Function calling or Tools usage logic via AI brain action decide pannum patterns follows palla mechanism security metrics power logic execution levels." },
+      { speaker: "Arul", avatar: "👨‍🔬", message: "Function calling or Tools usage logic via AI brain action decide pannum patterns follows panna mechanism security metrics power logic execution levels." },
       { speaker: "Raj", avatar: "🧑", message: "Looping logic safety check?" },
-      { speaker: "Arul", avatar: "👨‍🔬", message: "Max iterations limit vachukalaam patterns efficiency king logic mastery metrics power logic follows palla power execution level patterns." },
+      { speaker: "Arul", avatar: "👨‍🔬", message: "Max iterations limit vachukalaam patterns efficiency king logic mastery metrics power logic follows panna power execution level patterns." },
       { speaker: "Raj", avatar: "🧑", message: "AI agent capabilities realized." },
     ],
     whenToUse: ["Workflow automation", "Complex planning tasks", "Autonomous coding"],
     devConfession: {
-      mistake: "Agent-ku looping condition check pallaama infinite loop-la bill adhigamaakitaen.",
+      mistake: "Agent-ku looping condition check pannama infinite loop-la bill adhigamaakitaen.",
       lesson: "Always put 'Stop' conditions or max steps for autonomous agents.",
     },
     quiz: {
@@ -5360,7 +7340,7 @@ export const topics = [
     tagline: "See, Hear, Speak AI!",
     level: 7,
     readTime: "4 min",
-    quickSummary: "Multi-modal na multiple types of data (Text, Image, Video, Audio) orae model-ala handle palla mudiyanum nu meaning. Example: GPT-4o-la photo pathu logic sollalaam.",
+    quickSummary: "Multi-modal na multiple types of data (Text, Image, Video, Audio) orae model-ala handle panna mudiyanum nu meaning. Example: GPT-4o-la photo pathu logic sollalaam.",
     analogy: {
       description: "Normal AI is like reading a Book 📖 (Text only). Multi-modal AI is like watching a Movie 🍿 (See faces, hear sound, read subtitles) at the same time.",
       visual: [{ icon: "📝", icon: "🖼️", icon: "🔊" }, { icon: "→", label: "" }, { icon: "🧠", label: "AI" }],
@@ -5369,18 +7349,18 @@ export const topics = [
       { speaker: "Kiran", avatar: "🧑", message: "Bro, AI photo-ah pathu caption ezhuthuma?" },
       { speaker: "Arul", avatar: "👨‍🔬", message: "Aama bro! Multi-modal models (Vision) ippo visuals-ah purinjikkum. Future-la AI video paathu automatic-ah edit pookum logic-um varalaam. Semma revolution idhu!" },
       { speaker: "Kiran", avatar: "🧑", message: "Audio processing possible-ah?" },
-      { speaker: "Arul", avatar: "👨‍🔬", message: "Yes! Speech-to-text directly without intermediate layer logic handle aagum patterns follows palla mechanism security metrics power logic execution levels." },
+      { speaker: "Arul", avatar: "👨‍🔬", message: "Yes! Speech-to-text directly without intermediate layer logic handle aagum patterns follows panna mechanism security metrics power logic execution levels." },
       { speaker: "Kiran", avatar: "🧑", message: "Resource usage adhighamaa?" },
-      { speaker: "Arul", avatar: "👨‍🔬", message: "Aama, massive matrix logic patterns handling resource hungry logic efficiency king mastery patterns follows palla power logic execution." },
+      { speaker: "Arul", avatar: "👨‍🔬", message: "Aama, massive matrix logic patterns handling resource hungry logic efficiency king mastery patterns follows panna power logic execution." },
       { speaker: "Kiran", avatar: "🧑", message: "Multi-modal AI vision clear." },
     ],
     whenToUse: ["Image captioning", "Voice assistants with vision", "Video analysis"],
     devConfession: {
-      mistake: "Multi-modal heavy logic-ah mobile data-la run palla palla palla app slow aakiten.",
+      mistake: "Multi-modal heavy logic-ah mobile data-la run panna app slow aakiten.",
       lesson: "Handle large binary inputs (Video/Image) carefully. Multi-modal can be resource hungry.",
     },
     quiz: {
-      question: "Text, Image, Audio moonu-ume handle palla AI enna category?",
+      question: "Text, Image, Audio moonu-ume handle panna AI enna category?",
       options: ["Uni-modal", "Multi-modal", "Tri-modal"],
       answer: 1
     },
@@ -5405,14 +7385,14 @@ export const topics = [
       { speaker: "Logu", avatar: "🧑", message: "Bro, US server logic India-la slow-ah irukke?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Vercel or Cloudflare Edge Functions use pannu bro! Logic local CDN nodes-laye execute aagi instantly user-ku results tharum. High-speed personalized content-ku idhu thaan best." },
       { speaker: "Logu", avatar: "🧑", message: "V8 isolate na enna bro?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Edge functions heavy node runtime path palla pallaama light V8 isolates use pannuvaாங்க. Cold starts zero-ah irukkum. Low latency logic power!" },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Edge functions heavy node runtime path pannaama light V8 isolates use pannuvaாங்க. Cold starts zero-ah irukkum. Low latency logic power!" },
       { speaker: "Logu", avatar: "🧑", message: "Database kooda connect aahu ma?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Edge compatible DBs (PlanetScale/Neon) or HTTP based APIs use pannanum. Global app scale-ku idhu thaan future foundation." },
       { speaker: "Logu", avatar: "🧑", message: "Edge functions for zero latency." },
     ],
     whenToUse: ["Geo-personalization", "AB testing at edge", "Fast authentication checks"],
     devConfession: {
-      mistake: "Heavy machine learning logic-ah edge-la pooda try pallaen. Edge runtime has light memory limits!",
+      mistake: "Heavy machine learning logic-ah edge-la pooda try pannaen. Edge runtime has light memory limits!",
       lesson: "Keep edge functions small and fast. Use main server for heavy heavy heavy logic.",
     },
     quiz: {

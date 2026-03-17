@@ -11,12 +11,19 @@ const UserProgressContext = createContext();
 
 const DEFAULT_PROGRESS = {
   completedTopics: [],
+  completedQuizzes: [],
+  completedReadings: [],
+  viewedMistakes: [],
   xp: 0,
   streak: 0,
   lastLogin: null,
   unlockedBadges: [],
   level: 1,
-  xpHistory: []
+  xpHistory: [],
+  avatarStyle: {
+    border: "plain", // plain, glow, neon, gold
+    emoji: "" // optional overlay emoji
+  }
 };
 
 export function UserProgressProvider({ children }) {
@@ -50,8 +57,10 @@ export function UserProgressProvider({ children }) {
         
         if (docSnap.exists() && docSnap.data().progress) {
           const firestoreProgress = docSnap.data().progress;
-          setProgress(firestoreProgress);
-          localStorage.setItem(`techaa_progress_${user.uid}`, JSON.stringify(firestoreProgress));
+          // Merge with defaults to handle new fields
+          const mergedProgress = { ...DEFAULT_PROGRESS, ...firestoreProgress };
+          setProgress(mergedProgress);
+          localStorage.setItem(`techaa_progress_${user.uid}`, JSON.stringify(mergedProgress));
         }
       } catch (err) {
         console.error("Firestore loading error:", err);
@@ -75,7 +84,12 @@ export function UserProgressProvider({ children }) {
     const syncToFirestore = async () => {
       try {
         const docRef = doc(db, "users", user.uid);
-        await updateDoc(docRef, { progress: progress });
+        await setDoc(docRef, { 
+          progress: progress,
+          lastUpdated: Date.now(),
+          email: user.email,
+          name: user.displayName
+        }, { merge: true });
       } catch (err) {
         console.error("Error syncing to Firestore:", err);
       }
@@ -132,6 +146,50 @@ export function UserProgressProvider({ children }) {
       return { 
         ...prev, 
         xp: newXP, 
+        level: newLevel,
+        xpHistory: [historyEntry, ...(prev.xpHistory || [])].slice(0, 30)
+      };
+    });
+  };
+
+  const markRead = (topicId) => {
+    setProgress(prev => {
+      if ((prev.completedReadings || []).includes(topicId)) return prev;
+      return {
+        ...prev,
+        completedReadings: [...(prev.completedReadings || []), topicId]
+      };
+    });
+  };
+
+  const markMistakeSeen = (topicId) => {
+    setProgress(prev => {
+      if ((prev.viewedMistakes || []).includes(topicId)) return prev;
+      return {
+        ...prev,
+        viewedMistakes: [...(prev.viewedMistakes || []), topicId]
+      };
+    });
+  };
+
+  const completeQuiz = (topicId) => {
+    setProgress(prev => {
+      if ((prev.completedQuizzes || []).includes(topicId)) return prev;
+      
+      const topic = topics.find(t => t.id === topicId);
+      const xpGain = XP_AWARDS.QUIZ_CORRECT;
+      const newXP = (prev.xp || 0) + xpGain;
+      const newLevel = XP_LEVELS.findLast(l => newXP >= l.minXP)?.level || 1;
+      const historyEntry = { 
+        amount: xpGain, 
+        reason: "Quiz Correct 🔥", 
+        timestamp: Date.now() 
+      };
+
+      return {
+        ...prev,
+        completedQuizzes: [...(prev.completedQuizzes || []), topicId],
+        xp: newXP,
         level: newLevel,
         xpHistory: [historyEntry, ...(prev.xpHistory || [])].slice(0, 30)
       };
@@ -198,6 +256,8 @@ export function UserProgressProvider({ children }) {
   };
 
   const isTopicLocked = (topicId) => {
+    if (!user) return false; // Allowed to explore for guests! 🔓
+    
     const topicIndex = topics.findIndex(t => t.id === topicId);
     if (topicIndex === -1) return true;
     if (topicIndex === 0) return false;
@@ -213,11 +273,22 @@ export function UserProgressProvider({ children }) {
     return Math.round((completedInLevel.length / levelTopics.length) * 100);
   };
 
+  const updateAvatarStyle = (newStyle) => {
+    setProgress(prev => ({
+      ...prev,
+      avatarStyle: { ...prev.avatarStyle, ...newStyle }
+    }));
+  };
+
   return (
     <UserProgressContext.Provider value={{ 
       ...progress, 
       completeTopic, 
+      completeQuiz,
+      markRead,
+      markMistakeSeen,
       addXP, 
+      updateAvatarStyle,
       resetProgress,
       getLevelProgress,
       isTopicLocked,

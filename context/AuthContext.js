@@ -55,13 +55,25 @@ export function AuthProvider({ children }) {
                 createdAt: new Date().toISOString(),
                 progress: { // Default progress structure
                   completedTopics: [],
+                  completedQuizzes: [],
                   xp: 0,
                   streak: 0,
                   lastLogin: null,
                   unlockedBadges: [],
-                  level: 1
+                  level: 1,
+                  xpHistory: []
                 }
               });
+            } else {
+              // Update name or photo if they changed on Google
+              const data = userDoc.data();
+              if (data.photoURL !== user.photoURL || data.name !== user.displayName) {
+                const { updateDoc } = await import('firebase/firestore');
+                await updateDoc(userDocRef, {
+                  name: user.displayName,
+                  photoURL: user.photoURL
+                });
+              }
             }
           } catch (dbError) {
             console.warn("Firestore background sync issue:", dbError.message);

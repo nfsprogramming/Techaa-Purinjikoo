@@ -9,8 +9,24 @@ import { useAuth } from "@/context/AuthContext";
 import { motion } from "framer-motion";
 
 export default function ProfilePage() {
-  const { xp, level, streak, completedTopics, unlockedBadges, XP_LEVELS, BADGES, getLevelProgress, loading, xpHistory, resetProgress } = useUserProgress();
+  const { xp, level, streak, completedTopics, unlockedBadges, XP_LEVELS, BADGES, getLevelProgress, loading, xpHistory, resetProgress, avatarStyle, updateAvatarStyle } = useUserProgress();
   const { user } = useAuth();
+
+  const AVATAR_SHOP = {
+    borders: [
+      { id: "plain", label: "Default", level: 1, style: { border: "4px solid #070711" } },
+      { id: "neon", label: "Neon Purple", level: 5, style: { border: "4px solid #8b5cf6", boxShadow: "0 0 15px #8b5cf6" } },
+      { id: "glow", label: "Cyan Glow", level: 10, style: { border: "4px solid #06b6d4", boxShadow: "0 0 20px #06b6d4" } },
+      { id: "gold", label: "Royal Gold", level: 15, style: { border: "4px solid #fbbf24", boxShadow: "0 0 25px #fbbf24" } },
+    ],
+    emojis: [
+      { id: "none", label: "None", level: 1, emoji: "" },
+      { id: "verified", label: "Verified", level: 3, emoji: "✅" },
+      { id: "pro", label: "Pro Learner", level: 8, emoji: "🛡️" },
+      { id: "fire", label: "On Fire", level: 12, emoji: "🔥" },
+      { id: "crown", label: "King/Queen", level: 20, emoji: "👑" },
+    ]
+  };
 
   const [leaderboard, setLeaderboard] = useState([]);
   const [loadingLeaderboard, setLoadingLeaderboard] = useState(true);
@@ -18,9 +34,13 @@ export default function ProfilePage() {
   useEffect(() => {
     const fetchLeaderboard = async () => {
       try {
-        const { collection, getDocs } = await import('firebase/firestore');
+        const { collection, getDocs, limit, query, orderBy } = await import('firebase/firestore');
         const { db } = await import('@/lib/firebase');
-        const querySnapshot = await getDocs(collection(db, "users"));
+        
+        // Use a proper query if possible, but fallback to manual if rules are tricky
+        const q = query(collection(db, "users"), limit(50));
+        const querySnapshot = await getDocs(q);
+        
         const users = [];
         querySnapshot.forEach((doc) => {
           const data = doc.data();
@@ -33,15 +53,36 @@ export default function ProfilePage() {
             });
           }
         });
-        setLeaderboard(users.sort((a, b) => b.xp - a.xp).slice(0, 20));
+
+        // Always ensure the current user is visible for them, even if not in the top 50 yet
+        if (user && !users.find(u => u.id === user.uid)) {
+          users.push({
+            id: user.uid,
+            name: user.displayName || "Me",
+            avatar: user.photoURL,
+            xp: xp
+          });
+        }
+
+        const sorted = users.sort((a, b) => b.xp - a.xp);
+        setLeaderboard(sorted.slice(0, 20));
       } catch (err) {
         console.error("Leaderboard error:", err);
+        // Fallback to just showing the current user if fetch fails (permissions)
+        if (user) {
+          setLeaderboard([{
+            id: user.uid,
+            name: user.displayName || "Me",
+            avatar: user.photoURL,
+            xp: xp
+          }]);
+        }
       } finally {
         setLoadingLeaderboard(false);
       }
     };
-    if (!loading) fetchLeaderboard();
-  }, [loading]);
+    if (!loading && user) fetchLeaderboard();
+  }, [loading, user, xp]);
 
   const handleReset = async () => {
     if (confirm("Nijamave account reset panna poringala bro? Unnoda XP, Badges, topics progress ellam delete aayidum! ⚠️")) {
@@ -88,6 +129,13 @@ export default function ProfilePage() {
       <Navbar />
 
       <div style={{ maxWidth: "1000px", margin: "0 auto", padding: "80px 16px 60px" }}>
+        
+        {/* Back Button */}
+        <motion.div initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }}>
+          <Link href="/" style={{ display: "inline-flex", alignItems: "center", gap: "8px", color: "#64748b", textDecoration: "none", fontSize: "0.85rem", fontWeight: 700, marginBottom: "24px", padding: "8px 16px", background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: "12px", transition: "0.2s" }}>
+            <span>←</span> Home
+          </Link>
+        </motion.div>
 
         <style>{`
           .profile-grid-main { display: grid; grid-template-columns: 1fr; gap: 32px; }
@@ -102,8 +150,12 @@ export default function ProfilePage() {
           .profile-header { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 20px; background: rgba(255,255,255,0.02); padding: 32px 20px; borderRadius: 32px; border: 1px solid rgba(255,255,255,0.05); margin-bottom: 32px; position: relative; }
           @media (min-width: 600px) { .profile-header { flex-direction: row; text-align: left; padding: 40px; } }
           
-          .reset-btn { position: absolute; top: 20px; right: 20px; background: rgba(255,75,75,0.05); border: 1px solid rgba(255,75,75,0.1); color: #ff4b4b; padding: 6px 14px; borderRadius: 100px; fontSize: "0.65rem"; fontWeight: 800; cursor: pointer; transition: 0.2s; }
+          .reset-btn { position: absolute; top: 20px; right: 20px; background: rgba(255,75,75,0.05); border: 1px solid rgba(255,75,75,0.1); color: #ff4b4b; padding: 6px 14px; borderRadius: 100px; fontSize: "0.65rem"; fontWeight: 800; cursor: pointer; transition: 0.2s; z-index: 10; }
           .reset-btn:hover { background: rgba(255,75,75,0.15); scale: 1.05; }
+
+          .shop-item { cursor: pointer; transition: 0.2s; position: relative; overflow: hidden; }
+          .shop-item.locked { cursor: not-allowed; opacity: 0.5; }
+          .shop-item.selected { border: 2px solid #8b5cf6 !important; background: rgba(139,92,246,0.1) !important; }
         `}</style>
 
         {/* Profile Header */}
@@ -111,16 +163,29 @@ export default function ProfilePage() {
           {/* Reset Button */}
           <button onClick={handleReset} className="reset-btn">Reset Panriya Bro 🧹</button>
 
-          <div style={{ width: "100px", height: "100px", borderRadius: "50%", background: "linear-gradient(135deg, #8b5cf6, #06b6d4)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "3rem", boxShadow: "0 0 30px rgba(139,92,246,0.2)", overflow: "hidden", border: "4px solid #070711", flexShrink: 0 }}>
-            {user?.photoURL ? (
-              <img
-                src={user.photoURL}
-                alt="Me"
-                referrerPolicy="no-referrer"
-                style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                onError={(e) => { e.target.src = `https://ui-avatars.com/api/?name=${user.displayName || 'User'}&background=8b5cf6&color=fff`; }}
-              />
-            ) : <span style={{ fontSize: "2.5rem" }}>👤</span>}
+          <div style={{ position: "relative", flexShrink: 0 }}>
+            <div style={{ 
+              width: "100px", height: "100px", borderRadius: "50%", 
+              background: "linear-gradient(135deg, #8b5cf6, #06b6d4)", 
+              display: "flex", alignItems: "center", justifyContent: "center", fontSize: "3rem", 
+              overflow: "hidden", border: "4px solid #070711", 
+              ...(AVATAR_SHOP.borders.find(b => b.id === avatarStyle?.border)?.style || {})
+            }}>
+              {user?.photoURL ? (
+                <img
+                  src={user.photoURL}
+                  alt="Me"
+                  referrerPolicy="no-referrer"
+                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                  onError={(e) => { e.target.src = `https://ui-avatars.com/api/?name=${user.displayName || 'User'}&background=8b5cf6&color=fff`; }}
+                />
+              ) : <span style={{ fontSize: "2.5rem" }}>👤</span>}
+            </div>
+            {avatarStyle?.emoji && avatarStyle.emoji !== "none" && (
+              <div style={{ position: "absolute", bottom: -5, right: -5, background: "#070711", width: "32px", height: "32px", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.2rem", border: "2px solid rgba(255,255,255,0.1)" }}>
+                {AVATAR_SHOP.emojis.find(e => e.id === avatarStyle.emoji)?.emoji}
+              </div>
+            )}
           </div>
           <div style={{ flex: 1, width: "100%" }}>
             <div style={{ fontSize: "0.7rem", fontWeight: 900, color: "#8b5cf6", textTransform: "uppercase", letterSpacing: "2px", marginBottom: "4px" }}>LEVEL {level}</div>
@@ -180,6 +245,49 @@ export default function ProfilePage() {
             </section>
 
             <section>
+              <h2 style={{ fontSize: "1.3rem", fontWeight: 900, marginBottom: "20px", display: "flex", alignItems: "center", gap: "10px" }}>🎨 Customization Shop</h2>
+              <div style={{ background: "rgba(255,255,255,0.02)", borderRadius: "24px", padding: "20px", border: "1px solid rgba(255,255,255,0.05)" }}>
+                <p style={{ fontSize: "0.8rem", color: "#64748b", marginBottom: "16px", fontWeight: 700 }}>Borders (Unlock patterns as you level up!)</p>
+                <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "8px", marginBottom: "24px" }}>
+                  {AVATAR_SHOP.borders.map(b => {
+                    const isLocked = level < b.level;
+                    const isSelected = avatarStyle?.border === b.id;
+                    return (
+                      <div 
+                        key={b.id} 
+                        onClick={() => !isLocked && updateAvatarStyle({ border: b.id })}
+                        className={`shop-item ${isLocked ? 'locked' : ''} ${isSelected ? 'selected' : ''}`}
+                        style={{ padding: "12px", background: "rgba(255,255,255,0.03)", borderRadius: "12px", border: "1px solid rgba(255,255,255,0.05)", textAlign: "center" }}
+                      >
+                        <div style={{ fontSize: "0.85rem", fontWeight: 800 }}>{b.label}</div>
+                        <div style={{ fontSize: "0.65rem", color: isLocked ? "#f87171" : "#8b5cf6" }}>{isLocked ? `LVL ${b.level} 🔒` : 'Unlocked ✨'}</div>
+                      </div>
+                    );
+                  })}
+                </div>
+
+                <p style={{ fontSize: "0.8rem", color: "#64748b", marginBottom: "16px", fontWeight: 700 }}>Exclusive Emojis</p>
+                <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(80px, 1fr))", gap: "8px" }}>
+                  {AVATAR_SHOP.emojis.map(e => {
+                    const isLocked = level < e.level;
+                    const isSelected = avatarStyle?.emoji === e.id;
+                    return (
+                      <div 
+                        key={e.id} 
+                        onClick={() => !isLocked && updateAvatarStyle({ emoji: e.id })}
+                        className={`shop-item ${isLocked ? 'locked' : ''} ${isSelected ? 'selected' : ''}`}
+                        style={{ padding: "10px", background: "rgba(255,255,255,0.03)", borderRadius: "12px", border: "1px solid rgba(255,255,255,0.05)", textAlign: "center" }}
+                      >
+                        <div style={{ fontSize: "1.2rem", marginBottom: "4px" }}>{e.emoji || '❌'}</div>
+                        <div style={{ fontSize: "0.6rem", color: isLocked ? "#f87171" : "#8b5cf6", fontWeight: 800 }}>{isLocked ? `L${e.level}` : 'Use'}</div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </section>
+
+            <section>
               <h2 style={{ fontSize: "1.3rem", fontWeight: 900, marginBottom: "20px" }}>🏆 Achievements <span style={{ fontSize: "0.8rem", color: "#64748b", fontWeight: 500 }}>({unlockedBadges.length}/{BADGES.length})</span></h2>
               <div className="badges-grid">
                 {BADGES.map((badge) => {
@@ -199,14 +307,27 @@ export default function ProfilePage() {
             <section>
               <h2 style={{ fontSize: "1.3rem", fontWeight: 900, marginBottom: "20px" }}>🔥 Top Learners</h2>
               <div style={{ background: "rgba(255,255,255,0.02)", borderRadius: "24px", padding: "16px", border: "1px solid rgba(255,255,255,0.05)" }}>
-                {loadingLeaderboard ? <div style={{ textAlign: "center", padding: "20px", fontSize: "0.8rem", color: "#64748b" }}>Loading...</div> : leaderboard.slice(0, 5).map((u, i) => (
-                  <div key={u.id} style={{ display: "flex", alignItems: "center", gap: "12px", padding: "12px", borderRadius: "12px", background: user?.uid === u.id ? "rgba(139,92,246,0.1)" : "transparent", marginBottom: "4px" }}>
-                    <div style={{ fontSize: "0.9rem", fontWeight: 900, width: "24px", color: i < 3 ? "#fbbf24" : "#64748b" }}>#{i + 1}</div>
-                    <img src={u.avatar || `https://ui-avatars.com/api/?name=${u.name}&background=8b5cf6&color=fff`} style={{ width: "32px", height: "32px", borderRadius: "50%" }} />
-                    <div style={{ flex: 1, fontWeight: 700, fontSize: "0.9rem", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{u.name}</div>
-                    <div style={{ fontWeight: 900, color: "#8b5cf6", fontSize: "0.85rem" }}>{u.xp} XP</div>
+                {loadingLeaderboard ? (
+                  <div style={{ textAlign: "center", padding: "20px", fontSize: "0.8rem", color: "#64748b" }}>Loading learners...</div>
+                ) : leaderboard.length === 0 ? (
+                  <div style={{ textAlign: "center", padding: "20px", fontSize: "0.8rem", color: "#64748b" }}>
+                    No other learners yet. Share the app to start the competition! 🚀
                   </div>
-                ))}
+                ) : (
+                  leaderboard.slice(0, 5).map((u, i) => (
+                    <div key={u.id} style={{ display: "flex", alignItems: "center", gap: "12px", padding: "12px", borderRadius: "12px", background: user?.uid === u.id ? "rgba(139,92,246,0.1)" : "transparent", marginBottom: "4px", border: user?.uid === u.id ? "1px solid rgba(139,92,246,0.2)" : "1px solid transparent" }}>
+                      <div style={{ fontSize: "0.9rem", fontWeight: 900, width: "24px", color: i < 3 ? "#fbbf24" : "#64748b" }}>#{i + 1}</div>
+                      <img 
+                        src={u.avatar || `https://ui-avatars.com/api/?name=${u.name}&background=8b5cf6&color=fff`} 
+                        style={{ width: "32px", height: "32px", borderRadius: "50%", border: "2px solid rgba(255,255,255,0.05)" }} 
+                        referrerPolicy="no-referrer"
+                        onError={(e) => { e.target.src = `https://ui-avatars.com/api/?name=${u.name || 'User'}&background=8b5cf6&color=fff`; }}
+                      />
+                      <div style={{ flex: 1, fontWeight: 700, fontSize: "0.9rem", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{u.id === user?.uid ? "You (Nee thaan!)" : u.name}</div>
+                      <div style={{ fontWeight: 900, color: "#8b5cf6", fontSize: "0.85rem" }}>{u.xp} XP</div>
+                    </div>
+                  ))
+                )}
               </div>
             </section>
 

@@ -5,9 +5,14 @@ import { useUserProgress } from "@/context/UserProgressContext";
 import { motion } from "framer-motion";
 
 export default function TopicCard({ topic, index }) {
-  const { completedTopics, isTopicLocked } = useUserProgress();
+  const { completedTopics, isTopicLocked, completedReadings, completedQuizzes, viewedMistakes } = useUserProgress();
   const isCompleted = completedTopics.includes(topic.id);
   const isLocked = isTopicLocked(topic.id);
+
+  // Granular progress
+  const hasRead = (completedReadings || []).includes(topic.id) || isCompleted;
+  const hasQuiz = (completedQuizzes || []).includes(topic.id) || isCompleted;
+  const hasMistake = (viewedMistakes || []).includes(topic.id) || isCompleted;
 
   const cardContent = (
     <motion.div
@@ -23,7 +28,7 @@ export default function TopicCard({ topic, index }) {
         height: "100%",
         display: "flex",
         flexDirection: "column",
-        gap: "16px",
+        gap: "12px",
         background: isLocked ? "rgba(255,255,255,0.01)" : "rgba(255,255,255,0.03)",
         backdropFilter: "blur(20px)",
         border: isLocked ? "1px solid rgba(255,255,255,0.02)" : (isCompleted ? "1px solid #22c55e" : "1px solid rgba(255,255,255,0.07)"),
@@ -59,21 +64,35 @@ export default function TopicCard({ topic, index }) {
 
       {/* Content Area */}
       <div style={{ zIndex: 1 }}>
-        <h3 style={{ fontSize: "1.4rem", fontWeight: 900, color: isLocked ? "#4b5563" : "#fff", marginBottom: "8px", letterSpacing: "-0.5px" }}>
+        <h3 style={{ fontSize: "1.4rem", fontWeight: 900, color: isLocked ? "#4b5563" : "#fff", marginBottom: "4px", letterSpacing: "-0.5px" }}>
           {topic.title}
         </h3>
-        <p style={{ fontSize: "0.95rem", color: isLocked ? "#374151" : "#94a3b8", lineHeight: 1.6 }}>
+        <p style={{ fontSize: "0.85rem", color: isLocked ? "#374151" : "#94a3b8", lineHeight: 1.5, marginBottom: "12px", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden" }}>
           {isLocked ? "Complete previous topics to unlock!" : topic.shortDesc}
         </p>
+
+        {/* Granular Progress Bar */}
+        {!isLocked && (
+          <div style={{ display: "flex", flexWrap: "wrap", gap: "10px", marginBottom: "8px" }}>
+            <div style={{ flex: 1 }}>
+              <div style={{ fontSize: "0.6rem", color: "#64748b", fontWeight: 900, textTransform: "uppercase", marginBottom: "4px" }}>Progress</div>
+              <div style={{ display: "flex", gap: "4px", height: "6px" }}>
+                <div style={{ flex: 1, background: hasRead ? topic.accentColor : "rgba(255,255,255,0.05)", borderRadius: "2px", transition: "0.3s" }} title="Read" />
+                <div style={{ flex: 1, background: hasQuiz ? topic.accentColor : "rgba(255,255,255,0.05)", borderRadius: "2px", transition: "0.3s" }} title="Quiz" />
+                <div style={{ flex: 1, background: hasMistake ? topic.accentColor : "rgba(255,255,255,0.05)", borderRadius: "2px", transition: "0.3s" }} title="Mistake" />
+              </div>
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Bottom Action Area */}
-      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: "auto", paddingTop: "16px", zIndex: 1, borderTop: "1px solid rgba(255,255,255,0.05)" }}>
-        <span style={{ fontSize: "0.9rem", fontWeight: 800, color: isLocked ? "#374151" : topic.accentColor, textTransform: "uppercase", letterSpacing: "1px" }}>
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: "auto", paddingTop: "12px", zIndex: 1, borderTop: "1px solid rgba(255,255,255,0.05)" }}>
+        <span style={{ fontSize: "0.85rem", fontWeight: 800, color: isLocked ? "#374151" : topic.accentColor, textTransform: "uppercase", letterSpacing: "1px" }}>
           {isLocked ? "Locked" : "Purinjiko"}
         </span>
         
-        <div style={{ width: "36px", height: "36px", borderRadius: "50%", background: isLocked ? "rgba(255,255,255,0.02)" : "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.1rem" }}>
+        <div style={{ width: "32px", height: "32px", borderRadius: "50%", background: isLocked ? "rgba(255,255,255,0.02)" : "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1rem" }}>
           {isLocked ? "🔒" : "→"}
         </div>
       </div>
@@ -84,7 +103,7 @@ export default function TopicCard({ topic, index }) {
   if (isLocked) return cardContent;
 
   return (
-    <Link href={`/topics/${topic.id}`} style={{ textDecoration: "none" }}>
+    <Link href={`/topics/${topic.id}`} style={{ textDecoration: "none", display: "block", height: "100%" }}>
       {cardContent}
     </Link>
   );

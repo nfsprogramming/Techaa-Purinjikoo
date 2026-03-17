@@ -58,7 +58,8 @@ export const BADGES = [
   { id: 'share-master', title: 'Social Star', emoji: '🌟', desc: 'Share 5 tech cards.', requirement: { type: 'special', id: 'shares-5' } },
   { id: 'pixel-perfect', title: 'Pixel Perfect', emoji: '✨', desc: 'Explore all the UI topics.', requirement: { type: 'ids', value: ['frontend-vs-backend', 'browser-loading'] } },
   { id: 'data-scientist', title: 'Data Scientist', emoji: '📉', desc: 'Explore all AI and Data topics.', requirement: { type: 'levels', value: [3, 7] } },
-  { id: 'marathon', title: 'Marathon Runner', emoji: '🏃', desc: 'Stay for 1 hour learning total.', requirement: { type: 'special', id: 'time-1h' } }
+  { id: 'marathon', title: 'Marathon Runner', emoji: '🏃', desc: 'Stay for 1 hour learning total.', requirement: { type: 'special', id: 'time-1h' } },
+  { id: 'bug-hunter', title: 'Bug Hunter', emoji: '🕸️', desc: 'Read 5 Developer Mistake sections.', requirement: { type: 'ids', value: ['internet', 'http-vs-https', 'cookies-cache'] } }
 ];
 
 export const XP_LEVELS = [

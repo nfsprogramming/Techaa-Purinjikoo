@@ -3,8 +3,10 @@
 import { useAuth } from "@/context/AuthContext";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { db } from "@/lib/firebase";
-import { collection, getDocs, addDoc } from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
+import { motion } from "framer-motion";
 
 export default function AdminPage() {
   const { user, loading } = useAuth();
@@ -37,6 +39,14 @@ export default function AdminPage() {
   return (
     <div style={{ background: "#070711", minHeight: "100vh", color: "#fff", padding: "100px 24px" }}>
       <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+        
+        {/* Back Button */}
+        <motion.div initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }}>
+          <Link href="/" style={{ display: "inline-flex", alignItems: "center", gap: "8px", color: "#64748b", textDecoration: "none", fontSize: "0.9rem", fontWeight: 700, marginBottom: "32px", padding: "8px 16px", background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: "12px", transition: "0.2s" }}>
+            <span>←</span> Back to Home
+          </Link>
+        </motion.div>
+
         <h1 style={{ fontSize: "2.5rem", fontWeight: 900, marginBottom: "40px" }}>
           Admin <span style={{ color: "#8b5cf6" }}>Control Center</span> 🛠️
         </h1>
@@ -67,7 +77,12 @@ export default function AdminPage() {
               {users.map(u => (
                 <tr key={u.id} style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
                   <td style={{ padding: "20px", display: "flex", alignItems: "center", gap: "12px" }}>
-                    <img src={u.photoURL} style={{ width: "32px", height: "32px", borderRadius: "50%" }} />
+                    <img 
+                      src={u.photoURL || `https://ui-avatars.com/api/?name=${u.name}&background=8b5cf6&color=fff`} 
+                      style={{ width: "32px", height: "32px", borderRadius: "50%" }} 
+                      referrerPolicy="no-referrer"
+                      onError={(e) => { e.target.src = `https://ui-avatars.com/api/?name=${u.name || 'User'}&background=8b5cf6&color=fff`; }}
+                    />
                     <span style={{ fontWeight: 600 }}>{u.name}</span>
                   </td>
                   <td style={{ padding: "20px", color: "#94a3b8" }}>{u.email}</td>

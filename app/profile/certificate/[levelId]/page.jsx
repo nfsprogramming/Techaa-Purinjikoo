@@ -125,16 +125,24 @@ export default function CertificatePage() {
       `}</style>
 
       <div id="certificate-wrapper-parent">
-        <div id="certificate-wrapper" style={{ maxWidth: "1000px", margin: "0 auto", padding: "120px 24px 60px" }}>
-        {/* Certificate Container */}
+        <div id="certificate-wrapper" style={{ maxWidth: "1000px", margin: "0 auto", padding: "clamp(80px, 12vh, 100px) 16px 60px" }}>
+          
+          {/* Back Button */}
+          <div className="no-print" style={{ marginBottom: "24px" }}>
+            <Link href="/profile" style={{ display: "inline-flex", alignItems: "center", gap: "8px", color: "#64748b", textDecoration: "none", fontSize: "0.85rem", fontWeight: 700, padding: "8px 16px", background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: "12px", transition: "0.2s" }}>
+              <span>←</span> Back to Profile
+            </Link>
+          </div>
+
+          {/* Certificate Container */}
         <div id="certificate" style={{ 
           background: "#0a0a0a", 
           color: "#fff", 
-          padding: "60px", 
+          padding: "clamp(30px, 8vw, 60px) clamp(20px, 5vw, 40px)", 
           borderRadius: "8px", 
           position: "relative",
-          boxShadow: "0 40px 100px rgba(0,0,0,0.8), 0 0 0 20px rgba(255,49,49,0.05)",
-          border: "10px double #ff3131",
+          boxShadow: "0 40px 100px rgba(0,0,0,0.8), 0 0 0 10px rgba(255,49,49,0.05)",
+          border: "8px double #ff3131",
           textAlign: "center",
           overflow: "hidden"
         }}>
@@ -155,37 +163,37 @@ export default function CertificatePage() {
           <h4 style={{ textTransform: "uppercase", letterSpacing: "4px", color: "#64748b", fontWeight: 800, marginBottom: "10px", fontSize: "0.9rem" }}>Certificate of Completion</h4>
           <p style={{ fontStyle: "italic", marginBottom: "20px", color: "#94a3b8" }}>This is to certify that</p>
           
-          <h1 style={{ fontSize: "4.5rem", fontWeight: 950, color: "#fff", marginBottom: "5px", letterSpacing: "-2px", textTransform: "capitalize" }}>
+          <h1 style={{ fontSize: "clamp(2rem, 10vw, 4.5rem)", fontWeight: 950, color: "#fff", marginBottom: "5px", letterSpacing: "-1px", textTransform: "capitalize", lineHeight: 1.1 }}>
             {user?.displayName || "NFS Student"}
           </h1>
           
-          <p style={{ color: "#94a3b8", marginBottom: "20px" }}>has successfully mastered the concepts of</p>
+          <p style={{ color: "#94a3b8", marginBottom: "20px", fontSize: "clamp(0.8rem, 3vw, 1rem)" }}>has successfully mastered the concepts of</p>
           
 
-          <div style={{ padding: "10px 30px", background: "rgba(255,49,49,0.05)", border: "1px solid rgba(255,49,49,0.2)", borderRadius: "100px", display: "inline-block", marginBottom: "40px" }}>
-            <h2 style={{ fontSize: "2rem", fontWeight: 800, background: "linear-gradient(135deg, #ff3131, #8b5cf6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", margin: 0 }}>
+          <div style={{ padding: "8px 24px", background: "rgba(255,49,49,0.05)", border: "1px solid rgba(255,49,49,0.2)", borderRadius: "100px", display: "inline-block", marginBottom: "32px" }}>
+            <h2 style={{ fontSize: "clamp(1.2rem, 5vw, 2rem)", fontWeight: 800, background: "linear-gradient(135deg, #ff3131, #8b5cf6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", margin: 0 }}>
               {certificateName}
             </h2>
           </div>
 
-          <p style={{ maxWidth: "650px", margin: "0 auto 40px", lineHeight: 1.6, color: "#cbd5e1", fontSize: "1rem" }}>
+          <p style={{ maxWidth: "650px", margin: "0 auto 32px", lineHeight: 1.6, color: "#cbd5e1", fontSize: "clamp(0.85rem, 3vw, 1rem)" }}>
             By completing 100% of the structured learning roadmap on <strong style={{color: "#ff3131"}}>Techaa Purinjikoo</strong>, demonstrating deep understanding of modern tech architectures, tools, and developer workflows.
           </p>
 
-          <div className="sig-row-print" style={{ display: "flex", justifyContent: "space-around", alignItems: "flex-end", width: "100%" }}>
-            <div style={{ textAlign: "center" }}>
-              <div style={{ borderBottom: "1px solid rgba(255,255,255,0.1)", width: "150px", marginBottom: "10px" }} />
-              <div style={{ fontSize: "0.8rem", fontWeight: 700, color: "#94a3b8" }}>Date: {new Date().toLocaleDateString()}</div>
+          <div className="sig-row-print" style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-around", alignItems: "center", gap: "24px", width: "100%" }}>
+            <div style={{ textAlign: "center", minWidth: "120px" }}>
+              <div style={{ borderBottom: "1px solid rgba(255,255,255,0.1)", width: "100%", maxWidth: "150px", margin: "0 auto 10px" }} />
+              <div style={{ fontSize: "0.75rem", fontWeight: 700, color: "#94a3b8" }}>Date: {new Date().toLocaleDateString()}</div>
             </div>
 
             {/* Seal */}
-            <div className="seal-circle-print" style={{ width: "100px", height: "100px", borderRadius: "50%", background: "#ff3131", display: "flex", alignItems: "center", justifyContent: "center", border: "4px solid #0a0a0a", boxShadow: "0 0 0 2px #ff3131, 0 10px 20px rgba(255,49,49,0.3)", flexShrink: 0 }}>
-              <span style={{ color: "#fff", fontWeight: 900, fontSize: "0.9rem", textAlign: "center" }}>NFS<br/>TECH</span>
+            <div className="seal-circle-print" style={{ width: "clamp(80px, 15vw, 100px)", height: "clamp(80px, 15vw, 100px)", borderRadius: "50%", background: "#ff3131", display: "flex", alignItems: "center", justifyContent: "center", border: "4px solid #0a0a0a", boxShadow: "0 0 0 2px #ff3131, 0 10px 20px rgba(255,49,49,0.3)", flexShrink: 0 }}>
+              <span style={{ color: "#fff", fontWeight: 900, fontSize: "clamp(0.7rem, 2vw, 0.9rem)", textAlign: "center" }}>NFS<br/>TECH</span>
             </div>
  
-            <div style={{ textAlign: "center" }}>
-              <div style={{ fontWeight: 900, fontSize: "1.2rem", color: "#fff", marginBottom: "10px", letterSpacing: "1px" }}>TECHAA PURINJIKOO</div>
-              <div style={{ fontSize: "0.8rem", fontWeight: 700, color: "#94a3b8" }}>Verification ID: NFS-L{levelId}X{user?.uid?.substring(0, 5).toUpperCase() || "TECH"}</div>
+            <div style={{ textAlign: "center", minWidth: "140px" }}>
+              <div style={{ fontWeight: 900, fontSize: "clamp(1rem, 3vw, 1.2rem)", color: "#fff", marginBottom: "6px", letterSpacing: "1px" }}>TECHAA PURINJIKOO</div>
+              <div style={{ fontSize: "0.7rem", fontWeight: 700, color: "#64748b" }}>ID: NFS-L{levelId}X{user?.uid?.substring(0, 5).toUpperCase() || "TECH"}</div>
             </div>
           </div>
         </div>
