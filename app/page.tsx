@@ -40,13 +40,6 @@ export default function Home() {
   const heroOpacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
 
   const filteredTopics = topics.filter(t => t.level === activeLevel || (!t.level && activeLevel === 1));
-
-  const CONFUSIONS = [
-    { p1: "Frontend", p2: "Backend", emoji: "🎨 vs ⚙️", link: "/topics/frontend-vs-backend" },
-    { p1: "Library", p2: "Framework", emoji: "🛠️ vs 🏗️", link: "/topics/library-vs-framework" },
-    { p1: "Domain", p2: "Hosting", emoji: "📛 vs 🏗️", link: "/topics/domain-vs-hosting" },
-  ];
-
   return (
     <div style={{ background: "#070711", minHeight: "100vh", color: "#fff" }}>
       
@@ -99,41 +92,11 @@ export default function Home() {
               </motion.div>
             )}
             <motion.div whileHover={{ scale: 1.05 }}>
-              <Link href="#roadmap" style={{ display: "inline-block", background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", color: "#fff", padding: "14px 32px", borderRadius: "14px", fontWeight: 800, textDecoration: "none", transition: "0.2s" }}>Explore Path 📖</Link>
+              <Link href="#roadmap" style={{ display: "inline-block", background: "rgba(255,255,245,0.05)", border: "1px solid rgba(255,255,255,0.1)", color: "#fff", padding: "14px 32px", borderRadius: "14px", fontWeight: 800, textDecoration: "none", transition: "0.2s" }}>Explore Path 📖</Link>
             </motion.div>
           </motion.div>
         </motion.div>
       </section>
-
-      {/* Beginner Confusion Section */}
-      <motion.section 
-        initial={{ opacity: 0, scale: 0.95 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.6 }}
-        style={{ maxWidth: "1000px", margin: "0 auto 80px", padding: "0 16px" }}
-      >
-        <div style={{ background: "rgba(139,92,246,0.04)", border: "1px solid rgba(139,92,246,0.15)", borderRadius: "32px", padding: "32px 24px", backdropFilter: "blur(10px)" }}>
-          <h3 style={{ fontSize: "1.5rem", fontWeight: 900, marginBottom: "24px", textAlign: "center", letterSpacing: "-0.5px" }}>🤯 Confusion-ah? Check pannu!</h3>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: "16px" }}>
-            {CONFUSIONS.map((c, i) => (
-              <motion.div 
-                key={i} 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                whileHover={{ y: -8, background: "rgba(139,92,246,0.1)", border: "1px solid rgba(139,92,246,0.3)" }}
-                style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.05)", borderRadius: "20px", padding: "20px", textAlign: "center", transition: "0.3s" }}
-              >
-                <div style={{ fontSize: "1.8rem", marginBottom: "8px" }}>{c.emoji}</div>
-                <div style={{ fontWeight: 800, fontSize: "0.95rem", marginBottom: "12px", color: "#fff" }}>{c.p1} <span style={{ color: "#64748b", margin: "0 2px", fontWeight: 400 }}>vs</span> {c.p2}</div>
-                <Link href={c.link} style={{ display: "inline-block", background: "rgba(139,92,246,0.15)", color: "#c084fc", fontSize: "0.75rem", textDecoration: "none", fontWeight: 900, padding: "6px 14px", borderRadius: "100px", textTransform: "uppercase", letterSpacing: "1px" }}>Watch Now →</Link>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </motion.section>
 
       {/* Roadmap Section */}
       <section id="roadmap" style={{ maxWidth: "1200px", margin: "0 auto 100px", padding: "0 24px" }}>

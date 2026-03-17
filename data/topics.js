@@ -21,7 +21,7 @@ export const topics = [
       { speaker: "Pradeep", avatar: "🧑‍💻", message: "Oh! Satellite illaiya?" },
       { speaker: "Sanjai", avatar: "👨‍💻", message: "Satellite oru 10% thaan bro. 90% traffic innum antha underwater cables moolama thaan varudhu. Semma system la?" },
       { speaker: "Pradeep", avatar: "🧑‍💻", message: "Appo antha cables cut aana internet cut aaiduma?" },
-      { speaker: "Sanjai", avatar: "👨‍💻", message: "Aama bro, recently kooda kadel adiyille earthquake vandhu cables cut aachu, appo full country-ke internet slow aachu. Adhuku thaan multiple paths vechurupaanga!" },
+      { speaker: "Sanjai", avatar: "👨‍💻", message: "Aama bro, recently kooda kadal adiyille earthquake vandhu cables cut aachu, appo full country-ke internet slow aachu. Adhuku thaan multiple paths vechurupaanga!" },
       { speaker: "Pradeep", avatar: "🧑‍💻", message: "Semma technical bro! Internet truly amazing." },
     ],
     whenToUse: ["Information search panna", "Social media access panna"],
@@ -232,7 +232,7 @@ export const topics = [
     readTime: "2 min",
     quickSummary: "Domain na unga website peru (Address). Hosting na unga website files store aagura idam (Veedu). Rendum irundha thaan oru website live aagum.",
     analogy: {
-      description: "Domain is like your House Address 📍 (123, Main St). Hosting is like the physical House 🏠 where you keep your things. Address mattum irundha yaaralum thangam முடியாது, veedu mattum irundha yaaralum kandupidikka mudiyaathu!",
+      description: "Domain is like your House Address 📍 (123, Main St). Hosting is like the physical House 🏠 where you keep your things. Address mattum irundha yaaralum thanga mudiyathu, veedu mattum irundha yaaralum kandupidikka mudiyaathu!",
       visual: [{ icon: "📛", label: "Domain" }, { icon: "➕", label: "" }, { icon: "🏗️", label: "Hosting" }, { icon: "→", label: "" }, { icon: "🌐", label: "Website" }],
     },
     conversation: [
@@ -339,7 +339,7 @@ export const topics = [
     tagline: "Be discoverable!",
     level: 1,
     readTime: "2 min",
-    quickSummary: "SEO (Search Engine Optimization) na unna site Google-la first page-la vara vaikira techniques. Sitemap na Google search bots-ku unna site layout-ah puriya vaikira map.",
+    quickSummary: "SEO (Search Engine Optimization) na unnoda site-ah Google-la first page-la vara vaikira techniques. Sitemap na Google search bots-ku unnoda site layout-ah puriya vaikira map.",
     analogy: {
       description: "It's like Putting a Signboard 🪧 for your shop in a busy street. Signs and labels correct-ah irundha thaan customers (Google) unna kandupidikka mudiyum.",
       visual: [{ icon: "🔍", label: "Google" }, { icon: "↔️", label: "Sitemap" }, { icon: "🌐", label: "Your Site" }],
@@ -347,15 +347,15 @@ export const topics = [
     conversation: [
       { speaker: "Pavi", avatar: "👩", message: "Bro, en site URL poatta thaan varuthu, search panna varala?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Search bots unna site-ah scan panna vidala bro! Robots.txt and Sitemap.xml setup pannu. Appuram proper H1, Meta tags poatta result-la varum." },
-      { speaker: "Pavi", avatar: "👩", message: "Keywords repeating palla ma?" },
+      { speaker: "Pavi", avatar: "👩", message: "Keywords repeating pannala ma?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Venaam, adhu 'Keyword Stuffing' nu penalize pannuvaanga. Valuable content focus pannanum. User retention signals also important for ranking logic." },
       { speaker: "Pavi", avatar: "👩", message: "Page speed factor-ah?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Aama! Slow sites-ah Google bots skip palla chance irukku. Core web vitals logic efficiency maintain palla patterns follows palla num." },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Aama! Slow sites-ah Google bots skip panna chance irukku. Core web vitals logic efficiency maintain panna patterns follows panna num." },
       { speaker: "Pavi", avatar: "👩", message: "SEO optimization in progress." },
     ],
     whenToUse: ["Public blogs", "E-commerce sites"],
     devConfession: {
-      mistake: "Main keywords ellathayus images-la vachutaen. Google bots-ala text-ah padikka mudiyaama site ignore aaiduchu.",
+      mistake: "Main keywords ellathayum images-la vachutaen. Google bots-ala text-ah padikka mudiyaama site ignore aaiduchu.",
       lesson: "Use semantic HTML. Content is king for SEO!",
     },
     quiz: {
@@ -375,7 +375,7 @@ export const topics = [
     tagline: "Build a solid foundation!",
     level: 1,
     readTime: "2 min",
-    quickSummary: "Semantic HTML na `<div>` mattum palla palla pallaama, `<header>`, `<article>`, `<footer` mathiri meaningful tags use panrathu. SEO and Accessibility-ku idhu thaan base.",
+    quickSummary: "Semantic HTML na <div> mattum pala idathula use pannaama, <header>, <article>, <footer> mathiri meaningful tags use panrathu. SEO-kuum Accessibility-kuum idhu thaan base.",
     analogy: {
       description: "It's like Labelling Boxes 📦. Header box, Main content box, Footer box. Un-labelled boxes (Divs) are hard for search engines and screen readers to understand.",
       visual: [{ icon: "🏗️", label: "Header" }, { icon: "📄", label: "Article" }, { icon: "🪜", label: "Footer" }],
@@ -421,7 +421,7 @@ export const topics = [
       { speaker: "Dev", avatar: "👨‍💻", message: "Meta tags update pannu bro! Descriptive titles, alt text for images, and fast loading speed setup pannu. Google bots-ku respect kuduthu build pannuna thaan top-la varum." },
       { speaker: "Arun", avatar: "🧑", message: "Keywords mattum pothatha bro?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Illa bro! Content quality, page loading speed, and mobile responsiveness ellaame calculate pannuvaanga. Semma dynamic-ana field idhu." },
-      { speaker: "Arun", avatar: "🧑", message: "Backlinks help palla ma?" },
+      { speaker: "Arun", avatar: "🧑", message: "Backlinks help pannuma?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Kandippa! Other high quality sites unga site-ah link pannuna, Google-ku unga site mela trust adhighama aagum. Rank automatically improve aagum." },
       { speaker: "Arun", avatar: "🧑", message: "SEO strategy-ah focus pannuraen." },
     ],
@@ -447,7 +447,7 @@ export const topics = [
     tagline: "Speed, Stability, & Interactivity!",
     level: 1,
     readTime: "3 min",
-    quickSummary: "Core Web Vitals (LCP, FID, CLS) na Google unga site speed and quality-ah measure palla use panra metrics. Ithu nalla irundha thaan Google Ranking kedaikkum.",
+    quickSummary: "Core Web Vitals (LCP, FID, CLS) na Google unga site speed and quality-ah measure panna use panra metrics. Ithu nalla irundha thaan Google Ranking kedaikkum.",
     analogy: {
       description: "It's like a Health Checkup 🩺 for your site. Heart rate (Speed), Reflexes (Interactivity), and Balance (Stability) ellaam nalla irukkanum.",
       visual: [{ icon: "📊", label: "LCP" }, { icon: "🖱️", label: "FID" }, { icon: "🪜", label: "CLS" }],
@@ -455,10 +455,10 @@ export const topics = [
     conversation: [
       { speaker: "Raj", avatar: "🧑", message: "Bro, en site design mass-ah irukku, aana rank aala?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "Core Web Vitals check pannu bro! Heavy images-ala 'LCP' score low-ah irukkum. Layout shift (CLS) delay aana user experience affect aagum. Ithu improve pannuna Google top results-la varalaam." },
-      { speaker: "Raj", avatar: "🧑", message: "Interactivity measure palla korthu enna bro?" },
+      { speaker: "Raj", avatar: "🧑", message: "Interactivity measure pala koranju irukku, enna bro?" },
       { speaker: "Dev", avatar: "👨‍💻", message: "First Input Delay (FID) bro. User click pannona evlo fast-ah logic respond aaguthu nu score check pannanum. JS heavy sites-la idhu thaan prachana." },
-      { speaker: "Raj", avatar: "🧑", message: "PageSpeed Insights help palla ma?" },
-      { speaker: "Dev", avatar: "👨‍💻", message: "Kandippa! Anga score report pathu images-ah optimize palla palla palla metrics improve aagum. Speed is the king for modern web." },
+      { speaker: "Raj", avatar: "🧑", message: "PageSpeed Insights help pannuma?" },
+      { speaker: "Dev", avatar: "👨‍💻", message: "Kandippa! Anga score report pathu images-ah optimize panna panna metrics improve aagum. Speed is the king for modern web." },
       { speaker: "Raj", avatar: "🧑", message: "Core Web Vitals optimization started." },
     ],
     whenToUse: ["SEO optimization", "E-commerce speed improvement"],
@@ -467,7 +467,7 @@ export const topics = [
       lesson: "Maintain layout stability. No sudden UI shifts!",
     },
     quiz: {
-      question: "Google site speed measure palla use panra standard enna?",
+      question: "Google site speed measure panna use panra standard enna?",
       options: ["Core Web Vitals", "RAM metrics", "Lines of Code"],
       answer: 0
     },
@@ -575,7 +575,7 @@ export const topics = [
     ],
     whenToUse: ["Sending data from server to frontend", "Config files storage"],
     devConfession: {
-      mistake: "JSON-la extra comma poatadhala full API syntax error aai crash aaiduchu.",
+      mistake: "JSON-la extra comma poatadhala full API syntax error aagi crash aaiduchu.",
       lesson: "Always use JSON validator! Comma position romba important bro.",
     },
     quiz: {
@@ -644,7 +644,7 @@ export const topics = [
       { speaker: "Abi", avatar: "👩", message: "Safe-ah bro external code use pannurathu?" },
       { speaker: "Vijay", avatar: "🧑‍🚀", message: "Thousands of people verify panni iruppanga. Popular packages ellam safe bro!" },
       { speaker: "Abi", avatar: "👩", message: "Version update pannalaama?" },
-      { speaker: "Vijay", avatar: "🧑‍🚀", message: "Aama, `npm update` pannina latest security patches and features vandhurum. Dependences management is very important." },
+      { speaker: "Vijay", avatar: "🧑‍🚀", message: "Aama, `npm update` pannina latest security patches and features vandhurum. Dependencies management is very important." },
       { speaker: "Abi", avatar: "👩", message: "Super bro, npm install is magic!" },
     ],
     whenToUse: ["Installing React, Tailwind, Icons, etc.", "Sharing your own code"],

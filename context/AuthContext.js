@@ -1,6 +1,7 @@
 
 "use client";
 import React, { createContext, useContext, useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import { onAuthStateChanged, signInWithPopup, signInWithRedirect, getRedirectResult, signOut, GoogleAuthProvider } from "firebase/auth";
 import { auth, googleProvider, db } from "@/lib/firebase";
 import { doc, getDoc, setDoc } from "firebase/firestore";
@@ -10,6 +11,7 @@ const AuthContext = createContext();
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const router = useRouter();
 
   useEffect(() => {
     // Safety timeout: If auth hasn't resolved in 4s, stop loading to keep site usable
@@ -23,6 +25,7 @@ export function AuthProvider({ children }) {
       .then((result) => {
         if (result) {
           console.log("Redirect Login Success:", result.user.displayName);
+          router.push("/");
         }
       })
       .catch((error) => {
@@ -83,6 +86,7 @@ export function AuthProvider({ children }) {
       console.log("Attempting Google Popup Login...");
       const result = await signInWithPopup(auth, googleProvider);
       console.log("Popup Login Success:", result.user.displayName);
+      router.push("/");
     } catch (error) {
       console.error("Login Error:", error.code, error.message);
       
