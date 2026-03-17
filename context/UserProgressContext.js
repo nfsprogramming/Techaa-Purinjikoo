@@ -15,7 +15,8 @@ const DEFAULT_PROGRESS = {
   streak: 0,
   lastLogin: null,
   unlockedBadges: [],
-  level: 1
+  level: 1,
+  xpHistory: []
 };
 
 export function UserProgressProvider({ children }) {
@@ -107,6 +108,7 @@ export function UserProgressProvider({ children }) {
       }
 
       const dailyXP = XP_AWARDS.DAILY_LOGIN;
+      const historyEntry = { amount: dailyXP, reason: "Daily Streak 🔥", timestamp: Date.now() };
       
       setProgress(prev => {
         const newXP = (prev.xp || 0) + dailyXP;
@@ -116,22 +118,30 @@ export function UserProgressProvider({ children }) {
           lastLogin: today,
           streak: newStreak,
           xp: newXP,
-          level: newLevel
+          level: newLevel,
+          xpHistory: [historyEntry, ...(prev.xpHistory || [])].slice(0, 30)
         };
       });
     }
   }, [initialized, user]);
 
-  const addXP = (amount) => {
+  const addXP = (amount, reason = "Bonus Points") => {
     setProgress(prev => {
       const newXP = (prev.xp || 0) + amount;
       const newLevel = XP_LEVELS.findLast(l => newXP >= l.minXP)?.level || 1;
-      return { ...prev, xp: newXP, level: newLevel };
+      const historyEntry = { amount, reason, timestamp: Date.now() };
+      return { 
+        ...prev, 
+        xp: newXP, 
+        level: newLevel,
+        xpHistory: [historyEntry, ...(prev.xpHistory || [])].slice(0, 30) // Keep last 30 entries
+      };
     });
   };
 
   const completeTopic = (topicId) => {
     if (progress.completedTopics.includes(topicId)) return;
+    const topic = topics.find(t => t.id === topicId);
 
     setProgress(prev => {
       const newCompleted = [...prev.completedTopics, topicId];
@@ -139,6 +149,8 @@ export function UserProgressProvider({ children }) {
       const newXP = (prev.xp || 0) + xpGain;
       const newLevel = XP_LEVELS.findLast(l => l.minXP <= newXP)?.level || 1;
       
+      const historyEntry = { amount: xpGain, reason: `Completed: ${topic?.title || topicId}`, timestamp: Date.now() };
+
       // Badge logic
       const newlyUnlocked = [];
       BADGES.forEach(badge => {
@@ -149,7 +161,7 @@ export function UserProgressProvider({ children }) {
           meetsRequirement = newCompleted.length >= badge.requirement.value;
         } else if (badge.requirement.type === 'levels') {
           const levelTopics = topics.filter(t => badge.requirement.value.includes(t.level));
-          meetsRequirement = levelTopics.every(t => newCompleted.includes(t.id));
+          meetsRequirement = levelTopics.length > 0 && levelTopics.every(t => newCompleted.includes(t.id));
         } else if (badge.requirement.type === 'ids') {
           meetsRequirement = badge.requirement.value.every(id => newCompleted.includes(id));
         }
@@ -164,7 +176,8 @@ export function UserProgressProvider({ children }) {
         completedTopics: newCompleted,
         xp: newXP,
         level: newLevel,
-        unlockedBadges: [...prev.unlockedBadges, ...newlyUnlocked]
+        unlockedBadges: [...prev.unlockedBadges, ...newlyUnlocked],
+        xpHistory: [historyEntry, ...(prev.xpHistory || [])].slice(0, 30)
       };
     });
   };

@@ -1,6 +1,9 @@
+
 "use client";
 import Link from "next/link";
 import { useState } from "react";
+import { useUserProgress } from "@/context/UserProgressContext";
+import { useAuth } from "@/context/AuthContext";
 
 const NAV_LINKS = [
   { href: "/", label: "Home" },
@@ -15,12 +18,10 @@ const MOBILE_LINKS = [
   { href: "/#about", label: "About" },
 ];
 
-import { useUserProgress } from "@/context/UserProgressContext";
-import { useAuth } from "@/context/AuthContext";
-
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const { xp, level, streak, XP_LEVELS } = useUserProgress();
+  const [showXpHistory, setShowXpHistory] = useState(false);
+  const { xp, level, streak, XP_LEVELS, xpHistory } = useUserProgress();
   const { user, loading, loginWithGoogle, logout } = useAuth();
   
   const currentLevelName = XP_LEVELS.find(l => l.level === level)?.name || "Beginner";
@@ -85,10 +86,16 @@ export default function Navbar() {
               <span style={{ fontWeight: 800, fontSize: "0.85rem", color: "#f59e0b" }}>{streak}</span>
             </div>
             <div style={{ height: "12px", width: "1px", background: "rgba(255,255,255,0.1)" }} />
-            <div title="XP Points" style={{ display: "flex", alignItems: "center", gap: "4px" }}>
+            <button 
+              onClick={() => setShowXpHistory(true)}
+              title="Click to see XP History" 
+              style={{ display: "flex", alignItems: "center", gap: "4px", background: "none", border: "none", cursor: "pointer", padding: "4px 8px", borderRadius: "100px", transition: "0.2s" }}
+              onMouseOver={(e) => e.currentTarget.style.background = "rgba(139, 92, 246, 0.1)"}
+              onMouseOut={(e) => e.currentTarget.style.background = "none"}
+            >
               <span style={{ fontWeight: 800, fontSize: "0.85rem", color: "#8b5cf6" }}>{xp}</span>
               <span style={{ fontSize: "0.7rem", fontWeight: 700, color: "rgba(255,255,255,0.4)" }}>XP</span>
-            </div>
+            </button>
             <div style={{ height: "12px", width: "1px", background: "rgba(255,255,255,0.1)" }} />
             <div title="Level" style={{ display: "flex", alignItems: "center", gap: "4px" }}>
               <span style={{ fontSize: "0.7rem", fontWeight: 700, color: "rgba(255,255,255,0.4)" }}>LVL</span>
@@ -150,6 +157,45 @@ export default function Navbar() {
           {MOBILE_LINKS.map(l => (
             <Link key={l.href} href={l.href} className="nav-link" onClick={() => setOpen(false)}>{l.label}</Link>
           ))}
+        </div>
+      )}
+
+      {/* XP History Modal */}
+      {showXpHistory && (
+        <div 
+          onClick={() => setShowXpHistory(false)}
+          style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.8)", backdropFilter: "blur(10px)", zIndex: 1000, display: "flex", alignItems: "center", justifyContent: "center", padding: "20px" }}
+        >
+          <div 
+            onClick={e => e.stopPropagation()}
+            style={{ background: "#131325", border: "1px solid rgba(139,92,246,0.3)", borderRadius: "24px", width: "100%", maxWidth: "450px", maxHeight: "80vh", overflow: "hidden", display: "flex", flexDirection: "column" }}
+          >
+            <div style={{ padding: "24px", borderBottom: "1px solid rgba(255,255,255,0.05)", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+              <h3 style={{ fontSize: "1.2rem", fontWeight: 900, color: "#fff" }}>✨ XP History</h3>
+              <button 
+                onClick={() => setShowXpHistory(false)}
+                style={{ background: "rgba(255,255,255,0.05)", border: "none", color: "#fff", width: "32px", height: "32px", borderRadius: "50%", cursor: "pointer" }}
+              >✕</button>
+            </div>
+            <div style={{ padding: "24px", overflowY: "auto", flex: 1, display: "flex", flexDirection: "column", gap: "12px" }}>
+              {xpHistory && xpHistory.length > 0 ? (
+                xpHistory.map((h, i) => (
+                  <div key={i} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "12px 16px", background: "rgba(255,255,255,0.02)", borderRadius: "12px", border: "1px solid rgba(255,255,255,0.05)" }}>
+                    <div>
+                      <div style={{ fontWeight: 700, fontSize: "0.95rem", color: "#fff" }}>{h.reason}</div>
+                      <div style={{ fontSize: "0.7rem", color: "#64748b" }}>{new Date(h.timestamp).toLocaleString()}</div>
+                    </div>
+                    <div style={{ fontWeight: 900, color: "#8b5cf6", fontSize: "1.1rem" }}>+{h.amount} XP</div>
+                  </div>
+                ))
+              ) : (
+                <div style={{ textAlign: "center", padding: "40px", color: "#64748b" }}>No XP history found. Start learning to earn points! 🚀</div>
+              )}
+            </div>
+            <div style={{ padding: "20px", background: "rgba(139,92,246,0.05)", borderTop: "1px solid rgba(255,255,255,0.05)", textAlign: "center" }}>
+              <div style={{ fontSize: "0.85rem", color: "#94a3b8" }}>Keep gaining XP to level up! Current Level: <b>{level}</b></div>
+            </div>
+          </div>
         </div>
       )}
     </nav>

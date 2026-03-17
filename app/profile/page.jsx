@@ -5,9 +5,47 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { topics } from "@/data/topics";
 import Link from "next/link";
+import { useState, useEffect } from "react";
+import { useAuth } from "@/context/AuthContext";
 
 export default function ProfilePage() {
   const { xp, level, streak, completedTopics, unlockedBadges, XP_LEVELS, BADGES, getLevelProgress, loading } = useUserProgress();
+  const { user } = useAuth();
+  
+  const [leaderboard, setLeaderboard] = useState([]);
+  const [loadingLeaderboard, setLoadingLeaderboard] = useState(true);
+
+  useEffect(() => {
+    const fetchLeaderboard = async () => {
+      try {
+        const { collection, getDocs, orderBy, query, limit } = await import('firebase/firestore');
+        const { db } = await import('@/lib/firebase');
+        
+        // Query users sorted by progress.xp descending
+        // Note: This might require an index in Firestore if not already there, 
+        // but for small sets it's usually fine or we can sort client side
+        const querySnapshot = await getDocs(collection(db, "users"));
+        const users = [];
+        querySnapshot.forEach((doc) => {
+          const data = doc.data();
+          if (data.progress) {
+            users.push({
+              id: doc.id,
+              name: data.name || "Anonymous Learner",
+              avatar: data.photoURL || null,
+              xp: data.progress.xp || 0
+            });
+          }
+        });
+        setLeaderboard(users.sort((a, b) => b.xp - a.xp).slice(0, 20));
+      } catch (err) {
+        console.error("Leaderboard error:", err);
+      } finally {
+        setLoadingLeaderboard(false);
+      }
+    };
+    if (!loading) fetchLeaderboard();
+  }, [loading]);
 
   if (loading) {
     return (
@@ -44,12 +82,13 @@ export default function ProfilePage() {
 
   return (
     <div style={{ background: "#070711", minHeight: "100vh", color: "#fff" }}>
+      <Navbar />
 
       <div style={{ maxWidth: "1000px", margin: "0 auto", padding: "100px 24px 60px" }}>
         {/* Profile Header */}
         <div style={{ display: "flex", flexWrap: "wrap", gap: "32px", alignItems: "center", marginBottom: "48px", background: "rgba(255,255,255,0.02)", padding: "40px", borderRadius: "32px", border: "1px solid rgba(255,255,255,0.05)" }}>
-          <div style={{ width: "100px", height: "100px", borderRadius: "50%", background: "linear-gradient(135deg, #8b5cf6, #06b6d4)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "3rem", boxShadow: "0 0 30px rgba(139,92,246,0.3)" }}>
-            ☕
+          <div style={{ width: "100px", height: "100px", borderRadius: "50%", background: "linear-gradient(135deg, #8b5cf6, #06b6d4)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "3rem", boxShadow: "0 0 30px rgba(139,92,246,0.3)", overflow: "hidden" }}>
+            {user?.photoURL ? <img src={user.photoURL} alt="Me" style={{ width: "100%", height: "100%", objectFit: "cover" }} /> : "☕"}
           </div>
           <div style={{ flex: 1, minWidth: "250px" }}>
             <div style={{ fontSize: "0.85rem", fontWeight: 800, color: "#8b5cf6", textTransform: "uppercase", letterSpacing: "1px", marginBottom: "4px" }}>LEVEL {level}</div>
@@ -147,30 +186,35 @@ export default function ProfilePage() {
           </section>
         </div>
 
-        {/* Mock Leaderboard */}
+        {/* Real Leaderboard */}
         <section style={{ marginTop: "60px" }}>
           <h2 style={{ fontSize: "1.5rem", fontWeight: 800, marginBottom: "24px", display: "flex", alignItems: "center", gap: "12px" }}>
-            🏆 Top Learners This Week
+            🏆 Global Leaderboard
           </h2>
           <div style={{ background: "rgba(255,255,255,0.02)", borderRadius: "24px", padding: "24px", border: "1px solid rgba(255,255,255,0.05)" }}>
-            {[
-              { name: "Arun", xp: 1250, avatar: "🔥", current: false },
-              { name: "Sarah", xp: 1120, avatar: "⚡", current: false },
-              { name: "You", xp: xp, avatar: "☕", current: true },
-              { name: "Raj", xp: 950, avatar: "🚀", current: false },
-              { name: "Priya", xp: 820, avatar: "💻", current: false },
-            ].sort((a, b) => b.xp - a.xp).map((user, i) => (
-              <div key={i} style={{ display: "flex", alignItems: "center", gap: "16px", padding: "16px", background: user.current ? "rgba(139,92,246,0.15)" : "transparent", borderRadius: "16px", border: user.current ? "1px solid #8b5cf6" : "1px solid transparent", marginBottom: "8px" }}>
-                <div style={{ fontSize: "1.2rem", fontWeight: 900, width: "30px", color: i < 3 ? "#f59e0b" : "#94a3b8" }}>#{i + 1}</div>
-                <div style={{ width: "40px", height: "40px", borderRadius: "50%", background: "rgba(255,255,255,0.05)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.2rem" }}>{user.avatar}</div>
-                <div style={{ flex: 1, fontWeight: 700, fontSize: "1.1rem" }}>{user.name} {user.current && <span style={{ fontSize: "0.6rem", background: "#8b5cf6", padding: "2px 6px", borderRadius: "100px", marginLeft: "8px" }}>YOU</span>}</div>
-                <div style={{ fontWeight: 800, color: "#8b5cf6" }}>{user.xp} <span style={{ fontSize: "0.7rem", color: "#94a3b8" }}>XP</span></div>
-              </div>
-            ))}
+             {loadingLeaderboard ? (
+              <div style={{ textAlign: "center", padding: "40px", color: "#94a3b8" }}>Loading top learners...</div>
+            ) : leaderboard.length > 0 ? (
+               leaderboard.slice(0, 10).map((u, i) => {
+                const isMe = user?.uid === u.id;
+                return (
+                  <div key={u.id} style={{ display: "flex", alignItems: "center", gap: "16px", padding: "16px", background: isMe ? "rgba(139,92,246,0.15)" : "transparent", borderRadius: "16px", border: isMe ? "1px solid #8b5cf6" : "1px solid transparent", marginBottom: "8px" }}>
+                    <div style={{ fontSize: "1.2rem", fontWeight: 900, width: "30px", color: i < 3 ? "#f59e0b" : "#94a3b8" }}>#{i + 1}</div>
+                    <div style={{ width: "40px", height: "40px", borderRadius: "50%", background: "#8b5cf6", overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                      {u.avatar ? <img src={u.avatar} style={{ width: "100%", height: "100%", objectFit: "cover" }} /> : <span style={{ fontSize: "1.5rem" }}>🕶️</span>}
+                    </div>
+                    <div style={{ flex: 1, fontWeight: 700, fontSize: "1.1rem" }}>{u.name} {isMe && <span style={{ fontSize: "0.6rem", background: "#8b5cf6", padding: "2px 6px", borderRadius: "100px", marginLeft: "8px" }}>YOU</span>}</div>
+                    <div style={{ fontWeight: 800, color: "#8b5cf6" }}>{u.xp} <span style={{ fontSize: "0.7rem", color: "#94a3b8" }}>XP</span></div>
+                  </div>
+                );
+              })
+            ) : (
+              <div style={{ textAlign: "center", padding: "40px", color: "#94a3b8" }}>No learners yet. Start the grind!</div>
+            )}
           </div>
         </section>
       </div>
-
+      <Footer />
     </div>
   );
 }
