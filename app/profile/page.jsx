@@ -11,7 +11,7 @@ import { motion } from "framer-motion";
 export default function ProfilePage() {
   const { xp, level, streak, completedTopics, unlockedBadges, XP_LEVELS, BADGES, getLevelProgress, loading, xpHistory, resetProgress } = useUserProgress();
   const { user } = useAuth();
-  
+
   const [leaderboard, setLeaderboard] = useState([]);
   const [loadingLeaderboard, setLoadingLeaderboard] = useState(true);
 
@@ -44,7 +44,7 @@ export default function ProfilePage() {
   }, [loading]);
 
   const handleReset = async () => {
-    if (confirm("Are you sure? All your progress, badges, and XP will be deleted forever! ⚠️")) {
+    if (confirm("Nijamave account reset panna poringala bro? Unnoda XP, Badges, topics progress ellam delete aayidum! ⚠️")) {
       await resetProgress();
       window.location.reload();
     }
@@ -86,9 +86,9 @@ export default function ProfilePage() {
   return (
     <div style={{ background: "#070711", minHeight: "100vh", color: "#fff" }}>
       <Navbar />
-      
+
       <div style={{ maxWidth: "1000px", margin: "0 auto", padding: "80px 16px 60px" }}>
-        
+
         <style>{`
           .profile-grid-main { display: grid; grid-template-columns: 1fr; gap: 32px; }
           @media (min-width: 900px) { .profile-grid-main { grid-template-columns: 1.5fr 1fr; } }
@@ -109,14 +109,14 @@ export default function ProfilePage() {
         {/* Profile Header */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="profile-header">
           {/* Reset Button */}
-          <button onClick={handleReset} className="reset-btn">Reset Account 🧹</button>
+          <button onClick={handleReset} className="reset-btn">Reset Panriya Bro 🧹</button>
 
           <div style={{ width: "100px", height: "100px", borderRadius: "50%", background: "linear-gradient(135deg, #8b5cf6, #06b6d4)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "3rem", boxShadow: "0 0 30px rgba(139,92,246,0.2)", overflow: "hidden", border: "4px solid #070711", flexShrink: 0 }}>
             {user?.photoURL ? (
-              <img 
-                src={user.photoURL} 
-                alt="Me" 
-                referrerPolicy="no-referrer" 
+              <img
+                src={user.photoURL}
+                alt="Me"
+                referrerPolicy="no-referrer"
                 style={{ width: "100%", height: "100%", objectFit: "cover" }}
                 onError={(e) => { e.target.src = `https://ui-avatars.com/api/?name=${user.displayName || 'User'}&background=8b5cf6&color=fff`; }}
               />
@@ -125,7 +125,7 @@ export default function ProfilePage() {
           <div style={{ flex: 1, width: "100%" }}>
             <div style={{ fontSize: "0.7rem", fontWeight: 900, color: "#8b5cf6", textTransform: "uppercase", letterSpacing: "2px", marginBottom: "4px" }}>LEVEL {level}</div>
             <h1 style={{ fontSize: "1.7rem", fontWeight: 950, marginBottom: "8px", letterSpacing: "-0.5px" }}>{user?.displayName || "Learner"}</h1>
-            
+
             <div style={{ background: "rgba(255,255,255,0.03)", padding: "16px", borderRadius: "16px", border: "1px solid rgba(255,255,255,0.05)" }}>
               <div style={{ display: "flex", justifyContent: "space-between", fontSize: "0.8rem", fontWeight: 800, color: "#94a3b8", marginBottom: "8px" }}>
                 <span>{xpInCurrentLevel} / {xpForNextLevel} XP</span>
@@ -183,13 +183,13 @@ export default function ProfilePage() {
               <h2 style={{ fontSize: "1.3rem", fontWeight: 900, marginBottom: "20px" }}>🏆 Achievements <span style={{ fontSize: "0.8rem", color: "#64748b", fontWeight: 500 }}>({unlockedBadges.length}/{BADGES.length})</span></h2>
               <div className="badges-grid">
                 {BADGES.map((badge) => {
-                    const isUnlocked = unlockedBadges.includes(badge.id);
-                    return (
-                        <div key={badge.id} style={{ opacity: isUnlocked ? 1 : 0.2, filter: isUnlocked ? "none" : "grayscale(1)", background: "rgba(255,255,255,0.02)", padding: "16px 8px", borderRadius: "16px", border: "1px solid rgba(255,255,255,0.05)", textAlign: "center" }}>
-                            <div style={{ fontSize: "2rem", marginBottom: "4px" }}>{badge.emoji}</div>
-                            <div style={{ fontSize: "0.65rem", fontWeight: 900 }}>{badge.title}</div>
-                        </div>
-                    );
+                  const isUnlocked = unlockedBadges.includes(badge.id);
+                  return (
+                    <div key={badge.id} style={{ opacity: isUnlocked ? 1 : 0.2, filter: isUnlocked ? "none" : "grayscale(1)", background: "rgba(255,255,255,0.02)", padding: "16px 8px", borderRadius: "16px", border: "1px solid rgba(255,255,255,0.05)", textAlign: "center" }}>
+                      <div style={{ fontSize: "2rem", marginBottom: "4px" }}>{badge.emoji}</div>
+                      <div style={{ fontSize: "0.65rem", fontWeight: 900 }}>{badge.title}</div>
+                    </div>
+                  );
                 })}
               </div>
             </section>
@@ -213,15 +213,15 @@ export default function ProfilePage() {
             <section>
               <h2 style={{ fontSize: "1.3rem", fontWeight: 900, marginBottom: "20px" }}>✨ Recent Activity</h2>
               <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-                 {xpHistory && xpHistory.slice(0, 5).map((h, i) => (
-                    <div key={i} style={{ padding: "12px", background: "rgba(255,255,255,0.02)", borderRadius: "12px", border: "1px solid rgba(255,255,255,0.05)", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                        <div>
-                            <div style={{ fontSize: "0.85rem", fontWeight: 800 }}>{h.reason}</div>
-                            <div style={{ fontSize: "0.6rem", color: "#64748b" }}>{new Date(h.timestamp).toLocaleDateString()}</div>
-                        </div>
-                        <div style={{ fontWeight: 900, color: "#8b5cf6", fontSize: "0.85rem" }}>+{h.amount}</div>
+                {xpHistory && xpHistory.slice(0, 5).map((h, i) => (
+                  <div key={i} style={{ padding: "12px", background: "rgba(255,255,255,0.02)", borderRadius: "12px", border: "1px solid rgba(255,255,255,0.05)", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                    <div>
+                      <div style={{ fontSize: "0.85rem", fontWeight: 800 }}>{h.reason}</div>
+                      <div style={{ fontSize: "0.6rem", color: "#64748b" }}>{new Date(h.timestamp).toLocaleDateString()}</div>
                     </div>
-                 ))}
+                    <div style={{ fontWeight: 900, color: "#8b5cf6", fontSize: "0.85rem" }}>+{h.amount}</div>
+                  </div>
+                ))}
               </div>
             </section>
           </div>
