@@ -35,32 +35,40 @@ export function AuthProvider({ children }) {
 
       if (user) {
         setUser(user);
-        // Do Firestore check after setting user to prevent blocking UI
-        try {
-          const userDocRef = doc(db, "users", user.uid);
-          const userDoc = await getDoc(userDocRef);
-          
-          if (!userDoc.exists()) {
-            await setDoc(userDocRef, {
-              name: user.displayName,
-              email: user.email,
-              photoURL: user.photoURL,
-              role: "user",
-              createdAt: new Date().toISOString()
-            });
+        setLoading(false); // Set loading false IMMEDIATELY to unblock UI
+        
+        // Background Firestore check
+        const syncUserDoc = async () => {
+          try {
+            const userDocRef = doc(db, "users", user.uid);
+            const userDoc = await getDoc(userDocRef);
+            
+            if (!userDoc.exists()) {
+              await setDoc(userDocRef, {
+                name: user.displayName,
+                email: user.email,
+                photoURL: user.photoURL,
+                role: "user",
+                createdAt: new Date().toISOString(),
+                progress: { // Default progress structure
+                  completedTopics: [],
+                  xp: 0,
+                  streak: 0,
+                  lastLogin: null,
+                  unlockedBadges: [],
+                  level: 1
+                }
+              });
+            }
+          } catch (dbError) {
+            console.warn("Firestore background sync issue:", dbError.message);
           }
-        } catch (dbError) {
-          // Silent warning for network/offline issues to avoid cluttering console
-          if (dbError.code === 'unavailable' || dbError.message.includes('offline')) {
-            console.warn("Firestore sync deferred (offline)");
-          } else {
-            console.error("Firestore sync error:", dbError.message);
-          }
-        }
+        };
+        syncUserDoc();
       } else {
         setUser(null);
+        setLoading(false);
       }
-      setLoading(false);
     });
 
     return () => {

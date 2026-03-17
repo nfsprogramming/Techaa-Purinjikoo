@@ -1,47 +1,99 @@
 
 "use client";
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect, useRef } from 'react';
 import { XP_LEVELS, BADGES, XP_AWARDS } from '@/data/gamification';
 import { topics } from '@/data/topics';
+import { useAuth } from './AuthContext';
+import { db } from '@/lib/firebase';
+import { doc, getDoc, setDoc, updateDoc } from 'firebase/firestore';
 
 const UserProgressContext = createContext();
 
+const DEFAULT_PROGRESS = {
+  completedTopics: [],
+  xp: 0,
+  streak: 0,
+  lastLogin: null,
+  unlockedBadges: [],
+  level: 1
+};
+
 export function UserProgressProvider({ children }) {
-  const [progress, setProgress] = useState({
-    completedTopics: [],
-    xp: 0,
-    streak: 0,
-    lastLogin: null,
-    unlockedBadges: [],
-    level: 1
-  });
-
+  const { user } = useAuth();
+  const [progress, setProgress] = useState(DEFAULT_PROGRESS);
   const [initialized, setInitialized] = useState(false);
+  const skipSync = useRef(false);
 
-  // Load from localStorage
+  // 1. Initial Load: LocalStorage Fallback + Reset on User Change
   useEffect(() => {
-    const saved = localStorage.getItem('techaa_progress');
+    if (!user) {
+      // If no user, reset to default (prevents cross-account data leaks)
+      setProgress(DEFAULT_PROGRESS);
+      setInitialized(true);
+      return;
+    }
+
+    // Try to load user-specific progress from localStorage for quick UI update
+    const saved = localStorage.getItem(`techaa_progress_${user.uid}`);
     if (saved) {
       try {
         const parsed = JSON.parse(saved);
         setProgress(parsed);
       } catch (e) {
-        console.error("Failed to parse progress", e);
+        console.error("Failed to parse local progress", e);
       }
     }
-    setInitialized(true);
-  }, []);
+    
+    // Fetch fresh data from Firestore
+    const fetchFirestoreProgress = async () => {
+      try {
+        const docRef = doc(db, "users", user.uid);
+        const docSnap = await getDoc(docRef);
+        
+        if (docSnap.exists() && docSnap.data().progress) {
+          const firestoreProgress = docSnap.data().progress;
+          // Only update if firestore has more xp or different topics (merging logic could be more complex, but this is a start)
+          setProgress(firestoreProgress);
+          localStorage.setItem(`techaa_progress_${user.uid}`, JSON.stringify(firestoreProgress));
+        }
+      } catch (err) {
+        console.error("Firestore loading error:", err);
+      } finally {
+        setInitialized(true);
+      }
+    };
 
-  // Save to localStorage
+    fetchFirestoreProgress();
+  }, [user]);
+
+  // 2. Save Progress: Firestore & LocalStorage
   useEffect(() => {
-    if (initialized) {
-      localStorage.setItem('techaa_progress', JSON.stringify(progress));
+    if (!initialized || !user || skipSync.current) {
+      skipSync.current = false;
+      return;
     }
-  }, [progress, initialized]);
 
-  // Daily Login Streak logic
+    // Save locally for speed
+    localStorage.setItem(`techaa_progress_${user.uid}`, JSON.stringify(progress));
+
+    // Save to Firestore (Debounced or Async)
+    const syncToFirestore = async () => {
+      try {
+        const docRef = doc(db, "users", user.uid);
+        await updateDoc(docRef, { progress: progress });
+      } catch (err) {
+        console.error("Error syncing to Firestore:", err);
+        // If document doesn't exist yet, AuthContext might still be creating it
+      }
+    };
+
+    const timer = setTimeout(syncToFirestore, 1000); // 1s debounce to avoid hitting quotas
+    return () => clearTimeout(timer);
+  }, [progress, user, initialized]);
+
+  // 3. Daily Login Streak logic
   useEffect(() => {
-    if (!initialized) return;
+    if (!initialized || !user) return;
 
     const today = new Date().toISOString().split('T')[0];
     if (progress.lastLogin !== today) {
@@ -57,7 +109,7 @@ export function UserProgressProvider({ children }) {
       const dailyXP = XP_AWARDS.DAILY_LOGIN;
       
       setProgress(prev => {
-        const newXP = prev.xp + dailyXP;
+        const newXP = (prev.xp || 0) + dailyXP;
         const newLevel = XP_LEVELS.findLast(l => newXP >= l.minXP)?.level || 1;
         return {
           ...prev,
@@ -68,11 +120,11 @@ export function UserProgressProvider({ children }) {
         };
       });
     }
-  }, [initialized]);
+  }, [initialized, user]);
 
   const addXP = (amount) => {
     setProgress(prev => {
-      const newXP = prev.xp + amount;
+      const newXP = (prev.xp || 0) + amount;
       const newLevel = XP_LEVELS.findLast(l => newXP >= l.minXP)?.level || 1;
       return { ...prev, xp: newXP, level: newLevel };
     });
@@ -84,7 +136,7 @@ export function UserProgressProvider({ children }) {
     setProgress(prev => {
       const newCompleted = [...prev.completedTopics, topicId];
       const xpGain = XP_AWARDS.READ_TOPIC;
-      const newXP = prev.xp + xpGain;
+      const newXP = (prev.xp || 0) + xpGain;
       const newLevel = XP_LEVELS.findLast(l => l.minXP <= newXP)?.level || 1;
       
       // Badge logic
@@ -101,7 +153,6 @@ export function UserProgressProvider({ children }) {
         } else if (badge.requirement.type === 'ids') {
           meetsRequirement = badge.requirement.value.every(id => newCompleted.includes(id));
         }
-        // Night owl etc could be added here on event
 
         if (meetsRequirement) {
           newlyUnlocked.push(badge.id);
@@ -132,7 +183,8 @@ export function UserProgressProvider({ children }) {
       addXP, 
       getLevelProgress,
       XP_LEVELS,
-      BADGES
+      BADGES,
+      loading: !initialized
     }}>
       {children}
     </UserProgressContext.Provider>

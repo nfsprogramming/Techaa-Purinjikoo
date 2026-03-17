@@ -7,7 +7,17 @@ import { topics } from "@/data/topics";
 import Link from "next/link";
 
 export default function ProfilePage() {
-  const { xp, level, streak, completedTopics, unlockedBadges, XP_LEVELS, BADGES, getLevelProgress } = useUserProgress();
+  const { xp, level, streak, completedTopics, unlockedBadges, XP_LEVELS, BADGES, getLevelProgress, loading } = useUserProgress();
+
+  if (loading) {
+    return (
+      <div style={{ background: "#070711", minHeight: "100vh", color: "#fff", display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column", gap: "20px" }}>
+        <div style={{ width: "40px", height: "40px", border: "3px solid rgba(139,92,246,0.3)", borderTopColor: "#8b5cf6", borderRadius: "50%", animation: "spin 1s linear infinite" }} />
+        <p style={{ fontWeight: 800, color: "#8b5cf6", letterSpacing: "1px" }}>LOADING PROGRESS...</p>
+        <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
+      </div>
+    );
+  }
 
   const nextLevel = XP_LEVELS.find(l => l.level === level + 1);
   const currentLevel = XP_LEVELS.find(l => l.level === level);
