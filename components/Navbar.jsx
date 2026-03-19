@@ -11,6 +11,7 @@ const NAV_LINKS = [
   { href: "/battle", label: "Battle ⚔️" },
   { href: "/flashcards", label: "Flashcards ⚡" },
   { href: "/dictionary", label: "Dictionary 📖" },
+  { href: "https://nfs-learning-hub.vercel.app/", label: "Courses 🎓" },
 ];
 
 export default function Navbar() {
