@@ -8,6 +8,7 @@ import TopicCard from "@/components/TopicCard";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { useUserProgress } from "@/context/UserProgressContext";
 import { useAuth } from "@/context/AuthContext";
+import FlipFadeText from "@/components/ui/liquid-text";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -59,6 +60,34 @@ export default function Home() {
 
   return (
     <div style={{ background: "#070711", minHeight: "100vh", color: "#fff" }}>
+      <style dangerouslySetInnerHTML={{__html: `
+        @keyframes shimmer {
+          0% { background-position: -200% center; }
+          100% { background-position: 200% center; }
+        }
+        .text-shimmer {
+          background: linear-gradient(90deg, #8b5cf6 0%, #aa8bf5 30%, #06b6d4 50%, #aa8bf5 70%, #8b5cf6 100%);
+          background-size: 200% auto;
+          color: transparent;
+          -webkit-background-clip: text;
+          background-clip: text;
+          animation: shimmer 4s linear infinite;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+          height: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+          background: rgba(255,255,255,0.02);
+          border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+          background: rgba(255,255,255,0.1);
+          border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+          background: rgba(139,92,246,0.3);
+        }
+      `}} />
 
       {/* Hero Section */}
       <section ref={heroRef} style={{ height: "auto", minHeight: "80vh", display: "flex", alignItems: "center", justifyContent: "center", position: "relative", overflow: "hidden" }}>
@@ -82,9 +111,25 @@ export default function Home() {
         >
           <motion.h1
             variants={itemVariants}
-            style={{ fontSize: "clamp(2.2rem, 10vw, 4.5rem)", fontWeight: 900, letterSpacing: "-2px", marginBottom: "16px", lineHeight: 1.1 }}
+            style={{ 
+              fontSize: "clamp(2.2rem, 10vw, 4.5rem)", 
+              fontWeight: 900, 
+              letterSpacing: "-2px", 
+              marginBottom: "16px", 
+              lineHeight: 1.1,
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              flexWrap: "wrap",
+              gap: "12px"
+            }}
           >
-            Techaa <span className="animate-float" style={{ display: "inline-block", background: "linear-gradient(135deg, #8b5cf6, #06b6d4)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Purinjikoo</span>
+            Techaa 
+            <FlipFadeText 
+              words={["Purinjikoo", "Developer", "Engineer", "Programmer", "Creator"]}
+              className="min-h-0 h-auto"
+              textClassName="!text-[#06b6d4] m-0 normal-case tracking-tight !text-[1em]" 
+            />
           </motion.h1>
           <motion.p
             variants={itemVariants}
@@ -200,15 +245,16 @@ export default function Home() {
               <motion.span animate={{ x: [0, 5, 0] }} transition={{ repeat: Infinity, duration: 1.5 }}>➜</motion.span>
             </div>
 
-            <motion.div
-              drag="x"
-              dragConstraints={{ right: 0, left: -1000 }} // Initial rough estimate, will be better with ref logic if needed, but flex + overflow usually works for simple drag
-              whileTap={{ cursor: "grabbing" }}
+            <div
+              className="custom-scrollbar"
               style={{
                 display: "flex",
                 gap: "16px",
-                cursor: "grab",
-                paddingRight: "50px" // Extra space to show there is more
+                paddingRight: "50px", // Extra space to show there is more
+                paddingBottom: "16px", // Space for scrollbar
+                overflowX: "auto",
+                scrollBehavior: "smooth",
+                WebkitOverflowScrolling: "touch"
               }}
             >
               {ROADMAP_LEVEL_DATA().map((lvl, idx) => {
@@ -254,7 +300,7 @@ export default function Home() {
                   </motion.button>
                 );
               })}
-            </motion.div>
+            </div>
           </div>
         ) : (
           <div style={{ marginBottom: "32px", padding: "12px 24px", background: "rgba(139,92,246,0.1)", borderRadius: "12px", display: "inline-block" }}>
