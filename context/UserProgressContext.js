@@ -103,14 +103,22 @@ export function UserProgressProvider({ children }) {
   useEffect(() => {
     if (!initialized || !user) return;
 
-    const today = new Date().toISOString().split('T')[0];
+    const getLocalYYYYMMDD = (date) => {
+      const yyyy = date.getFullYear();
+      const mm = String(date.getMonth() + 1).padStart(2, '0');
+      const dd = String(date.getDate()).padStart(2, '0');
+      return `${yyyy}-${mm}-${dd}`;
+    };
+
+    const now = new Date();
+    const todayStr = getLocalYYYYMMDD(now);
     
     setProgress(prev => {
-      if (prev.lastLogin === today) return prev;
+      if (prev.lastLogin === todayStr) return prev;
 
-      const yesterday = new Date();
+      const yesterday = new Date(now);
       yesterday.setDate(yesterday.getDate() - 1);
-      const yesterdayStr = yesterday.toISOString().split('T')[0];
+      const yesterdayStr = getLocalYYYYMMDD(yesterday);
 
       let newStreak = 1;
       if (prev.lastLogin === yesterdayStr) {
@@ -129,7 +137,7 @@ export function UserProgressProvider({ children }) {
       
       return {
         ...prev,
-        lastLogin: today,
+        lastLogin: todayStr,
         streak: newStreak,
         xp: newXP,
         level: newLevel,
