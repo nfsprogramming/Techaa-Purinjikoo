@@ -18,6 +18,13 @@ export function AuthProvider({ children }) {
       setLoading(false);
     }, 4000);
 
+    // If auth is null (meaning Firebase isn't configured in .env.local), skip auth entirely
+    if (!auth) {
+      setLoading(false);
+      clearTimeout(timer);
+      return;
+    }
+
     // Handle redirect result
     getRedirectResult(auth)
       .then((result) => {
@@ -70,6 +77,17 @@ export function AuthProvider({ children }) {
   }, []);
 
   const loginWithGoogle = async () => {
+    if (!auth) {
+      console.log("Firebase not configured. Entering TEST/DEMO mode.");
+      setUser({
+        uid: "demo-user-12345",
+        displayName: "Demo Student",
+        email: "demo@student.com",
+        photoURL: "https://api.dicebear.com/7.x/avataaars/svg?seed=Felix"
+      });
+      return;
+    }
+    
     try {
       setLoading(true);
       console.log("Attempting Google Popup Login...");
@@ -97,6 +115,11 @@ export function AuthProvider({ children }) {
   };
 
   const logout = async () => {
+    if (!auth) {
+      setUser(null);
+      return;
+    }
+    
     try {
       await signOut(auth);
     } catch (error) {

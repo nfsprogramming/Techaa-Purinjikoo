@@ -5,7 +5,9 @@ import { useUserProgress } from "@/context/UserProgressContext";
 import { useAuth } from "@/context/AuthContext";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
+import html2canvas from "html2canvas";
+import { jsPDF } from "jspdf";
 
 const LEVEL_NAMES = {
   1: "Internet Fundamentals",
@@ -24,6 +26,7 @@ export default function CertificatePage() {
   const levelId = parseInt(params.levelId);
   const progress = getLevelProgress(levelId);
   const [isClient, setIsClient] = useState(false);
+  const certificateRef = useRef(null);
 
   useEffect(() => {
     setIsClient(true);
@@ -41,6 +44,36 @@ export default function CertificatePage() {
   }
 
   const certificateName = LEVEL_NAMES[levelId] || "Technical Excellence";
+
+  const downloadCertificate = async () => {
+    if (!certificateRef.current) return;
+    
+    try {
+      const canvas = await html2canvas(certificateRef.current, {
+        scale: 2, 
+        backgroundColor: "#0a0a0a",
+        useCORS: true 
+      });
+      
+      const imgData = canvas.toDataURL("image/png");
+      
+      // Calculate properly for A4 Landscape
+      const pdf = new jsPDF({
+        orientation: "landscape",
+        unit: "mm",
+        format: "a4"
+      });
+      
+      const pdfWidth = pdf.internal.pageSize.getWidth();
+      const pdfHeight = pdf.internal.pageSize.getHeight();
+      
+      pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
+      pdf.save(`NFS_Certificate_Level_${levelId}.pdf`);
+    } catch (error) {
+      console.error("Failed to generate certificate", error);
+      alert("Something went wrong generating the certificate.");
+    }
+  };
 
   return (
     <div style={{ background: "#070711", minHeight: "100vh", color: "#fff" }}>
@@ -128,7 +161,10 @@ export default function CertificatePage() {
       <div id="certificate-wrapper-parent">
         <div id="certificate-wrapper" style={{ maxWidth: "1000px", margin: "0 auto", padding: "120px 24px 60px" }}>
         {/* Certificate Container */}
-        <div id="certificate" style={{ 
+        <div 
+          id="certificate" 
+          ref={certificateRef}
+          style={{ 
           background: "#0a0a0a", 
           color: "#fff", 
           padding: "60px", 
@@ -193,10 +229,10 @@ export default function CertificatePage() {
 
         <div style={{ marginTop: "40px", textAlign: "center" }}>
           <button 
-            onClick={() => window.print()}
+            onClick={downloadCertificate}
             style={{ background: "#ff3131", color: "#fff", border: "none", padding: "14px 32px", borderRadius: "12px", fontWeight: 800, cursor: "pointer", boxShadow: "0 10px 20px rgba(255,49,49,0.2)" }}
           >
-            🖨️ Print / Save as PDF
+            🖨️ Generate & Download PDF
           </button>
         </div>
         </div>
