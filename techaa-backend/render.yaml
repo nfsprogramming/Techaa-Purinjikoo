@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: techaa-backend
+    runtime: go
+    plan: free
+    region: singapore
+    rootDir: techaa-backend
+    buildCommand: go build -o server cmd/server/main.go
+    startCommand: ./server
+    healthCheckPath: /health
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: ENV
+        value: production
+      - key: DATABASE_URL
+        sync: false
+      - key: ALLOWED_ORIGINS
+        value: "https://techaa-purinjikoo.vercel.app,http://localhost:3000"
+      - key: CERTIFICATE_VERIFY_URL
+        value: https://techaa-purinjikoo.vercel.app/verify
+      - key: FIREBASE_PROJECT_ID
+        sync: false

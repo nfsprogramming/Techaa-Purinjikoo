@@ -1,0 +1,161 @@
+openapi: 3.0.3
+info:
+  title: Techaa Purinjikoo Backend API
+  version: 1.0.0
+  description: Ultra-lightweight Go REST API for Techaa Purinjikoo mobile & web clients.
+servers:
+  - url: http://localhost:8080
+    description: Local development server
+  - url: https://techaa-backend.onrender.com
+    description: Render production deployment
+
+paths:
+  /health:
+    get:
+      summary: Health check endpoint
+      responses:
+        '200':
+          description: Service is healthy
+
+  /health/ready:
+    get:
+      summary: Readiness probe checking database connectivity
+      responses:
+        '200':
+          description: Database connected and ready
+
+  /api/v1/auth/me:
+    get:
+      summary: Get current authenticated user profile
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: User and profile data
+
+  /api/v1/profile:
+    get:
+      summary: Get profile
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: User profile details
+    patch:
+      summary: Update profile
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: Updated profile
+
+  /api/v1/progress:
+    get:
+      summary: List completed topics and progress summary
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: Progress summary
+
+  /api/v1/progress/topics/{topic_id}/complete:
+    post:
+      summary: Mark topic complete (server-authoritative XP and badge evaluation)
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: topic_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Completion result with XP and newly unlocked badges
+
+  /api/v1/xp/summary:
+    get:
+      summary: Fetch XP ledger summary and recent transactions
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: XP transactions and level progress
+
+  /api/v1/badges:
+    get:
+      summary: List all badges with unlocked timestamps
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: Badge list
+
+  /api/v1/streak:
+    get:
+      summary: Get server-authoritative streak calculation
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: Current and longest streak
+
+  /api/v1/courses/progress:
+    get:
+      summary: Get progress for all 3 courses
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: Course progress
+
+  /api/v1/courses/{course_id}/claim-certificate:
+    post:
+      summary: Validate course completion and claim certificate
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: course_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Verifiable certificate record
+
+  /api/v1/certificates/verify/{certificate_id}:
+    get:
+      summary: Public certificate authenticity verification
+      parameters:
+        - name: certificate_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Public certificate details
+
+  /api/v1/sync:
+    post:
+      summary: Monotonic batch offline progress synchronization
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: Sync summary and merged profile
+
+  /api/v1/reports:
+    post:
+      summary: Submit content feedback or typo report
+      responses:
+        '200':
+          description: Report received confirmation
+
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "414743824161",
+    "project_id": "techaa-purinjikoo",
+    "storage_bucket": "techaa-purinjikoo.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:414743824161:android:51e60506fe84d4d3ec2060",
+        "android_client_info": {
+          "package_name": "com.nfsprogramming.techaapurinjikoo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "414743824161-mrkvpcp4ef9ab13pl1jljuqqrlbc4oef.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.nfsprogramming.techaapurinjikoo",
+            "certificate_hash": "3f570f3b76a683281d134ff24725a38254dd901d"
+          }
+        },
+        {
+          "client_id": "414743824161-fiplqppiho7kbsdn1jujle4kspt61c1u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmf-jSMoe8Bhotn1ih8WBy3Y-3MNqNamc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "414743824161-fiplqppiho7kbsdn1jujle4kspt61c1u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
