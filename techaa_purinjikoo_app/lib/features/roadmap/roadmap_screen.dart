@@ -240,6 +240,12 @@ class _RoadmapScreenState extends ConsumerState<RoadmapScreen> {
           ),
         ),
 
+        // Year 1 Skill Breakdown Score Card
+        if (stage.stageType == RoadmapStageType.firstYear) ...[
+          const SizedBox(height: 16),
+          _buildYearOneSkillScoreCard(completedCount, totalTopics),
+        ],
+
         const SizedBox(height: 20),
 
         // Modules
@@ -575,6 +581,124 @@ class _RoadmapScreenState extends ConsumerState<RoadmapScreen> {
               ),
             );
           }),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildYearOneSkillScoreCard(int completedCount, int totalTopics) {
+    final pct = totalTopics > 0 ? ((completedCount / totalTopics) * 100).toInt() : 0;
+
+    return Container(
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: const Color(0xFF0D1220),
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(color: const Color(0xFF38BDF8).withValues(alpha: 0.25)),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const Row(
+                children: [
+                  Icon(Icons.analytics_rounded, color: Color(0xFF38BDF8), size: 18),
+                  SizedBox(width: 8),
+                  Text(
+                    '📊 YOUR YEAR-1 TECHAA SCORE',
+                    style: TextStyle(
+                      fontSize: 12.5,
+                      fontWeight: FontWeight.w800,
+                      color: Colors.white,
+                      letterSpacing: 0.2,
+                    ),
+                  ),
+                ],
+              ),
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+                decoration: BoxDecoration(
+                  color: const Color(0xFF38BDF8).withValues(alpha: 0.15),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Text(
+                  '$pct%',
+                  style: const TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w900,
+                    color: Color(0xFF38BDF8),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 14),
+
+          _buildSkillBar('💻 Programming', completedCount >= 2 ? 0.9 : 0.35, const Color(0xFFE11D48)),
+          _buildSkillBar('🧠 Problem Solving', completedCount >= 3 ? 0.8 : 0.25, const Color(0xFFF59E0B)),
+          _buildSkillBar('🐙 Git & GitHub', completedCount >= 4 ? 0.95 : 0.4, const Color(0xFFA855F7)),
+          _buildSkillBar('🌐 Web & Networking', completedCount >= 2 ? 0.75 : 0.3, const Color(0xFF06B6D4)),
+          _buildSkillBar('🗄️ Database & APIs', completedCount >= 3 ? 0.7 : 0.2, const Color(0xFF10B981)),
+          _buildSkillBar('🗣️ Communication & Quality', 0.65, const Color(0xFFEC4899)),
+
+          const SizedBox(height: 10),
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+            decoration: BoxDecoration(
+              color: Colors.white.withValues(alpha: 0.04),
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: const Row(
+              children: [
+                Icon(Icons.flag_rounded, color: Color(0xFFFBBF24), size: 14),
+                SizedBox(width: 6),
+                Expanded(
+                  child: Text(
+                    'Next Goal → Build & deploy your first project to GitHub!',
+                    style: TextStyle(
+                      fontSize: 11,
+                      fontWeight: FontWeight.w600,
+                      color: Color(0xFFCBD5E1),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildSkillBar(String label, double value, Color color) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 8.0),
+      child: Row(
+        children: [
+          SizedBox(
+            width: 130,
+            child: Text(
+              label,
+              style: const TextStyle(
+                fontSize: 11.5,
+                fontWeight: FontWeight.w600,
+                color: Color(0xFF94A3B8),
+              ),
+            ),
+          ),
+          Expanded(
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(4),
+              child: LinearProgressIndicator(
+                value: value.clamp(0.0, 1.0),
+                minHeight: 5,
+                backgroundColor: Colors.white.withValues(alpha: 0.06),
+                valueColor: AlwaysStoppedAnimation<Color>(color),
+              ),
+            ),
+          ),
         ],
       ),
     );
