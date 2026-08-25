@@ -61,4 +61,63 @@ class AppTheme {
       ),
     );
   }
+
+  static ThemeData get cyberpunkTheme {
+    return ThemeData(
+      useMaterial3: true,
+      brightness: Brightness.dark,
+      colorScheme: const ColorScheme.dark(
+        primary: Color(0xFF10B981), // Matrix Green
+        onPrimary: Colors.black,
+        secondary: Color(0xFF38BDF8),
+        surface: Color(0xFF000000), // Pitch Black
+        onSurface: Color(0xFF10B981), // Green Text
+        surfaceContainerLowest: Color(0xFF000000),
+        surfaceContainerLow: Color(0xFF021008),
+        surfaceContainer: Color(0xFF042010),
+        surfaceContainerHigh: Color(0xFF063018),
+        surfaceContainerHighest: Color(0xFF084020),
+        outline: Color(0xFF10B981),
+        outlineVariant: Color(0xFF055A38),
+      ),
+      scaffoldBackgroundColor: const Color(0xFF000000),
+      fontFamily: GoogleFonts.firaCode().fontFamily, // Hacker font
+      textTheme: TextTheme(
+        displayLarge: GoogleFonts.firaCode(fontSize: 32, fontWeight: FontWeight.w700, color: const Color(0xFF10B981)),
+        displayMedium: GoogleFonts.firaCode(fontSize: 26, fontWeight: FontWeight.w700, color: const Color(0xFF10B981)),
+        displaySmall: GoogleFonts.firaCode(fontSize: 24, fontWeight: FontWeight.w600, color: const Color(0xFF10B981)),
+        bodyLarge: GoogleFonts.firaCode(fontSize: 18, fontWeight: FontWeight.w400, color: const Color(0xFF10B981)),
+        bodyMedium: GoogleFonts.firaCode(fontSize: 16, fontWeight: FontWeight.w400, color: const Color(0xFF10B981)),
+        labelSmall: GoogleFonts.firaCode(fontSize: 12, fontWeight: FontWeight.w600, letterSpacing: 0.05, color: const Color(0xFF10B981)),
+      ).apply(
+        bodyColor: const Color(0xFF10B981),
+        displayColor: const Color(0xFF10B981),
+      ),
+      appBarTheme: const AppBarTheme(
+        backgroundColor: Color(0xFF000000),
+        elevation: 0,
+        centerTitle: true,
+      ),
+      cardTheme: CardThemeData(
+        color: const Color(0xFF021008),
+        elevation: 0,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(0), // Sharp edges
+          side: const BorderSide(color: Color(0xFF10B981), width: 1.5),
+        ),
+      ),
+      elevatedButtonTheme: ElevatedButtonThemeData(
+        style: ElevatedButton.styleFrom(
+          backgroundColor: const Color(0xFF10B981),
+          foregroundColor: Colors.black,
+          elevation: 0,
+          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(0), // Sharp edges
+          ),
+          textStyle: GoogleFonts.firaCode(fontSize: 16, fontWeight: FontWeight.bold),
+        ),
+      ),
+    );
+  }
 }

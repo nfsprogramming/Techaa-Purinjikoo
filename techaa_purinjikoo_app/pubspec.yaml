@@ -44,6 +44,9 @@ dependencies:
   google_sign_in: ^6.2.2
   http: ^1.2.0
   supabase_flutter: ^2.8.0
+  flutter_local_notifications: ^22.3.0
+  share_plus: ^13.3.0
+  timezone: ^0.11.1
 
 dev_dependencies:
   flutter_test:
