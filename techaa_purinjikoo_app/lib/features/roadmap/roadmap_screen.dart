@@ -252,6 +252,18 @@ class _RoadmapScreenState extends ConsumerState<RoadmapScreen> {
           _buildYearTwoSkillScoreCard(completedCount, totalTopics),
         ],
 
+        // Year 3 Career Specialization Score Card
+        if (stage.stageType == RoadmapStageType.thirdYear) ...[
+          const SizedBox(height: 16),
+          _buildYearThreeSkillScoreCard(completedCount, totalTopics),
+        ],
+
+        // Year 4 Job Ready Score Card
+        if (stage.stageType == RoadmapStageType.fourthYear) ...[
+          const SizedBox(height: 16),
+          _buildYearFourSkillScoreCard(completedCount, totalTopics),
+        ],
+
         const SizedBox(height: 20),
 
         // Modules
@@ -749,6 +761,178 @@ class _RoadmapScreenState extends ConsumerState<RoadmapScreen> {
                 Expanded(
                   child: Text(
                     'Next Goal → Deploy Full Stack App with Docker + PostgreSQL to Render/Vercel!',
+                    style: TextStyle(
+                      fontSize: 11,
+                      fontWeight: FontWeight.w600,
+                      color: Color(0xFFCBD5E1),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildYearThreeSkillScoreCard(int completedCount, int totalTopics) {
+    final pct = totalTopics > 0 ? ((completedCount / totalTopics) * 100).toInt() : 0;
+
+    return Container(
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: const Color(0xFF190D2A),
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(color: const Color(0xFFA855F7).withValues(alpha: 0.35)),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const Row(
+                children: [
+                  Icon(Icons.workspace_premium_rounded, color: Color(0xFFA855F7), size: 18),
+                  SizedBox(width: 8),
+                  Text(
+                    '📊 YOUR YEAR-3 CAREER SCORE',
+                    style: TextStyle(
+                      fontSize: 12.5,
+                      fontWeight: FontWeight.w800,
+                      color: Colors.white,
+                      letterSpacing: 0.2,
+                    ),
+                  ),
+                ],
+              ),
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+                decoration: BoxDecoration(
+                  color: const Color(0xFFA855F7).withValues(alpha: 0.15),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Text(
+                  '$pct%',
+                  style: const TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w900,
+                    color: Color(0xFFA855F7),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 14),
+
+          _buildSkillBar('🧭 Domain Specialization', completedCount >= 2 ? 0.95 : 0.4, const Color(0xFFA855F7)),
+          _buildSkillBar('🏛️ System Architecture', completedCount >= 3 ? 0.85 : 0.35, const Color(0xFF38BDF8)),
+          _buildSkillBar('🔄 Agile & PR Workflow', completedCount >= 4 ? 0.9 : 0.3, const Color(0xFF10B981)),
+          _buildSkillBar('🧠 LeetCode DSA Patterns', completedCount >= 2 ? 0.8 : 0.25, const Color(0xFFF59E0B)),
+          _buildSkillBar('🔍 Sentry Observability', completedCount >= 3 ? 0.85 : 0.2, const Color(0xFFEC4899)),
+          _buildSkillBar('📄 ATS Resume & Portfolio', completedCount >= 4 ? 0.95 : 0.3, const Color(0xFF06B6D4)),
+
+          const SizedBox(height: 10),
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+            decoration: BoxDecoration(
+              color: Colors.white.withValues(alpha: 0.04),
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: const Row(
+              children: [
+                Icon(Icons.stars_rounded, color: Color(0xFFA855F7), size: 14),
+                SizedBox(width: 6),
+                Expanded(
+                  child: Text(
+                    'Next Goal → Showcase 2 production-grade apps on your custom domain portfolio!',
+                    style: TextStyle(
+                      fontSize: 11,
+                      fontWeight: FontWeight.w600,
+                      color: Color(0xFFCBD5E1),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildYearFourSkillScoreCard(int completedCount, int totalTopics) {
+    final pct = totalTopics > 0 ? ((completedCount / totalTopics) * 100).toInt() : 0;
+
+    return Container(
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: const Color(0xFF221105),
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(color: const Color(0xFFF97316).withValues(alpha: 0.35)),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const Row(
+                children: [
+                  Icon(Icons.verified_rounded, color: Color(0xFFF97316), size: 18),
+                  SizedBox(width: 8),
+                  Text(
+                    '📊 YOUR YEAR-4 PLACEMENT SCORE',
+                    style: TextStyle(
+                      fontSize: 12.5,
+                      fontWeight: FontWeight.w800,
+                      color: Colors.white,
+                      letterSpacing: 0.2,
+                    ),
+                  ),
+                ],
+              ),
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+                decoration: BoxDecoration(
+                  color: const Color(0xFFF97316).withValues(alpha: 0.15),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Text(
+                  '$pct%',
+                  style: const TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w900,
+                    color: Color(0xFFF97316),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 14),
+
+          _buildSkillBar('🎯 CTC & Job Market IQ', completedCount >= 2 ? 0.95 : 0.4, const Color(0xFFF97316)),
+          _buildSkillBar('📄 ATS Resume Score', completedCount >= 3 ? 0.9 : 0.35, const Color(0xFF38BDF8)),
+          _buildSkillBar('🐙 GitHub Proof-of-Work', completedCount >= 4 ? 0.95 : 0.3, const Color(0xFFA855F7)),
+          _buildSkillBar('🎤 STAR Interview Pitch', completedCount >= 2 ? 0.85 : 0.25, const Color(0xFF10B981)),
+          _buildSkillBar('💼 Cold Outreach & PPO', completedCount >= 3 ? 0.8 : 0.2, const Color(0xFFF59E0B)),
+          _buildSkillBar('🎓 Techaa Career Passport', completedCount >= 4 ? 1.0 : 0.3, const Color(0xFFE11D48)),
+
+          const SizedBox(height: 10),
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+            decoration: BoxDecoration(
+              color: Colors.white.withValues(alpha: 0.04),
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: const Row(
+              children: [
+                Icon(Icons.school_rounded, color: Color(0xFFF97316), size: 14),
+                SizedBox(width: 6),
+                Expanded(
+                  child: Text(
+                    'Next Goal → Claim your Techaa Career Ready Passport & crack top offers!',
                     style: TextStyle(
                       fontSize: 11,
                       fontWeight: FontWeight.w600,

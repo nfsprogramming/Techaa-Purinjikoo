@@ -557,32 +557,34 @@ class CareerRoadmapContent {
         ],
       ),
 
-      // 🟣 3rd YEAR
+      // 🟣 3rd YEAR — Deep Specialization, System Design & Career Launch
       const RoadmapYearStage(
         stageType: RoadmapStageType.thirdYear,
         title: '3rd Year: Career Purinjikoo',
         badgeText: '🟣 3rd Year',
         motto: '“Ippo technology theriyuthu... career-ku use panna vendiya time.”',
-        yearMissionTitle: '🎯 3rd Year Mission',
-        yearMissionDesc: '“ATS-optimized resume ready panni, GitHub portfolio-la 2 production-grade projects showcase pannu!”',
+        yearMissionTitle: '🎯 3rd Year Capstone Mission',
+        yearMissionDesc: '“ATS-optimized resume ready panni, GitHub portfolio-la 2 production-grade live projects showcase pannu!”',
         modules: [
           RoadmapModule(
-            id: 'm8_career_fields',
+            id: 'm13_career_fields',
             moduleNumber: 'Module 01',
-            title: 'Enakku Enna Field?',
-            tagline: 'Discover your true engineering calling',
+            title: 'Enakku Enna Field? (Career Matchmaking)',
+            tagline: 'Frontend, Backend, AI/ML, DevOps, Cloud & Mobile',
             iconEmoji: '🧭',
+            buildMissionTitle: '🧭 Domain Explorer Badge',
+            buildMissionDesc: 'Select your primary specialization domain and commit to building 2 deep projects in it!',
             topics: [
               RoadmapTopicItem(
                 id: 'field_1',
-                title: 'Software Engineer vs AI vs DevOps vs Cloud',
-                subtitle: 'Choosing the right domain for your passion',
+                title: 'Software Engineer vs AI vs DevOps vs Cloud vs App',
+                subtitle: 'Choosing the right domain for your passion & strengths',
                 iconEmoji: '🎯',
                 dialogue: [
                   DialogueLine(speaker: 'Friend 1', avatarEmoji: '🤔', text: 'Evalo fields irukku... enakku ethu set aagum?'),
-                  DialogueLine(speaker: 'Techaa', avatarEmoji: '🚀', text: 'Visual design & animations pudikkumna -> Frontend/App. Data & scaling logic -> Backend. Math & models -> AI/ML. Infrastructure & automation -> DevOps!', isTechaa: true),
+                  DialogueLine(speaker: 'Techaa', avatarEmoji: '🚀', text: 'Visual design & animations pudikkumna -> Frontend/App. Data & scaling logic -> Backend. Math & models -> AI/ML. Infrastructure & automation -> DevOps/Cloud!', isTechaa: true),
                 ],
-                realWorldExample: 'Tech companies having specialized squads collaborating together.',
+                realWorldExample: 'Tech companies having specialized squads collaborating together on high-impact products.',
                 devExperience: 'Trying mini-projects in each field in 3rd year gave me clarity on my backend/mobile passion.',
                 careerRelevance: 'Strategic career planning and internship targeting.',
                 missionPrompt: 'List your top 2 favorite tech domains and why you enjoy them.',
@@ -591,11 +593,39 @@ class CareerRoadmapContent {
           ),
 
           RoadmapModule(
-            id: 'm9_company_culture',
+            id: 'm14_system_design',
             moduleNumber: 'Module 02',
+            title: 'System Design & Scalable Architecture',
+            tagline: 'High-Level Design (HLD), Low-Level Design (LLD) & Microservices',
+            iconEmoji: '🏛️',
+            buildMissionTitle: '🏛️ System Architect Badge',
+            buildMissionDesc: 'Draw a high-level system design diagram for a URL Shortener or Chat application!',
+            topics: [
+              RoadmapTopicItem(
+                id: 'sys_des_1',
+                title: 'HLD vs LLD & How Systems Scale to 1M Users',
+                subtitle: 'Load Balancers, Database Sharding & Microservices',
+                iconEmoji: '📐',
+                dialogue: [
+                  DialogueLine(speaker: 'Friend 1', avatarEmoji: '🧑‍💻', text: 'Single server 10 lakh users request handle panna mudiyuma?'),
+                  DialogueLine(speaker: 'Techaa', avatarEmoji: '🚀', text: 'Mudiyadhu! You put a Load Balancer (Nginx/Cloudflare) in front, spin up 5 backend instances, use Redis for caching, and read-replica databases!', isTechaa: true),
+                ],
+                realWorldExample: 'WhatsApp handling 2 billion users with Erlang and distributed microservice clusters.',
+                devExperience: 'Learning basic system design made me understand why monolithic apps crash under flash sales.',
+                careerRelevance: 'High-paying Product Company & FAANG interview staple.',
+                missionPrompt: 'Design a system architecture diagram for TinyURL with database schema.',
+              ),
+            ],
+          ),
+
+          RoadmapModule(
+            id: 'm15_company_culture',
+            moduleNumber: 'Module 03',
             title: 'Company-la Actually Enna Nadakkuthu?',
-            tagline: 'Jira, Pull Requests, Sprints & Production',
+            tagline: 'Jira, Pull Requests, Sprints, Code Reviews & Standups',
             iconEmoji: '🏢',
+            buildMissionTitle: '🔄 Agile Engineer Badge',
+            buildMissionDesc: 'Create a GitHub project board with Backlog, In-Progress, and Done columns for your team project!',
             topics: [
               RoadmapTopicItem(
                 id: 'comp_1',
@@ -615,25 +645,157 @@ class CareerRoadmapContent {
           ),
 
           RoadmapModule(
-            id: 'm10_job_ready',
-            moduleNumber: 'Module 03',
-            title: 'Job-ku Ready Aaganum',
-            tagline: 'Resume, ATS, LinkedIn, LeetCode & Interviews',
-            iconEmoji: '💼',
+            id: 'm16_open_source',
+            moduleNumber: 'Module 04',
+            title: 'Open Source Contribution',
+            tagline: 'Good First Issues, Forking & Upstream Pull Requests',
+            iconEmoji: '🐙',
+            buildMissionTitle: '🐙 Open Source Contributor Badge',
+            buildMissionDesc: 'Find an open source repo on GitHub and submit a PR fixing documentation or a bug!',
+            topics: [
+              RoadmapTopicItem(
+                id: 'oss_1',
+                title: 'Contributing to Real World Open Source Codebases',
+                subtitle: 'The best proof of work on your public resume',
+                iconEmoji: '🌟',
+                dialogue: [
+                  DialogueLine(speaker: 'Friend 1', avatarEmoji: '🧑‍💻', text: 'Big open source projects-la naan epdi contribute panradhu?'),
+                  DialogueLine(speaker: 'Techaa', avatarEmoji: '🚀', text: 'Start with `good first issue` tags! Fix typos, update documentation, write unit tests. Over time, tackle bug fixes and new features!', isTechaa: true),
+                ],
+                realWorldExample: 'Google Summer of Code (GSoC) and Hacktoberfest connecting students to global open source orgs.',
+                devExperience: 'My first merged PR in a popular Flutter package gave me huge confidence in reading others\' code.',
+                careerRelevance: 'Direct hiring signal for remote US/EU engineering teams.',
+                missionPrompt: 'Search GitHub for `is:issue is:open label:"good first issue"` in your language.',
+              ),
+            ],
+          ),
+
+          RoadmapModule(
+            id: 'm17_dsa_interview_prep',
+            moduleNumber: 'Module 05',
+            title: 'DSA for Product Interviews',
+            tagline: 'Two Pointers, HashMaps, Trees & LeetCode Patterns',
+            iconEmoji: '🧠',
+            buildMissionTitle: '🧠 DSA Intermediate Badge',
+            buildMissionDesc: 'Solve 50 LeetCode problems covering Two Pointers, Binary Search, and Tree traversals!',
+            topics: [
+              RoadmapTopicItem(
+                id: 'dsa_pat_1',
+                title: 'Mastering Coding Patterns over Memorization',
+                subtitle: 'Recognize problem patterns instead of memorizing 500 solutions',
+                iconEmoji: '⚡',
+                dialogue: [
+                  DialogueLine(speaker: 'Friend 1', avatarEmoji: '🧑‍💻', text: 'LeetCode-la 1000 questions irukku... ellathayum solve pannanuma?'),
+                  DialogueLine(speaker: 'Techaa', avatarEmoji: '🚀', text: 'No! Master 14 Core Patterns (Sliding Window, Two Pointers, Fast & Slow Pointers, BFS/DFS, Top K Elements). 75 pattern questions will cover 90% of interview rounds!', isTechaa: true),
+                ],
+                realWorldExample: 'Blind 75 and NeetCode 150 curated problem sets used by successful FAANG candidates.',
+                devExperience: 'Practicing pattern recognition helped me solve unseen interview problems calmly.',
+                careerRelevance: 'Primary filter round for Amazon, Microsoft, and high-growth startups.',
+                missionPrompt: 'Solve 3 Sliding Window questions on LeetCode.',
+              ),
+            ],
+          ),
+
+          RoadmapModule(
+            id: 'm18_observability_sentry',
+            moduleNumber: 'Module 06',
+            title: 'Observability & Error Tracking',
+            tagline: 'Sentry, Structured Logging & Uptime Health Checks',
+            iconEmoji: '🔍',
+            buildMissionTitle: '🔍 Observability Master Badge',
+            buildMissionDesc: 'Integrate Sentry SDK or error logging into your backend/mobile app to catch production errors!',
+            topics: [
+              RoadmapTopicItem(
+                id: 'obs_1',
+                title: 'Production Error Tracking with Sentry',
+                subtitle: 'Know when your app crashes before your users report it',
+                iconEmoji: '🛡️',
+                dialogue: [
+                  DialogueLine(speaker: 'Friend 1', avatarEmoji: '🧑‍💻', text: 'User phone-la app crash aana namma epdi kandupudikkuradhu?'),
+                  DialogueLine(speaker: 'Techaa', avatarEmoji: '🚀', text: 'Sentry / Crashlytics automatically captures stack traces, OS version, device model, and user breadcrumbs the millisecond an unhandled exception occurs!', isTechaa: true),
+                ],
+                realWorldExample: 'Uber and Airbnb monitoring error spike dashboards during new app releases.',
+                devExperience: 'Catching a rare iOS payment timeout via Sentry logs allowed us to deploy a hotfix in 10 minutes.',
+                careerRelevance: 'Production reliability and DevOps engineering excellence.',
+                missionPrompt: 'Trigger an intentional exception in your app and inspect the error report in Sentry.',
+              ),
+            ],
+          ),
+
+          RoadmapModule(
+            id: 'm19_hackathons',
+            moduleNumber: 'Module 07',
+            title: 'Hackathons & Building Proof-of-Work',
+            tagline: '36-Hour Hackathons, Rapid MVPs & Winning Product Pitches',
+            iconEmoji: '⚡',
+            buildMissionTitle: '⚡ Hackathon Winner Badge',
+            buildMissionDesc: 'Participate in a national or online hackathon and ship a working product MVP in 36 hours!',
+            topics: [
+              RoadmapTopicItem(
+                id: 'hack_1',
+                title: 'Hackathon Playbook: From Idea to Working Demo',
+                subtitle: 'How to build fast, pitch compellingly & win prizes',
+                iconEmoji: '🏆',
+                dialogue: [
+                  DialogueLine(speaker: 'Friend 1', avatarEmoji: '🧑‍💻', text: 'Hackathon-la win panna complete code perfect-ah irukkanuma?'),
+                  DialogueLine(speaker: 'Techaa', avatarEmoji: '🚀', text: 'Judges care about: Real Problem Solved + Working Live Demo + UI Wow Factor + Clear Pitch! Build the core happy path flawlessly in 36 hours!', isTechaa: true),
+                ],
+                realWorldExample: 'Companies like Zapier and GroupMe created as hackathon prototypes.',
+                devExperience: 'Winning my first hackathon in 3rd year expanded my network and opened direct recruiter chats.',
+                careerRelevance: 'Exceptional proof-of-work on resumes and portfolio showcases.',
+                missionPrompt: 'Register for an upcoming hackathon on Devpost or Unstop with a 3-person team.',
+              ),
+            ],
+          ),
+
+          RoadmapModule(
+            id: 'm20_resume_ats',
+            moduleNumber: 'Module 08',
+            title: 'Resume Engineering & ATS Optimization',
+            tagline: 'Google X-Y-Z Formula, Action Verbs & 1-Page Layout',
+            iconEmoji: '📄',
+            buildMissionTitle: '📄 ATS Master Badge',
+            buildMissionDesc: 'Rewrite your project bullet points using Google’s X-Y-Z formula (`Accomplished [X] measured by [Y] by doing [Z]`)!',
             topics: [
               RoadmapTopicItem(
                 id: 'job_1',
                 title: 'ATS Resume, GitHub Portfolio & Networking',
-                subtitle: 'Stand out from 10,000 applicants',
+                subtitle: 'Stand out from 10,000 applicants with measurable impact',
                 iconEmoji: '📄',
                 dialogue: [
                   DialogueLine(speaker: 'Friend 1', avatarEmoji: '🧑‍💻', text: '100 companies apply pannen, response-e varala yen da?'),
-                  DialogueLine(speaker: 'Techaa', avatarEmoji: '🚀', text: 'Fancy 2-column Canva resumes fail ATS scanners! Use clean 1-column format with measurable impact (`Reduced API latency by 40%`). Show live deployed links on GitHub!', isTechaa: true),
+                  DialogueLine(speaker: 'Techaa', avatarEmoji: '🚀', text: 'Fancy 2-column Canva resumes fail ATS scanners! Use clean 1-column format with measurable impact (`Reduced API latency by 40% using Redis caching`). Show live deployed links on GitHub!', isTechaa: true),
                 ],
                 realWorldExample: 'Tech recruiters filtering 500 applicants in 10 seconds via ATS keyword search.',
                 devExperience: 'Getting my first software role through a direct LinkedIn message showcasing a live demo video.',
                 careerRelevance: 'Securing top internships and full-time job offers.',
                 missionPrompt: 'Format your resume with action verbs and deploy a portfolio website.',
+              ),
+            ],
+          ),
+
+          RoadmapModule(
+            id: 'm21_y3_capstone',
+            moduleNumber: 'Module 09',
+            title: '3rd Year Capstone: Live Portfolio & 2 Apps',
+            tagline: '“SHOWCASE 2 PRODUCTION-GRADE PRODUCTS”',
+            iconEmoji: '🏆',
+            buildMissionTitle: '🏆 Techaa Year-3 Career Graduate',
+            buildMissionDesc: 'Deploy a personal portfolio website showcasing 2 production-grade projects with live URLs!',
+            topics: [
+              RoadmapTopicItem(
+                id: 'cap_y3_1',
+                title: 'The 3rd Year Career Milestone',
+                subtitle: 'Proof of work, specialized domain expertise & job readiness',
+                iconEmoji: '🚀',
+                dialogue: [
+                  DialogueLine(speaker: 'Friend 1', avatarEmoji: '🤩', text: '3rd year mudiyuthu... ippo naan internships-ku ready-a?'),
+                  DialogueLine(speaker: 'Techaa', avatarEmoji: '🚀', text: '100% ready! You have domain specialization, system design understanding, PR review discipline, ATS resume, and 2 live deployed products on your portfolio! You are fully prepared to conquer 4th-year placements!', isTechaa: true),
+                ],
+                realWorldExample: 'Candidates receiving off-campus high-paying internship offers before final year even begins.',
+                devExperience: 'Having live deployed portfolio projects made my final round interview a fun project demo instead of interrogation.',
+                careerRelevance: 'The key catalyst for landing high-tier software engineering offers.',
+                missionPrompt: 'Submit your portfolio URL with 2 live project links to claim the Techaa Year-3 Career Graduate Badge!',
               ),
             ],
           ),
