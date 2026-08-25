@@ -56,6 +56,24 @@ class DailyTechBitesData {
         storyTanglish: 'Namma phone-la Instagram reel paakumbothu satellite illa, kadal-kulla 1.4 million kilometers thoorathuku irukkura glass fiber cables dhaan data carry pannuthu! Sharks bite pannama irukka heavy steel armor layer pottu ocean floor-la potrupaanga. Light speed-la total globe connect aaguthu!',
         takeaway: '99% of global internet traffic travels through undersea optical fiber, not satellites.',
       ),
+
+      const DailyTechBite(
+        id: 'bite_ai_tools',
+        title: 'Vibe Coding with Cursor & v0: The 2026 Developer Superpower',
+        iconEmoji: '⚡',
+        tag: 'AI Tools',
+        storyTanglish: 'Munadi oru full-stack app build panna 2 weeks frontend + 2 weeks backend theva pattuchu. Today, v0.dev-la prompt panni 1 minute-la UI ready pannitu, Cursor / Claude Code-la Supabase backend connect panni 2 hours-la live product launch panraanga. Coding is no longer about typing syntax; it is about knowing WHAT to build!',
+        takeaway: 'AI handles the repetitive typing; you focus on system architecture and user value.',
+      ),
+
+      const DailyTechBite(
+        id: 'bite_hallucination',
+        title: 'Why AI hallucinations happen & how to prevent fake APIs',
+        iconEmoji: '🤖',
+        tag: 'AI Engineering',
+        storyTanglish: 'ChatGPT kitta code kekkumbothu exist aagadha library function-ah invent panni kudukum (Hallucination). Reason enna? LLMs predict next most probable words, not real compiler truth. So always use Agentic IDEs with project context (like Cursor or Antigravity) that check compiler errors in real time!',
+        takeaway: 'Never trust AI code blindly without running compiler and test checks.',
+      ),
     ];
   }
 

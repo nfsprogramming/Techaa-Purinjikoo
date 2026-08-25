@@ -194,6 +194,33 @@ class InterviewScenariosData {
           ),
         ],
       ),
+
+      const InterviewScenario(
+        id: 'sc_ai_tools_usage',
+        category: 'Modern Engineering & AI',
+        question: '“Do you use AI coding assistants like GitHub Copilot or Cursor while building software?”',
+        interviewerNote: 'Checking if you use AI as a productivity multiplier vs relying on it blindly without understanding.',
+        choices: [
+          InterviewChoice(
+            label: 'Outdated Denial ❌',
+            text: 'No sir, AI use panna cheating sir. Naan only notepad-la pure memory vechu code ezhuthuven.',
+            isCorrect: false,
+            feedback: 'Companies want high productivity! Rejecting modern developer tools makes you 3x slower than modern engineers.',
+          ),
+          InterviewChoice(
+            label: 'Blind Copy-Paster ❌',
+            text: 'Yes sir, ChatGPT / Cursor kitta full code prompt panni copy-paste panniduven. Syntax padikave theva illa.',
+            isCorrect: false,
+            feedback: 'Immediate rejection! If you cannot explain edge cases or fix bugs without AI, you cannot be trusted with production systems.',
+          ),
+          InterviewChoice(
+            label: 'Techaa Pro ✅',
+            text: 'Yes, I actively use Cursor and Copilot to accelerate boilerplate code, generate unit test edge cases, and debug stack traces. However, I own the architecture, database normalization, and security audits — ensuring every AI diff is reviewed before merge!',
+            isCorrect: true,
+            feedback: 'Semma! The exact answer top engineering managers want to hear in 2026: AI as a co-pilot with human architectural ownership.',
+          ),
+        ],
+      ),
     ];
   }
 }
