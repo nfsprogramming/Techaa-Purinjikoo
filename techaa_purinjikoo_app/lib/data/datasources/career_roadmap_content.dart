@@ -410,6 +410,23 @@ class CareerRoadmapContent {
                 careerRelevance: 'Resourcefulness and cost-efficient developer setup.',
                 missionPrompt: 'Check your MyJio app for Google One AI offer and create a free Google AI Studio API key at aistudio.google.com.',
               ),
+              RoadmapTopicItem(
+                id: 'ai_dev_6',
+                title: 'Canteen Talk: “Dei AI vanthiruchu, namakku job unda?”',
+                subtitle: 'Vada Samosa saptute pesalam da... the raw reality of AI in 2026',
+                iconEmoji: '☕',
+                dialogue: [
+                  DialogueLine(speaker: 'Junior', avatarEmoji: '🧑‍💻', text: 'Bro reels la lam "Coding is dead, naan 5 min la app panniten" nu podraanga. Enakku bayama irukku bro.'),
+                  DialogueLine(speaker: 'Senior', avatarEmoji: '😎', text: 'Machan tea kudi... AI is like a Ferrari, aana steering un kaiyila dhaan irukku! Neenga accelerator amukkina car tree-la muttidum (app crash aayidum). Unakku DB epdi connect aaguthu, API epdi work aaguthu nu therinja dhaan, AI kudukkura code thappa nu kandupudikka mudiyum!'),
+                  DialogueLine(speaker: 'Junior', avatarEmoji: '🤔', text: 'Appo interview-la AI pathi kettanga na enna sollanum? "I don\'t use AI" nu sollanuma?'),
+                  DialogueLine(speaker: 'Senior', avatarEmoji: '😎', text: 'Apdinu sonna unna "Outdated" nu reject panniduvaan! Namma mass-ah reply pannanum: "Yes Sir, I use AI to write boilerplate and tests quickly. But I personally own the system architecture, DB schema, and security before pushing to production!" Idhu thaan mass answer!'),
+                  DialogueLine(speaker: 'Techaa', avatarEmoji: '🚀', text: 'Remember: AI writes code, YOU design the system! Oru real engineer-oda value in the "thinking", not in the "typing"!', isTechaa: true),
+                ],
+                realWorldExample: 'Engineers who blind-copied AI code got fired when their apps got hacked due to missing JWT validation.',
+                devExperience: 'I treat AI as my junior developer. It writes the code, but I review and approve every single line before merging.',
+                careerRelevance: 'Companies want "AI-Augmented Engineers" who can ship 10x faster but with 100% security and reliability.',
+                missionPrompt: 'Review a piece of AI-generated code and write down 3 potential edge cases or bugs it missed.',
+              ),
             ],
           ),
 
