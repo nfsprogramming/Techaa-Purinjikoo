@@ -2,6 +2,7 @@ enum RoadmapStageType {
   firstYear,
   secondYear,
   thirdYear,
+  fourthYear,
   careerPaths,
 }
 

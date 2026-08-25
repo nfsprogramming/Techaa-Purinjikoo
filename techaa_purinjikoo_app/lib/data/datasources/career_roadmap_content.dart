@@ -537,6 +537,263 @@ class CareerRoadmapContent {
           ),
         ],
       ),
+
+      // 🟠 4th YEAR
+      const RoadmapYearStage(
+        stageType: RoadmapStageType.fourthYear,
+        title: '4th Year: Career-ku Ready Aagiko 🚀',
+        badgeText: '🟠 4th Year',
+        motto: '“College mudiyapoguthu... ippo enna?”',
+        yearMissionTitle: '🎯 4th Year Capstone Mission',
+        yearMissionDesc: '“Job, Higher Studies or Startup — un pathway select panni, 100% placement-ready aagu!”',
+        modules: [
+          RoadmapModule(
+            id: 'm11_job_hunt',
+            moduleNumber: 'Module 01',
+            title: 'Job Hunt na Enna?',
+            tagline: 'CTC, In-Hand, Referrals & JDs Decoded',
+            iconEmoji: '🎯',
+            topics: [
+              RoadmapTopicItem(
+                id: 'hunt_1',
+                title: 'CTC vs In-Hand Salary na Enna?',
+                subtitle: 'Why 6 LPA is not 50,000 in your bank account',
+                iconEmoji: '💰',
+                dialogue: [
+                  DialogueLine(speaker: 'Friend 1', avatarEmoji: '🤩', text: 'CTC 6 LPA nu potrukanga da 🔥 Month-ku ₹50k varuma?'),
+                  DialogueLine(speaker: 'Techaa', avatarEmoji: '🚀', text: 'Adei... CTC ≠ In-hand salary! CTC includes Basic + PF deduction + Gratuity + Health Insurance + Variable Bonus. In-hand will be around ₹38k-₹42k!', isTechaa: true),
+                ],
+                realWorldExample: 'Company salary offer letters breaking down Fixed Component, PF, Tax (TDS), and Performance Bonus.',
+                devExperience: 'Always ask recruiters for the monthly in-hand breakdown before signing any offer letter.',
+                careerRelevance: 'Salary negotiation and financial literacy for freshers.',
+                missionPrompt: 'Calculate estimated in-hand salary for a 7 LPA package after standard deductions.',
+              ),
+              RoadmapTopicItem(
+                id: 'hunt_2',
+                title: 'Campus vs Off-Campus vs Referral',
+                subtitle: 'The 3 pathways to landing your first job',
+                iconEmoji: '🏢',
+                dialogue: [
+                  DialogueLine(speaker: 'Friend 1', avatarEmoji: '🧑‍💻', text: 'Campus placement miss aana career mudinjidha?'),
+                  DialogueLine(speaker: 'Techaa', avatarEmoji: '🚀', text: 'Illave illa! Off-campus hiring, LinkedIn referrals, and startup job boards (Wellfound) give 2x higher packages if your skills and portfolio are strong!', isTechaa: true),
+                ],
+                realWorldExample: 'Many developers getting hired by remote US/EU startups without campus placements.',
+                devExperience: 'Securing an off-campus referral by demonstrating a working GitHub project to an engineering manager.',
+                careerRelevance: 'Proactive job searching beyond college borders.',
+                missionPrompt: 'Identify 5 target companies you want to work for and check their Careers page.',
+              ),
+            ],
+          ),
+
+          RoadmapModule(
+            id: 'm12_resume_purinjikoo',
+            moduleNumber: 'Module 02',
+            title: 'Resume Purinjikoo',
+            tagline: 'ATS Scans, 1-Page Layout & Impact Bullets',
+            iconEmoji: '📄',
+            buildMissionTitle: '📄 Resume Ready Badge',
+            buildMissionDesc: 'Build a clean single-column Markdown or LaTeX ATS resume with live project links!',
+            topics: [
+              RoadmapTopicItem(
+                id: 'res_1',
+                title: 'ATS Scanner & One-Page Resume',
+                subtitle: 'Pass the robot filter to reach the human recruiter',
+                iconEmoji: '🤖',
+                dialogue: [
+                  DialogueLine(speaker: 'Friend 1', avatarEmoji: '🧑‍💻', text: 'Canva-la colourful resume pannen, reject aayiduchu yen?'),
+                  DialogueLine(speaker: 'Techaa', avatarEmoji: '🚀', text: 'ATS (Applicant Tracking System) cannot read multi-column graphics and tables! Use clean standard 1-page single column layout with clear headings!', isTechaa: true),
+                ],
+                realWorldExample: 'Workday, Greenhouse, and Taleo parsing text resumes into recruiter database filters.',
+                devExperience: 'Switching to a clean Jake\'s Resume format increased my interview callback rate from 5% to 35%.',
+                careerRelevance: 'The gateway to every job application.',
+                missionPrompt: 'Test your resume on a free ATS checker like ResumeWorded or Jobscan.',
+              ),
+            ],
+          ),
+
+          RoadmapModule(
+            id: 'm13_github_portfolio',
+            moduleNumber: 'Module 03',
+            title: 'GitHub & Portfolio',
+            tagline: 'Green Contribution Graph & Live Demos',
+            iconEmoji: '🐙',
+            buildMissionTitle: '🐙 GitHub Ready Badge',
+            buildMissionDesc: 'Pin 3 top projects with descriptive READMEs, architectural diagrams, and live preview URLs!',
+            topics: [
+              RoadmapTopicItem(
+                id: 'git_port_1',
+                title: 'Professional GitHub Profile & README',
+                subtitle: 'Show code quality, documentation, and live links',
+                iconEmoji: '⭐',
+                dialogue: [
+                  DialogueLine(speaker: 'Friend 1', avatarEmoji: '🧑‍💻', text: 'GitHub-la repo create panni file upload panna pothuma?'),
+                  DialogueLine(speaker: 'Techaa', avatarEmoji: '🚀', text: 'No! Add a great README with screenshots, tech stack badges, setup instructions, and a live Vercel/Play Store demo link. Recruiters won\'t download and run code locally!', isTechaa: true),
+                ],
+                realWorldExample: 'Top open source repositories having crystal clear documentation and demo GIFs.',
+                devExperience: 'A recruiter told me they hired me because my README had an interactive demo video.',
+                careerRelevance: 'Proof of work that speaks louder than a GPA.',
+                missionPrompt: 'Add a banner, tech badges, and demo GIF to your main project README.',
+              ),
+            ],
+          ),
+
+          RoadmapModule(
+            id: 'm14_interview_purinjikoo',
+            moduleNumber: 'Module 04',
+            title: 'Interview Purinjikoo',
+            tagline: 'Technical, HR, “Tell Me About Yourself”',
+            iconEmoji: '🎤',
+            buildMissionTitle: '🎤 Interview Ready Badge',
+            buildMissionDesc: 'Practice the STAR method (Situation, Task, Action, Result) for behavioral & project questions!',
+            topics: [
+              RoadmapTopicItem(
+                id: 'int_1',
+                title: '“Tell Me About Yourself” & Project Deep-Dive',
+                subtitle: 'Deliver a powerful 90-second elevator pitch',
+                iconEmoji: '🗣️',
+                dialogue: [
+                  DialogueLine(speaker: 'Friend 1', avatarEmoji: '🧑‍💻', text: 'Interview-la "Tell me about yourself" kettanga, bio-data full-ah padichuten...'),
+                  DialogueLine(speaker: 'Techaa', avatarEmoji: '🚀', text: 'Don\'t recite your school and age! Structure it: Who you are -> What technologies you build with -> Biggest project achievement -> Why you want this company!', isTechaa: true),
+                ],
+                realWorldExample: 'High-performing candidates setting a positive conversational tone in the first 2 minutes.',
+                devExperience: 'Practicing my 90-second intro in front of a mirror eliminated 90% of interview nervousness.',
+                careerRelevance: 'First impressions determine the trajectory of technical and HR rounds.',
+                missionPrompt: 'Record a 90-second video introducing yourself and your favorite project.',
+              ),
+            ],
+          ),
+
+          RoadmapModule(
+            id: 'm15_dsa_interview',
+            moduleNumber: 'Module 05',
+            title: 'DSA Interview Strategy',
+            tagline: 'Why Companies Ask DSA & LeetCode Roadmap',
+            iconEmoji: '🧠',
+            buildMissionTitle: '🧠 DSA Starter Badge',
+            buildMissionDesc: 'Solve 25 fundamental problems (Two Pointers, HashMaps, Binary Search) with optimal Big-O!',
+            topics: [
+              RoadmapTopicItem(
+                id: 'dsa_strat_1',
+                title: 'Why Companies Ask DSA & Big-O Notation',
+                subtitle: 'Evaluating problem-solving and efficiency at scale',
+                iconEmoji: '⚡',
+                dialogue: [
+                  DialogueLine(speaker: 'Friend 1', avatarEmoji: '🧑‍💻', text: 'Web dev-ku LeetCode questions ethuku da kekkuranga?'),
+                  DialogueLine(speaker: 'Techaa', avatarEmoji: '🚀', text: 'To see how you optimize time & memory! An O(n^2) nested loop will freeze when serving 1M users, but an O(n) HashMap lookup handles it instantly!', isTechaa: true),
+                ],
+                realWorldExample: 'Google Maps calculating shortest paths in milliseconds using Dijkstra graph algorithms.',
+                devExperience: 'Mastering HashMaps and Two-Pointer patterns helped me clear multiple tech screening rounds.',
+                careerRelevance: 'Essential for product-based companies and FAANG interviews.',
+                missionPrompt: 'Solve the Two Sum and Valid Anagram problems on LeetCode.',
+              ),
+            ],
+          ),
+
+          RoadmapModule(
+            id: 'm16_real_project',
+            moduleNumber: 'Module 06',
+            title: 'Real Project Experience',
+            tagline: 'Production, Error Logs & Architecture',
+            iconEmoji: '🚀',
+            buildMissionTitle: '🏆 Production Ready Badge',
+            buildMissionDesc: '“Your project should be usable by someone other than you.” — Ship to real users with error tracking!',
+            topics: [
+              RoadmapTopicItem(
+                id: 'prod_proj_1',
+                title: 'College Project vs Production Project',
+                subtitle: 'Handling real users, edge cases & errors gracefully',
+                iconEmoji: '🛡️',
+                dialogue: [
+                  DialogueLine(speaker: 'Friend 1', avatarEmoji: '🧑‍💻', text: 'College project-kum production app-kum enna difference?'),
+                  DialogueLine(speaker: 'Techaa', avatarEmoji: '🚀', text: 'College projects assume perfect inputs. Production apps handle network drops, slow APIs, rate limits, invalid passwords, and log errors to Sentry without crashing!', isTechaa: true),
+                ],
+                realWorldExample: 'Instagram handling spotty 2G mobile internet connections with offline caching and optimistic UI.',
+                devExperience: 'Adding loading states and error toasts made my Flutter app feel 10x more polished.',
+                careerRelevance: 'Shows interviewers that you write enterprise-grade, defensive code.',
+                missionPrompt: 'Add error handling and network retry logic to your existing app.',
+              ),
+            ],
+          ),
+
+          RoadmapModule(
+            id: 'm17_internship',
+            moduleNumber: 'Module 07',
+            title: 'Internship → PPO Conversion',
+            tagline: 'Cold Emails, Networking & Pre-Placement Offers',
+            iconEmoji: '💼',
+            buildMissionTitle: '💼 Internship Ready Badge',
+            buildMissionDesc: 'Send 5 personalized cold emails to startup founders / engineering leads with demo loom videos!',
+            topics: [
+              RoadmapTopicItem(
+                id: 'intern_1',
+                title: 'Cold Emailing & LinkedIn Outreach',
+                subtitle: 'How to stand out in a founder or recruiter\'s inbox',
+                iconEmoji: '📬',
+                dialogue: [
+                  DialogueLine(speaker: 'Student', avatarEmoji: '🧑‍💻', text: 'Bro internship venum...'),
+                  DialogueLine(speaker: 'Friend 1', avatarEmoji: '🤔', text: 'Apply pannitiya?'),
+                  DialogueLine(speaker: 'Student', avatarEmoji: '😅', text: 'LinkedIn open pannitu close panniten...'),
+                  DialogueLine(speaker: 'Techaa', avatarEmoji: '🚀', text: 'Don\'t spam "Sir please give job"! Send a 3-line note: "I noticed your app has X bug/feature opportunity. I built a working prototype here: [link]. Would love to contribute as an intern!"', isTechaa: true),
+                ],
+                realWorldExample: 'Founders hiring interns who show initiative and build prototypes before being asked.',
+                devExperience: 'Sending a working UI prototype got me an interview with a funded Bangalore startup in 24 hours.',
+                careerRelevance: 'Direct pathway to full-time Pre-Placement Offers (PPO).',
+                missionPrompt: 'Draft a concise 3-paragraph cold email with a link to your portfolio.',
+              ),
+            ],
+          ),
+
+          RoadmapModule(
+            id: 'm18_salary_offer',
+            moduleNumber: 'Module 08',
+            title: 'Salary & Offer Letter Purinjikoo',
+            tagline: 'Fixed Pay, ESOPs, Bonds & Notice Periods',
+            iconEmoji: '📑',
+            topics: [
+              RoadmapTopicItem(
+                id: 'sal_1',
+                title: 'Fixed vs Variable Pay, ESOPs & Bonds',
+                subtitle: 'Read the fine print before signing an offer letter',
+                iconEmoji: '⚖️',
+                dialogue: [
+                  DialogueLine(speaker: 'Friend 1', avatarEmoji: '🧑‍💻', text: '8 LPA offer letter-la 2 years bond potrukanga, sign pannalama?'),
+                  DialogueLine(speaker: 'Techaa', avatarEmoji: '🚀', text: 'Be very careful! Check if there is a severe financial penalty or certificate withholding (which is illegal). Prefer companies that value growth over lock-in contracts!', isTechaa: true),
+                ],
+                realWorldExample: 'Tech compensation packages balancing base salary and startup equity (Stock Options/ESOPs).',
+                devExperience: 'Understanding tax deductions (TDS, Section 80C) helped me plan my finances in my first job.',
+                careerRelevance: 'Protecting your career freedom and rights as an employee.',
+                missionPrompt: 'Review a sample developer employment agreement and identify the probation period clause.',
+              ),
+            ],
+          ),
+
+          RoadmapModule(
+            id: 'm19_career_decision',
+            moduleNumber: 'Module 09',
+            title: 'Final Career Decision & Pathways',
+            tagline: 'Job vs Higher Studies vs Startup vs Freelance',
+            iconEmoji: '🧭',
+            buildMissionTitle: '🎓 TECHAA CAREER READY Passport',
+            buildMissionDesc: '“Nee technology mattum padikala. Technology-a use panni career-ku ready aayita!”',
+            topics: [
+              RoadmapTopicItem(
+                id: 'dec_1',
+                title: '“College Mudiyuthu. Next Enna?”',
+                subtitle: 'Choose your launchpad: Job, MS/M.Tech, Startup or Freelancing',
+                iconEmoji: '🎓',
+                dialogue: [
+                  DialogueLine(speaker: 'Friend 1', avatarEmoji: '🧑‍💻', text: 'Ellarum software job-ku poranga, enakku startup / higher studies aasai irukku...'),
+                  DialogueLine(speaker: 'Techaa', avatarEmoji: '🚀', text: 'Follow what aligns with your vision! Job gives industry discipline & cash flow. Higher Studies deepens research. Startup builds products & leadership. Freelancing gives location freedom!', isTechaa: true),
+                ],
+                realWorldExample: 'Successful tech alumni excelling across diverse career paths worldwide.',
+                devExperience: 'Staying true to continuous learning and shipping products opened doors I never anticipated.',
+                careerRelevance: 'Lifelong engineering mastery and career fulfillment.',
+                missionPrompt: 'Write down your 3-year career vision and the next milestone you will accomplish.',
+              ),
+            ],
+          ),
+        ],
+      ),
     ];
   }
 

@@ -22,6 +22,7 @@ class _RoadmapScreenState extends ConsumerState<RoadmapScreen> {
     '🟢 1st Year',
     '🔵 2nd Year',
     '🟣 3rd Year',
+    '🟠 4th Year',
     '🚀 Career Paths',
   ];
 
@@ -137,7 +138,7 @@ class _RoadmapScreenState extends ConsumerState<RoadmapScreen> {
 
             // Main Content Area
             Expanded(
-              child: _selectedTabIndex < 3
+              child: _selectedTabIndex < 4
                   ? _buildYearStageView(yearStages[_selectedTabIndex], user.completedTopicIds)
                   : _buildCareerTracksView(careerTracks, user.completedTopicIds),
             ),
