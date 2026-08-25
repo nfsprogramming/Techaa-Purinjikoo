@@ -510,86 +510,23 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          // Professional Glowing Launch Container
-          Stack(
-            alignment: Alignment.center,
-            children: [
-              // Outer ambient glow ring
-              Container(
-                width: 140,
-                height: 140,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: AppColors.primary.withValues(alpha: 0.08),
-                  border: Border.all(
-                    color: AppColors.primary.withValues(alpha: 0.2),
-                    width: 1.5,
-                  ),
+          Container(
+            width: 120,
+            height: 120,
+            decoration: BoxDecoration(
+              color: AppColors.surfaceCard,
+              borderRadius: BorderRadius.circular(28),
+              border: Border.all(color: AppColors.primary, width: 2),
+              boxShadow: [
+                BoxShadow(
+                  color: AppColors.primary.withValues(alpha: 0.35),
+                  blurRadius: 36,
                 ),
-              ),
-              // Middle orbital ring
-              Container(
-                width: 114,
-                height: 114,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: AppColors.primary.withValues(alpha: 0.12),
-                  border: Border.all(
-                    color: AppColors.primaryAccent.withValues(alpha: 0.35),
-                    width: 1,
-                  ),
-                ),
-              ),
-              // Main Icon Card
-              Container(
-                width: 90,
-                height: 90,
-                decoration: BoxDecoration(
-                  gradient: const LinearGradient(
-                    colors: [Color(0xFF2B070F), Color(0xFF140508)],
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                  ),
-                  borderRadius: BorderRadius.circular(26),
-                  border: Border.all(
-                    color: AppColors.primary.withValues(alpha: 0.6),
-                    width: 1.5,
-                  ),
-                  boxShadow: [
-                    BoxShadow(
-                      color: AppColors.primary.withValues(alpha: 0.4),
-                      blurRadius: 28,
-                      spreadRadius: 2,
-                    ),
-                  ],
-                ),
-                child: const Center(
-                  child: Icon(
-                    Icons.rocket_launch_rounded,
-                    size: 46,
-                    color: AppColors.primaryAccent,
-                  ),
-                ),
-              ),
-              // Floating Sparkle Badge
-              Positioned(
-                top: 4,
-                right: 8,
-                child: Container(
-                  padding: const EdgeInsets.all(5),
-                  decoration: BoxDecoration(
-                    color: const Color(0xFF180509),
-                    shape: BoxShape.circle,
-                    border: Border.all(color: AppColors.primary.withValues(alpha: 0.5)),
-                  ),
-                  child: const Icon(
-                    Icons.auto_awesome_rounded,
-                    size: 14,
-                    color: Color(0xFFFBBF24),
-                  ),
-                ),
-              ),
-            ],
+              ],
+            ),
+            child: const Center(
+              child: Text('🚀', style: TextStyle(fontSize: 56)),
+            ),
           ),
           const SizedBox(height: 36),
           const Text(

@@ -233,6 +233,22 @@ class UserRepository extends Notifier<UserProfile> {
     _evaluateBadges();
   }
 
+  Future<void> toggleTopicCompletion(String topicId, {int xpReward = 50}) async {
+    if (state.completedTopicIds.contains(topicId)) {
+      final updatedTopics = state.completedTopicIds.where((id) => id != topicId).toList();
+      state = state.copyWith(completedTopicIds: updatedTopics);
+      if (_prefs != null) {
+        await _prefs!.setStringList(AppConstants.keyCompletedTopics, updatedTopics);
+      }
+      final authSession = ref.read(authRepositoryProvider);
+      if (authSession != null && authSession.id.isNotEmpty) {
+        _pushToFirestore(authSession.id, state);
+      }
+    } else {
+      await completeTopic(topicId, xpReward);
+    }
+  }
+
   void _evaluateBadges() {
     final allBadges = InitialContent.getBadges();
     final result = AchievementService.evaluateAchievements(
