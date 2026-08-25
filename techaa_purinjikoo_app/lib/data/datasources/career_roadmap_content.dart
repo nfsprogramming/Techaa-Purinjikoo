@@ -395,6 +395,21 @@ class CareerRoadmapContent {
                 careerRelevance: 'Fast root-cause analysis is a hallmark of elite software engineers.',
                 missionPrompt: 'Take a bug in your project, write a structured 4-part prompt, and let AI debug the root cause.',
               ),
+              RoadmapTopicItem(
+                id: 'ai_dev_5',
+                title: 'Free AI Developer Stack: Jio Gemini, AI Studio & Student Packs',
+                subtitle: 'Get ₹20,000/yr worth of Pro AI tools for ₹0 in college',
+                iconEmoji: '🎁',
+                dialogue: [
+                  DialogueLine(speaker: 'Junior', avatarEmoji: '🧑‍💻', text: 'ChatGPT Plus \\\$20/month (₹1700) kekkuraanga... college student-ku evalo money kedaikkadhu bro!'),
+                  DialogueLine(speaker: 'Senior', avatarEmoji: '😎', text: 'Jio SIM irukka? MyJio app-la 1-year free Google One AI Premium (Gemini Advanced 2TB) claim pannikalam! And Google AI Studio-la Gemini 1.5 Pro with 2M token context is 100% free! Plus un college `.edu` or student ID vechu GitHub Student Developer Pack-la GitHub Copilot free-ah unlock pannalam!'),
+                  DialogueLine(speaker: 'Techaa', avatarEmoji: '🚀', text: 'Never pay for AI in college! Chain your free tiers: Google AI Studio for analyzing 50-file repos in 1 shot, GitHub Student Pack for daily auto-complete, and v0 for fast UI components!', isTechaa: true),
+                ],
+                realWorldExample: 'College students building full SaaS startups using only Google AI Studio free tier keys and Supabase free tier.',
+                devExperience: 'Claiming the GitHub Student Developer Pack gave me free Copilot, JetBrains IDEs, and free domain hosting throughout college.',
+                careerRelevance: 'Resourcefulness and cost-efficient developer setup.',
+                missionPrompt: 'Check your MyJio app for Google One AI offer and create a free Google AI Studio API key at aistudio.google.com.',
+              ),
             ],
           ),
 
