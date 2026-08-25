@@ -299,21 +299,23 @@ class CareerRoadmapContent {
         ],
       ),
 
-      // 🔵 2nd YEAR
+      // 🔵 2nd YEAR — Full Stack & Production Builder Curriculum
       const RoadmapYearStage(
         stageType: RoadmapStageType.secondYear,
         title: '2nd Year: Build Pannikoo',
         badgeText: '🔵 2nd Year',
         motto: '“Basics theriyuthu... ippo actually developer aagalam.”',
-        yearMissionTitle: '🎯 2nd Year Mission',
+        yearMissionTitle: '🎯 2nd Year Capstone Mission',
         yearMissionDesc: '“Build a full-stack web/mobile app with real DB & Authentication and deploy it live to the cloud!”',
         modules: [
           RoadmapModule(
-            id: 'm4_web_dev',
+            id: 'm4_fullstack_arch',
             moduleNumber: 'Module 01',
-            title: 'Web & App Development',
-            tagline: 'HTML, CSS, JS, React & Flutter',
-            iconEmoji: '🎨',
+            title: 'Full Stack Architecture & Systems',
+            tagline: 'Client-Server, Request-Response & Monolith vs Microservices',
+            iconEmoji: '🏗️',
+            buildMissionTitle: '🎨 Frontend Builder Badge',
+            buildMissionDesc: 'Design an end-to-end architecture diagram showing Client -> API Gateway -> Backend -> PostgreSQL + Redis!',
             topics: [
               RoadmapTopicItem(
                 id: 'web_1',
@@ -322,13 +324,23 @@ class CareerRoadmapContent {
                 iconEmoji: '🎭',
                 dialogue: [
                   DialogueLine(speaker: 'Friend 1', avatarEmoji: '🧑‍💻', text: 'Frontend and Backend difference enna da?'),
-                  DialogueLine(speaker: 'Techaa', avatarEmoji: '🚀', text: 'Frontend is what user sees and clicks (Buttons, Colors, Animation). Backend is the secure kitchen (DB queries, Passwords, Payment verification)!', isTechaa: true),
+                  DialogueLine(speaker: 'Techaa', avatarEmoji: '🚀', text: 'Frontend is what user sees and clicks (Buttons, Colors, Animation). Backend is the secure kitchen (DB queries, Passwords, Payment verification)! Full stack bridges both.', isTechaa: true),
                 ],
                 realWorldExample: 'Netflix UI on Smart TV (Frontend) vs streaming server streaming video (Backend).',
-                devExperience: 'Learning full stack enabled me to build and launch products independently.',
+                devExperience: 'Learning full stack enabled me to build and launch products independently without waiting for a team.',
                 careerRelevance: 'Deciding your career specialization track.',
                 missionPrompt: 'Draw a diagram showing how a user login flow travels between Frontend and Backend.',
               ),
+            ],
+          ),
+
+          RoadmapModule(
+            id: 'm5_react_frontend',
+            moduleNumber: 'Module 02',
+            title: 'Modern Frontend with React & State',
+            tagline: 'Components as Lego Blocks, Props, Hooks & Virtual DOM',
+            iconEmoji: '⚛️',
+            topics: [
               RoadmapTopicItem(
                 id: 'web_2',
                 title: 'React & Component-Driven Architecture',
@@ -336,37 +348,65 @@ class CareerRoadmapContent {
                 iconEmoji: '⚛️',
                 dialogue: [
                   DialogueLine(speaker: 'Friend 1', avatarEmoji: '🧑‍💻', text: 'React yen evalo popular?'),
-                  DialogueLine(speaker: 'Techaa', avatarEmoji: '🚀', text: 'Reusability! You build one `<Navbar />` or `<Button />` component and reuse it across 100 pages. Plus state updates screen automatically!', isTechaa: true),
+                  DialogueLine(speaker: 'Techaa', avatarEmoji: '🚀', text: 'Reusability! You build one `<Navbar />` or `<Button />` component and reuse it across 100 pages. Plus state updates screen automatically without full page reload!', isTechaa: true),
                 ],
                 realWorldExample: 'Facebook and Instagram feeds updating dynamically without refreshing the page.',
                 devExperience: 'Switching from vanilla JS DOM manipulation to React cut my dev time in half.',
                 careerRelevance: 'Most in-demand web technology globally.',
-                missionPrompt: 'Build a reusable Card component in React or Flutter.',
+                missionPrompt: 'Build a reusable Card component in React or Flutter with dynamic props.',
               ),
             ],
           ),
 
           RoadmapModule(
-            id: 'm5_backend',
-            moduleNumber: 'Module 02',
-            title: 'Backend Engineering',
-            tagline: 'Servers, APIs, JWT & Security',
+            id: 'm6_backend_engines',
+            moduleNumber: 'Module 03',
+            title: 'Modern Backend with Node.js & Go',
+            tagline: 'Express, Go Chi, Middlewares & "CORS error yen varuthu da? 😂"',
             iconEmoji: '⚙️',
+            buildMissionTitle: '⚙️ Backend Architect Badge',
+            buildMissionDesc: 'Create a REST API with CORS headers, request validation, and proper error handling!',
             topics: [
+              RoadmapTopicItem(
+                id: 'back_cors_1',
+                title: 'Backend Routing, Middleware & CORS Decoded',
+                subtitle: 'Why the browser blocks your API and how to fix it',
+                iconEmoji: '📡',
+                dialogue: [
+                  DialogueLine(speaker: 'Friend 1', avatarEmoji: '🧑‍💻', text: 'API call pannina browser-la "CORS Error" nu red color-la varuthu yen da? 😂'),
+                  DialogueLine(speaker: 'Techaa', avatarEmoji: '🚀', text: 'Browser security! When frontend (localhost:3000) calls backend (localhost:8080), the server must send an `Access-Control-Allow-Origin` header to give permission!', isTechaa: true),
+                ],
+                realWorldExample: 'Payment APIs like Stripe and Razorpay using strict CORS and webhook signatures.',
+                devExperience: 'Configuring CORS middleware properly in Go and Node saved countless hours of head-scratching.',
+                careerRelevance: 'Backend security and API gateway architecture.',
+                missionPrompt: 'Add CORS middleware to your local backend server.',
+              ),
               RoadmapTopicItem(
                 id: 'back_1',
                 title: 'GET, POST, PUT, DELETE na Enna?',
-                subtitle: 'The 4 fundamental HTTP verbs',
+                subtitle: 'The 4 fundamental HTTP verbs and status codes',
                 iconEmoji: '📡',
                 dialogue: [
                   DialogueLine(speaker: 'Friend 1', avatarEmoji: '🧑‍💻', text: 'GET vs POST difference enna?'),
-                  DialogueLine(speaker: 'Techaa', avatarEmoji: '🚀', text: 'GET = Read data (e.g. view profile). POST = Create new data (e.g. sign up). PUT = Update data. DELETE = Remove data!', isTechaa: true),
+                  DialogueLine(speaker: 'Techaa', avatarEmoji: '🚀', text: 'GET = Read data (view profile). POST = Create new data (sign up). PUT = Update data. DELETE = Remove data! Always return 200 OK, 201 Created, 400 Bad Request, or 401 Unauthorized!', isTechaa: true),
                 ],
                 realWorldExample: 'E-commerce: GET products, POST order, PUT address update, DELETE item from cart.',
                 devExperience: 'Using POST instead of GET for sensitive passwords prevents credentials from showing in browser history.',
                 careerRelevance: 'REST API design questions in every technical interview.',
                 missionPrompt: 'Test GET and POST endpoints using Postman or cURL.',
               ),
+            ],
+          ),
+
+          RoadmapModule(
+            id: 'm7_auth_security',
+            moduleNumber: 'Module 04',
+            title: 'Authentication & JWT Security',
+            tagline: 'Bcrypt Hashing, JWT Wristbands & OAuth Google Sign-In',
+            iconEmoji: '🔑',
+            buildMissionTitle: '🔑 Auth Master Badge',
+            buildMissionDesc: 'Implement bcrypt password hashing and JWT token verification for protected routes!',
+            topics: [
               RoadmapTopicItem(
                 id: 'back_2',
                 title: 'Authentication & JWT na Enna?',
@@ -385,11 +425,13 @@ class CareerRoadmapContent {
           ),
 
           RoadmapModule(
-            id: 'm6_database',
-            moduleNumber: 'Module 03',
-            title: 'Databases & Storage',
-            tagline: 'SQL, NoSQL, Redis & Indexing',
+            id: 'm8_databases_sql',
+            moduleNumber: 'Module 05',
+            title: 'Relational Databases & SQL',
+            tagline: 'PostgreSQL, Schema Design, Foreign Keys & JOINs',
             iconEmoji: '🗄️',
+            buildMissionTitle: '🗄️ SQL Pro Badge',
+            buildMissionDesc: 'Design a 3-table normalized schema (Users, Posts, Comments) with Foreign Keys and JOIN queries!',
             topics: [
               RoadmapTopicItem(
                 id: 'db_1',
@@ -405,6 +447,18 @@ class CareerRoadmapContent {
                 careerRelevance: 'Database schema design and querying proficiency.',
                 missionPrompt: 'Create a PostgreSQL table with Primary and Foreign keys.',
               ),
+            ],
+          ),
+
+          RoadmapModule(
+            id: 'm9_redis_caching',
+            moduleNumber: 'Module 06',
+            title: 'In-Memory Caching & Redis',
+            tagline: '“Why High-Scale Apps Need Redis for Sub-10ms Speeds”',
+            iconEmoji: '⚡',
+            buildMissionTitle: '⚡ Performance Wizard Badge',
+            buildMissionDesc: 'Set up Redis caching to store frequently queried data with a 60-second TTL!',
+            topics: [
               RoadmapTopicItem(
                 id: 'db_2',
                 title: 'Why Backend Developers Need Redis',
@@ -424,13 +478,39 @@ class CareerRoadmapContent {
           ),
 
           RoadmapModule(
-            id: 'm7_deployment',
-            moduleNumber: 'Module 04',
-            title: 'Deployment & Cloud',
-            tagline: 'Vercel, Render, Supabase & Docker',
+            id: 'm10_docker_containers',
+            moduleNumber: 'Module 07',
+            title: 'Docker & Containerization',
+            tagline: '“‘En Laptop-la Run Aaguthu’ Problem Solved Forever”',
+            iconEmoji: '🐳',
+            buildMissionTitle: '🐳 Container Initiate Badge',
+            buildMissionDesc: 'Write a `Dockerfile` and `docker-compose.yml` to spin up your App + PostgreSQL + Redis with 1 command!',
+            topics: [
+              RoadmapTopicItem(
+                id: 'dep_2',
+                title: 'Docker na Enna?',
+                subtitle: '“It works on my machine” problem solved forever',
+                iconEmoji: '🐳',
+                dialogue: [
+                  DialogueLine(speaker: 'Friend 1', avatarEmoji: '🧑‍💻', text: 'En laptop-la run aaguthu, aana teammate laptop-la crash aaguthu yen da?'),
+                  DialogueLine(speaker: 'Techaa', avatarEmoji: '🚀', text: 'Different Node/Python versions! Docker packs your code + OS + runtime + libraries into an isolated shipping container that runs identically everywhere!', isTechaa: true),
+                ],
+                realWorldExample: 'Kubernetes managing millions of Docker containers running Spotify and Netflix microservices.',
+                devExperience: 'Dockerizing our backend eliminated all environment mismatch bugs during team hackathons.',
+                careerRelevance: 'Containerization is a foundational requirement for modern cloud jobs.',
+                missionPrompt: 'Write a simple `Dockerfile` for a Node or Go application.',
+              ),
+            ],
+          ),
+
+          RoadmapModule(
+            id: 'm11_cloud_deploy',
+            moduleNumber: 'Module 08',
+            title: 'Cloud Deployment & Live Launch',
+            tagline: 'Vercel, Render, Supabase & Free Custom Domains',
             iconEmoji: '☁️',
-            buildMissionTitle: '🛠️ Live Deployment Mission',
-            buildMissionDesc: '“Naan localhost-la app run panniten... aana friend phone-la open panna mudila. Yen?” -> Deploy to Vercel/Render with custom domain!',
+            buildMissionTitle: '☁️ Cloud Deployer Badge',
+            buildMissionDesc: 'Deploy your Full Stack App live with environment variables on Vercel/Render!',
             topics: [
               RoadmapTopicItem(
                 id: 'dep_1',
@@ -446,19 +526,31 @@ class CareerRoadmapContent {
                 careerRelevance: 'Cloud deployment literacy expected from all junior devs.',
                 missionPrompt: 'Deploy a web project on Vercel and share the link with a friend.',
               ),
+            ],
+          ),
+
+          RoadmapModule(
+            id: 'm12_y2_capstone',
+            moduleNumber: 'Module 09',
+            title: 'Year-2 Capstone: Live Production App',
+            tagline: '“BUILD A PRODUCTION PRODUCT”',
+            iconEmoji: '🏆',
+            buildMissionTitle: '🏆 Techaa Year-2 Builder Graduate',
+            buildMissionDesc: 'Deploy a Full Stack Project with Auth, DB Relationships, Docker, and Live Cloud URLs!',
+            topics: [
               RoadmapTopicItem(
-                id: 'dep_2',
-                title: 'Docker na Enna?',
-                subtitle: '“It works on my machine” problem solved forever',
-                iconEmoji: '🐳',
+                id: 'cap_y2_1',
+                title: 'Full Stack Production Showcase',
+                subtitle: 'From student to independent software builder',
+                iconEmoji: '🚀',
                 dialogue: [
-                  DialogueLine(speaker: 'Friend 1', avatarEmoji: '🧑‍💻', text: 'En laptop-la run aaguthu, aana teammate laptop-la crash aaguthu yen da?'),
-                  DialogueLine(speaker: 'Techaa', avatarEmoji: '🚀', text: 'Different Node/Python versions! Docker packs your code + OS + runtime + libraries into an isolated shipping container that runs identically everywhere!', isTechaa: true),
+                  DialogueLine(speaker: 'Friend 1', avatarEmoji: '🤩', text: '2nd year mudinjidhu... ippo naan full stack developer aayiten-a?'),
+                  DialogueLine(speaker: 'Techaa', avatarEmoji: '🚀', text: 'Yes! You can build frontend UI, write secure backend APIs, design relational databases, cache with Redis, containerize with Docker, and deploy live to the cloud! You are ready to choose your 3rd-year specialization!', isTechaa: true),
                 ],
-                realWorldExample: 'Kubernetes managing millions of Docker containers running Spotify and Netflix microservices.',
-                devExperience: 'Dockerizing our backend eliminated all environment mismatch bugs during team hackathons.',
-                careerRelevance: 'Containerization is a foundational requirement for modern cloud jobs.',
-                missionPrompt: 'Write a simple `Dockerfile` for a Node or Go application.',
+                realWorldExample: 'Founders building MVPs and raising seed rounds in college with full-stack skills.',
+                devExperience: 'Deploying my first live web app with 500 active college users gave me undeniable proof of skills.',
+                careerRelevance: 'The pinnacle of developer capability required for high-paying product internships.',
+                missionPrompt: 'Submit your live Full Stack Web/App URL and claim the Techaa Year-2 Builder Graduate Badge!',
               ),
             ],
           ),
