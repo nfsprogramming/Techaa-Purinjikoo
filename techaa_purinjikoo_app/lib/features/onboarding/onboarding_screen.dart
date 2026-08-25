@@ -59,25 +59,20 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                 children: [
                   // Brand Badge
                   Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 5),
                     decoration: BoxDecoration(
                       color: AppColors.surfaceCard,
                       borderRadius: BorderRadius.circular(12),
                       border: Border.all(color: AppColors.borderRed),
                     ),
-                    child: const Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Text('🚀 ', style: TextStyle(fontSize: 12)),
-                        Text(
-                          'Techaa Purinjikoo',
-                          style: TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.bold,
-                            color: AppColors.primary,
-                          ),
-                        ),
-                      ],
+                    child: const Text(
+                      'Techaa Purinjikoo',
+                      style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.bold,
+                        color: AppColors.primary,
+                        letterSpacing: 0.2,
+                      ),
                     ),
                   ),
 
@@ -241,7 +236,7 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
     );
   }
 
-  // Slide 2: Conversation Style & Tanglish Analogies
+  // Slide 2: Conversation Style & Tanglish Analogies (Dual Comparison Card)
   Widget _buildSlide2() {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24.0),
@@ -249,100 +244,182 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-            padding: const EdgeInsets.all(18),
+            width: double.infinity,
+            padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
               color: AppColors.surfaceCard,
               borderRadius: BorderRadius.circular(24),
-              border: Border.all(color: AppColors.borderSubtle),
+              border: Border.all(color: AppColors.borderRed),
+              boxShadow: [
+                BoxShadow(
+                  color: AppColors.primary.withValues(alpha: 0.12),
+                  blurRadius: 28,
+                  spreadRadius: 2,
+                ),
+              ],
             ),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Left Bot Bubble
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                      width: 32,
-                      height: 32,
-                      decoration: const BoxDecoration(
-                        color: AppColors.surfaceContainerHigh,
-                        shape: BoxShape.circle,
-                      ),
-                      child: const Center(
-                        child: Icon(Icons.smart_toy_rounded, size: 18, color: AppColors.primaryAccent),
-                      ),
+                // 1. Tech Jargon (Muted / Crossed Out)
+                Container(
+                  width: double.infinity,
+                  padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+                  decoration: BoxDecoration(
+                    color: const Color(0xFF13131A),
+                    borderRadius: BorderRadius.circular(14),
+                    border: Border.all(
+                      color: Colors.white.withValues(alpha: 0.05),
                     ),
-                    const SizedBox(width: 10),
-                    Expanded(
-                      child: Container(
-                        padding: const EdgeInsets.all(12),
-                        decoration: BoxDecoration(
-                          color: AppColors.surfaceContainer,
-                          borderRadius: const BorderRadius.only(
-                            topRight: Radius.circular(16),
-                            bottomLeft: Radius.circular(16),
-                            bottomRight: Radius.circular(16),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        children: [
+                          Container(
+                            padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                            decoration: BoxDecoration(
+                              color: Colors.redAccent.withValues(alpha: 0.15),
+                              borderRadius: BorderRadius.circular(6),
+                            ),
+                            child: const Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Icon(Icons.close_rounded, size: 12, color: Colors.redAccent),
+                                SizedBox(width: 3),
+                                Text(
+                                  'Textbook Jargon',
+                                  style: TextStyle(
+                                    fontSize: 10.5,
+                                    fontWeight: FontWeight.w700,
+                                    color: Colors.redAccent,
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
-                          border: Border.all(color: AppColors.borderSubtle),
-                        ),
-                        child: const Text(
-                          'So, an API is basically a waiter in a restaurant. It takes your order to the kitchen (server) and brings back the food (data).',
-                          style: TextStyle(
-                            fontSize: 13,
-                            color: Colors.white,
-                            height: 1.4,
-                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 6),
+                      const Text(
+                        '“An Application Programming Interface defines interactions between multiple software intermediaries...”',
+                        style: TextStyle(
+                          fontSize: 11.5,
+                          color: Color(0xFF71717A),
+                          fontStyle: FontStyle.italic,
+                          height: 1.35,
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-                const SizedBox(height: 12),
-                // Right User Bubble
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Flexible(
-                      child: Container(
-                        padding: const EdgeInsets.all(12),
-                        decoration: BoxDecoration(
-                          color: AppColors.primary.withValues(alpha: 0.18),
-                          borderRadius: const BorderRadius.only(
-                            topLeft: Radius.circular(16),
-                            bottomLeft: Radius.circular(16),
-                            bottomRight: Radius.circular(16),
-                          ),
-                          border: Border.all(color: AppColors.primary.withValues(alpha: 0.35)),
-                        ),
-                        child: const Text(
-                          'Aha! Super simple ah purinjidhu! 💡',
+
+                const SizedBox(height: 10),
+
+                // Center Transition Indicator
+                Center(
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 3),
+                    decoration: BoxDecoration(
+                      color: AppColors.primaryContainer,
+                      borderRadius: BorderRadius.circular(20),
+                      border: Border.all(color: AppColors.primary.withValues(alpha: 0.4)),
+                    ),
+                    child: const Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Icon(Icons.bolt_rounded, size: 13, color: AppColors.primaryAccent),
+                        SizedBox(width: 4),
+                        Text(
+                          'Techaa Purinjikoo Way',
                           style: TextStyle(
-                            fontSize: 13,
-                            fontWeight: FontWeight.bold,
+                            fontSize: 10.5,
+                            fontWeight: FontWeight.w800,
                             color: AppColors.primaryAccent,
                           ),
                         ),
-                      ),
+                      ],
                     ),
-                    const SizedBox(width: 10),
-                    Container(
-                      width: 32,
-                      height: 32,
-                      decoration: const BoxDecoration(
-                        color: AppColors.primary,
-                        shape: BoxShape.circle,
-                      ),
-                      child: const Center(
-                        child: Icon(Icons.person_rounded, size: 18, color: Colors.white),
-                      ),
+                  ),
+                ),
+
+                const SizedBox(height: 10),
+
+                // 2. Tanglish Analogy (Radiant & Bold)
+                Container(
+                  width: double.infinity,
+                  padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+                  decoration: BoxDecoration(
+                    gradient: const LinearGradient(
+                      colors: [Color(0xFF22060B), Color(0xFF140508)],
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
                     ),
-                  ],
+                    borderRadius: BorderRadius.circular(14),
+                    border: Border.all(
+                      color: AppColors.primary.withValues(alpha: 0.5),
+                      width: 1.2,
+                    ),
+                    boxShadow: [
+                      BoxShadow(
+                        color: AppColors.primary.withValues(alpha: 0.18),
+                        blurRadius: 16,
+                        spreadRadius: -2,
+                      ),
+                    ],
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 2),
+                            decoration: BoxDecoration(
+                              color: AppColors.primary.withValues(alpha: 0.25),
+                              borderRadius: BorderRadius.circular(6),
+                            ),
+                            child: const Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Text('☕ ', style: TextStyle(fontSize: 10)),
+                                Text(
+                                  'Namma Style Analogy',
+                                  style: TextStyle(
+                                    fontSize: 10.5,
+                                    fontWeight: FontWeight.w800,
+                                    color: AppColors.primaryAccent,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          const Icon(Icons.check_circle_rounded, size: 15, color: Color(0xFF10B981)),
+                        ],
+                      ),
+                      const SizedBox(height: 8),
+                      RichText(
+                        text: const TextSpan(
+                          style: TextStyle(fontSize: 12.5, height: 1.45, color: Colors.white),
+                          children: [
+                            TextSpan(text: 'API na '),
+                            TextSpan(
+                              text: 'Hotel Waiter ',
+                              style: TextStyle(fontWeight: FontWeight.w800, color: AppColors.primaryAccent),
+                            ),
+                            TextSpan(text: 'maadhiri! Kitchen (Server) kitta order kuduthu, namma table-ku sapadu (Data) eduthutu varum! 🍲'),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
           ),
-          const SizedBox(height: 36),
+          const SizedBox(height: 32),
           const Text(
             'Tanglish &\nReal-Life Stories.',
             textAlign: TextAlign.center,
