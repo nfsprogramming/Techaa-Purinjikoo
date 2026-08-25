@@ -7,6 +7,9 @@ import '../../data/models/career_roadmap_stage.dart';
 import '../../data/repositories/user_repository.dart';
 import '../../shared/widgets/interactive_pressable.dart';
 import 'roadmap_topic_detail_sheet.dart';
+import 'widgets/career_passport_modal.dart';
+import 'widgets/ctc_calculator_sheet.dart';
+import 'widgets/interview_simulator_sheet.dart';
 
 class RoadmapScreen extends ConsumerStatefulWidget {
   const RoadmapScreen({super.key});
@@ -17,6 +20,8 @@ class RoadmapScreen extends ConsumerStatefulWidget {
 
 class _RoadmapScreenState extends ConsumerState<RoadmapScreen> {
   int _selectedTabIndex = 0;
+  String _searchQuery = '';
+  final TextEditingController _searchController = TextEditingController();
 
   final List<String> _tabs = [
     '🟢 1st Year',
@@ -25,6 +30,12 @@ class _RoadmapScreenState extends ConsumerState<RoadmapScreen> {
     '🟠 4th Year',
     '🚀 Career Paths',
   ];
+
+  @override
+  void dispose() {
+    _searchController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -79,72 +90,265 @@ class _RoadmapScreenState extends ConsumerState<RoadmapScreen> {
       body: SafeArea(
         child: Column(
           children: [
-            // Stage Selection Chips
-            Container(
-              height: 46,
-              margin: const EdgeInsets.symmetric(vertical: 8),
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                itemCount: _tabs.length,
-                itemBuilder: (context, index) {
-                  final isSelected = _selectedTabIndex == index;
-                  return Padding(
-                    padding: const EdgeInsets.only(right: 8.0),
-                    child: InteractivePressable(
-                      onTap: () => setState(() => _selectedTabIndex = index),
-                      child: AnimatedContainer(
-                        duration: const Duration(milliseconds: 200),
-                        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
-                        decoration: BoxDecoration(
-                          color: isSelected
-                              ? AppColors.primary
-                              : const Color(0xFF131826),
-                          borderRadius: BorderRadius.circular(14),
-                          border: Border.all(
+            // Search & Quick Tools
+            Padding(
+              padding: const EdgeInsets.fromLTRB(16, 4, 16, 8),
+              child: Column(
+                children: [
+                  // Search Bar
+                  Container(
+                    height: 42,
+                    decoration: BoxDecoration(
+                      color: const Color(0xFF131826),
+                      borderRadius: BorderRadius.circular(14),
+                      border: Border.all(color: Colors.white.withValues(alpha: 0.1)),
+                    ),
+                    child: TextField(
+                      controller: _searchController,
+                      style: const TextStyle(fontSize: 13, color: Colors.white),
+                      onChanged: (val) => setState(() => _searchQuery = val.trim().toLowerCase()),
+                      decoration: InputDecoration(
+                        hintText: '🔍 Search concepts (e.g. Docker, JWT, CTC, Kafka, RAM)...',
+                        hintStyle: const TextStyle(fontSize: 12, color: Color(0xFF64748B)),
+                        prefixIcon: const Icon(Icons.search_rounded, color: Color(0xFF64748B), size: 18),
+                        suffixIcon: _searchQuery.isNotEmpty
+                            ? IconButton(
+                                icon: const Icon(Icons.clear_rounded, color: Colors.white70, size: 16),
+                                onPressed: () {
+                                  _searchController.clear();
+                                  setState(() => _searchQuery = '');
+                                },
+                              )
+                            : null,
+                        border: InputBorder.none,
+                        contentPadding: const EdgeInsets.symmetric(vertical: 11),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+
+                  // 3 Quick Action Interactive Tool Buttons
+                  Row(
+                    children: [
+                      Expanded(
+                        child: _buildQuickToolButton(
+                          title: '💰 CTC Calculator',
+                          color: const Color(0xFF10B981),
+                          onTap: () => CtcCalculatorSheet.show(context),
+                        ),
+                      ),
+                      const SizedBox(width: 6),
+                      Expanded(
+                        child: _buildQuickToolButton(
+                          title: '🎭 Interview Sim',
+                          color: const Color(0xFFA855F7),
+                          onTap: () => InterviewSimulatorSheet.show(context),
+                        ),
+                      ),
+                      const SizedBox(width: 6),
+                      Expanded(
+                        child: _buildQuickToolButton(
+                          title: '🪪 Passport',
+                          color: const Color(0xFF38BDF8),
+                          onTap: () => CareerPassportModal.show(context),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+
+            if (_searchQuery.isEmpty) ...[
+              // Stage Selection Chips
+              Container(
+                height: 44,
+                margin: const EdgeInsets.only(bottom: 8),
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  itemCount: _tabs.length,
+                  itemBuilder: (context, index) {
+                    final isSelected = _selectedTabIndex == index;
+                    return Padding(
+                      padding: const EdgeInsets.only(right: 8.0),
+                      child: InteractivePressable(
+                        onTap: () => setState(() => _selectedTabIndex = index),
+                        child: AnimatedContainer(
+                          duration: const Duration(milliseconds: 200),
+                          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
+                          decoration: BoxDecoration(
                             color: isSelected
                                 ? AppColors.primary
-                                : Colors.white.withValues(alpha: 0.08),
-                            width: 1.2,
+                                : const Color(0xFF131826),
+                            borderRadius: BorderRadius.circular(14),
+                            border: Border.all(
+                              color: isSelected
+                                  ? AppColors.primary
+                                  : Colors.white.withValues(alpha: 0.08),
+                              width: 1.2,
+                            ),
+                            boxShadow: isSelected
+                                ? [
+                                    BoxShadow(
+                                      color: AppColors.primary.withValues(alpha: 0.35),
+                                      blurRadius: 12,
+                                      offset: const Offset(0, 3),
+                                    ),
+                                  ]
+                                : null,
                           ),
-                          boxShadow: isSelected
-                              ? [
-                                  BoxShadow(
-                                    color: AppColors.primary.withValues(alpha: 0.35),
-                                    blurRadius: 12,
-                                    offset: const Offset(0, 3),
-                                  ),
-                                ]
-                              : null,
-                        ),
-                        child: Center(
-                          child: Text(
-                            _tabs[index],
-                            style: TextStyle(
-                              fontSize: 13,
-                              fontWeight: isSelected ? FontWeight.w800 : FontWeight.w600,
-                              color: isSelected ? Colors.white : const Color(0xFF94A3B8),
+                          child: Center(
+                            child: Text(
+                              _tabs[index],
+                              style: TextStyle(
+                                fontSize: 13,
+                                fontWeight: isSelected ? FontWeight.w800 : FontWeight.w600,
+                                color: isSelected ? Colors.white : const Color(0xFF94A3B8),
+                              ),
                             ),
                           ),
                         ),
                       ),
-                    ),
-                  );
-                },
+                    );
+                  },
+                ),
               ),
-            ),
+            ],
 
             const Divider(color: Color(0x1AFFFFFF), height: 1),
 
             // Main Content Area
             Expanded(
-              child: _selectedTabIndex < 4
-                  ? _buildYearStageView(yearStages[_selectedTabIndex], user.completedTopicIds)
-                  : _buildCareerTracksView(careerTracks, user.completedTopicIds),
+              child: _searchQuery.isNotEmpty
+                  ? _buildSearchResultsView(yearStages, user.completedTopicIds)
+                  : (_selectedTabIndex < 4
+                      ? _buildYearStageView(yearStages[_selectedTabIndex], user.completedTopicIds)
+                      : _buildCareerTracksView(careerTracks, user.completedTopicIds)),
             ),
           ],
         ),
       ),
+    );
+  }
+
+  Widget _buildQuickToolButton({
+    required String title,
+    required Color color,
+    required VoidCallback onTap,
+  }) {
+    return InkWell(
+      onTap: onTap,
+      borderRadius: BorderRadius.circular(10),
+      child: Container(
+        padding: const EdgeInsets.symmetric(vertical: 7),
+        decoration: BoxDecoration(
+          color: color.withValues(alpha: 0.12),
+          borderRadius: BorderRadius.circular(10),
+          border: Border.all(color: color.withValues(alpha: 0.3)),
+        ),
+        child: Center(
+          child: Text(
+            title,
+            style: TextStyle(
+              fontSize: 11,
+              fontWeight: FontWeight.w800,
+              color: color,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildSearchResultsView(List<RoadmapYearStage> stages, List<String> completedTopicIds) {
+    final List<Map<String, dynamic>> results = [];
+
+    for (var stage in stages) {
+      for (var module in stage.modules) {
+        for (var topic in module.topics) {
+          if (topic.title.toLowerCase().contains(_searchQuery) ||
+              topic.subtitle.toLowerCase().contains(_searchQuery) ||
+              topic.realWorldExample.toLowerCase().contains(_searchQuery) ||
+              topic.devExperience.toLowerCase().contains(_searchQuery)) {
+            results.add({
+              'stage': stage.title,
+              'module': module.title,
+              'topic': topic,
+            });
+          }
+        }
+      }
+    }
+
+    if (results.isEmpty) {
+      return Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Text('🔍', style: TextStyle(fontSize: 36)),
+            const SizedBox(height: 10),
+            Text(
+              'No topics found matching "$_searchQuery"',
+              style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w700, color: Color(0xFF94A3B8)),
+            ),
+            const SizedBox(height: 4),
+            const Text(
+              'Try searching "Docker", "JWT", "SQL", "RAM", or "LeetCode"',
+              style: TextStyle(fontSize: 12, color: Color(0xFF64748B)),
+            ),
+          ],
+        ),
+      );
+    }
+
+    return ListView.builder(
+      padding: const EdgeInsets.all(16),
+      itemCount: results.length,
+      itemBuilder: (context, index) {
+        final item = results[index];
+        final topic = item['topic'] as RoadmapTopicItem;
+        final isCompleted = completedTopicIds.contains(topic.id);
+
+        return Container(
+          margin: const EdgeInsets.only(bottom: 12),
+          decoration: BoxDecoration(
+            color: const Color(0xFF131826),
+            borderRadius: BorderRadius.circular(16),
+            border: Border.all(color: Colors.white.withValues(alpha: 0.08)),
+          ),
+          child: ListTile(
+            contentPadding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
+            leading: CircleAvatar(
+              backgroundColor: isCompleted ? const Color(0xFF10B981).withValues(alpha: 0.2) : Colors.white.withValues(alpha: 0.08),
+              child: Text(topic.iconEmoji, style: const TextStyle(fontSize: 18)),
+            ),
+            title: Text(
+              topic.title,
+              style: const TextStyle(fontSize: 13.5, fontWeight: FontWeight.w800, color: Colors.white),
+            ),
+            subtitle: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(height: 2),
+                Text(
+                  topic.subtitle,
+                  style: const TextStyle(fontSize: 11.5, color: Color(0xFF94A3B8)),
+                ),
+                const SizedBox(height: 4),
+                Text(
+                  '${item['stage']} • ${item['module']}',
+                  style: const TextStyle(fontSize: 10, fontWeight: FontWeight.w700, color: Color(0xFF38BDF8)),
+                ),
+              ],
+            ),
+            trailing: isCompleted
+                ? const Icon(Icons.check_circle_rounded, color: Color(0xFF10B981), size: 20)
+                : const Icon(Icons.arrow_forward_ios_rounded, color: Color(0xFF64748B), size: 14),
+            onTap: () => RoadmapTopicDetailSheet.show(context, topic),
+          ),
+        );
+      },
     );
   }
 

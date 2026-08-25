@@ -9,6 +9,7 @@ import '../../data/repositories/topic_repository.dart';
 import '../../shared/widgets/custom_card.dart';
 import '../../shared/widgets/streak_badge.dart';
 import '../../shared/widgets/animated_counter.dart';
+import 'widgets/daily_tech_bite_card.dart';
 
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
@@ -219,6 +220,10 @@ class HomeScreen extends ConsumerWidget {
                   ],
                 ),
               ),
+              const SizedBox(height: 24),
+
+              // Daily 60-Second Tech Bite Card (Tanglish)
+              const DailyTechBiteCard(),
               const SizedBox(height: 24),
 
               // Today's Tech Bite Card
